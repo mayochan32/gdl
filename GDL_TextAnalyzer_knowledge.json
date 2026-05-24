@@ -1,0 +1,4059 @@
+{
+  "_about": "GDL (Ghost Description Language) スキーマ定義。テキスト分析エージェントが参照するナレッジファイル。",
+  "_version": "1.2",
+  "_total_fields": 617,
+  "_levels": {
+    "Lv1": {
+      "purpose": "話し方・口調・基本的な好みを再現できる",
+      "focus": "Who — 誰か（属性・表層のらしさ）",
+      "text_analysis_hint": "テキストに明示的に書かれている情報、または文体・語彙から直接読み取れる表層的特徴。"
+    },
+    "Lv2": {
+      "purpose": "判断・推論パターン、価値観に基づく行動を予測できる",
+      "focus": "How — どう考え・動くか（思考プロセス・判断基準）",
+      "text_analysis_hint": "テキストの論理展開、価値判断の傾向、行動パターンの記述から推論できる思考プロセス・判断基準。"
+    },
+    "Lv3": {
+      "purpose": "人生の文脈・矛盾・葛藤も含めた深い人格再現ができる",
+      "focus": "Why — なぜそうなのか（深層心理・形成史・内的矛盾）",
+      "text_analysis_hint": "複数テキストの通底するテーマ、矛盾の存在、過去への言及、形成的な体験の記述から推論できる深層心理・形成史。"
+    }
+  },
+  "sections": {
+    "identity": {
+      "description": "基本識別情報（名前・性別・職業・ライフステージなど）",
+      "text_extractability": "high",
+      "extraction_tips": "自己紹介、プロフィール欄、署名、肩書きの記述から。「私は〜です」構文に注目。",
+      "fields": {
+        "Lv1": {
+          "name": {
+            "label": "名前",
+            "type": "object",
+            "sub_fields": [
+              "kanji",
+              "kana",
+              "romaji"
+            ]
+          },
+          "maiden_name": {
+            "label": "旧姓（結婚前の姓）",
+            "type": "string"
+          },
+          "nickname": {
+            "label": "ニックネーム・呼び名",
+            "type": "string"
+          },
+          "online_handles": {
+            "label": "オンライン上のハンドルネーム（配列）",
+            "type": "array"
+          },
+          "birth_year": {
+            "label": "生年",
+            "type": "string"
+          },
+          "gender": {
+            "label": "性別",
+            "type": "string",
+            "candidates": [
+              "男性",
+              "女性",
+              "その他",
+              "無回答"
+            ]
+          },
+          "nationality": {
+            "label": "国籍",
+            "type": "string"
+          },
+          "native_language": {
+            "label": "母国語",
+            "type": "string"
+          },
+          "occupation_summary": {
+            "label": "職業の一言要約（例：AIとメタバース専門のエンジニア）",
+            "type": "string"
+          },
+          "self_description": {
+            "label": "自己紹介文（1〜2文）",
+            "type": "string"
+          },
+          "life_stage": {
+            "label": "ライフステージ",
+            "type": "string",
+            "candidates": [
+              "学生",
+              "社会人・若手",
+              "社会人・中堅",
+              "社会人・ベテラン",
+              "管理職",
+              "経営者",
+              "フリーランス",
+              "定年後",
+              "その他"
+            ]
+          },
+          "identity_keywords": {
+            "label": "自分を表すキーワード",
+            "type": "array",
+            "candidates": [
+              "例：エンジニア",
+              "父",
+              "探求者"
+            ]
+          }
+        },
+        "Lv2": {
+          "birth_date": {
+            "label": "生年月日",
+            "type": "string"
+          },
+          "birthplace": {
+            "label": "出身地",
+            "type": "object",
+            "sub_fields": [
+              "prefecture",
+              "city"
+            ]
+          },
+          "current_location": {
+            "label": "現住所",
+            "type": "object",
+            "sub_fields": [
+              "prefecture",
+              "city"
+            ]
+          },
+          "role_priorities": {
+            "label": "人生における役割の優先順序",
+            "type": "array"
+          },
+          "professional_identity": {
+            "label": "職業的アイデンティティの核",
+            "type": "string"
+          },
+          "generational_identity": {
+            "label": "世代的な自己認識",
+            "type": "string"
+          },
+          "regional_attachment": {
+            "label": "出身地・居住地への愛着度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "digital_presence": {
+            "label": "デジタル上の活動拠点",
+            "type": "array"
+          },
+          "public_persona": {
+            "label": "公の場での自己像",
+            "type": "string"
+          },
+          "introduction_style": {
+            "label": "自己紹介のパターン",
+            "type": "string",
+            "candidates": [
+              "肩書から",
+              "趣味から",
+              "信条から",
+              "実績から",
+              "相手に合わせる"
+            ]
+          },
+          "online_offline_gap": {
+            "label": "オン/オフでの自己の差",
+            "type": "string",
+            "candidates": [
+              "ほぼ同じ",
+              "少し違う",
+              "かなり違う",
+              "別人格"
+            ]
+          },
+          "life_design_priority": {
+            "label": "人生設計の優先軸",
+            "type": "string",
+            "candidates": [
+              "キャリア",
+              "家族",
+              "自己実現",
+              "社会貢献",
+              "バランス"
+            ]
+          },
+          "work_life_stance": {
+            "label": "ワークライフバランス観（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "financial_identity": {
+            "label": "お金との関係性",
+            "type": "string",
+            "candidates": [
+              "堅実",
+              "投資型",
+              "享楽型",
+              "無頓着",
+              "戦略的"
+            ]
+          },
+          "health_identity": {
+            "label": "健康への姿勢",
+            "type": "string",
+            "candidates": [
+              "積極管理",
+              "適度に意識",
+              "無頓着",
+              "問題時のみ"
+            ]
+          },
+          "life_mission": {
+            "label": "人生のミッション",
+            "type": "string"
+          },
+          "personal_brand_keywords": {
+            "label": "他者から見た自分のイメージ",
+            "type": "array"
+          },
+          "reputation_awareness": {
+            "label": "評判への意識（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "visibility_preference": {
+            "label": "露出度の好み",
+            "type": "string",
+            "candidates": [
+              "表舞台",
+              "裏方",
+              "状況による",
+              "最小限"
+            ]
+          }
+        },
+        "Lv3": {
+          "languages": {
+            "label": "使用言語",
+            "type": "array"
+          },
+          "cultural_background": {
+            "label": "文化的背景",
+            "type": "string"
+          },
+          "name_significance": {
+            "label": "名前への意味づけ・由来への思い",
+            "type": "string"
+          },
+          "identity_formation_events": {
+            "label": "アイデンティティを形成した出来事",
+            "type": "array"
+          },
+          "belonging_sense": {
+            "label": "帰属意識の在り方",
+            "type": "string"
+          },
+          "rejected_identities": {
+            "label": "拒絶した・卒業したアイデンティティ",
+            "type": "array"
+          },
+          "aspirational_identity": {
+            "label": "目指す自分像",
+            "type": "string"
+          },
+          "identity_narrative": {
+            "label": "自分の物語（どこから来てどこへ行くか）",
+            "type": "string"
+          },
+          "cultural_identity_layers": {
+            "label": "文化的アイデンティティの層",
+            "type": "array"
+          },
+          "legacy_identity": {
+            "label": "後世に残したい自分像",
+            "type": "string"
+          },
+          "era_consciousness": {
+            "label": "時代への意識",
+            "type": "string"
+          },
+          "childhood_identity": {
+            "label": "子ども時代の自己像",
+            "type": "string"
+          },
+          "imposed_identities": {
+            "label": "他者から押し付けられたアイデンティティ",
+            "type": "array"
+          },
+          "hidden_identities": {
+            "label": "隠しているアイデンティティ",
+            "type": "array"
+          },
+          "identity_paradoxes": {
+            "label": "アイデンティティの矛盾",
+            "type": "array"
+          },
+          "mortality_awareness_impact": {
+            "label": "死の意識がアイデンティティに与える影響",
+            "type": "string"
+          },
+          "identity_symbols": {
+            "label": "自分を象徴するモノ・場所・言葉",
+            "type": "array"
+          },
+          "rebirth_moments": {
+            "label": "生まれ変わった瞬間",
+            "type": "array"
+          },
+          "naming_history": {
+            "label": "名前の変遷（各時代で呼ばれた名）",
+            "type": "array"
+          },
+          "lineage_consciousness": {
+            "label": "血筋・家系への意識",
+            "type": "string"
+          },
+          "identity_wounds": {
+            "label": "アイデンティティに関する傷",
+            "type": "array"
+          }
+        }
+      }
+    },
+    "appearance": {
+      "description": "外見・身体的特徴（体型・服装・声）",
+      "text_extractability": "very_low",
+      "extraction_tips": "テキストからはほぼ推論不可。自己描写や写真への言及がある場合のみ。",
+      "fields": {
+        "Lv1": {
+          "height_cm": {
+            "label": "身長（cm）",
+            "type": "string"
+          },
+          "build": {
+            "label": "体型",
+            "type": "string",
+            "candidates": [
+              "細身",
+              "やや細め",
+              "普通",
+              "やや大柄",
+              "がっちり",
+              "ふくよか"
+            ]
+          },
+          "hair_style": {
+            "label": "髪型",
+            "type": "string"
+          },
+          "hair_color": {
+            "label": "髪の色",
+            "type": "string"
+          },
+          "eye_color": {
+            "label": "目の色",
+            "type": "string"
+          },
+          "fashion_style": {
+            "label": "服装スタイル",
+            "type": "string",
+            "candidates": [
+              "カジュアル",
+              "フォーマル",
+              "ビジネスカジュアル",
+              "スポーティ",
+              "ストリート",
+              "ナチュラル",
+              "ミリタリー",
+              "クリエイティブ",
+              "その他"
+            ]
+          },
+          "weight_range": {
+            "label": "体重帯",
+            "type": "string",
+            "candidates": [
+              "〜50kg",
+              "50-60kg",
+              "60-70kg",
+              "70-80kg",
+              "80-90kg",
+              "90kg〜",
+              "非公開"
+            ]
+          },
+          "face_shape": {
+            "label": "顔の形",
+            "type": "string",
+            "candidates": [
+              "丸顔",
+              "面長",
+              "卵型",
+              "四角",
+              "逆三角",
+              "ベース型"
+            ]
+          },
+          "skin_tone": {
+            "label": "肌の色調",
+            "type": "string",
+            "candidates": [
+              "色白",
+              "普通",
+              "やや濃い",
+              "褐色",
+              "暗め"
+            ]
+          },
+          "posture": {
+            "label": "姿勢",
+            "type": "string",
+            "candidates": [
+              "良い",
+              "普通",
+              "猫背気味",
+              "反り腰気味"
+            ]
+          },
+          "voice_quality": {
+            "label": "声の特徴",
+            "type": "string",
+            "candidates": [
+              "低い",
+              "やや低い",
+              "普通",
+              "やや高い",
+              "高い"
+            ]
+          },
+          "voice_volume": {
+            "label": "声の大きさ",
+            "type": "string",
+            "candidates": [
+              "小さい",
+              "普通",
+              "大きい",
+              "場面で変わる"
+            ]
+          },
+          "facial_hair": {
+            "label": "ヒゲ",
+            "type": "string",
+            "candidates": [
+              "なし",
+              "無精ヒゲ",
+              "口ヒゲ",
+              "あごヒゲ",
+              "フルビアード",
+              "手入れ済み"
+            ]
+          },
+          "tattoos": {
+            "label": "タトゥー",
+            "type": "array"
+          },
+          "piercings": {
+            "label": "ピアス",
+            "type": "array"
+          },
+          "scars_birthmarks": {
+            "label": "傷跡・あざ",
+            "type": "array"
+          },
+          "smile_impression": {
+            "label": "笑顔の印象",
+            "type": "string",
+            "candidates": [
+              "よく笑う",
+              "控えめ",
+              "ニヤリ型",
+              "破顔型",
+              "あまり笑わない"
+            ]
+          },
+          "overall_impression": {
+            "label": "全体的な印象（他者視点）",
+            "type": "string"
+          },
+          "dominant_hand": {
+            "label": "利き手",
+            "type": "string",
+            "candidates": [
+              "右",
+              "左",
+              "両利き"
+            ]
+          },
+          "blood_type": {
+            "label": "血液型",
+            "type": "string",
+            "candidates": [
+              "A",
+              "B",
+              "O",
+              "AB",
+              "不明"
+            ]
+          },
+          "shoe_size": {
+            "label": "靴のサイズ",
+            "type": "string"
+          },
+          "eyebrow_style": {
+            "label": "眉の特徴",
+            "type": "string",
+            "candidates": [
+              "太め",
+              "細め",
+              "普通",
+              "濃い",
+              "薄い",
+              "手入れ済み"
+            ]
+          },
+          "walking_style": {
+            "label": "歩き方",
+            "type": "string",
+            "candidates": [
+              "速い",
+              "ゆっくり",
+              "普通",
+              "大股",
+              "小股",
+              "特徴的"
+            ]
+          },
+          "physical_presence": {
+            "label": "存在感",
+            "type": "string",
+            "candidates": [
+              "大きい",
+              "普通",
+              "控えめ",
+              "場面で変わる"
+            ]
+          },
+          "apparent_age": {
+            "label": "見た目年齢",
+            "type": "string",
+            "candidates": [
+              "若く見える",
+              "年相応",
+              "老けて見える",
+              "わからない"
+            ]
+          },
+          "body_language_tendency": {
+            "label": "ボディランゲージの傾向",
+            "type": "string",
+            "candidates": [
+              "ジェスチャー多い",
+              "控えめ",
+              "表情豊か",
+              "動き少ない",
+              "場面で変わる"
+            ]
+          }
+        },
+        "Lv2": {
+          "hair_color_hex": {
+            "label": "髪の色（HEXコード）",
+            "type": "string"
+          },
+          "eye_color_hex": {
+            "label": "目の色（HEXコード）",
+            "type": "string"
+          },
+          "fashion_items": {
+            "label": "よく着るアイテム",
+            "type": "array"
+          },
+          "glasses": {
+            "label": "眼鏡の有無",
+            "type": "number"
+          },
+          "comfort_vs_style": {
+            "label": "快適さvsスタイルの優先度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "dress_code_adaptation": {
+            "label": "ドレスコードへの適応",
+            "type": "string",
+            "candidates": [
+              "きっちり守る",
+              "自分流にアレンジ",
+              "最低限",
+              "無視",
+              "場面で使い分け"
+            ]
+          },
+          "seasonal_wardrobe": {
+            "label": "季節による着こなしの変化",
+            "type": "string",
+            "candidates": [
+              "大きく変える",
+              "少し変える",
+              "あまり変えない",
+              "機能性重視で変える"
+            ]
+          },
+          "color_palette_preference": {
+            "label": "好む色のパレット",
+            "type": "array"
+          },
+          "brand_preferences_fashion": {
+            "label": "好むファッションブランド",
+            "type": "array"
+          },
+          "style_icons": {
+            "label": "スタイルのお手本",
+            "type": "array"
+          },
+          "fashion_budget": {
+            "label": "ファッション予算感",
+            "type": "string",
+            "candidates": [
+              "最小限",
+              "コスパ重視",
+              "適度に投資",
+              "好きなものに投資",
+              "気にしない"
+            ]
+          },
+          "accessory_preferences": {
+            "label": "アクセサリーの好み",
+            "type": "array"
+          },
+          "watch_jewelry": {
+            "label": "時計・ジュエリー",
+            "type": "array"
+          },
+          "bag_contents": {
+            "label": "いつも持ち歩くもの",
+            "type": "array"
+          },
+          "fragrance_preference": {
+            "label": "香りの好み",
+            "type": "string",
+            "candidates": [
+              "つけない",
+              "控えめ",
+              "しっかり",
+              "場面による"
+            ]
+          },
+          "grooming_style": {
+            "label": "身だしなみのスタイル",
+            "type": "string",
+            "candidates": [
+              "最低限",
+              "清潔感重視",
+              "こだわる",
+              "場面で変える"
+            ]
+          },
+          "hair_maintenance": {
+            "label": "髪のメンテナンス頻度",
+            "type": "string",
+            "candidates": [
+              "月1回",
+              "2ヶ月に1回",
+              "気になったら",
+              "自分で切る"
+            ]
+          },
+          "skin_care_routine": {
+            "label": "スキンケア",
+            "type": "string",
+            "candidates": [
+              "しない",
+              "最低限",
+              "毎日ルーティン",
+              "こだわる"
+            ]
+          },
+          "fitness_routine": {
+            "label": "体型維持の方法",
+            "type": "string",
+            "candidates": [
+              "運動習慣あり",
+              "食事管理",
+              "特にしていない",
+              "ダイエット中",
+              "複合的"
+            ]
+          },
+          "physical_presentation_awareness": {
+            "label": "見た目への意識度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "signature_look": {
+            "label": "定番の見た目・トレードマーク",
+            "type": "string"
+          },
+          "photo_preference": {
+            "label": "撮られ方の好み",
+            "type": "string",
+            "candidates": [
+              "好き",
+              "苦手",
+              "自撮りは好き",
+              "他人に撮られるのは嫌",
+              "気にしない"
+            ]
+          },
+          "makeup_style": {
+            "label": "メイクのスタイル",
+            "type": "string",
+            "candidates": [
+              "しない",
+              "最低限",
+              "ナチュラル",
+              "しっかり",
+              "場面による"
+            ]
+          },
+          "nail_style": {
+            "label": "爪のスタイル",
+            "type": "string",
+            "candidates": [
+              "手入れしない",
+              "短く切る",
+              "清潔に保つ",
+              "ネイルケア",
+              "ネイルアート"
+            ]
+          },
+          "weather_dressing": {
+            "label": "天気による服装変化",
+            "type": "string",
+            "candidates": [
+              "機能性重視",
+              "多少の不便は気にしない",
+              "天気に合わせてコーデ変更"
+            ]
+          },
+          "transformation_frequency": {
+            "label": "イメチェンの頻度",
+            "type": "string",
+            "candidates": [
+              "ほぼしない",
+              "年に1回程度",
+              "季節ごと",
+              "頻繁",
+              "気分次第"
+            ]
+          },
+          "eyewear_style": {
+            "label": "眼鏡・コンタクトの詳細",
+            "type": "string"
+          },
+          "shoe_style": {
+            "label": "靴のスタイル",
+            "type": "string",
+            "candidates": [
+              "スニーカー",
+              "革靴",
+              "ブーツ",
+              "サンダル",
+              "機能性重視",
+              "使い分け"
+            ]
+          },
+          "hat_preference": {
+            "label": "帽子の好み",
+            "type": "string",
+            "candidates": [
+              "かぶらない",
+              "キャップ",
+              "ハット",
+              "ニット帽",
+              "場面で使い分け"
+            ]
+          },
+          "outerwear_preference": {
+            "label": "アウターの好み",
+            "type": "string",
+            "candidates": [
+              "ジャケット",
+              "パーカー",
+              "コート",
+              "ダウン",
+              "機能性重視",
+              "こだわらない"
+            ]
+          },
+          "layering_style": {
+            "label": "レイヤリングの傾向",
+            "type": "string",
+            "candidates": [
+              "薄着",
+              "重ね着好き",
+              "季節で変える",
+              "機能性優先"
+            ]
+          },
+          "clothing_size": {
+            "label": "服のサイズ",
+            "type": "string"
+          },
+          "workwear_vs_casualwear": {
+            "label": "仕事着と普段着の差",
+            "type": "string",
+            "candidates": [
+              "ほぼ同じ",
+              "少し違う",
+              "完全に分ける",
+              "仕事着なし"
+            ]
+          },
+          "physical_maintenance": {
+            "label": "身体メンテナンス（整体・マッサージ等）",
+            "type": "array"
+          },
+          "dental_care": {
+            "label": "歯のケア",
+            "type": "string",
+            "candidates": [
+              "最低限",
+              "定期検診",
+              "ホワイトニング",
+              "矯正経験あり"
+            ]
+          },
+          "body_language_awareness": {
+            "label": "ボディランゲージへの意識度（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv3": {
+          "distinguishing_features": {
+            "label": "特徴的な外見",
+            "type": "array"
+          },
+          "avatar_url": {
+            "label": "アバターURL",
+            "type": "string"
+          },
+          "voice_sample_url": {
+            "label": "音声サンプルURL",
+            "type": "string"
+          },
+          "body_image": {
+            "label": "体型への意識・セルフイメージ",
+            "type": "string"
+          },
+          "appearance_confidence": {
+            "label": "外見への自信度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "aging_attitude": {
+            "label": "加齢への姿勢",
+            "type": "string",
+            "candidates": [
+              "自然に受け入れる",
+              "抵抗する",
+              "楽しむ",
+              "不安",
+              "意識しない"
+            ]
+          },
+          "body_relationship": {
+            "label": "身体との関係性",
+            "type": "string"
+          },
+          "hidden_appearance_desires": {
+            "label": "隠している外見の願望",
+            "type": "array"
+          },
+          "appearance_history": {
+            "label": "外見の変遷",
+            "type": "array"
+          },
+          "style_turning_points": {
+            "label": "スタイルが変わった転機",
+            "type": "array"
+          },
+          "appearance_role_models": {
+            "label": "外見のロールモデル",
+            "type": "array"
+          },
+          "appearance_wounds": {
+            "label": "外見に関するトラウマ",
+            "type": "array"
+          },
+          "appearance_identity_link": {
+            "label": "外見とアイデンティティの結びつき",
+            "type": "string"
+          },
+          "appearance_persona_gap": {
+            "label": "見た目と中身のギャップ",
+            "type": "string"
+          },
+          "first_impression_awareness": {
+            "label": "第一印象への意識",
+            "type": "string"
+          },
+          "ideal_self_image": {
+            "label": "理想の自分の姿",
+            "type": "string"
+          },
+          "avatar_identity": {
+            "label": "アバターと自己の関係",
+            "type": "string"
+          },
+          "physical_aging_changes": {
+            "label": "加齢による変化の記録",
+            "type": "array"
+          },
+          "body_narrative": {
+            "label": "身体の物語",
+            "type": "string"
+          },
+          "appearance_era_snapshots": {
+            "label": "時代別の外見スナップショット",
+            "type": "array"
+          }
+        }
+      }
+    },
+    "background": {
+      "description": "経歴・経験（学歴・職歴・人生の転機）",
+      "text_extractability": "high",
+      "extraction_tips": "経歴紹介、過去の経験への言及、「〜年前に」「〜を経て」などの時系列表現に注目。",
+      "fields": {
+        "Lv1": {
+          "education": {
+            "label": "学歴",
+            "type": "array"
+          },
+          "career": {
+            "label": "職歴",
+            "type": "array"
+          },
+          "career_summary": {
+            "label": "キャリアの一言要約",
+            "type": "string"
+          },
+          "years_of_experience": {
+            "label": "総経験年数",
+            "type": "string"
+          },
+          "marital_history": {
+            "label": "結婚歴",
+            "type": "array"
+          },
+          "residence_history": {
+            "label": "居住歴",
+            "type": "array"
+          },
+          "turning_points": {
+            "label": "人生の転機",
+            "type": "array"
+          },
+          "formative_experiences": {
+            "label": "人格形成に影響した経験（自由記述）",
+            "type": "string"
+          }
+        },
+        "Lv2": {
+          "certifications": {
+            "label": "資格・認定",
+            "type": "array"
+          },
+          "work_style": {
+            "label": "働き方スタイル",
+            "type": "array"
+          },
+          "work_location": {
+            "label": "勤務地",
+            "type": "object",
+            "sub_fields": [
+              "city",
+              "remote"
+            ]
+          },
+          "expertise_areas": {
+            "label": "専門分野",
+            "type": "array"
+          },
+          "career_motivation_pattern": {
+            "label": "キャリア選択の動機パターン",
+            "type": "string",
+            "candidates": [
+              "成長",
+              "安定",
+              "挑戦",
+              "報酬",
+              "使命感",
+              "好奇心"
+            ]
+          },
+          "career_decision_style": {
+            "label": "キャリア判断のスタイル",
+            "type": "string",
+            "candidates": [
+              "計画的",
+              "機会追従",
+              "直感",
+              "相談重視",
+              "流れに任せる"
+            ]
+          },
+          "industry_transition_pattern": {
+            "label": "業界転換のパターン",
+            "type": "string",
+            "candidates": [
+              "一筋",
+              "隣接分野へ",
+              "大胆に異業種へ",
+              "複数並行"
+            ]
+          },
+          "side_projects": {
+            "label": "副業・サイドプロジェクト",
+            "type": "array"
+          },
+          "leadership_experience": {
+            "label": "リーダーシップ経験",
+            "type": "string",
+            "candidates": [
+              "チームリーダー",
+              "プロジェクトマネージャー",
+              "技術リード",
+              "経営",
+              "経験なし",
+              "非公式リーダー"
+            ]
+          },
+          "work_achievement_highlights": {
+            "label": "仕事上の主なハイライト",
+            "type": "array"
+          },
+          "failure_experiences_career": {
+            "label": "キャリア上の失敗経験",
+            "type": "array"
+          },
+          "relocation_adaptability": {
+            "label": "引越し・移住の適応力（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "life_rhythm_changes": {
+            "label": "生活リズムの大きな変化",
+            "type": "array"
+          },
+          "financial_turning_points": {
+            "label": "経済的転換点",
+            "type": "array"
+          },
+          "health_milestones": {
+            "label": "健康上の節目",
+            "type": "array"
+          },
+          "crisis_management_history": {
+            "label": "乗り越えた危機",
+            "type": "array"
+          },
+          "role_transitions": {
+            "label": "役割の変化（部下→上司、独身→親 等）",
+            "type": "array"
+          },
+          "technology_adaptation_history": {
+            "label": "テクノロジー適応の歴史",
+            "type": "array"
+          },
+          "unexpected_opportunities": {
+            "label": "予期しなかったチャンス",
+            "type": "array"
+          },
+          "loss_and_recovery": {
+            "label": "喪失と回復の経験",
+            "type": "array"
+          },
+          "value_shift_triggers": {
+            "label": "価値観が変わったきっかけ",
+            "type": "array"
+          },
+          "lifestyle_shifts": {
+            "label": "ライフスタイルの大きな変化",
+            "type": "array"
+          },
+          "cultural_adaptation": {
+            "label": "文化的適応の経験",
+            "type": "array"
+          },
+          "self_education_history": {
+            "label": "独学の歴史",
+            "type": "array"
+          },
+          "education_satisfaction": {
+            "label": "受けた教育への満足度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "academic_strengths": {
+            "label": "学業での強み",
+            "type": "array"
+          },
+          "professional_network_style": {
+            "label": "職業的人脈の築き方",
+            "type": "string",
+            "candidates": [
+              "勉強会・コミュニティ",
+              "社内人脈",
+              "SNS",
+              "紹介ベース",
+              "あまり築かない"
+            ]
+          },
+          "learning_turning_points": {
+            "label": "学びの転機",
+            "type": "array"
+          },
+          "mentor_history": {
+            "label": "メンターの歴史",
+            "type": "array"
+          },
+          "influential_books_courses": {
+            "label": "影響を受けた本・講座",
+            "type": "array"
+          },
+          "skill_acquisition_timeline": {
+            "label": "スキル獲得の時系列",
+            "type": "array"
+          },
+          "learning_failures": {
+            "label": "学びの失敗・挫折",
+            "type": "array"
+          },
+          "teaching_experience": {
+            "label": "教えた経験",
+            "type": "array"
+          },
+          "conference_community_history": {
+            "label": "カンファレンス・コミュニティ参加歴",
+            "type": "array"
+          },
+          "chronic_conditions": {
+            "label": "慢性的な健康状態・持病",
+            "type": "array"
+          },
+          "medical_history": {
+            "label": "病歴（過去の大きな病気・手術等）",
+            "type": "array"
+          },
+          "disability_status": {
+            "label": "障害の有無・種類",
+            "type": "array"
+          },
+          "mental_health_history": {
+            "label": "メンタルヘルスの経歴",
+            "type": "array"
+          },
+          "accessibility_needs": {
+            "label": "アクセシビリティ上のニーズ",
+            "type": "array"
+          },
+          "body_limitations": {
+            "label": "身体的な制限事項",
+            "type": "array"
+          },
+          "health_management_style": {
+            "label": "健康管理のスタイル",
+            "type": "string",
+            "candidates": [
+              "定期検診重視",
+              "症状出てから",
+              "自己管理",
+              "運動習慣",
+              "食事管理",
+              "複合的"
+            ]
+          }
+        },
+        "Lv3": {
+          "family_dynamics": {
+            "label": "家族のダイナミクス",
+            "type": "string"
+          },
+          "childhood_environment": {
+            "label": "育った環境の特徴",
+            "type": "string"
+          },
+          "socioeconomic_background": {
+            "label": "社会経済的背景",
+            "type": "string"
+          },
+          "inherited_patterns": {
+            "label": "家族から受け継いだパターン",
+            "type": "array"
+          },
+          "broken_patterns": {
+            "label": "家族のパターンを断ち切ったこと",
+            "type": "array"
+          },
+          "parallel_lives": {
+            "label": "もう一つの人生（違う選択をしていたら）",
+            "type": "array"
+          },
+          "career_regrets": {
+            "label": "キャリアの後悔",
+            "type": "array"
+          },
+          "unfinished_chapters": {
+            "label": "未完の章（やり残していること）",
+            "type": "array"
+          },
+          "survival_stories": {
+            "label": "乗り越えた試練",
+            "type": "array"
+          },
+          "migration_story": {
+            "label": "移住・移動の物語",
+            "type": "string"
+          },
+          "formative_relationships": {
+            "label": "人格形成に影響した関係",
+            "type": "array"
+          },
+          "privilege_awareness": {
+            "label": "特権への自覚",
+            "type": "string"
+          },
+          "cultural_displacement": {
+            "label": "文化的なずれの経験",
+            "type": "array"
+          },
+          "generational_influences": {
+            "label": "世代的影響",
+            "type": "string"
+          },
+          "origin_wounds": {
+            "label": "生い立ちに由来する傷",
+            "type": "array"
+          },
+          "life_narrative_arc": {
+            "label": "人生の物語アーク",
+            "type": "string"
+          },
+          "recurring_themes": {
+            "label": "人生で繰り返されるテーマ",
+            "type": "array"
+          },
+          "life_metaphor": {
+            "label": "人生を表す比喩",
+            "type": "string"
+          },
+          "chapters_of_life": {
+            "label": "人生の章立て",
+            "type": "array"
+          },
+          "destiny_vs_choice": {
+            "label": "運命と選択への感覚",
+            "type": "string"
+          },
+          "health_impact_on_identity": {
+            "label": "健康状態がアイデンティティに与えた影響",
+            "type": "string"
+          },
+          "medical_experiences": {
+            "label": "重要な医療体験",
+            "type": "array"
+          },
+          "recovery_stories": {
+            "label": "回復・克服の物語",
+            "type": "array"
+          },
+          "health_philosophy": {
+            "label": "健康観（身体と心の関係への考え方）",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "philosophy": {
+      "description": "思想・哲学（価値観・世界観・信念）",
+      "text_extractability": "very_high",
+      "extraction_tips": "テキスト分析で最も豊富に取得可能。主張・意見・引用・「〜べき」「〜と信じる」の表現、肯定/否定の対象に注目。",
+      "fields": {
+        "Lv1": {
+          "worldview": {
+            "label": "世界観",
+            "type": "string"
+          },
+          "view_on_human_nature": {
+            "label": "人間本性への見方（人は本質的に善か悪か中立か）",
+            "type": "string"
+          },
+          "view_on_society": {
+            "label": "社会観（個人と社会の関係をどう見るか）",
+            "type": "string"
+          },
+          "view_on_technology": {
+            "label": "テクノロジー観（技術の役割・可能性・危険性）",
+            "type": "string"
+          },
+          "view_on_ai": {
+            "label": "AI観（AIの本質・未来・人間との関係）",
+            "type": "string"
+          },
+          "view_on_life": {
+            "label": "人生観（人生は何のためにあるか）",
+            "type": "string"
+          },
+          "source_of_meaning": {
+            "label": "意味の源泉（何に生きがいを感じるか）",
+            "type": "string"
+          },
+          "definition_of_success": {
+            "label": "成功の定義（自分にとっての成功とは）",
+            "type": "string"
+          },
+          "view_on_death": {
+            "label": "死生観（死・有限性とどう向き合うか）",
+            "type": "string"
+          },
+          "core_values": {
+            "label": "核となる価値観",
+            "type": "array"
+          },
+          "ethical_foundation": {
+            "label": "倫理の基盤（何が善悪の判断軸か）",
+            "type": "string"
+          },
+          "what_they_stand_for": {
+            "label": "守るもの・支持するもの",
+            "type": "array"
+          },
+          "what_they_oppose": {
+            "label": "反対するもの・許せないもの",
+            "type": "array"
+          },
+          "view_on_failure": {
+            "label": "失敗への姿勢（失敗をどう意味づけるか）",
+            "type": "string"
+          },
+          "relationship_with_uncertainty": {
+            "label": "不確実性との向き合い方",
+            "type": "string"
+          },
+          "attitude_toward_change": {
+            "label": "変化への姿勢",
+            "type": "string",
+            "candidates": [
+              "積極的に歓迎",
+              "どちらかといえば好む",
+              "中立",
+              "どちらかといえば嫌う",
+              "強く抵抗する"
+            ]
+          },
+          "time_perspective": {
+            "label": "時間観",
+            "type": "string",
+            "candidates": [
+              "過去志向",
+              "現在志向",
+              "未来志向",
+              "バランス型"
+            ]
+          },
+          "life_motto": {
+            "label": "人生のモットー",
+            "type": "string"
+          },
+          "guiding_questions": {
+            "label": "人生を導く問い（常に問い続けていること）",
+            "type": "array"
+          },
+          "philosophical_keywords": {
+            "label": "思想を表すキーワード群",
+            "type": "array"
+          }
+        },
+        "Lv2": {
+          "beliefs": {
+            "label": "信念体系",
+            "type": "object",
+            "sub_fields": [
+              "politics",
+              "religion"
+            ]
+          },
+          "personal_theories": {
+            "label": "独自理論・仮説",
+            "type": "array"
+          },
+          "tension_pairs": {
+            "label": "重要な対立軸の立ち位置（自由⇔安定、個⇔集団 など）",
+            "type": "array"
+          },
+          "moral_framework": {
+            "label": "倫理観の型",
+            "type": "string",
+            "candidates": [
+              "義務論",
+              "功利主義",
+              "徳倫理",
+              "相対主義",
+              "プラグマティズム"
+            ]
+          },
+          "decision_principles": {
+            "label": "意思決定の原則（優先順位のルール）",
+            "type": "array"
+          },
+          "justice_framework": {
+            "label": "正義観の枠組み",
+            "type": "string",
+            "candidates": [
+              "公正",
+              "平等",
+              "応報",
+              "救済 の重み付け"
+            ]
+          },
+          "view_on_knowledge": {
+            "label": "知の性質観",
+            "type": "string",
+            "candidates": [
+              "真理は客観",
+              "相対",
+              "実用"
+            ]
+          },
+          "view_on_science": {
+            "label": "科学観（科学の射程と限界）",
+            "type": "string"
+          },
+          "truth_seeking_method": {
+            "label": "真理追究の方法論",
+            "type": "array",
+            "candidates": [
+              "対話",
+              "実証",
+              "瞑想",
+              "直観 など"
+            ]
+          },
+          "view_on_emotion_reason": {
+            "label": "感情と理性の関係（どちらを信頼するか）",
+            "type": "string"
+          },
+          "view_on_self": {
+            "label": "自己観",
+            "type": "string",
+            "candidates": [
+              "固定的",
+              "流動的",
+              "関係的"
+            ]
+          },
+          "view_on_power": {
+            "label": "権力・権威への姿勢",
+            "type": "string"
+          },
+          "view_on_cooperation_competition": {
+            "label": "協調と競争のバランス観",
+            "type": "string"
+          },
+          "view_on_money_work": {
+            "label": "お金・労働観",
+            "type": "string"
+          },
+          "view_on_tradition": {
+            "label": "伝統・変革への姿勢",
+            "type": "string"
+          },
+          "view_on_progress": {
+            "label": "進歩観（歴史は前進する？循環する？）",
+            "type": "string"
+          },
+          "view_on_freedom_constraint": {
+            "label": "自由と制約のバランス観",
+            "type": "string"
+          },
+          "aesthetic_philosophy": {
+            "label": "美の基準・美学",
+            "type": "string"
+          },
+          "creativity_view": {
+            "label": "創造性観",
+            "type": "string"
+          },
+          "spiritual_practices": {
+            "label": "精神的実践（瞑想・祈り・対話 など）",
+            "type": "array"
+          },
+          "teaching_learning_philosophy": {
+            "label": "教育・学習観",
+            "type": "string"
+          }
+        },
+        "Lv3": {
+          "philosophical_influences": {
+            "label": "影響を受けた思想・人物",
+            "type": "array"
+          },
+          "ongoing_questions": {
+            "label": "深化した問い",
+            "type": "array"
+          },
+          "contradictions_and_tensions": {
+            "label": "自分の中の矛盾・葛藤",
+            "type": "array"
+          },
+          "evolution_of_thought": {
+            "label": "思想の変遷",
+            "type": "string"
+          },
+          "core_paradoxes": {
+            "label": "根本的パラドックス",
+            "type": "array"
+          },
+          "unresolved_dilemmas": {
+            "label": "未解決のジレンマ",
+            "type": "array"
+          },
+          "shadow_beliefs": {
+            "label": "抑圧している・認めたくない信念",
+            "type": "array"
+          },
+          "inner_tribunals": {
+            "label": "内なる裁判官（自分を裁く声）",
+            "type": "string"
+          },
+          "axioms_of_thought_system": {
+            "label": "思想体系の公理（前提としている命題）",
+            "type": "array"
+          },
+          "philosophical_blind_spots": {
+            "label": "自覚している思想的死角",
+            "type": "array"
+          },
+          "philosophical_lineage": {
+            "label": "思想的系譜（知の先祖・自分の位置づけ）",
+            "type": "array"
+          },
+          "foundational_experiences": {
+            "label": "思想を形成した原体験",
+            "type": "array"
+          },
+          "beliefs_that_changed_me": {
+            "label": "人生を変えた信念・気づき",
+            "type": "array"
+          },
+          "worldview_shifts": {
+            "label": "世界観の転換点（時系列）",
+            "type": "array"
+          },
+          "philosophical_crises": {
+            "label": "思想的危機・崩壊の経験",
+            "type": "array"
+          },
+          "questions_that_haunt_you": {
+            "label": "夜眠れなくなる問い",
+            "type": "array"
+          },
+          "unfinished_arguments": {
+            "label": "未完了の議論（自分や誰かとの）",
+            "type": "array"
+          },
+          "existential_stance": {
+            "label": "実存的立場（不安・自由・責任への向き合い方）",
+            "type": "string"
+          },
+          "relationship_with_transcendence": {
+            "label": "超越的なものとの関係（神・宇宙・意味）",
+            "type": "string"
+          },
+          "relationship_with_absurdity": {
+            "label": "不条理との向き合い方",
+            "type": "string"
+          },
+          "deep_fears": {
+            "label": "深い恐れ（存在論的不安）",
+            "type": "array"
+          },
+          "deep_longings": {
+            "label": "深い憧れ・希求",
+            "type": "array"
+          },
+          "legacy_concerns": {
+            "label": "遺したいものへの思い",
+            "type": "string"
+          },
+          "view_on_own_death": {
+            "label": "自分の死への個人的見解",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "personality": {
+      "description": "性格・行動傾向（感情パターン・意思決定スタイル・こだわり）",
+      "text_extractability": "high",
+      "extraction_tips": "文体の硬さ/柔らかさ、感情表現の頻度、論理的/感情的な議論展開、ストレスへの言及から推論。",
+      "fields": {
+        "Lv1": {
+          "decision_style": {
+            "label": "意思決定スタイル",
+            "type": "string",
+            "candidates": [
+              "直感的",
+              "分析的",
+              "両方"
+            ]
+          },
+          "cognitive_style": {
+            "label": "認知スタイル",
+            "type": "string",
+            "candidates": [
+              "分析的",
+              "直感的",
+              "実践的"
+            ]
+          },
+          "information_processing": {
+            "label": "情報処理の方向",
+            "type": "string",
+            "candidates": [
+              "細部から全体",
+              "全体から細部"
+            ]
+          },
+          "thinking_speed": {
+            "label": "思考速度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "problem_solving_approach": {
+            "label": "問題解決アプローチ",
+            "type": "string"
+          },
+          "social_tendency": {
+            "label": "社交的傾向",
+            "type": "string",
+            "candidates": [
+              "内向的",
+              "外向的",
+              "両向型"
+            ]
+          },
+          "cooperativeness": {
+            "label": "協調性（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "trust_building_speed": {
+            "label": "信頼構築の速さ（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "conflict_approach": {
+            "label": "衝突・対立への対処スタイル",
+            "type": "string",
+            "candidates": [
+              "回避する",
+              "冷静に話し合う",
+              "論理的に議論する",
+              "感情的に向き合う",
+              "相手に合わせる",
+              "第三者に仲裁を求める"
+            ]
+          },
+          "emotional_pattern": {
+            "label": "感情パターン",
+            "type": "string",
+            "candidates": [
+              "安定",
+              "冷静",
+              "感情的",
+              "波がある",
+              "抑制的",
+              "豊か",
+              "内向き"
+            ]
+          },
+          "emotional_expression_style": {
+            "label": "感情表現スタイル",
+            "type": "string",
+            "candidates": [
+              "外に出す",
+              "内に秘める",
+              "中間"
+            ]
+          },
+          "empathy_style": {
+            "label": "共感スタイル",
+            "type": "string",
+            "candidates": [
+              "認知的",
+              "感情的",
+              "両方"
+            ]
+          },
+          "emotional_stability": {
+            "label": "情緒安定性（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "emotional_recovery_speed": {
+            "label": "感情回復速度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "energy_source": {
+            "label": "エネルギーの源泉",
+            "type": "string",
+            "candidates": [
+              "独処",
+              "人との交流",
+              "両方"
+            ]
+          },
+          "core_motivation": {
+            "label": "核となる動機",
+            "type": "string"
+          },
+          "procrastination_tendency": {
+            "label": "先延ばし傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "stress_response": {
+            "label": "ストレス反応",
+            "type": "string",
+            "candidates": [
+              "内に抱え込む",
+              "誰かに話す",
+              "行動で発散",
+              "思考で整理",
+              "回避する",
+              "感情を表現する",
+              "没頭で忘れる"
+            ]
+          },
+          "coping_mechanisms": {
+            "label": "ストレス対処法リスト",
+            "type": "array"
+          },
+          "resilience": {
+            "label": "レジリエンス（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "outlook_tendency": {
+            "label": "人生観傾向",
+            "type": "string",
+            "candidates": [
+              "楽観的",
+              "悲観的",
+              "リアリスト"
+            ]
+          },
+          "risk_tolerance": {
+            "label": "リスク許容度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "perfectionism": {
+            "label": "完璧主義傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "curiosity_level": {
+            "label": "好奇心の強さ（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "autonomy_need": {
+            "label": "自律性へのニーズ（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "routine_preference": {
+            "label": "ルーティン好み（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "open_to_feedback": {
+            "label": "フィードバック開放性（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv2": {
+          "communication_preference": {
+            "label": "communication_preference",
+            "type": "string"
+          },
+          "motivation_sources": {
+            "label": "motivation_sources",
+            "type": "array"
+          },
+          "avoidances": {
+            "label": "避けること・苦手なこと",
+            "type": "array"
+          },
+          "work_rhythm": {
+            "label": "仕事のリズム",
+            "type": "string",
+            "candidates": [
+              "朝型",
+              "夜型",
+              "昼型",
+              "ランダム"
+            ]
+          },
+          "energy_peak_time": {
+            "label": "エネルギーのピーク時間帯",
+            "type": "string",
+            "candidates": [
+              "早朝",
+              "午前",
+              "午後",
+              "夕方",
+              "夜"
+            ]
+          },
+          "pace_preference": {
+            "label": "好むペース（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "recharge_method": {
+            "label": "回復方法",
+            "type": "array",
+            "candidates": [
+              "一人時間",
+              "自然",
+              "運動",
+              "対話",
+              "創作",
+              "娯楽"
+            ]
+          },
+          "decision_timing": {
+            "label": "意思決定のタイミング",
+            "type": "string",
+            "candidates": [
+              "即断",
+              "十分検討",
+              "熟考型",
+              "状況による"
+            ]
+          },
+          "information_threshold": {
+            "label": "決断に必要な情報量（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "uncertainty_handling": {
+            "label": "不確実性の処理",
+            "type": "string",
+            "candidates": [
+              "保留",
+              "仮置きで進む",
+              "確実な部分から",
+              "撤退"
+            ]
+          },
+          "evaluation_criteria": {
+            "label": "判断軸のキーワード（配列）",
+            "type": "array"
+          },
+          "first_impression_style": {
+            "label": "初対面での見せ方",
+            "type": "string",
+            "candidates": [
+              "控えめ",
+              "フレンドリー",
+              "観察型",
+              "主導型"
+            ]
+          },
+          "rapport_building_style": {
+            "label": "信頼構築のスタイル",
+            "type": "string",
+            "candidates": [
+              "共通点探し",
+              "自己開示",
+              "傾聴",
+              "時間をかける"
+            ]
+          },
+          "boundary_communication": {
+            "label": "境界線の伝え方",
+            "type": "string",
+            "candidates": [
+              "明確に言う",
+              "距離で示す",
+              "曖昧に濁す",
+              "避ける"
+            ]
+          },
+          "social_circle_management": {
+            "label": "人付き合いの広げ方",
+            "type": "string",
+            "candidates": [
+              "狭く深く",
+              "広く浅く",
+              "中間層を大事に",
+              "その時々"
+            ]
+          },
+          "conversation_initiation": {
+            "label": "会話の始め方",
+            "type": "string",
+            "candidates": [
+              "質問から",
+              "話題提供",
+              "相手を待つ",
+              "場の空気読む"
+            ]
+          },
+          "group_dynamics_role": {
+            "label": "集団での立ち位置",
+            "type": "string",
+            "candidates": [
+              "リーダー",
+              "調整役",
+              "盛り上げ役",
+              "観察者",
+              "専門家"
+            ]
+          },
+          "reciprocity_expectation": {
+            "label": "give/takeバランス感スケール（1=与える型 〜 5=受ける型）",
+            "type": "string"
+          },
+          "conflict_deescalation": {
+            "label": "対立の収め方",
+            "type": "string",
+            "candidates": [
+              "直接対話",
+              "時間置く",
+              "第三者介入",
+              "距離取る"
+            ]
+          },
+          "novelty_response": {
+            "label": "新奇性への反応",
+            "type": "string",
+            "candidates": [
+              "積極的に探る",
+              "慎重に試す",
+              "距離を置く",
+              "拒絶"
+            ]
+          },
+          "crisis_behavior": {
+            "label": "危機時の行動",
+            "type": "string",
+            "candidates": [
+              "冷静に対処",
+              "行動で打開",
+              "周囲と連携",
+              "凍結",
+              "情報収集"
+            ]
+          },
+          "ambiguity_response": {
+            "label": "曖昧さへの反応",
+            "type": "string",
+            "candidates": [
+              "許容する",
+              "明確化を求める",
+              "自分で仮定する",
+              "回避"
+            ]
+          },
+          "pressure_performance": {
+            "label": "プレッシャー下のパフォーマンス",
+            "type": "string",
+            "candidates": [
+              "発揮型",
+              "崩壊型",
+              "変化なし",
+              "加速型"
+            ]
+          },
+          "interruption_response": {
+            "label": "中断への反応",
+            "type": "string",
+            "candidates": [
+              "柔軟に切替",
+              "苛立つ",
+              "復帰困難",
+              "歓迎"
+            ]
+          },
+          "deadline_behavior": {
+            "label": "締切への行動",
+            "type": "string",
+            "candidates": [
+              "早めに完了",
+              "段階的",
+              "締切直前集中",
+              "超過しがち"
+            ]
+          },
+          "self_discipline_style": {
+            "label": "自分を律するスタイル",
+            "type": "string",
+            "candidates": [
+              "ルール化",
+              "習慣化",
+              "報酬設定",
+              "意志力頼み"
+            ]
+          },
+          "reward_delay_tolerance": {
+            "label": "満足遅延耐性（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "impulse_control": {
+            "label": "衝動制御（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "habit_formation_style": {
+            "label": "習慣形成スタイル",
+            "type": "string",
+            "candidates": [
+              "トリガー連結",
+              "環境設計",
+              "記録",
+              "仲間を作る"
+            ]
+          },
+          "emotion_regulation": {
+            "label": "感情調整スタイル",
+            "type": "string",
+            "candidates": [
+              "認知的再評価",
+              "気晴らし",
+              "表現",
+              "抑制",
+              "身体調整"
+            ]
+          },
+          "attention_management": {
+            "label": "注意管理スタイル",
+            "type": "string",
+            "candidates": [
+              "集中ブロック",
+              "マルチタスク",
+              "通知遮断",
+              "流れに任せる"
+            ]
+          },
+          "commitment_keeping": {
+            "label": "約束・決意の守り方（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "feedback_processing": {
+            "label": "フィードバック処理",
+            "type": "string",
+            "candidates": [
+              "即反映",
+              "咀嚼時間必要",
+              "選別",
+              "防衛的"
+            ]
+          },
+          "mistake_processing": {
+            "label": "失敗の処理",
+            "type": "string",
+            "candidates": [
+              "分析",
+              "切り替え",
+              "反芻",
+              "共有して消化"
+            ]
+          },
+          "growth_approach": {
+            "label": "成長の志向",
+            "type": "string",
+            "candidates": [
+              "垂直",
+              "水平",
+              "螺旋"
+            ]
+          },
+          "unlearning_ability": {
+            "label": "アンラーン能力（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "learning_retention_style": {
+            "label": "記憶定着スタイル",
+            "type": "string",
+            "candidates": [
+              "反復",
+              "関連付け",
+              "アウトプット",
+              "体験"
+            ]
+          },
+          "knowledge_transfer_style": {
+            "label": "学びを広げる場",
+            "type": "string",
+            "candidates": [
+              "記事化",
+              "教える",
+              "議論",
+              "実装",
+              "内省のみ"
+            ]
+          },
+          "mentor_seeking_behavior": {
+            "label": "師の求め方",
+            "type": "string",
+            "candidates": [
+              "能動的に探す",
+              "偶然に委ねる",
+              "複数持つ",
+              "独学志向"
+            ]
+          }
+        },
+        "Lv3": {
+          "shadow_traits": {
+            "label": "影の特性・弱点",
+            "type": "array"
+          },
+          "growth_patterns": {
+            "label": "成長パターン",
+            "type": "array"
+          },
+          "context_variations": {
+            "label": "場面による変化",
+            "type": "object",
+            "sub_fields": [
+              "at_work",
+              "with_friends",
+              "under_pressure"
+            ]
+          },
+          "childhood_environment": {
+            "label": "育った環境の特徴",
+            "type": "string"
+          },
+          "formative_figures": {
+            "label": "人格形成に影響した人物",
+            "type": "array"
+          },
+          "critical_period_events": {
+            "label": "幼少〜青年期の重要出来事",
+            "type": "array"
+          },
+          "internalized_voices": {
+            "label": "内面化された他者の声",
+            "type": "array"
+          },
+          "early_self_concept": {
+            "label": "幼少期の自己認識",
+            "type": "string"
+          },
+          "projection_targets": {
+            "label": "他者に投影しやすい性質",
+            "type": "array"
+          },
+          "avoided_emotions": {
+            "label": "直視を避ける感情",
+            "type": "array"
+          },
+          "defense_mechanisms": {
+            "label": "主な防衛機制",
+            "type": "array"
+          },
+          "unconscious_patterns": {
+            "label": "繰り返す無意識のパターン",
+            "type": "array"
+          },
+          "value_conflicts": {
+            "label": "価値観の矛盾",
+            "type": "array"
+          },
+          "role_conflicts": {
+            "label": "役割間の葛藤",
+            "type": "array"
+          },
+          "desire_vs_duty": {
+            "label": "欲求と義務の衝突",
+            "type": "string"
+          },
+          "ideal_vs_real_self": {
+            "label": "理想自己と現実自己のギャップ",
+            "type": "string"
+          },
+          "core_wounds": {
+            "label": "人生の深い傷",
+            "type": "array"
+          },
+          "emotional_triggers": {
+            "label": "強く反応する引き金",
+            "type": "array"
+          },
+          "joy_sources_deep": {
+            "label": "心底からの喜びの源",
+            "type": "array"
+          },
+          "grief_patterns": {
+            "label": "喪失への向き合い方",
+            "type": "string"
+          },
+          "emotional_defaults": {
+            "label": "デフォルトで戻る感情状態",
+            "type": "array"
+          },
+          "identity_crises": {
+            "label": "過去のアイデンティティ危機",
+            "type": "array"
+          },
+          "integration_challenges": {
+            "label": "統合しきれていない側面",
+            "type": "array"
+          },
+          "persona_vs_self": {
+            "label": "対外人格と本来の自己の差",
+            "type": "string"
+          },
+          "self_narrative": {
+            "label": "自分を語るストーリー",
+            "type": "string"
+          },
+          "core_identity_anchors": {
+            "label": "これを失ったら自分じゃない核",
+            "type": "array"
+          },
+          "identity_labels_attachment": {
+            "label": "こだわる肩書・ラベル",
+            "type": "array"
+          },
+          "body_self_relationship": {
+            "label": "身体との関係",
+            "type": "string",
+            "candidates": [
+              "一体",
+              "道具視",
+              "違和感",
+              "対話的"
+            ]
+          }
+        }
+      }
+    },
+    "knowledge": {
+      "description": "知識・興味・専門領域",
+      "text_extractability": "very_high",
+      "extraction_tips": "使用する専門用語、言及する分野、引用元、学習・研究への言及から。話題の幅と深さの比率に注目。",
+      "fields": {
+        "Lv1": {
+          "expertise_domains": {
+            "label": "専門知識領域（深く知っている分野）",
+            "type": "array"
+          },
+          "interest_domains": {
+            "label": "興味・関心領域（学びたい・好きな分野）",
+            "type": "array"
+          },
+          "current_learning_topics": {
+            "label": "現在積極的に学んでいること",
+            "type": "array"
+          },
+          "knowledge_blind_spots": {
+            "label": "自覚している苦手・無知の領域",
+            "type": "array"
+          },
+          "learning_style": {
+            "label": "学習スタイル",
+            "type": "array",
+            "candidates": [
+              "読書",
+              "実践",
+              "対話",
+              "動画 など"
+            ]
+          },
+          "knowledge_depth_tendency": {
+            "label": "知識の深さ傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "information_source_preference": {
+            "label": "情報収集の好み",
+            "type": "array",
+            "candidates": [
+              "書籍",
+              "ネット",
+              "人から など"
+            ]
+          },
+          "update_frequency": {
+            "label": "知識の更新頻度",
+            "type": "string",
+            "candidates": [
+              "常に最新を追う",
+              "定期的にアップデート",
+              "必要な時だけ",
+              "あまり更新しない"
+            ]
+          },
+          "application_tendency": {
+            "label": "知識の活用傾向",
+            "type": "string",
+            "candidates": [
+              "理論重視",
+              "実践重視",
+              "理論と実践のバランス"
+            ]
+          },
+          "knowledge_sharing_style": {
+            "label": "知識の共有スタイル",
+            "type": "string",
+            "candidates": [
+              "積極的に発信する",
+              "求められたら教える",
+              "講演・執筆で共有",
+              "あまり共有しない"
+            ]
+          },
+          "synthesis_tendency": {
+            "label": "知識の横断・統合傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "intellectual_curiosity_style": {
+            "label": "知的好奇心のスタイル",
+            "type": "string",
+            "candidates": [
+              "広く探索",
+              "深く掘り下げ"
+            ]
+          },
+          "favorite_thinkers_authors": {
+            "label": "影響を受けた思想家・著者・作品",
+            "type": "array"
+          },
+          "intellectual_heroes": {
+            "label": "尊敬する知的人物",
+            "type": "array"
+          },
+          "abstraction_preference": {
+            "label": "抽象度の好み（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv2": {
+          "skills": {
+            "label": "スキル",
+            "type": "array"
+          },
+          "knowledge_organization_method": {
+            "label": "知識の整理法",
+            "type": "array",
+            "candidates": [
+              "ノート",
+              "マインドマップ",
+              "データベース",
+              "頭の中",
+              "対話で整理"
+            ]
+          },
+          "expertise_development_pattern": {
+            "label": "専門性の育て方",
+            "type": "string",
+            "candidates": [
+              "集中投資",
+              "並行発展",
+              "必要駆動",
+              "好奇心駆動"
+            ]
+          },
+          "knowledge_validation_method": {
+            "label": "知識の検証方法",
+            "type": "array",
+            "candidates": [
+              "実践で試す",
+              "議論で磨く",
+              "文献で裏取り",
+              "直感で判断"
+            ]
+          },
+          "cross_domain_connections": {
+            "label": "異分野を結びつけるパターン",
+            "type": "array"
+          },
+          "information_diet": {
+            "label": "情報摂取の習慣",
+            "type": "string"
+          },
+          "tool_proficiency": {
+            "label": "使いこなすツール・技術",
+            "type": "array"
+          },
+          "problem_domain_preference": {
+            "label": "好む問題領域",
+            "type": "array",
+            "candidates": [
+              "技術的",
+              "概念的",
+              "社会的",
+              "創造的",
+              "実務的"
+            ]
+          },
+          "output_medium_preference": {
+            "label": "アウトプットの媒体",
+            "type": "array",
+            "candidates": [
+              "文章",
+              "コード",
+              "図解",
+              "発表",
+              "対話",
+              "動画"
+            ]
+          },
+          "knowledge_gaps_strategy": {
+            "label": "知識の穴への対処",
+            "type": "string",
+            "candidates": [
+              "即座に調べる",
+              "人に聞く",
+              "後回し",
+              "体系的に学ぶ",
+              "必要になるまで放置"
+            ]
+          },
+          "prototyping_tendency": {
+            "label": "試作・実験の傾向",
+            "type": "string",
+            "candidates": [
+              "すぐ手を動かす",
+              "十分調べてから",
+              "頭の中で実験",
+              "人に聞いてから"
+            ]
+          },
+          "mentoring_style": {
+            "label": "メンタリングスタイル",
+            "type": "string",
+            "candidates": [
+              "手本を見せる",
+              "問いで導く",
+              "資料を渡す",
+              "一緒にやる",
+              "あまりしない"
+            ]
+          },
+          "intellectual_debate_style": {
+            "label": "知的議論のスタイル",
+            "type": "string",
+            "candidates": [
+              "ソクラテス式問答",
+              "データ対決",
+              "仮説ぶつけ合い",
+              "協調的構築"
+            ]
+          },
+          "collaboration_in_learning": {
+            "label": "学びにおける協調",
+            "type": "string",
+            "candidates": [
+              "単独",
+              "ペア",
+              "少人数",
+              "コミュニティ",
+              "場面による"
+            ]
+          },
+          "knowledge_currency": {
+            "label": "知識を何と交換するか",
+            "type": "string"
+          },
+          "certification_approach": {
+            "label": "資格・認定への姿勢",
+            "type": "string",
+            "candidates": [
+              "積極取得",
+              "必要最低限",
+              "興味なし",
+              "実力証明の手段"
+            ]
+          },
+          "reading_strategy": {
+            "label": "読書戦略",
+            "type": "string",
+            "candidates": [
+              "通読",
+              "拾い読み",
+              "精読",
+              "並行読み",
+              "目次で判断"
+            ]
+          },
+          "note_taking_style": {
+            "label": "ノートの取り方",
+            "type": "string",
+            "candidates": [
+              "構造化メモ",
+              "自由記述",
+              "図解",
+              "キーワードのみ",
+              "取らない"
+            ]
+          },
+          "experimentation_frequency": {
+            "label": "実験・試行の頻度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "knowledge_decay_awareness": {
+            "label": "知識の劣化への意識",
+            "type": "string",
+            "candidates": [
+              "常に気にする",
+              "定期的にチェック",
+              "指摘されたら",
+              "あまり考えない"
+            ]
+          },
+          "intellectual_community_role": {
+            "label": "知的コミュニティでの役割",
+            "type": "string",
+            "candidates": [
+              "発信者",
+              "キュレーター",
+              "議論の触媒",
+              "聴衆",
+              "橋渡し役"
+            ]
+          },
+          "teaching_frequency": {
+            "label": "教える頻度",
+            "type": "string",
+            "candidates": [
+              "日常的",
+              "求められたら",
+              "たまに",
+              "ほぼしない"
+            ]
+          },
+          "knowledge_update_trigger": {
+            "label": "知識更新のトリガー",
+            "type": "string",
+            "candidates": [
+              "好奇心",
+              "業務上の必要",
+              "他者からの刺激",
+              "危機感",
+              "定期ルーティン"
+            ]
+          }
+        },
+        "Lv3": {
+          "current_research_topics": {
+            "label": "現在の研究テーマ",
+            "type": "array"
+          },
+          "intellectual_origin_story": {
+            "label": "知的好奇心の原点",
+            "type": "string"
+          },
+          "paradigm_shifts": {
+            "label": "世界の見方が変わった知的体験",
+            "type": "array"
+          },
+          "abandoned_expertise": {
+            "label": "捨てた・離れた専門性",
+            "type": "array"
+          },
+          "unconscious_expertise": {
+            "label": "無意識の専門性（本人が気づきにくい強み）",
+            "type": "array"
+          },
+          "intellectual_obsessions": {
+            "label": "知的執着（やめられない問い）",
+            "type": "array"
+          },
+          "intellectual_fears": {
+            "label": "知的恐怖（知ることへの不安）",
+            "type": "array"
+          },
+          "knowledge_trauma": {
+            "label": "知識に関するトラウマ",
+            "type": "array"
+          },
+          "forbidden_knowledge_attraction": {
+            "label": "禁断の知識への惹かれ",
+            "type": "string"
+          },
+          "intellectual_loneliness": {
+            "label": "知的孤独感",
+            "type": "string"
+          },
+          "knowledge_identity_link": {
+            "label": "知識とアイデンティティの結びつき",
+            "type": "string"
+          },
+          "knowledge_legacy": {
+            "label": "知識的遺産として残したいこと",
+            "type": "string"
+          },
+          "teacher_student_dynamics": {
+            "label": "師弟関係の力学",
+            "type": "string"
+          },
+          "unasked_questions": {
+            "label": "まだ問えていない問い",
+            "type": "array"
+          },
+          "knowledge_regrets": {
+            "label": "学ばなかったことへの後悔",
+            "type": "array"
+          },
+          "knowledge_inheritance": {
+            "label": "誰から知識を受け継いだか",
+            "type": "string"
+          },
+          "intellectual_rebellion": {
+            "label": "知的反抗（定説に逆らった経験）",
+            "type": "array"
+          },
+          "autodidact_areas": {
+            "label": "完全独学の分野",
+            "type": "array"
+          },
+          "intellectual_debt": {
+            "label": "知的借り（返せていない恩）",
+            "type": "array"
+          },
+          "knowledge_transformation_moments": {
+            "label": "知識が行動を変えた瞬間",
+            "type": "array"
+          },
+          "intellectual_jealousy": {
+            "label": "知的嫉妬（誰の何に嫉妬するか）",
+            "type": "string"
+          },
+          "knowledge_blind_spot_origins": {
+            "label": "苦手分野の起源",
+            "type": "array"
+          }
+        }
+      }
+    },
+    "preferences": {
+      "description": "嗜好（趣味・好みのスタイル・コンテンツ）",
+      "text_extractability": "medium",
+      "extraction_tips": "「好き」「嫌い」「お気に入り」への言及、推薦している物事、休日の過ごし方の記述から。",
+      "fields": {
+        "Lv1": {
+          "hobbies": {
+            "label": "趣味",
+            "type": "array"
+          },
+          "leisure_activities": {
+            "label": "余暇の過ごし方",
+            "type": "array"
+          },
+          "creative_outlets": {
+            "label": "創作・表現活動",
+            "type": "array",
+            "candidates": [
+              "写真",
+              "音楽",
+              "執筆 など"
+            ]
+          },
+          "physical_activities": {
+            "label": "身体的な活動",
+            "type": "array",
+            "candidates": [
+              "スポーツ",
+              "アウトドア など"
+            ]
+          },
+          "favorite_genres": {
+            "label": "好きなジャンル",
+            "type": "object",
+            "sub_fields": [
+              "books",
+              "music",
+              "movies",
+              "games"
+            ]
+          },
+          "favorite_works": {
+            "label": "好きな作品（具体的タイトル・作家名）",
+            "type": "array"
+          },
+          "content_consumption_style": {
+            "label": "コンテンツ消費スタイル",
+            "type": "string",
+            "candidates": [
+              "一気見",
+              "じっくり",
+              "斜め読み"
+            ]
+          },
+          "fiction_vs_nonfiction": {
+            "label": "フィクション/ノンフィクション好みスケール（1=完全フィクション 〜 5=完全ノンフィクション）",
+            "type": "string"
+          },
+          "aesthetic_keywords": {
+            "label": "美的センスを表すキーワード",
+            "type": "array",
+            "candidates": [
+              "ミニマル",
+              "レトロ",
+              "有機的 など"
+            ]
+          },
+          "color_preferences": {
+            "label": "好きな色・カラートーン",
+            "type": "array"
+          },
+          "sound_preferences": {
+            "label": "好きなサウンド・音環境",
+            "type": "array"
+          },
+          "environment_preference": {
+            "label": "好む環境",
+            "type": "string",
+            "candidates": [
+              "静かな屋内",
+              "賑やかな屋内",
+              "自然の中",
+              "都市部",
+              "カフェなど半外",
+              "どちらでもよい"
+            ]
+          },
+          "food": {
+            "label": "食の好み",
+            "type": "object",
+            "sub_fields": [
+              "favorites",
+              "dislikes"
+            ]
+          },
+          "cuisine_preferences": {
+            "label": "好きな料理ジャンル",
+            "type": "array"
+          },
+          "dietary_style": {
+            "label": "食スタイル",
+            "type": "string",
+            "candidates": [
+              "こだわりなし",
+              "肉食系",
+              "魚介中心",
+              "野菜中心",
+              "ベジタリアン",
+              "ビーガン",
+              "グルテンフリー",
+              "その他"
+            ]
+          },
+          "drink_preferences": {
+            "label": "好きな飲み物",
+            "type": "array"
+          },
+          "pets": {
+            "label": "ペット・飼育している生き物",
+            "type": "array"
+          },
+          "owned_items_of_note": {
+            "label": "注目すべき所有物・愛用品",
+            "type": "array"
+          }
+        },
+        "Lv2": {
+          "travel_style": {
+            "label": "旅行スタイル",
+            "type": "string"
+          },
+          "comfort_rituals": {
+            "label": "くつろぎのルーティン",
+            "type": "array"
+          },
+          "shopping_style": {
+            "label": "買い物スタイル",
+            "type": "string",
+            "candidates": [
+              "衝動買い",
+              "じっくり比較",
+              "レビュー重視",
+              "直感",
+              "必要最小限"
+            ]
+          },
+          "brand_loyalty": {
+            "label": "ブランドへの忠誠度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "quality_vs_quantity": {
+            "label": "質vs量の志向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "spending_priority": {
+            "label": "お金の使い道の優先順位",
+            "type": "array"
+          },
+          "gear_philosophy": {
+            "label": "道具・機材への哲学",
+            "type": "string"
+          },
+          "morning_routine": {
+            "label": "朝のルーティン",
+            "type": "string"
+          },
+          "evening_routine": {
+            "label": "夜のルーティン",
+            "type": "string"
+          },
+          "weekend_pattern": {
+            "label": "週末の過ごし方",
+            "type": "string"
+          },
+          "seasonal_preferences": {
+            "label": "好きな季節",
+            "type": "string",
+            "candidates": [
+              "春",
+              "夏",
+              "秋",
+              "冬",
+              "季節問わず"
+            ]
+          },
+          "ideal_vacation": {
+            "label": "理想の休暇",
+            "type": "string"
+          },
+          "sleep_pattern": {
+            "label": "睡眠パターン",
+            "type": "string",
+            "candidates": [
+              "早寝早起き",
+              "夜型",
+              "不規則",
+              "短時間+昼寝",
+              "ロングスリーパー"
+            ]
+          },
+          "meal_timing": {
+            "label": "食事のリズム",
+            "type": "string",
+            "candidates": [
+              "3食規則的",
+              "2食",
+              "不規則",
+              "間食多め",
+              "食べたい時に食べる"
+            ]
+          },
+          "break_style": {
+            "label": "休憩の取り方",
+            "type": "string",
+            "candidates": [
+              "こまめに",
+              "集中後にがっつり",
+              "取らない",
+              "散歩",
+              "気分転換型"
+            ]
+          },
+          "commute_preference": {
+            "label": "移動の好み",
+            "type": "string",
+            "candidates": [
+              "車",
+              "電車",
+              "徒歩",
+              "自転車",
+              "リモート",
+              "混合"
+            ]
+          },
+          "annual_rituals": {
+            "label": "年間の定例行事・習慣",
+            "type": "array"
+          },
+          "downtime_activities": {
+            "label": "ダウンタイムの過ごし方",
+            "type": "array"
+          },
+          "planning_horizon": {
+            "label": "予定の立て方",
+            "type": "string",
+            "candidates": [
+              "緻密にスケジュール",
+              "大枠のみ",
+              "成り行き",
+              "直前に決める",
+              "混合"
+            ]
+          },
+          "ritual_importance": {
+            "label": "ルーティンの重要度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "gathering_preference": {
+            "label": "集まりの好み",
+            "type": "string",
+            "candidates": [
+              "ホームパーティ",
+              "外食",
+              "アウトドア",
+              "オンライン",
+              "少人数で静かに"
+            ]
+          },
+          "gift_giving_style": {
+            "label": "贈り物のスタイル",
+            "type": "string",
+            "candidates": [
+              "実用品",
+              "体験型",
+              "サプライズ",
+              "相手のリクエスト",
+              "あまり贈らない"
+            ]
+          },
+          "celebration_style": {
+            "label": "お祝いの仕方",
+            "type": "string",
+            "candidates": [
+              "盛大に",
+              "内輪で",
+              "静かに",
+              "特にしない",
+              "自分へのご褒美"
+            ]
+          },
+          "entertainment_budget_priority": {
+            "label": "娯楽予算の配分",
+            "type": "array"
+          },
+          "nostalgia_triggers": {
+            "label": "懐かしさのトリガー",
+            "type": "array"
+          },
+          "tech_adoption_speed": {
+            "label": "新技術の導入速度",
+            "type": "string",
+            "candidates": [
+              "アーリーアダプター",
+              "様子見",
+              "必要になってから",
+              "慎重派"
+            ]
+          },
+          "digital_vs_analog": {
+            "label": "デジタル/アナログの好みスケール（1=完全アナログ 〜 5=完全デジタル）",
+            "type": "string"
+          },
+          "subscription_services": {
+            "label": "利用サブスクサービス",
+            "type": "array"
+          },
+          "device_ecosystem": {
+            "label": "デバイスエコシステム",
+            "type": "string",
+            "candidates": [
+              "Apple",
+              "Google",
+              "Microsoft",
+              "混在",
+              "Linux中心"
+            ]
+          },
+          "customization_tendency": {
+            "label": "カスタマイズ傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv3": {
+          "sensory_preferences": {
+            "label": "感覚的な好み",
+            "type": "object",
+            "sub_fields": [
+              "sound",
+              "visual",
+              "texture"
+            ]
+          },
+          "disliked_environments": {
+            "label": "苦手な環境",
+            "type": "array"
+          },
+          "preference_origin_stories": {
+            "label": "好みの原点（なぜ好きになったか）",
+            "type": "array"
+          },
+          "childhood_favorites": {
+            "label": "子ども時代に好きだったもの",
+            "type": "array"
+          },
+          "preference_inheritance": {
+            "label": "誰から受け継いだ好み",
+            "type": "array"
+          },
+          "aesthetic_formation": {
+            "label": "美的感覚の形成",
+            "type": "string"
+          },
+          "sensory_memories": {
+            "label": "感覚的記憶（匂い・音・味で蘇る記憶）",
+            "type": "array"
+          },
+          "taste_evolution": {
+            "label": "好みの変遷",
+            "type": "array"
+          },
+          "lost_interests": {
+            "label": "失った興味とその理由",
+            "type": "array"
+          },
+          "rejected_tastes": {
+            "label": "意識的に拒否した好み",
+            "type": "array"
+          },
+          "preference_contradictions": {
+            "label": "好みの中の矛盾",
+            "type": "array"
+          },
+          "guilty_pleasures": {
+            "label": "後ろめたい楽しみ",
+            "type": "array"
+          },
+          "comfort_objects": {
+            "label": "安心の拠り所となるモノ",
+            "type": "array"
+          },
+          "dream_possessions": {
+            "label": "夢の所有物",
+            "type": "array"
+          },
+          "sacred_spaces": {
+            "label": "自分にとっての聖地",
+            "type": "array"
+          },
+          "irreplaceable_experiences": {
+            "label": "かけがえのない体験",
+            "type": "array"
+          },
+          "taste_identity_link": {
+            "label": "好みとアイデンティティの結びつき",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expression": {
+      "description": "表現・コミュニケーションスタイル",
+      "text_extractability": "very_high",
+      "extraction_tips": "テキストそのものがexpressionの直接的な証拠。文体、比喩の使い方、論理構成、ユーモアの種類、語尾の特徴を分析。",
+      "fields": {
+        "Lv1": {
+          "first_person": {
+            "label": "一人称",
+            "type": "string"
+          },
+          "second_person": {
+            "label": "二人称（相手の呼び方）",
+            "type": "string"
+          },
+          "speech_style": {
+            "label": "口調",
+            "type": "object",
+            "sub_fields": [
+              "formal",
+              "casual"
+            ]
+          },
+          "catchphrases": {
+            "label": "口癖",
+            "type": "array"
+          },
+          "sentence_endings": {
+            "label": "語尾の特徴（〜だよ、〜ですね など）",
+            "type": "array"
+          },
+          "sentence_length": {
+            "label": "文の長さの傾向",
+            "type": "string",
+            "candidates": [
+              "短文好き",
+              "長文好き",
+              "混在"
+            ]
+          },
+          "response_length_tendency": {
+            "label": "返答の長さ（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "use_of_lists": {
+            "label": "箇条書き・リストの使用頻度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "vocabulary_tendency": {
+            "label": "語彙の傾向",
+            "type": "string",
+            "candidates": [
+              "専門的",
+              "平易",
+              "混在"
+            ]
+          },
+          "use_of_technical_terms": {
+            "label": "専門用語の使用頻度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "use_of_foreign_words": {
+            "label": "外来語・英語の使用傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "metaphor_usage": {
+            "label": "比喩・たとえの使用頻度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "logic_style": {
+            "label": "論理展開スタイル",
+            "type": "string",
+            "candidates": [
+              "帰納的",
+              "演繹的",
+              "物語的"
+            ]
+          },
+          "argumentation_style": {
+            "label": "議論スタイル",
+            "type": "string",
+            "candidates": [
+              "主張型",
+              "探求型",
+              "協調型"
+            ]
+          },
+          "evidence_preference": {
+            "label": "根拠の示し方",
+            "type": "string",
+            "candidates": [
+              "データ重視",
+              "経験重視",
+              "感覚重視"
+            ]
+          },
+          "counterargument_handling": {
+            "label": "反論への対処スタイル",
+            "type": "string",
+            "candidates": [
+              "受け入れて考えを変える",
+              "一部取り入れる",
+              "冷静に反論する",
+              "感情的に反論する",
+              "保留して後で考える",
+              "回避する"
+            ]
+          },
+          "emotional_expressiveness": {
+            "label": "感情表現の豊かさ（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "humor_style": {
+            "label": "ユーモアのスタイル",
+            "type": "string",
+            "candidates": [
+              "ウィット・知性的",
+              "自虐",
+              "シュール・不条理",
+              "ダジャレ・言葉遊び",
+              "観察眼から来るユーモア",
+              "あまり使わない"
+            ]
+          },
+          "agreement_expression": {
+            "label": "同意の表し方",
+            "type": "array"
+          },
+          "disagreement_expression": {
+            "label": "不同意・反論の表し方",
+            "type": "array"
+          },
+          "question_asking_style": {
+            "label": "質問の仕方・問いの立て方",
+            "type": "string",
+            "candidates": [
+              "根本的・哲学的",
+              "具体的・実践的",
+              "仮説検証型",
+              "探索・発散型",
+              "確認・整理型",
+              "批判的な問い"
+            ]
+          },
+          "topic_interests_in_conversation": {
+            "label": "会話で好む話題",
+            "type": "array"
+          },
+          "conversation_depth_preference": {
+            "label": "会話の深さの好み（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "listening_style": {
+            "label": "聴き方のスタイル",
+            "type": "string",
+            "candidates": [
+              "傾聴型・じっくり聞く",
+              "共感型・感情に寄り添う",
+              "分析型・論点を整理する",
+              "解決志向型・答えを探す",
+              "マルチタスク型"
+            ]
+          },
+          "use_of_emoji_symbols": {
+            "label": "絵文字・記号の使用傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "punctuation_style": {
+            "label": "句読点・改行の使い方",
+            "type": "string",
+            "candidates": [
+              "標準的",
+              "読点多め",
+              "読点少なめ",
+              "改行多め・段落短め",
+              "改行少なめ・段落長め",
+              "話し言葉風"
+            ]
+          }
+        },
+        "Lv2": {
+          "metaphor_preferences": {
+            "label": "metaphor_preferences",
+            "type": "array"
+          },
+          "persuasion_style": {
+            "label": "説得のスタイル",
+            "type": "string",
+            "candidates": [
+              "論理",
+              "感情",
+              "権威",
+              "物語",
+              "データ"
+            ]
+          },
+          "storytelling_style": {
+            "label": "物語の語り方",
+            "type": "string",
+            "candidates": [
+              "時系列",
+              "結論先行",
+              "伏線型",
+              "即興"
+            ]
+          },
+          "teaching_style": {
+            "label": "教え方のスタイル",
+            "type": "string",
+            "candidates": [
+              "手順型",
+              "概念先行",
+              "例示型",
+              "質問誘導"
+            ]
+          },
+          "explanation_depth_control": {
+            "label": "説明の深さ調整",
+            "type": "string",
+            "candidates": [
+              "相手に合わせる",
+              "常に詳しく",
+              "常に簡潔",
+              "聞かれたら深める"
+            ]
+          },
+          "feedback_giving_style": {
+            "label": "FBの伝え方",
+            "type": "string",
+            "candidates": [
+              "率直",
+              "サンドイッチ",
+              "質問形式",
+              "比喩で",
+              "書面で"
+            ]
+          },
+          "formality_switching": {
+            "label": "丁寧/くだけた切り替え",
+            "type": "string",
+            "candidates": [
+              "即座に切替",
+              "徐々に",
+              "苦手",
+              "常に一定"
+            ]
+          },
+          "audience_adaptation": {
+            "label": "聞き手への適応力",
+            "type": "string",
+            "candidates": [
+              "意識的に変える",
+              "自然に変わる",
+              "あまり変えない"
+            ]
+          },
+          "code_switching": {
+            "label": "言語・レジスター切替",
+            "type": "string",
+            "candidates": [
+              "頻繁",
+              "必要時のみ",
+              "苦手",
+              "意識的"
+            ]
+          },
+          "emotional_tone_control": {
+            "label": "感情トーンの制御",
+            "type": "string",
+            "candidates": [
+              "意識的にコントロール",
+              "素のまま",
+              "場面で変える",
+              "抑制気味"
+            ]
+          },
+          "conflict_communication": {
+            "label": "対立時の表現",
+            "type": "string",
+            "candidates": [
+              "直接的",
+              "婉曲",
+              "沈黙",
+              "ユーモアで緩和",
+              "文章で伝える"
+            ]
+          },
+          "narrative_perspective": {
+            "label": "語りの視点",
+            "type": "string",
+            "candidates": [
+              "一人称",
+              "三人称",
+              "客観",
+              "混合"
+            ]
+          },
+          "information_ordering": {
+            "label": "情報の並べ方",
+            "type": "string",
+            "candidates": [
+              "重要度順",
+              "時系列",
+              "比較対照",
+              "問題→解決"
+            ]
+          },
+          "abstraction_level_preference": {
+            "label": "具体⇔抽象の組み立て方",
+            "type": "string",
+            "candidates": [
+              "具体→抽象",
+              "抽象→具体",
+              "混在",
+              "具体のみ"
+            ]
+          },
+          "reference_style": {
+            "label": "引用・参照の仕方",
+            "type": "string",
+            "candidates": [
+              "頻繁に引用",
+              "自分の言葉で",
+              "体験ベース",
+              "データ重視"
+            ]
+          },
+          "turn_taking_style": {
+            "label": "会話のターン取り",
+            "type": "string",
+            "candidates": [
+              "待つ",
+              "割り込む",
+              "バランス",
+              "相手に譲る"
+            ]
+          },
+          "topic_transition_style": {
+            "label": "話題の切り替え方",
+            "type": "string",
+            "candidates": [
+              "自然に流す",
+              "明示的に切替",
+              "相手に委ねる",
+              "唐突"
+            ]
+          },
+          "response_latency": {
+            "label": "応答の速さ",
+            "type": "string",
+            "candidates": [
+              "即座",
+              "少し考えてから",
+              "じっくり",
+              "話題による"
+            ]
+          },
+          "active_listening_signals": {
+            "label": "よく使う相槌・傾聴シグナル",
+            "type": "array"
+          },
+          "question_frequency": {
+            "label": "質問の頻度（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv3": {
+          "writing_patterns": {
+            "label": "文章の癖・パターン",
+            "type": "array"
+          },
+          "silence_usage": {
+            "label": "沈黙・間の使い方",
+            "type": "string"
+          },
+          "language_influences": {
+            "label": "言葉遣いに影響した人・作品",
+            "type": "array"
+          },
+          "expression_turning_points": {
+            "label": "表現スタイルが変わった転機",
+            "type": "array"
+          },
+          "childhood_communication_environment": {
+            "label": "育った環境のコミュニケーション特徴",
+            "type": "string"
+          },
+          "suppressed_expression_modes": {
+            "label": "抑圧された表現モード",
+            "type": "array"
+          },
+          "unconscious_verbal_habits": {
+            "label": "無意識の言語癖",
+            "type": "array"
+          },
+          "emotional_leakage_patterns": {
+            "label": "感情が表現に漏れるパターン",
+            "type": "string"
+          },
+          "authenticity_vs_performance": {
+            "label": "本音と対外モードの差",
+            "type": "string"
+          },
+          "inner_monologue_style": {
+            "label": "内的独白のスタイル",
+            "type": "string"
+          },
+          "dream_narrative_style": {
+            "label": "夢・空想を語るスタイル",
+            "type": "string"
+          },
+          "untranslatable_expressions": {
+            "label": "翻訳できない自分だけの表現",
+            "type": "array"
+          },
+          "signature_phrases_origin": {
+            "label": "口癖・決まり文句の由来",
+            "type": "array"
+          },
+          "voice_of_authority": {
+            "label": "権威を持って語れるテーマ",
+            "type": "array"
+          },
+          "vulnerability_expression": {
+            "label": "弱さの見せ方",
+            "type": "string",
+            "candidates": [
+              "ユーモアで",
+              "率直に",
+              "比喩で",
+              "見せない",
+              "信頼する人にだけ"
+            ]
+          },
+          "communication_wounds": {
+            "label": "コミュニケーションにまつわるトラウマ",
+            "type": "array"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "description": "人間関係・社会との関わり方",
+      "text_extractability": "medium",
+      "extraction_tips": "他者への言及の仕方、「我々」vs「私」の使い分け、社会的話題への関心度、家族・友人への言及から。",
+      "fields": {
+        "Lv1": {
+          "family_structure": {
+            "label": "家族構成",
+            "type": "string"
+          },
+          "marital_status": {
+            "label": "婚姻状況",
+            "type": "string",
+            "candidates": [
+              "未婚",
+              "既婚",
+              "離婚",
+              "死別",
+              "事実婚",
+              "その他"
+            ]
+          },
+          "has_children": {
+            "label": "子供の有無",
+            "type": "string"
+          },
+          "living_situation": {
+            "label": "居住形態",
+            "type": "string",
+            "candidates": [
+              "一人暮らし",
+              "パートナーと同居",
+              "家族と同居",
+              "ルームシェア",
+              "その他"
+            ]
+          },
+          "relationship_style": {
+            "label": "関係性のスタイル",
+            "type": "string",
+            "candidates": [
+              "少数と深く",
+              "多数と広く",
+              "目的に応じて使い分け",
+              "状況による"
+            ]
+          },
+          "attachment_style": {
+            "label": "愛着スタイル",
+            "type": "string",
+            "candidates": [
+              "安定",
+              "不安型",
+              "回避型",
+              "混乱型"
+            ]
+          },
+          "intimacy_preference": {
+            "label": "親密さの好み（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "preferred_social_setting": {
+            "label": "好む社交設定",
+            "type": "string",
+            "candidates": [
+              "1対1",
+              "小グループ",
+              "大グループ"
+            ]
+          },
+          "social_energy_drain": {
+            "label": "社交によるエネルギー消耗（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "how_they_show_care": {
+            "label": "気遣い・愛情の示し方",
+            "type": "string"
+          },
+          "support_style": {
+            "label": "他者のサポートスタイル",
+            "type": "string",
+            "candidates": [
+              "感情的",
+              "実務的",
+              "両方"
+            ]
+          },
+          "conflict_style": {
+            "label": "対立・衝突への対処スタイル",
+            "type": "string",
+            "candidates": [
+              "回避する",
+              "冷静に話し合う",
+              "論理的に議論する",
+              "感情的に向き合う",
+              "時間を置く",
+              "第三者に仲裁を求める"
+            ]
+          },
+          "forgiveness_tendency": {
+            "label": "許容・許しの傾向",
+            "type": "string",
+            "candidates": [
+              "すぐに許す",
+              "時間をかけて許す",
+              "条件付きで許す",
+              "なかなか許せない",
+              "状況による"
+            ]
+          },
+          "loyalty_pattern": {
+            "label": "忠誠心のパターン",
+            "type": "string",
+            "candidates": [
+              "非常に強い",
+              "強い",
+              "普通",
+              "弱い",
+              "状況や相手による"
+            ]
+          },
+          "social_role": {
+            "label": "社会的役割",
+            "type": "string",
+            "candidates": [
+              "リーダー",
+              "フォロワー",
+              "調整役",
+              "専門家・アドバイザー",
+              "メンター",
+              "アイデアマン",
+              "その他"
+            ]
+          },
+          "group_role_tendency": {
+            "label": "グループ内での役割傾向",
+            "type": "string",
+            "candidates": [
+              "リーダー",
+              "サポーター",
+              "アイデアマン",
+              "実行者",
+              "調整役",
+              "批評家・分析役",
+              "観察者"
+            ]
+          },
+          "networking_style": {
+            "label": "ネットワーキングスタイル",
+            "type": "string",
+            "candidates": [
+              "積極的・広く繋がる",
+              "目的指向・必要な人と繋がる",
+              "関係重視・深く繋がる",
+              "受動的",
+              "オンライン中心",
+              "リアル中心"
+            ]
+          },
+          "boundary_setting": {
+            "label": "境界線の設定",
+            "type": "string",
+            "candidates": [
+              "明確",
+              "曖昧"
+            ]
+          },
+          "relationship_maintenance_style": {
+            "label": "関係維持スタイル",
+            "type": "string",
+            "candidates": [
+              "頻繁に連絡",
+              "必要な時だけ"
+            ]
+          },
+          "dependency_tendency": {
+            "label": "依存傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          }
+        },
+        "Lv2": {
+          "key_relationships": {
+            "label": "重要な人間関係",
+            "type": "array"
+          },
+          "love_language_giving": {
+            "label": "愛情の示し方",
+            "type": "array",
+            "candidates": [
+              "言葉",
+              "行動",
+              "贈り物",
+              "時間",
+              "スキンシップ"
+            ]
+          },
+          "love_language_receiving": {
+            "label": "愛情の受け取り方",
+            "type": "array",
+            "candidates": [
+              "言葉",
+              "行動",
+              "贈り物",
+              "時間",
+              "スキンシップ"
+            ]
+          },
+          "apology_style": {
+            "label": "謝り方",
+            "type": "string",
+            "candidates": [
+              "素直に言葉で",
+              "行動で示す",
+              "時間を置いてから",
+              "贈り物で",
+              "苦手"
+            ]
+          },
+          "gratitude_expression": {
+            "label": "感謝の示し方",
+            "type": "string",
+            "candidates": [
+              "言葉で伝える",
+              "行動で返す",
+              "手紙・メッセージ",
+              "態度で示す",
+              "苦手"
+            ]
+          },
+          "emotional_support_seeking": {
+            "label": "感情的サポートの求め方",
+            "type": "string",
+            "candidates": [
+              "素直に頼る",
+              "遠回しに",
+              "自分で処理",
+              "特定の人にだけ",
+              "状況による"
+            ]
+          },
+          "reunion_behavior": {
+            "label": "再会時の振る舞い",
+            "type": "string",
+            "candidates": [
+              "テンション上がる",
+              "自然体",
+              "少し緊張",
+              "前回の続きから",
+              "様子見"
+            ]
+          },
+          "relationship_investment_priority": {
+            "label": "関係性への投資の優先順序",
+            "type": "array"
+          },
+          "friendship_maintenance": {
+            "label": "友人関係の維持方法",
+            "type": "string",
+            "candidates": [
+              "こまめに連絡",
+              "たまに深く",
+              "会った時に全力",
+              "SNSで繋がる",
+              "自然に任せる"
+            ]
+          },
+          "family_contact_frequency": {
+            "label": "家族との連絡頻度",
+            "type": "string",
+            "candidates": [
+              "毎日",
+              "週数回",
+              "週1",
+              "月数回",
+              "必要な時だけ",
+              "ほぼなし"
+            ]
+          },
+          "digital_relationship_style": {
+            "label": "デジタル上の関係構築",
+            "type": "string",
+            "candidates": [
+              "SNSで積極的",
+              "メッセージ中心",
+              "リアル重視",
+              "使い分け",
+              "最小限"
+            ]
+          },
+          "new_relationship_approach": {
+            "label": "新しい関係の始め方",
+            "type": "string",
+            "candidates": [
+              "積極的に声をかける",
+              "共通の話題から",
+              "紹介経由",
+              "待つ",
+              "場の流れで"
+            ]
+          },
+          "relationship_exit_style": {
+            "label": "関係の終わらせ方",
+            "type": "string",
+            "candidates": [
+              "きちんと伝える",
+              "自然消滅",
+              "距離を置く",
+              "決断が遅い",
+              "きっぱり"
+            ]
+          },
+          "social_hierarchy_sensitivity": {
+            "label": "上下関係への感度（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "mentoring_relationship": {
+            "label": "メンター/メンティー関係",
+            "type": "string",
+            "candidates": [
+              "メンターがいる",
+              "メンティーがいる",
+              "両方",
+              "なし",
+              "非公式に"
+            ]
+          },
+          "professional_relationship_style": {
+            "label": "仕事上の関係スタイル",
+            "type": "string",
+            "candidates": [
+              "公私分離",
+              "仕事仲間と友人を兼ねる",
+              "チーム重視",
+              "個人重視",
+              "場面による"
+            ]
+          },
+          "cross_generational_interaction": {
+            "label": "世代間交流のスタイル",
+            "type": "string",
+            "candidates": [
+              "年上と話しやすい",
+              "年下と話しやすい",
+              "同世代が楽",
+              "世代問わず"
+            ]
+          },
+          "pet_relationship": {
+            "label": "ペットとの関係性",
+            "type": "string"
+          },
+          "jealousy_tendency": {
+            "label": "嫉妬の傾向（1〜5スケール）",
+            "type": "scale_1_5"
+          },
+          "trust_recovery_pattern": {
+            "label": "信頼回復のパターン",
+            "type": "string",
+            "candidates": [
+              "時間が解決",
+              "話し合いで",
+              "行動で証明を求める",
+              "難しい",
+              "条件次第"
+            ]
+          },
+          "confrontation_threshold": {
+            "label": "対決に踏み切る閾値",
+            "type": "string",
+            "candidates": [
+              "すぐ言う",
+              "溜めてから",
+              "限界まで耐える",
+              "避ける",
+              "重大な時だけ"
+            ]
+          },
+          "secret_keeping": {
+            "label": "秘密の扱い",
+            "type": "string",
+            "candidates": [
+              "絶対守る",
+              "信頼できる人にだけ共有",
+              "秘密は苦手",
+              "状況による"
+            ]
+          },
+          "vulnerability_sharing": {
+            "label": "弱さの共有",
+            "type": "string",
+            "candidates": [
+              "オープン",
+              "親しい人にだけ",
+              "ほぼ見せない",
+              "相手次第",
+              "徐々に"
+            ]
+          }
+        },
+        "Lv3": {
+          "community_involvement": {
+            "label": "コミュニティへの関与",
+            "type": "array"
+          },
+          "attachment_origin": {
+            "label": "愛着スタイルの起源",
+            "type": "string"
+          },
+          "first_significant_relationship": {
+            "label": "最初の重要な関係",
+            "type": "string"
+          },
+          "relationship_role_models": {
+            "label": "関係性のロールモデル",
+            "type": "array"
+          },
+          "family_relationship_patterns": {
+            "label": "家族関係のパターン",
+            "type": "string"
+          },
+          "relationship_wounds": {
+            "label": "関係性の傷",
+            "type": "array"
+          },
+          "abandonment_fears": {
+            "label": "見捨てられる恐怖",
+            "type": "string"
+          },
+          "intimacy_barriers": {
+            "label": "親密さの壁",
+            "type": "array"
+          },
+          "unconscious_relationship_patterns": {
+            "label": "無意識の関係パターン",
+            "type": "array"
+          },
+          "projection_in_relationships": {
+            "label": "関係における投影",
+            "type": "string"
+          },
+          "codependency_awareness": {
+            "label": "共依存の自覚",
+            "type": "string"
+          },
+          "relationship_identity": {
+            "label": "関係の中での自己像",
+            "type": "string"
+          },
+          "loneliness_relationship": {
+            "label": "孤独との関係",
+            "type": "string"
+          },
+          "ideal_relationship_vision": {
+            "label": "理想の関係像",
+            "type": "string"
+          },
+          "chosen_family": {
+            "label": "選んだ家族（血縁を超えた絆）",
+            "type": "array"
+          },
+          "relationship_with_ai": {
+            "label": "AIとの関係性への考え",
+            "type": "string"
+          },
+          "lost_relationships": {
+            "label": "失った関係",
+            "type": "array"
+          },
+          "relationship_regrets": {
+            "label": "関係の後悔",
+            "type": "array"
+          },
+          "relationship_gratitude": {
+            "label": "関係性への感謝",
+            "type": "array"
+          },
+          "relationship_legacy": {
+            "label": "関係性として残したいもの",
+            "type": "string"
+          },
+          "relationship_philosophy": {
+            "label": "人間関係の哲学",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "episodes": {
+      "description": "エピソード記憶（RAGストレージ向け）",
+      "text_extractability": "low",
+      "extraction_tips": "テキスト自体がエピソードのソースとなる。分析結果としてではなく、ソース情報として記録。",
+      "fields": {},
+      "note": "構造化されたフィールドではなく、特殊なストレージ形式"
+    },
+    "personality_assessments": {
+      "description": "性格診断結果（Big5, MBTI等）",
+      "text_extractability": "very_low",
+      "extraction_tips": "本人が診断結果を明示的に述べている場合のみ。テキストからMBTI等を推測してはならない（不正確になるため）。",
+      "fields": {},
+      "note": "構造化されたフィールドではなく、特殊なストレージ形式"
+    }
+  },
+  "output_format": {
+    "schema_version": "1.2",
+    "_reference": "出力規約の正式定義はGDLスキーマの _preamble セクションを参照。以下はテキスト分析エージェント向けの補足情報。",
+    "_preamble": {
+      "description": "GDL出力の冒頭に必ず含めるAI向け解釈ガイド。GDLスキーマの _preamble 仕様に準拠。省略不可。",
+      "required_keys": [
+        "what",
+        "purpose",
+        "scale_convention",
+        "array_convention",
+        "rank_convention",
+        "usage",
+        "confidence_convention"
+      ]
+    },
+    "section_descriptions": {
+      "description": "各セクションに _description キーで用途説明を付与する。GDLスキーマの _preamble.section_descriptions に準拠。",
+      "_reference": "正式な値はGDLスキーマの _preamble.section_descriptions.values を参照"
+    },
+    "scale_format": {
+      "description": "スケール値（1〜5の数値）は必ず value + label のオブジェクト形式で出力する。",
+      "convention": "1=まったく当てはまらない、5=非常に当てはまる",
+      "example": {
+        "optimism_level": {
+          "value": 4,
+          "label": "物事をポジティブに捉えがちだ"
+        }
+      }
+    },
+    "array_format": {
+      "description": "配列は重要度順（先頭ほど重要/該当度が高い）。"
+    },
+    "rank_format": {
+      "description": "rank配列は本人が選んだ優先順位（先頭が最も重要）。"
+    },
+    "_confidence": {
+      "description": "間接的な生成方法（テキスト分析・行動観察など）で生成したGDLの各フィールドに付与する信頼度アノテーション。GDLスキーマの _confidence 仕様に準拠。",
+      "when_used": "generation_methodが 'text_analysis' や 'observation' など間接的な生成方法の場合に付与する。'input_form' や 'interview' など本人が直接回答した場合は不要。",
+      "levels": {
+        "high": {
+          "meaning": "明示的な記述や非常に強い根拠がある",
+          "ai_instruction": "この特性を強く反映すること"
+        },
+        "medium": {
+          "meaning": "複数の間接的証拠からの合理的推論",
+          "ai_instruction": "基本的に反映しつつ、矛盾する情報があれば柔軟に調整すること"
+        },
+        "low": {
+          "meaning": "弱い手がかりからの推測",
+          "ai_instruction": "参考程度に留め、矛盾する情報があれば無視してよい"
+        },
+        "user_confirmed": {
+          "meaning": "本人が確認・修正した値",
+          "ai_instruction": "highと同等以上に信頼すること"
+        },
+        "user_provided": {
+          "meaning": "本人が直接提供した情報",
+          "ai_instruction": "最も信頼度が高い値として扱うこと"
+        }
+      },
+      "field_format": {
+        "with_confidence": {
+          "value": "実際の値",
+          "confidence": "high|medium|low|user_confirmed|user_provided",
+          "evidence": "推論の根拠"
+        },
+        "without_confidence": "値をそのまま格納（本人が直接回答した場合）"
+      },
+      "preamble_output": {
+        "description": "生成するGDL JSONの_preambleに以下のconfidence_conventionを必ず含めること。",
+        "confidence_convention": {
+          "description": "テキスト分析による推論生成のため、各フィールドにconfidence（信頼度）を付与しています。",
+          "levels": {
+            "high": "明示的な記述や非常に強い根拠がある。この特性を強く反映してください。",
+            "medium": "複数の間接的証拠からの合理的推論。基本的に反映しつつ、矛盾があれば柔軟に調整してください。",
+            "low": "弱い手がかりからの推測。参考程度に留め、矛盾する情報があれば無視してください。",
+            "user_confirmed": "本人が確認・修正した値。highと同等以上に信頼してください。",
+            "user_provided": "本人が直接提供した情報。最も信頼度が高い値です。"
+          },
+          "evidence": "各フィールドのevidenceには推論の根拠を記載しています。判断に迷った場合の参考にしてください。"
+        }
+      }
+    }
+  }
+}

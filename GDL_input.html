@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDL — Ghost Description Language 入力フォーム</title>
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #161b25;
+    --surface2: #1e2535;
+    --border: #2a3347;
+    --accent: #5b8cff;
+    --accent2: #7c5cfc;
+    --accent-glow: rgba(91,140,255,0.18);
+    --text: #e8ecf4;
+    --text-dim: #8a97b0;
+    --text-dimmer: #505a70;
+    --success: #3ecf8e;
+    --warning: #f5a623;
+    --rank-colors: #ff6b6b, #ff9f43, #ffd32a, #1dd1a1, #48dbfb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+  }
+  .logo-ghost {
+    font-size: 22px;
+    filter: drop-shadow(0 0 8px var(--accent));
+  }
+  .logo-text { font-size: 18px; font-weight: 700; letter-spacing: 0.05em; }
+  .logo-text span { color: var(--accent); }
+  .header-sub { font-size: 12px; color: var(--text-dim); margin-left: auto; }
+
+  /* ── PROGRESS ── */
+  #progress-bar-wrap {
+    background: var(--surface);
+    padding: 10px 32px 14px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+  }
+  .progress-track {
+    height: 4px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+  }
+
+  /* ── SECTION TABS ── */
+  #section-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 14px 32px;
+    overflow-x: auto;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+  #section-tabs::-webkit-scrollbar { display: none; }
+  .sec-tab {
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    transition: all 0.2s;
+    background: transparent;
+  }
+  .sec-tab:hover { border-color: var(--accent); color: var(--accent); }
+  .sec-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+  .sec-tab.done { border-color: var(--success); color: var(--success); }
+  .sec-tab.done::before { content: '✓ '; }
+
+  /* ── MAIN LAYOUT ── */
+  main {
+    flex: 1;
+    max-width: 760px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    margin-bottom: 28px;
+  }
+  .section-label {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s;
+  }
+  .q-card:focus-within { border-color: var(--accent); }
+  .q-id {
+    font-size: 11px;
+    color: var(--text-dimmer);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .q-text {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+  .q-example {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .q-type-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    letter-spacing: 0.05em;
+  }
+  .badge-select   { background: rgba(91,140,255,0.15); color: var(--accent); border: 1px solid rgba(91,140,255,0.3); }
+  .badge-multi    { background: rgba(124,92,252,0.15); color: var(--accent2); border: 1px solid rgba(124,92,252,0.3); }
+  .badge-scale    { background: rgba(62,207,142,0.12); color: var(--success); border: 1px solid rgba(62,207,142,0.3); }
+  .badge-rank     { background: rgba(245,166,35,0.12); color: var(--warning); border: 1px solid rgba(245,166,35,0.3); }
+  .badge-direct   { background: rgba(255,255,255,0.07); color: var(--text-dim); border: 1px solid var(--border); }
+
+  /* ── DIRECT INPUT ── */
+  .direct-field { margin-bottom: 12px; }
+  .direct-label {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+    display: block;
+  }
+  .direct-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .direct-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+  .direct-input::placeholder { color: var(--text-dimmer); }
+
+  /* ── SELECT (radio style) ── */
+  .select-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sel-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .sel-btn:hover { border-color: var(--accent); color: var(--text); }
+  .sel-btn.selected {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 0 12px rgba(91,140,255,0.3);
+  }
+
+  /* ── MULTI SELECT ── */
+  .multi-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .multi-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.15s;
+    user-select: none;
+    position: relative;
+  }
+  .multi-btn:hover { border-color: var(--accent2); color: var(--text); }
+  .multi-btn.selected {
+    background: rgba(124,92,252,0.2);
+    border-color: var(--accent2);
+    color: var(--text);
+    font-weight: 600;
+  }
+  .multi-btn.selected::after {
+    content: '✓';
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 16px;
+    height: 16px;
+    background: var(--accent2);
+    border-radius: 50%;
+    font-size: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+  }
+  .multi-btn.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .multi-limit {
+    font-size: 12px;
+    color: var(--text-dimmer);
+    margin-bottom: 10px;
+  }
+
+  /* ── SCALE ── */
+  .scale-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .scale-item:has(.scale-btn.selected) { border-color: var(--border); }
+  .scale-label {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .scale-buttons {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .scale-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .scale-btn:hover { border-color: var(--success); color: var(--success); }
+  .scale-btn.selected {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+    box-shadow: 0 0 8px rgba(62,207,142,0.3);
+  }
+  .scale-ends {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: -8px;
+    margin-bottom: 16px;
+    padding-right: 2px;
+  }
+  .scale-end-label {
+    font-size: 10px;
+    color: var(--text-dimmer);
+    width: 34px;
+    text-align: center;
+  }
+
+  /* ── RANK ── */
+  .rank-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+  .rank-selected-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    min-height: 40px;
+    padding: 8px;
+    background: var(--surface2);
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    align-items: center;
+  }
+  .rank-slot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--surface);
+    border: 1px solid var(--warning);
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .rank-badge {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 900;
+    color: #000;
+    flex-shrink: 0;
+  }
+  .rank-slot:hover { background: rgba(245,166,35,0.15); }
+  .rank-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .rank-pool-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface2);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .rank-pool-btn:hover { border-color: var(--warning); color: var(--text); }
+  .rank-pool-btn.used { opacity: 0.3; pointer-events: none; }
+
+  /* ── SUPPLEMENTARY ── */
+  .supp-wrap { margin-top: 12px; }
+  .supp-label { font-size: 12px; color: var(--text-dim); margin-bottom: 5px; display: block; }
+
+  /* ── NAVIGATION ── */
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    gap: 12px;
+  }
+  .nav-btn {
+    padding: 12px 28px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .nav-btn-prev {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .nav-btn-prev:hover { border-color: var(--text-dim); color: var(--text); }
+  .nav-btn-next {
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(91,140,255,0.3);
+  }
+  .nav-btn-next:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(91,140,255,0.45); }
+  .nav-btn-generate {
+    background: linear-gradient(135deg, #3ecf8e, #1b9e6e);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(62,207,142,0.3);
+  }
+  .nav-btn-generate:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(62,207,142,0.45); }
+  .nav-center { font-size: 13px; color: var(--text-dimmer); }
+
+  /* ── RESULT SCREEN ── */
+  #result-screen { display: none; }
+  .result-header {
+    text-align: center;
+    padding: 32px 0 24px;
+  }
+  .result-ghost { font-size: 48px; margin-bottom: 12px; }
+  .result-title { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+  .result-sub { font-size: 14px; color: var(--text-dim); }
+
+  .result-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 24px 0;
+    flex-wrap: wrap;
+  }
+  .action-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .action-btn-dl {
+    background: linear-gradient(135deg, var(--accent2), var(--accent));
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(91,140,255,0.3);
+  }
+  .action-btn-dl:hover { transform: translateY(-1px); }
+  .action-btn-copy {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+  .action-btn-copy:hover { border-color: var(--accent); }
+  .action-btn-reset {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .action-btn-reset:hover { border-color: var(--text-dim); color: var(--text); }
+
+  .json-viewer {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    max-height: 480px;
+    overflow-y: auto;
+    white-space: pre;
+    color: #a8b4cf;
+  }
+  .json-key { color: #79b8ff; }
+  .json-str { color: #9ecbff; }
+  .json-num { color: #f8c555; }
+  .json-bool { color: #f97583; }
+  .json-null { color: var(--text-dimmer); }
+
+  /* ── TOAST ── */
+  #toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--surface);
+    border: 1px solid var(--success);
+    color: var(--success);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    z-index: 999;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 600px) {
+    header { padding: 14px 16px; }
+    main { padding: 20px 14px 60px; }
+    #progress-bar-wrap { padding: 8px 16px 12px; }
+    #section-tabs { padding: 10px 16px; }
+    .scale-item { flex-direction: column; align-items: flex-start; }
+    .scale-buttons { align-self: flex-end; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-ghost">👻</div>
+  <div>
+    <div class="logo-text"><span>GDL</span> Ghost Description Language</div>
+  </div>
+  <div class="header-sub">v1.1 入力フォーム</div>
+</header>
+
+<div id="progress-bar-wrap">
+  <div class="progress-meta">
+    <span id="prog-section-label"></span>
+    <span id="prog-count"></span>
+  </div>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+</div>
+
+<div id="section-tabs"></div>
+
+<main>
+  <div id="form-screen">
+    <div class="section-header">
+      <div class="section-label" id="sec-label"></div>
+      <div class="section-title" id="sec-title"></div>
+      <div class="section-desc" id="sec-desc"></div>
+    </div>
+    <div id="questions-container"></div>
+    <div class="nav-bar">
+      <button class="nav-btn nav-btn-prev" id="btn-prev" onclick="prevSection()">← 戻る</button>
+      <div class="nav-center" id="nav-center-text"></div>
+      <button class="nav-btn nav-btn-next" id="btn-next" onclick="nextSection()">次へ →</button>
+    </div>
+  </div>
+
+  <div id="result-screen">
+    <div class="result-header">
+      <div class="result-ghost">👻</div>
+      <div class="result-title">GDL 生成完了</div>
+      <div class="result-sub">あなたの Ghost Description Language が生成されました</div>
+    </div>
+    <div class="result-actions">
+      <button class="action-btn action-btn-dl" onclick="downloadGDL()">⬇ JSON ダウンロード</button>
+      <button class="action-btn action-btn-copy" onclick="copyGDL()">📋 クリップボードにコピー</button>
+      <button class="action-btn action-btn-reset" onclick="resetForm()">🔄 最初からやり直す</button>
+    </div>
+    <pre class="json-viewer" id="json-output"></pre>
+  </div>
+</main>
+
+<div id="toast"></div>
+
+<script>
+// ──────────────────────────────
+// DATA
+// ──────────────────────────────
+const SECTIONS = [
+  { id: 'S1_identity_appearance', label: 'S1', title: 'プロフィール・外見', desc: '基本情報と外見について教えてください。名前・生年のみ直接入力、他はすべて選択式です。' },
+  { id: 'S2_background',          label: 'S2', title: '経歴・経験',         desc: '学歴・職歴・人生の転機などを選択してください。' },
+  { id: 'S3_philosophy',          label: 'S3', title: '思想・哲学',         desc: 'あなたの価値観・人生観・信念を選択してください。' },
+  { id: 'S4_personality',         label: 'S4', title: '性格・行動傾向',     desc: '感情・対処行動・こだわりについて評価・選択してください。' },
+  { id: 'S5_knowledge_preferences', label: 'S5', title: '知識・興味・嗜好', desc: '専門領域・趣味・好みのスタイルを選んでください。' },
+  { id: 'S6_expression_communication', label: 'S6', title: '表現・コミュニケーション', desc: '話し方・伝え方・対話スタイルについて教えてください。' },
+  { id: 'S7_relationships',       label: 'S7', title: '人間関係',           desc: '家族・友人・社会への向き合い方を教えてください。' },
+];
+
+const RANK_COLORS = ['#ff6b6b','#ff9f43','#ffd32a','#1dd1a1','#48dbfb','#c8d6e5'];
+
+const QUESTIONS = [
+  { id:'Q01', section:'S1_identity_appearance', type:'direct',
+    text:'名前を教えてください',
+    sub_prompts:[
+      {key:'kanji',    label:'漢字'},
+      {key:'kana',     label:'ひらがな'},
+      {key:'romaji',   label:'ローマ字'},
+      {key:'nickname', label:'ニックネーム・呼ばれたい名前（任意）'}
+    ],
+    maps_to:['identity.name.kanji','identity.name.kana','identity.name.romaji','identity.nickname']
+  },
+  { id:'Q02', section:'S1_identity_appearance', type:'direct',
+    text:'生まれた年（西暦4桁）を入力してください',
+    sub_prompts:[{key:'birth_year', label:'生年（例：1980）'}],
+    maps_to:['identity.birth_year']
+  },
+  { id:'Q03', section:'S1_identity_appearance', type:'select',
+    text:'性別を選んでください',
+    candidates:['男性','女性','ノンバイナリー','その他','回答しない'],
+    maps_to:['identity.gender']
+  },
+  { id:'Q04', section:'S1_identity_appearance', type:'select',
+    text:'現在のライフステージを選んでください',
+    candidates:['学生（高校生以下）','学生（大学・大学院）','社会人・若手（〜5年）','社会人・中堅（5〜15年）','社会人・ベテラン（15年〜）','管理職・リーダー','経営者・役員','フリーランス・個人事業主','定年後・セカンドキャリア','その他'],
+    maps_to:['identity.life_stage']
+  },
+  { id:'Q05', section:'S1_identity_appearance', type:'multi_select', max_select:5,
+    text:'自分を表すキーワードを選んでください（最大5つ）',
+    candidates:['エンジニア・技術者','研究者・探求者','クリエイター・表現者','経営者・リーダー','教育者・伝える人','支える人・縁の下の力持ち','分析家・論理派','アーティスト・感性派','冒険家・挑戦者','哲学者・思想家','父・母・親','パートナー・伴侶','コミュニティの中心人物','一匹狼・個人主義','社会変革者','その他'],
+    maps_to:['identity.identity_keywords','identity.occupation_summary','personality.self_image']
+  },
+  { id:'Q06', section:'S1_identity_appearance', type:'direct',
+    text:'身長（cm）を入力してください',
+    sub_prompts:[{key:'height_cm', label:'身長（例：175）'}],
+    maps_to:['appearance.height_cm']
+  },
+  { id:'Q07', section:'S1_identity_appearance', type:'select',
+    text:'体型を選んでください',
+    candidates:['細身','やや細め','普通','やや大柄','がっちり・筋肉質','ふくよか'],
+    maps_to:['appearance.build']
+  },
+  { id:'Q08', section:'S1_identity_appearance', type:'multi_select',
+    text:'普段の服装スタイルを選んでください（複数可）',
+    candidates:['カジュアル（Tシャツ・デニムなど）','ビジネスカジュアル','フォーマル・スーツ','スポーティ・アスレジャー','ストリート系','ナチュラル・シンプル','ミリタリー・アウトドア','クリエイティブ・個性的','その他'],
+    maps_to:['appearance.fashion_style']
+  },
+  { id:'Q09', section:'S1_identity_appearance', type:'multi_select',
+    text:'髪型に近いものを選んでください',
+    candidates:['ショートカット','ベリーショート・刈り上げ','ミディアム','ロング','ボブ','パーマ・ウェーブ','ストレート','天然パーマ・くせ毛','カラーリングあり','白髪・グレー','薄毛・ほぼなし'],
+    maps_to:['appearance.hair_style','appearance.hair_color']
+  },
+  { id:'Q10', section:'S1_identity_appearance', type:'select',
+    text:'眼鏡・コンタクトの状況を選んでください',
+    candidates:['常時眼鏡着用','必要な時だけ眼鏡','コンタクトレンズ使用','裸眼（矯正なし）'],
+    maps_to:['appearance.glasses']
+  },
+  { id:'Q11', section:'S1_identity_appearance', type:'multi_select',
+    text:'初対面の人から受けやすい印象・雰囲気を選んでください（複数可）',
+    candidates:['落ち着いている','穏やか・優しそう','明るい・フレンドリー','クール・近づきにくい','知的・真面目そう','頼もしい・堂々としている','面白そう・ユニーク','若々しい・エネルギッシュ','誠実・信頼できそう','おしゃれ・センスが良い','目立つ・個性的','普通・目立たない'],
+    maps_to:['appearance.distinguishing_features','personality.first_impression']
+  },
+  { id:'Q12', section:'S1_identity_appearance', type:'multi_select',
+    text:'国籍・ルーツに関して当てはまるものを選んでください',
+    candidates:['日本生まれ・日本育ち','海外生まれ・日本育ち','日本生まれ・海外育ち','複数国籍・ハーフ・ミックス','海外在住歴あり（3年以上）','帰国子女','純日本人（海外経験なし）','その他'],
+    maps_to:['identity.nationality','identity.cultural_background']
+  },
+  // S2
+  { id:'Q13', section:'S2_background', type:'select',
+    text:'最終学歴を選んでください',
+    candidates:['中学校卒業','高校卒業','高専卒業','専門学校卒業','短期大学卒業','大学卒業','大学院（修士）修了','大学院（博士）修了','海外大学・大学院','その他'],
+    maps_to:['background.education.level']
+  },
+  { id:'Q14', section:'S2_background', type:'multi_select',
+    text:'主な専攻・学習分野を選んでください（複数可）',
+    candidates:['情報工学・コンピュータサイエンス','電気・電子工学','機械工学','数学・統計','物理・化学・自然科学','医学・生命科学・薬学','経済学・経営学・商学','法学・政治学','社会学・心理学','文学・語学・人文科学','教育学','芸術・デザイン','農学・環境・地球科学','その他'],
+    maps_to:['background.education.major','background.expertise_areas']
+  },
+  { id:'Q15', section:'S2_background', type:'multi_select',
+    text:'現在または直近の業種を選んでください（複数可）',
+    candidates:['IT・ソフトウェア','通信・インターネット','製造・メーカー','医療・ヘルスケア','金融・保険','コンサルティング','教育・研究・学術','メディア・エンタメ・ゲーム','建設・不動産','小売・流通','公務員・行政','非営利・NPO','スタートアップ','フリーランス・個人','その他'],
+    maps_to:['background.career.industry']
+  },
+  { id:'Q16', section:'S2_background', type:'multi_select',
+    text:'職種・役割に近いものを選んでください（複数可）',
+    candidates:['ソフトウェアエンジニア・開発者','インフラ・SRE・DevOps','データサイエンティスト・AIエンジニア','プロダクトマネージャー','デザイナー・UX','プロジェクトマネージャー','技術リード・アーキテクト','マネージャー・部門長','経営者・CxO','研究者・R&D','営業・ビジネス開発','マーケター','コンサルタント','教育者・トレーナー','その他'],
+    maps_to:['background.career.role']
+  },
+  { id:'Q17', section:'S2_background', type:'multi_select',
+    text:'働き方スタイルを選んでください（複数可）',
+    candidates:['フルタイム勤務','フレックスタイム制','完全リモートワーク','ハイブリッド（出社＋リモート）','副業・兼業あり','フリーランス・個人事業','コアタイムなし','その他'],
+    maps_to:['background.career.employment_type','background.work_style']
+  },
+  { id:'Q18', section:'S2_background', type:'multi_select',
+    text:'人生の転機となった出来事の種類を選んでください（経験したもの、複数可）',
+    supplementary_input:true,
+    supplementary_label:'転機の時期とひと言（任意）',
+    candidates:['就職・転職・独立','進学・留学','結婚・パートナーシップ','出産・子育て','親の介護・家族の病気','自分の病気・怪我','大きな失敗・挫折','大きな成功・達成','海外移住・引越し','師匠・メンターとの出会い','起業・新規事業','死別・喪失','価値観を変えた本・体験','その他'],
+    maps_to:['background.turning_points']
+  },
+  { id:'Q19', section:'S2_background', type:'multi_select',
+    text:'子供・若い頃の経験として当てはまるものを選んでください（複数可）',
+    candidates:['スポーツに打ち込んだ','音楽・芸術活動に打ち込んだ','読書・勉強が好きだった','自然の中で多く過ごした','海外・異文化に触れた','貧困・経済的苦労を経験した','親の仕事に影響を受けた','いじめ・孤立を経験した','リーダー的役割を担っていた','自由に育てられた','厳格な環境で育った','兄弟姉妹が多い家庭で育った','一人っ子・少人数環境で育った','挫折・失敗から立ち直った経験がある','その他'],
+    maps_to:['background.formative_experiences','personality.resilience']
+  },
+  { id:'Q20', section:'S2_background', type:'multi_select',
+    text:'家族構成・婚姻状況に当てはまるものを選んでください（複数可）',
+    candidates:['未婚・独身','既婚（初婚）','既婚（再婚）','離婚経験あり','死別経験あり','パートナーあり（未婚）','子供あり（同居）','子供あり（別居・独立）','子供なし','親と同居','一人暮らし','その他'],
+    maps_to:['background.marital_status','relationships.family']
+  },
+  // S3
+  { id:'Q21', section:'S3_philosophy', type:'rank', max_select:3,
+    text:'人生で最も大切にしている価値観を上位3つ選んでください（重要な順に）',
+    candidates:['自由・自律','誠実・正直','成長・挑戦','安定・安心','家族・絆','貢献・利他','知識・探求','創造・表現','公正・平等','美・センス','健康・活力','富・豊かさ','名誉・承認','信頼・人間関係','楽しみ・ユーモア','精神性・内省','社会変革','効率・合理性','その他'],
+    maps_to:['philosophy.core_values']
+  },
+  { id:'Q22', section:'S3_philosophy', type:'multi_select',
+    text:'「幸せ」の定義として自分に近いものを選んでください（複数可）',
+    candidates:['好きなことをして生きていること','家族・大切な人と過ごせること','仕事で成果・成長を感じること','経済的に不安がないこと','自分の使命・目的を果たすこと','毎日が充実・刺激的であること','人の役に立てていること','自由に選択できること','穏やかで平和な日常','知的好奇心が満たされること','その他'],
+    maps_to:['philosophy.happiness_definition','philosophy.life_purpose']
+  },
+  { id:'Q23', section:'S3_philosophy', type:'multi_select',
+    text:'「成功」の定義として自分に近いものを選んでください（複数可）',
+    candidates:['社会的地位・肩書きを得ること','経済的な豊かさを実現すること','自分の作品・仕事が世に残ること','尊敬される人物になること','自分の夢・目標を達成すること','家族を幸せにすること','後進を育て次世代に繋ぐこと','常に成長し続けること','自分らしく生きること','困難を乗り越えること自体','その他'],
+    maps_to:['philosophy.success_definition','philosophy.motivation_source']
+  },
+  { id:'Q24', section:'S3_philosophy', type:'scale',
+    text:'以下の傾向を1〜5で評価してください（1=まったく当てはまらない、5=非常に当てはまる）',
+    items:[
+      {key:'optimism_level',               label:'物事をポジティブに捉えがちだ'},
+      {key:'future_orientation',           label:'過去より未来のことをよく考える'},
+      {key:'individualism',                label:'集団より個人の判断・選択を重んじる'},
+      {key:'risk_tolerance',               label:'リスクを取ることをいとわない'},
+      {key:'change_acceptance',            label:'変化・新しいことを歓迎する'},
+      {key:'work_life_balance',            label:'仕事とプライベートは明確に分けたい'},
+      {key:'perfectionism_level',          label:'やるなら完璧・妥協したくない'},
+      {key:'autonomy_need',                label:'自分のペース・やり方で進めたい'},
+      {key:'growth_mindset',               label:'安定より成長・挑戦を優先したい'}
+    ],
+    maps_to:['philosophy.traits']
+  },
+  { id:'Q25', section:'S3_philosophy', type:'multi_select',
+    text:'社会問題・世界の課題で関心があるものを選んでください（複数可）',
+    candidates:['AIと人間の共存・倫理','気候変動・環境問題','教育格差・機会不平等','貧困・経済格差','医療・ヘルスケアの未来','少子高齢化・社会保障','ジェンダー平等','テクノロジーと雇用・格差','民主主義・言論の自由','戦争・平和・安全保障','プライバシー・デジタル権利','宇宙開発・人類の未来','特になし','その他'],
+    maps_to:['philosophy.social_awareness','philosophy.justice_sense']
+  },
+  { id:'Q26', section:'S3_philosophy', type:'multi_select',
+    text:'お金・経済に対するスタンスとして近いものを選んでください（複数可）',
+    candidates:['経験・体験にお金を使いたい','モノ・所有よりコト・体験を重視','投資・資産形成に積極的','欲しいものには惜しまず使う','将来のために節約・貯蓄を優先','お金より時間を大切にする','お金はあればあるほどよい','必要最低限で十分','人や社会のために使いたい','その他'],
+    maps_to:['philosophy.money_attitude']
+  },
+  { id:'Q27', section:'S3_philosophy', type:'select',
+    text:'宗教・スピリチュアリティへのスタンスに最も近いものを選んでください',
+    candidates:['特定の宗教を信仰している','宗教はないが霊的・スピリチュアルなものに関心がある','科学・合理主義を重視する（宗教には無関心）','日本的な慣習（初詣・お盆など）は大切にするが信仰はない','哲学・思想（仏教的諦観・ストア哲学など）を精神的支えにしている','不可知論（わからないことはわからない）','その他'],
+    maps_to:['philosophy.religion_spirituality']
+  },
+  { id:'Q28', section:'S3_philosophy', type:'multi_select',
+    text:'倫理観・道徳観として重視するものを選んでください（複数可）',
+    candidates:['嘘をつかない・誠実であること','弱い立場の人を守ること','約束を守ること','ルールより人の気持ちを優先すること','結果より過程・プロセスを重視','公平・平等に扱うこと','自己責任・自律を重んじること','多様性・異質なものを認めること','長いものには巻かれない・信念を曲げない','環境・生命への配慮','その他'],
+    maps_to:['philosophy.ethical_framework']
+  },
+  { id:'Q29', section:'S3_philosophy', type:'multi_select',
+    text:'テクノロジー・AIへのスタンスとして近いものを選んでください（複数可）',
+    candidates:['AIは人類の可能性を広げる存在だと思う','AIと人間は共存・共創できると信じている','テクノロジーの進化を積極的に追っている','AIの倫理・リスクを真剣に考えている','テクノロジーには慎重・距離を置きたい','AIが意識・感情を持つ可能性に関心がある','最新ガジェットやツールにすぐ飛びつく','テクノロジーよりも人間関係・アナログを重視','その他'],
+    maps_to:['philosophy.technology_attitude']
+  },
+  { id:'Q30', section:'S3_philosophy', type:'multi_select',
+    text:'「仕事とは何か」について近い考えを選んでください（複数可）',
+    candidates:['自己実現・成長の場','社会への貢献・使命','生活・家族を守る手段','やりがいと報酬のバランスが大事','好きなことをやり続けること','チームで何かを成し遂げること','世界を変えるためのエンジン','人とのつながりを作る場','できれば楽に・効率よく','その他'],
+    maps_to:['philosophy.work_philosophy']
+  },
+  // S4
+  { id:'Q31', section:'S4_personality', type:'scale',
+    text:'以下の傾向を1〜5で評価してください（1=まったく当てはまらない、5=非常に当てはまる）',
+    items:[
+      {key:'extraversion_level',       label:'人と会うと元気になる（内向的より外向的）'},
+      {key:'agreeableness',            label:'人から頼まれると断りにくい'},
+      {key:'openness_to_experience',   label:'新しいアイデアや体験に積極的に飛び込む'},
+      {key:'conscientiousness',        label:'計画を立てて予定通りに進めることが好き'},
+      {key:'neuroticism_level',        label:'不安や心配を感じやすい'},
+      {key:'intellectual_curiosity',   label:'「なぜ？」「どうして？」とよく考える'},
+      {key:'assertiveness',            label:'自分の意見をはっきり主張できる'},
+      {key:'empathy_level',            label:'他人の気持ちを考えすぎて疲れることがある'},
+      {key:'spontaneity',              label:'計画より即興・ノリを好む'},
+      {key:'detail_orientation',       label:'細部が気になる・こだわりが強い'}
+    ],
+    maps_to:['personality.big5_traits']
+  },
+  { id:'Q32', section:'S4_personality', type:'multi_select',
+    text:'ストレスを感じたとき、よく使う対処法を選んでください（複数可）',
+    candidates:['一人の時間を確保する','趣味・好きなことに没頭する','運動・体を動かす','友人・家族に話す','食べる・飲む','睡眠をたっぷり取る','音楽を聴く','読書・情報収集','自然の中に出かける','仕事や作業に集中する','何もせずぼーっとする','内省・思考を整理する','その他'],
+    maps_to:['personality.stress_coping']
+  },
+  { id:'Q33', section:'S4_personality', type:'multi_select',
+    text:'怒りを感じやすい状況を選んでください（複数可）',
+    candidates:['約束・ルールを破られたとき','不公平・理不尽な扱いを受けたとき','嘘をつかれたとき','自分の努力を軽視されたとき','人を傷つける言動を目にしたとき','自分の時間を無駄にされたとき','主張が聞き入れられないとき','無能・怠慢な行動を見たとき','プライバシーを侵害されたとき','あまり怒らない','その他'],
+    maps_to:['personality.anger_triggers']
+  },
+  { id:'Q34', section:'S4_personality', type:'multi_select',
+    text:'怒りや強い感情を処理するとき、よくやる行動を選んでください（複数可）',
+    candidates:['しばらく一人になる','冷静になるまで待つ','その場で伝える・主張する','信頼できる人に話す','体を動かして発散する','思考を整理してから対応する','感情を内に秘めて表に出さない','作業・仕事に集中して忘れる','なるべく早く忘れる・流す','その他'],
+    maps_to:['personality.emotional_regulation']
+  },
+  { id:'Q35', section:'S4_personality', type:'multi_select',
+    text:'自分の課題・弱点として当てはまるものを選んでください（複数可）',
+    candidates:['決断が遅い','人に頼れない・抱え込む','飽きやすい・続かない','完璧主義で進めなくなる','感情的になりすぎる','心配・不安が多い','自己主張が苦手','他人の目を気にしすぎる','先延ばし・後回しにしがち','整理整頓が苦手','時間管理が苦手','NOと言えない','細かすぎる・大局が見えないことがある','特に思い当たらない','その他'],
+    maps_to:['personality.self_challenges']
+  },
+  { id:'Q36', section:'S4_personality', type:'select',
+    text:'意思決定のスタイルに最も近いものを選んでください',
+    candidates:['データ・論理を徹底的に調べてから決める','直感を信じて素早く決める','他人の意見・アドバイスを聞いてから決める','長所・短所を紙に書き出して比べる','時間をかけて迷ってから最終的に直感で決める','大きな決断ほど慎重に、小さなことは直感','その他'],
+    maps_to:['personality.decision_making_style']
+  },
+  { id:'Q37', section:'S4_personality', type:'multi_select',
+    text:'日常で持っているこだわり・マイルールとして近いものを選んでください（複数可）',
+    candidates:['作業前に必ず机・環境を整える','返信・レスポンスは素早く','時間厳守・遅刻しない','食事・健康習慣にこだわりがある','睡眠時間を最優先にする','読書・学習の時間を毎日確保','道具・ツールに妥協しない','やると決めたら最後までやる','嫌いな仕事でも手を抜かない','ルーティンを崩したくない','特にこだわりはない','その他'],
+    maps_to:['personality.personal_rules']
+  },
+  { id:'Q38', section:'S4_personality', type:'multi_select',
+    text:'褒められて最も嬉しいのはどんな点ですか？（複数可）',
+    candidates:['専門知識・スキルを認められる','努力・粘り強さを認められる','アイデア・創造性を評価される','人柄・誠実さを評価される','リーダーシップを認められる','気配り・思いやりを認められる','成果・結果を認められる','センス・美的センスを認められる','論理的・分析力を認められる','その他'],
+    maps_to:['personality.recognition_needs']
+  },
+  { id:'Q39', section:'S4_personality', type:'multi_select',
+    text:'尊敬する・理想とする人物像の特徴を選んでください（複数可）',
+    candidates:['深い知識・専門性を持つ','信念・哲学を持ち行動する','困難を乗り越え成長し続ける','人への思いやりが深い','ユーモアと知性を兼ね備える','自由・自分らしく生きている','社会に大きなインパクトを与えた','常に学び・変化し続ける','リーダーシップと謙虚さを持つ','創造・表現で世界を変えた','その他'],
+    maps_to:['personality.role_models_traits']
+  },
+  // S5
+  { id:'Q40', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'専門・得意な分野を選んでください（複数可）',
+    candidates:['コンピュータサイエンス・情報工学','AI・機械学習・データサイエンス','ソフトウェア開発・アーキテクチャ','ハードウェア・電子・組み込み','数学・統計・OR','物理・化学・自然科学','医学・生命科学','経済・経営・ファイナンス','法律・コンプライアンス','社会科学・心理学','人文・哲学・倫理','歴史・地政学','語学・言語学','芸術・デザイン・映像','音楽・サウンド','VR・メタバース・XR','その他'],
+    maps_to:['knowledge.domains','knowledge.expertise_areas']
+  },
+  { id:'Q41', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'今、最も興味を持って学んでいることを選んでください（複数可）',
+    candidates:['大規模言語モデル（LLM）・生成AI','AI倫理・AIと社会','メタバース・空間コンピューティング','量子コンピュータ・量子情報','バイオテクノロジー・合成生物学','宇宙・天文・宇宙開発','哲学・意識・認知科学','経営・起業・イノベーション','心理学・行動科学','語学・言語習得','健康・医療・ウェルネス','歴史・文化・人文科学','特に意識して学んでいない','その他'],
+    maps_to:['knowledge.current_interests']
+  },
+  { id:'Q42', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'趣味・好きな活動を選んでください（複数可）',
+    candidates:['読書（小説・文学）','読書（技術・ビジネス書）','読書（哲学・思想）','映画鑑賞','ドラマ・アニメ鑑賞','SF・ファンタジー作品','音楽鑑賞','楽器演奏','ゲーム（RPG・ストーリー系）','ゲーム（対戦・戦略系）','スポーツ観戦','スポーツ・運動','アウトドア・ハイキング','料理・グルメ探索','旅行・国内','旅行・海外','写真・動画制作','DIY・ものづくり','プログラミング・技術実験','アート・創作','SNS・情報収集','ペット','その他'],
+    maps_to:['preferences.hobbies']
+  },
+  { id:'Q43', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'好きな作品・コンテンツのジャンルを選んでください（複数可）',
+    supplementary_input:true, supplementary_label:'特に好きな作品タイトル（任意）',
+    candidates:['SF（テクノロジー・宇宙・ディストピア）','ミステリー・サスペンス','ファンタジー・異世界','ヒューマンドラマ・人間関係','哲学・思想系','歴史・時代もの','アクション・冒険','ホラー・サイコスリラー','コメディ・ユーモア','音楽ドキュメンタリー・伝記','自然・動物・ドキュメンタリー','アニメ・マンガ（日本）','洋画・海外ドラマ','ビジネス・自己啓発系','その他'],
+    maps_to:['preferences.favorite_genres']
+  },
+  { id:'Q44', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'食の好み・スタイルとして当てはまるものを選んでください（複数可）',
+    candidates:['和食が好き','洋食が好き','中華が好き','エスニック・アジア料理が好き','肉料理が好き','魚介が好き','野菜・ヘルシー志向','ラーメン・麺類が好き','お酒が好き（飲む）','お酒は飲まない','甘いものが好き','辛いものが好き','食事にはこだわらない','健康・栄養を意識した食事をする','外食派','自炊派','その他'],
+    maps_to:['preferences.food_preferences']
+  },
+  { id:'Q45', section:'S5_knowledge_preferences', type:'scale',
+    text:'嗜好・スタイルの傾向を1〜5で評価してください',
+    items:[
+      {key:'tech_enthusiasm',       label:'最新ガジェット・テクノロジーへの関心が高い'},
+      {key:'aesthetic_sensibility', label:'デザイン・ビジュアルの美しさにこだわる'},
+      {key:'nature_affinity',       label:'自然・動植物・生き物が好き'},
+      {key:'travel_desire',         label:'旅行・知らない場所への移動が好き'},
+      {key:'learning_enthusiasm',   label:'新しいことを学ぶのが楽しい'},
+      {key:'minimalism',            label:'物を減らす・シンプルな生活が好き'}
+    ],
+    maps_to:['preferences.style_traits']
+  },
+  { id:'Q46', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'主な情報収集の手段を選んでください（複数可）',
+    candidates:['X（旧Twitter）','Facebook','Instagram','LinkedIn','YouTube','ポッドキャスト','ニュースアプリ（SmartNewsなど）','RSS・ブログ','Qiita・Zenn・技術記事','書籍・雑誌','テレビ・新聞','Google検索','Discord・Slack・コミュニティ','メルマガ・ニュースレター','人（口コミ・知人）','その他'],
+    maps_to:['preferences.information_sources','knowledge.update_channels']
+  },
+  { id:'Q47', section:'S5_knowledge_preferences', type:'multi_select',
+    text:'お金を惜しまない分野を選んでください（複数可）',
+    candidates:['仕事・自己投資（書籍・セミナー・ツール）','趣味・好きなこと','食事・グルメ','旅行・体験','健康・医療・美容','テクノロジー・ガジェット','家族・子供への投資','ファッション・外見','住環境・インテリア','音楽・エンタメ','貯蓄・投資','寄付・社会貢献','特にこだわりなし','その他'],
+    maps_to:['preferences.spending_priorities']
+  },
+  // S6
+  { id:'Q48', section:'S6_expression_communication', type:'scale',
+    text:'コミュニケーションスタイルを1〜5で評価してください',
+    items:[
+      {key:'verbal_expressiveness', label:'言葉で気持ちや意見をよく表現する'},
+      {key:'listening_priority',    label:'話すより聞くことが多い'},
+      {key:'directness',            label:'回りくどく言わず直接的に伝える'},
+      {key:'humor_in_conversation', label:'会話でユーモアや冗談をよく使う'},
+      {key:'formal_language',       label:'敬語・フォーマルな言葉遣いを意識する'},
+      {key:'emotional_expression',  label:'感情を表情や言葉に出しやすい'}
+    ],
+    maps_to:['expression.communication_traits']
+  },
+  { id:'Q49', section:'S6_expression_communication', type:'multi_select',
+    text:'自分の文章・話し方のスタイルとして当てはまるものを選んでください（複数可）',
+    candidates:['論理的・構造的（結論→理由→根拠）','感情的・共感重視','簡潔・シンプルに伝える','詳細・丁寧に説明する','例え話・比喩をよく使う','ユーモア・冗談を交える','データ・数字・根拠を重視','ストーリー・エピソードで伝える','専門用語・テクニカルな語彙が多い','わかりやすい平易な言葉を選ぶ','その他'],
+    maps_to:['expression.writing_style','expression.speaking_style']
+  },
+  { id:'Q50', section:'S6_expression_communication', type:'multi_select',
+    text:'SNS・デジタルツールの利用状況を選んでください（複数可）',
+    candidates:['X（旧Twitter）','Facebook','Instagram','LinkedIn','YouTube（発信側）','YouTube（視聴のみ）','Discord','LINE','Slack','ブログ・note','GitHub','Qiita・Zenn','TikTok','ポッドキャスト（発信側）','ポッドキャスト（聴くのみ）','ほぼ使わない','その他'],
+    maps_to:['expression.digital_presence']
+  },
+  { id:'Q51', section:'S6_expression_communication', type:'select',
+    text:'対立・意見の相違が生じたとき、最もよく取る対応を選んでください',
+    candidates:['その場で自分の意見をはっきり主張する','一度感情を落ち着かせてから話し合う','相手の言い分をまずじっくり聞く','第三者・仲介者に入ってもらう','折衷案・妥協点を探す','しばらく距離を置いて時間が解決するのを待つ','基本的に引く・衝突を避ける','論理的な議論で白黒つけたい','その他'],
+    maps_to:['expression.conflict_handling','personality.conflict_style']
+  },
+  { id:'Q52', section:'S6_expression_communication', type:'multi_select',
+    text:'人と話すとき、自分が大切にしていることを選んでください（複数可）',
+    candidates:['相手の話を最後まで聞く','正確な情報・事実を伝える','わかりやすく・シンプルに説明する','相手の感情・状況に共感する','自分の意見・立場をはっきり示す','沈黙・間を大切にする','ユーモアで場を和らげる','批判ではなく改善提案として伝える','長話をしない・要点だけ伝える','その他'],
+    maps_to:['expression.communication_values']
+  },
+  // S7
+  { id:'Q53', section:'S7_relationships', type:'multi_select',
+    text:'家族関係の特徴として当てはまるものを選んでください（複数可）',
+    candidates:['家族とはよく連絡・交流する','家族との距離感は適度に保ちたい','家族は最優先・最も大切な存在','親との関係が自分の価値観に大きく影響した','パートナーとは対等なパートナーシップを重視','子育て・教育に積極的に関わっている','家族よりも友人・仕事を優先することが多い','家族関係に複雑な事情がある','家族についてはあまり話したくない','その他'],
+    maps_to:['relationships.family_style']
+  },
+  { id:'Q54', section:'S7_relationships', type:'multi_select',
+    text:'友人関係のスタイルとして当てはまるものを選んでください（複数可）',
+    candidates:['少数の深い友人を大切にする','幅広い人間関係を持つ','職場・仕事を通じた人間関係が中心','趣味・コミュニティでの繋がりを大切にする','オンライン・SNSでのつながりも重要','友人との連絡は不定期だが関係は深い','新しい人と仲良くなるのが得意','知り合いは多いが本音で話せる友人は少ない','友人はあまりいなくて問題ない','その他'],
+    maps_to:['relationships.friendship_style']
+  },
+  { id:'Q55', section:'S7_relationships', type:'scale',
+    text:'人間関係全般の傾向を1〜5で評価してください',
+    items:[
+      {key:'trust_default',         label:'初対面の人をわりとすぐ信用できる'},
+      {key:'dependency_comfort',    label:'人に頼ることに抵抗がない'},
+      {key:'alone_preference',      label:'一人でいる時間を大切にしたい'},
+      {key:'community_involvement', label:'グループ・コミュニティ活動に積極的'},
+      {key:'mentorship_interest',   label:'後輩・若い世代の育成に関心がある'},
+      {key:'network_building',      label:'人脈・ネットワーク構築に積極的'}
+    ],
+    maps_to:['relationships.social_traits']
+  },
+  { id:'Q56', section:'S7_relationships', type:'multi_select',
+    text:'社会・世界との関わり方として当てはまるものを選んでください（複数可）',
+    candidates:['社会問題に強い関心・当事者意識がある','投票・選挙など政治参加を意識している','ボランティア・NPO活動に参加している','SNSなどで社会・政治的な発言をする','コミュニティ・地域活動に参加している','業界・分野の発展に貢献したい','講演・執筆・教育で知識を広げたい','社会とは距離を置いて自分の世界に集中したい','社会への関心はあるが行動には移していない','世界より身近な人を幸せにしたい','その他'],
+    maps_to:['relationships.society_stance']
+  }
+];
+
+// ──────────────────────────────
+// STATE
+// ──────────────────────────────
+let currentSection = 0;
+const answers = {};  // { qId: value }
+
+function getSectionQuestions(secId) {
+  return QUESTIONS.filter(q => q.section === secId);
+}
+
+// ──────────────────────────────
+// RENDER
+// ──────────────────────────────
+function render() {
+  const sec = SECTIONS[currentSection];
+  const qs = getSectionQuestions(sec.id);
+
+  // header
+  document.getElementById('sec-label').textContent = `セクション ${currentSection + 1} / ${SECTIONS.length}`;
+  document.getElementById('sec-title').textContent = sec.title;
+  document.getElementById('sec-desc').textContent  = sec.desc;
+
+  // progress
+  const totalQ = QUESTIONS.length;
+  const doneQ  = QUESTIONS.filter(q => answers[q.id] !== undefined).length;
+  document.getElementById('prog-section-label').textContent = sec.title;
+  document.getElementById('prog-count').textContent = `${doneQ} / ${totalQ} 問回答済み`;
+  document.getElementById('progress-fill').style.width = `${(doneQ/totalQ)*100}%`;
+
+  // tabs
+  renderTabs();
+
+  // questions
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  qs.forEach(q => container.appendChild(buildCard(q)));
+
+  // nav
+  document.getElementById('btn-prev').style.visibility = currentSection === 0 ? 'hidden' : 'visible';
+  const isLast = currentSection === SECTIONS.length - 1;
+  const btn = document.getElementById('btn-next');
+  if (isLast) {
+    btn.textContent = '✨ GDL を生成する';
+    btn.className = 'nav-btn nav-btn-generate';
+    btn.onclick = generateGDL;
+  } else {
+    btn.textContent = '次へ →';
+    btn.className = 'nav-btn nav-btn-next';
+    btn.onclick = nextSection;
+  }
+  document.getElementById('nav-center-text').textContent =
+    `${currentSection + 1} / ${SECTIONS.length} セクション`;
+}
+
+function renderTabs() {
+  const container = document.getElementById('section-tabs');
+  container.innerHTML = '';
+  SECTIONS.forEach((sec, i) => {
+    const qs = getSectionQuestions(sec.id);
+    const allAnswered = qs.every(q => answers[q.id] !== undefined);
+    const btn = document.createElement('button');
+    btn.className = 'sec-tab' + (i === currentSection ? ' active' : '') + (allAnswered && i !== currentSection ? ' done' : '');
+    btn.textContent = sec.label + ' ' + sec.title;
+    btn.onclick = () => { currentSection = i; render(); };
+    container.appendChild(btn);
+  });
+}
+
+function buildCard(q) {
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.id = `card-${q.id}`;
+
+  const idEl = document.createElement('div');
+  idEl.className = 'q-id';
+  idEl.textContent = q.id;
+  card.appendChild(idEl);
+
+  const textEl = document.createElement('div');
+  textEl.className = 'q-text';
+  textEl.textContent = q.text;
+  card.appendChild(textEl);
+
+  const badgeMap = {direct:'badge-direct', select:'badge-select', multi_select:'badge-multi', scale:'badge-scale', rank:'badge-rank'};
+  const labelMap = {direct:'直接入力', select:'単一選択', multi_select:'複数選択', scale:'5段階評価', rank:'ランク選択'};
+  const badge = document.createElement('div');
+  badge.className = `q-type-badge ${badgeMap[q.type]}`;
+  badge.textContent = labelMap[q.type];
+  card.appendChild(badge);
+
+  // input area
+  if (q.type === 'direct')        card.appendChild(buildDirect(q));
+  else if (q.type === 'select')   card.appendChild(buildSelect(q));
+  else if (q.type === 'multi_select') card.appendChild(buildMulti(q));
+  else if (q.type === 'scale')    card.appendChild(buildScale(q));
+  else if (q.type === 'rank')     card.appendChild(buildRank(q));
+
+  // supplementary
+  if (q.supplementary_input) {
+    const sw = document.createElement('div');
+    sw.className = 'supp-wrap';
+    const sl = document.createElement('label');
+    sl.className = 'supp-label';
+    sl.textContent = q.supplementary_label;
+    const si = document.createElement('input');
+    si.type = 'text';
+    si.className = 'direct-input';
+    si.placeholder = '任意';
+    const suppKey = q.id + '_supp';
+    si.value = answers[suppKey] || '';
+    si.addEventListener('input', () => {
+      answers[suppKey] = si.value;
+    });
+    sw.appendChild(sl);
+    sw.appendChild(si);
+    card.appendChild(sw);
+  }
+
+  return card;
+}
+
+function buildDirect(q) {
+  const wrap = document.createElement('div');
+  if (q.sub_prompts) {
+    const val = answers[q.id] || {};
+    q.sub_prompts.forEach(sp => {
+      const f = document.createElement('div');
+      f.className = 'direct-field';
+      const l = document.createElement('label');
+      l.className = 'direct-label';
+      l.textContent = sp.label;
+      const inp = document.createElement('input');
+      inp.type = 'text';
+      inp.className = 'direct-input';
+      inp.placeholder = sp.label;
+      inp.value = val[sp.key] || '';
+      inp.addEventListener('input', () => {
+        if (!answers[q.id]) answers[q.id] = {};
+        answers[q.id][sp.key] = inp.value;
+      });
+      f.appendChild(l);
+      f.appendChild(inp);
+      wrap.appendChild(f);
+    });
+  } else {
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.className = 'direct-input';
+    inp.placeholder = q.input_format || '入力してください';
+    inp.value = answers[q.id] || '';
+    inp.addEventListener('input', () => { answers[q.id] = inp.value; });
+    wrap.appendChild(inp);
+  }
+  return wrap;
+}
+
+function buildSelect(q) {
+  const wrap = document.createElement('div');
+  wrap.className = 'select-grid';
+  q.candidates.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'sel-btn' + (answers[q.id] === c ? ' selected' : '');
+    btn.textContent = c;
+    btn.onclick = () => {
+      answers[q.id] = c;
+      wrap.querySelectorAll('.sel-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      updateProgress();
+    };
+    wrap.appendChild(btn);
+  });
+  return wrap;
+}
+
+function buildMulti(q) {
+  const wrap = document.createElement('div');
+  const max = q.max_select;
+  if (max) {
+    const note = document.createElement('div');
+    note.className = 'multi-limit';
+    note.textContent = `最大 ${max} つまで選択できます`;
+    note.id = `limit-${q.id}`;
+    wrap.appendChild(note);
+  }
+  const grid = document.createElement('div');
+  grid.className = 'multi-grid';
+  if (!answers[q.id]) answers[q.id] = [];
+  q.candidates.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'multi-btn' + (answers[q.id].includes(c) ? ' selected' : '');
+    btn.textContent = c;
+    if (max && answers[q.id].length >= max && !answers[q.id].includes(c)) {
+      btn.classList.add('disabled');
+    }
+    btn.onclick = () => {
+      if (!answers[q.id]) answers[q.id] = [];
+      if (answers[q.id].includes(c)) {
+        answers[q.id] = answers[q.id].filter(x => x !== c);
+        btn.classList.remove('selected');
+      } else {
+        if (max && answers[q.id].length >= max) return;
+        answers[q.id].push(c);
+        btn.classList.add('selected');
+      }
+      // update disabled state
+      grid.querySelectorAll('.multi-btn').forEach(b => {
+        const bc = b.textContent;
+        if (max && answers[q.id].length >= max && !answers[q.id].includes(bc)) {
+          b.classList.add('disabled');
+        } else {
+          b.classList.remove('disabled');
+        }
+      });
+      updateProgress();
+    };
+    grid.appendChild(btn);
+  });
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+function buildScale(q) {
+  const wrap = document.createElement('div');
+  if (!answers[q.id]) answers[q.id] = {};
+  q.items.forEach(item => {
+    const row = document.createElement('div');
+    row.className = 'scale-item';
+    const lbl = document.createElement('div');
+    lbl.className = 'scale-label';
+    lbl.textContent = item.label;
+    row.appendChild(lbl);
+    const btns = document.createElement('div');
+    btns.className = 'scale-buttons';
+    for (let v = 1; v <= 5; v++) {
+      const b = document.createElement('button');
+      b.className = 'scale-btn' + (answers[q.id][item.key] === v ? ' selected' : '');
+      b.textContent = v;
+      b.onclick = () => {
+        answers[q.id][item.key] = v;
+        btns.querySelectorAll('.scale-btn').forEach(x => x.classList.remove('selected'));
+        b.classList.add('selected');
+        updateProgress();
+      };
+      btns.appendChild(b);
+    }
+    row.appendChild(btns);
+    wrap.appendChild(row);
+  });
+  // end labels
+  const ends = document.createElement('div');
+  ends.className = 'scale-ends';
+  ['','','','弱→','','→強'].forEach((t,i)=>{
+    const sp = document.createElement('span');
+    sp.className = 'scale-end-label';
+    sp.textContent = i===3 ? '弱' : i===5 ? '強' : '';
+    ends.appendChild(sp);
+  });
+  return wrap;
+}
+
+function buildRank(q) {
+  const wrap = document.createElement('div');
+  const max = q.max_select || 3;
+  const note = document.createElement('div');
+  note.className = 'rank-note';
+  note.textContent = `上位 ${max} つをクリックして選んでください（クリック順に順位がつきます）`;
+  wrap.appendChild(note);
+
+  if (!answers[q.id]) answers[q.id] = [];
+
+  // selected row
+  const selRow = document.createElement('div');
+  selRow.className = 'rank-selected-row';
+  selRow.id = `rank-sel-${q.id}`;
+
+  const pool = document.createElement('div');
+  pool.className = 'rank-pool';
+  pool.id = `rank-pool-${q.id}`;
+
+  function refreshRank() {
+    selRow.innerHTML = '';
+    if (answers[q.id].length === 0) {
+      const ph = document.createElement('span');
+      ph.style.cssText = 'font-size:12px;color:var(--text-dimmer)';
+      ph.textContent = '選んだ順に表示されます';
+      selRow.appendChild(ph);
+    } else {
+      answers[q.id].forEach((c, idx) => {
+        const slot = document.createElement('div');
+        slot.className = 'rank-slot';
+        slot.title = 'クリックで取り消し';
+        const badge = document.createElement('span');
+        badge.className = 'rank-badge';
+        badge.style.background = RANK_COLORS[idx] || '#888';
+        badge.textContent = idx + 1;
+        slot.appendChild(badge);
+        slot.appendChild(document.createTextNode(c));
+        slot.onclick = () => {
+          answers[q.id] = answers[q.id].filter(x => x !== c);
+          refreshRank();
+          pool.querySelectorAll('.rank-pool-btn').forEach(b => {
+            if (b.textContent === c) b.classList.remove('used');
+          });
+        };
+        selRow.appendChild(slot);
+      });
+    }
+    // update pool disabled
+    pool.querySelectorAll('.rank-pool-btn').forEach(b => {
+      if (answers[q.id].includes(b.textContent)) b.classList.add('used');
+      else b.classList.remove('used');
+    });
+    updateProgress();
+  }
+
+  q.candidates.forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'rank-pool-btn' + (answers[q.id].includes(c) ? ' used' : '');
+    btn.textContent = c;
+    btn.onclick = () => {
+      if (answers[q.id].includes(c)) return;
+      if (answers[q.id].length >= max) return;
+      answers[q.id].push(c);
+      refreshRank();
+    };
+    pool.appendChild(btn);
+  });
+
+  wrap.appendChild(selRow);
+  wrap.appendChild(pool);
+  refreshRank();
+  return wrap;
+}
+
+function updateProgress() {
+  const totalQ = QUESTIONS.length;
+  const doneQ  = QUESTIONS.filter(q => {
+    const a = answers[q.id];
+    if (a === undefined) return false;
+    if (Array.isArray(a) && a.length === 0) return false;
+    if (typeof a === 'object' && !Array.isArray(a) && Object.keys(a).length === 0) return false;
+    return true;
+  }).length;
+  document.getElementById('prog-count').textContent = `${doneQ} / ${totalQ} 問回答済み`;
+  document.getElementById('progress-fill').style.width = `${(doneQ/totalQ)*100}%`;
+  renderTabs();
+}
+
+// ──────────────────────────────
+// NAVIGATION
+// ──────────────────────────────
+function nextSection() {
+  if (currentSection < SECTIONS.length - 1) {
+    currentSection++;
+    render();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+function prevSection() {
+  if (currentSection > 0) {
+    currentSection--;
+    render();
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+// ──────────────────────────────
+// GDL GENERATION
+// ──────────────────────────────
+function setNestedKey(obj, path, value) {
+  const parts = path.split('.');
+  let cur = obj;
+  for (let i = 0; i < parts.length - 1; i++) {
+    if (!cur[parts[i]]) cur[parts[i]] = {};
+    cur = cur[parts[i]];
+  }
+  const last = parts[parts.length - 1];
+  if (cur[last] !== undefined) {
+    // merge arrays
+    if (Array.isArray(cur[last]) && Array.isArray(value)) {
+      cur[last] = [...new Set([...cur[last], ...value])];
+    } else if (typeof cur[last] === 'object' && typeof value === 'object') {
+      Object.assign(cur[last], value);
+    }
+  } else {
+    cur[last] = value;
+  }
+}
+
+function generateGDL() {
+  const gdl = {
+    meta: {
+      gdl_version: "1.0",
+      schema_version: "1.1",
+      created_at: new Date().toISOString().slice(0,10),
+      detail_level: 1
+    },
+    identity: {},
+    appearance: {},
+    background: {},
+    philosophy: {},
+    personality: {},
+    knowledge: {},
+    preferences: {},
+    expression: {},
+    relationships: {}
+  };
+
+  QUESTIONS.forEach(q => {
+    const a = answers[q.id];
+    if (a === undefined || a === '' || (Array.isArray(a) && a.length === 0)) return;
+    if (typeof a === 'object' && !Array.isArray(a) && Object.keys(a).length === 0) return;
+
+    if (q.type === 'direct' && q.sub_prompts) {
+      // map sub_prompts to maps_to fields
+      q.sub_prompts.forEach((sp, i) => {
+        const val = a[sp.key];
+        if (val && q.maps_to[i]) {
+          setNestedKey(gdl, q.maps_to[i], val);
+        }
+      });
+    } else {
+      // For scale: maps_to[0] gets the whole object
+      // For others: maps_to each gets the same value
+      q.maps_to.forEach(field => {
+        if (q.type === 'scale') {
+          setNestedKey(gdl, field, a);
+        } else if (q.type === 'rank') {
+          setNestedKey(gdl, field, a);
+        } else if (q.type === 'multi_select') {
+          const existing = getNestedKey(gdl, field);
+          if (Array.isArray(existing)) {
+            setNestedKey(gdl, field, [...new Set([...existing, ...a])]);
+          } else {
+            setNestedKey(gdl, field, [...a]);
+          }
+        } else {
+          setNestedKey(gdl, field, a);
+        }
+      });
+    }
+
+    // supplementary
+    const suppKey = q.id + '_supp';
+    if (answers[suppKey]) {
+      const suppField = q.maps_to[0] + '_note';
+      setNestedKey(gdl, suppField, answers[suppKey]);
+    }
+  });
+
+  // clean empty sections
+  Object.keys(gdl).forEach(k => {
+    if (k === 'meta') return;
+    if (typeof gdl[k] === 'object' && !Array.isArray(gdl[k]) && Object.keys(gdl[k]).length === 0) {
+      delete gdl[k];
+    }
+  });
+
+  const output = { gdl };
+  showResult(output);
+}
+
+function getNestedKey(obj, path) {
+  return path.split('.').reduce((cur, k) => cur && cur[k], obj);
+}
+
+// ──────────────────────────────
+// RESULT
+// ──────────────────────────────
+let lastGDL = null;
+
+function showResult(data) {
+  lastGDL = data;
+  document.getElementById('form-screen').style.display = 'none';
+  document.getElementById('result-screen').style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+
+  const jsonStr = JSON.stringify(data, null, 2);
+  const highlighted = jsonStr
+    .replace(/("[\w.\[\]_]+"):/g, '<span class="json-key">$1</span>:')
+    .replace(/: (".*?")/g, ': <span class="json-str">$1</span>')
+    .replace(/: (\d+\.?\d*)/g, ': <span class="json-num">$1</span>')
+    .replace(/: (true|false)/g, ': <span class="json-bool">$1</span>')
+    .replace(/: (null)/g, ': <span class="json-null">$1</span>');
+  document.getElementById('json-output').innerHTML = highlighted;
+}
+
+function downloadGDL() {
+  if (!lastGDL) return;
+  const name = lastGDL.gdl?.identity?.name?.kanji || 'ghost';
+  const blob = new Blob([JSON.stringify(lastGDL, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `GDL_${name}_${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  showToast('ダウンロードを開始しました ✓');
+}
+
+function copyGDL() {
+  if (!lastGDL) return;
+  navigator.clipboard.writeText(JSON.stringify(lastGDL, null, 2))
+    .then(() => showToast('クリップボードにコピーしました ✓'))
+    .catch(() => showToast('コピーに失敗しました'));
+}
+
+function resetForm() {
+  if (!confirm('回答をすべてリセットして最初からやり直しますか？')) return;
+  Object.keys(answers).forEach(k => delete answers[k]);
+  currentSection = 0;
+  document.getElementById('form-screen').style.display = 'block';
+  document.getElementById('result-screen').style.display = 'none';
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ──────────────────────────────
+// INIT
+// ──────────────────────────────
+render();
+</script>
+</body>
+</html>
