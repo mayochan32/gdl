@@ -1,0 +1,4148 @@
+{
+  "_about": "GDL (Ghost Description Language) 中文语言包",
+  "_language": "zh-CN",
+  "_schema_version": "1.2",
+  "_note": "此文件为简体中文翻译包。键名与GDL模式一致，值为中文翻译。",
+  "_levels": {
+    "_description": "GDL详细度等级定义。决定各项目属于哪个等级。",
+    "Lv1": {
+      "purpose": "能再现语气、口吻及基本偏好",
+      "focus": "Who —— 身份认同（属性与表面特征）"
+    },
+    "Lv2": {
+      "purpose": "能预测判断/推理模式和基于价值观的行为",
+      "focus": "How —— 思维与行动（思考过程与决策标准）"
+    },
+    "Lv3": {
+      "purpose": "能实现包含人生背景、矛盾与内心冲突在内的深层个性再现",
+      "focus": "Why —— 根本原因（深层心理、成长经历与内在矛盾）"
+    }
+  },
+  "_confidence": {
+    "_description": "GDL字段的置信度标注。当GDL通过间接方法（文本分析、行为观察、第三方信息等）而非直接自述生成时使用。",
+    "when_used": "当generation_method为'input_form'或'interview'（直接回答）时不需要。当使用'text_analysis'或'observation'等间接方法时需要。",
+    "levels": {
+      "high": {
+        "meaning": "存在明确声明或非常强的证据",
+        "ai_instruction": "强烈反映此特征"
+      },
+      "medium": {
+        "meaning": "基于多个间接证据的合理推断",
+        "ai_instruction": "一般情况下反映此特征，但存在矛盾信息时灵活调整"
+      },
+      "low": {
+        "meaning": "基于薄弱线索的推测",
+        "ai_instruction": "仅作参考；存在矛盾信息时忽略"
+      },
+      "user_confirmed": {
+        "meaning": "由本人确认或修正的值",
+        "ai_instruction": "至少等同于'high'的信任度"
+      },
+      "user_provided": {
+        "meaning": "由本人直接提供的信息",
+        "ai_instruction": "视为最可靠的值"
+      }
+    },
+    "field_format": {
+      "with_confidence": "{ \"value\": 值, \"confidence\": \"high|medium|low|user_confirmed|user_provided\", \"evidence\": \"推断依据\" }",
+      "without_confidence": "直接存储值（当本人直接回答时）"
+    }
+  },
+  "_meta": {
+    "_description": "元信息部分的字段定义。存储GDL数据的管理信息。",
+    "field_definitions": {
+      "gdl_version": {
+        "description": "GDL格式版本"
+      },
+      "schema_version": {
+        "description": "使用的模式版本"
+      },
+      "created_at": {
+        "description": "GDL创建日期"
+      },
+      "updated_at": {
+        "description": "GDL最后更新日期"
+      },
+      "subject_id": {
+        "description": "对象者的唯一标识符"
+      },
+      "detail_level": {
+        "description": "使用的详细等级。数值1-3或'adaptive'（根据可推断范围自适应输出）"
+      },
+      "generation_method": {
+        "description": "GDL生成方法。间接方法建议附加_confidence标注"
+      },
+      "source_type": {
+        "description": "分析对象的类别（仅限间接生成时）"
+      },
+      "source_summary": {
+        "description": "分析对象的概要（仅限间接生成时）"
+      },
+      "target_person": {
+        "description": "对象人物姓名（仅限多说话者分析时）"
+      },
+      "speakers_detected": {
+        "description": "检测到的说话者列表（仅限多说话者分析时）"
+      }
+    }
+  },
+  "_preamble": {
+    "_description": "GDL输出开头附带的AI解读指南规范。AI在将GDL JSON作为system prompt读取时正确解读数据所需的自描述信息。不可省略。",
+    "conventions": {
+      "what": {
+        "description": "GDL是什么的说明",
+        "example": "GDL（Ghost Description Language）—— 描述人的个性的结构化数据。"
+      },
+      "purpose": {
+        "description": "读取GDL的AI应有的行为",
+        "example": "请理解此数据中描述的人物的个性，再现符合该人物特征的回应、判断和表达。"
+      },
+      "scale_convention": {
+        "description": "数值量表的解读规则",
+        "example": "数值字段使用1〜5的5级量表（1=完全不符合，5=非常符合）。每个项目均附有label（含义）。"
+      },
+      "array_convention": {
+        "description": "数组顺序的含义",
+        "example": "数组字段的排列顺序即为重要度顺序（排在前面的越重要/越适用）。"
+      },
+      "rank_convention": {
+        "description": "rank数组的含义",
+        "example": "rank数组表示本人选择的优先顺序（排在最前的最重要）。"
+      },
+      "usage": {
+        "description": "GDL的使用方式",
+        "example": "设计用于包含在system prompt或context window中使用。"
+      },
+      "confidence_convention": {
+        "description": "置信度标注的解读规则",
+        "example": "每个值可附带confidence字段（high/medium/low/user_confirmed/user_provided）。未标注时默认为medium。",
+        "when_included": "当generation_method为间接方法时"
+      }
+    },
+    "section_descriptions": {
+      "_description": "为每个部分附加_description键以说明其用途。AI正确理解各部分含义所必需。",
+      "values": {
+        "identity": "基本身份信息（姓名、性别、职业、人生阶段等）",
+        "appearance": "外貌特征（体型、时尚风格、声音）",
+        "background": "经历与背景（教育、职业、人生转折点）",
+        "philosophy": "思想与哲学（价值观、世界观、信念）",
+        "personality": "性格与行为倾向（情绪模式、决策风格、特定偏好）",
+        "knowledge": "知识、兴趣与专业领域",
+        "preferences": "品味与偏好（爱好、喜欢的风格、内容）",
+        "expression": "表达与沟通风格",
+        "relationships": "人际关系与社会参与",
+        "episodes": "情节记忆（用于RAG存储）",
+        "personality_assessments": "性格评估结果（Big5、MBTI等）"
+      }
+    }
+  },
+  "_labels": {
+    "_description": "GDL全字段的中文翻译映射。数据主体以英文键管理，此处提供含义参照。",
+    "gdl": "个性描述语言数据主体",
+    "meta": "元信息",
+    "meta.gdl_version": "GDL版本",
+    "meta.schema_version": "模式版本",
+    "meta.created_at": "创建日期",
+    "meta.updated_at": "最后更新日期",
+    "meta.subject_id": "对象者ID",
+    "meta.detail_level": "使用的详细等级（1/2/3或'adaptive'）",
+    "meta.generation_method": "GDL生成方法（input_form/interview/text_analysis/observation等）",
+    "meta.source_type": "分析对象的类别（SNS帖子/博客/采访等；仅限间接生成时）",
+    "meta.source_summary": "分析对象的概要（1-2句；仅限间接生成时）",
+    "meta.target_person": "对象人物姓名（仅限多说话者时）",
+    "meta.speakers_detected": "检测到的说话者列表（仅限多说话者时）",
+    "identity": "身份与基本识别信息",
+    "identity.name": "姓名",
+    "identity.name.kanji": "汉字",
+    "identity.name.kana": "平假名",
+    "identity.name.romaji": "罗马字",
+    "identity.maiden_name": "旧姓（婚前姓）",
+    "identity.gender": "性别（男性/女性/非二元/其他/不回答）",
+    "identity.birth_year": "出生年份",
+    "identity.birthplace": "出生地",
+    "identity.nationality": "国籍",
+    "identity.life_stage": "人生阶段（学生/职场新人/中坚/资深/退休后/其他）",
+    "identity.online_offline_gap": "线上与线下人格差异（Lv2）",
+    "identity.digital_presence": "数字化存在感（Lv2）",
+    "identity.life_mission": "人生使命感（Lv2）",
+    "identity.generational_identity": "世代认同感（Lv3）",
+    "appearance": "外貌与身体特征",
+    "appearance.accessory_preferences": "配饰偏好（Lv2）",
+    "appearance.aging_attitude": "对衰老的态度（自然接受/抵抗/享受/不安/不在意）（Lv3）",
+    "appearance.apparent_age": "外表年龄（看起来年轻/与年龄相符/看起来成熟/难以判断）",
+    "appearance.appearance_confidence": "外貌自信度量表（1=没有自信〜5=非常自信）（Lv3）",
+    "appearance.appearance_era_snapshots": "各时期外貌快照（Lv3）",
+    "appearance.appearance_history": "外貌的变迁（Lv3）",
+    "appearance.appearance_identity_link": "外貌与身份认同的关联（Lv3）",
+    "appearance.appearance_persona_gap": "外表与内在的差距（Lv3）",
+    "appearance.appearance_role_models": "外貌榜样（Lv3）",
+    "appearance.appearance_wounds": "与外貌相关的创伤（Lv3）",
+    "appearance.avatar_identity": "虚拟形象与自我的关系（Lv3）",
+    "appearance.avatar_url": "虚拟形象URL（Lv3）",
+    "appearance.bag_contents": "随身携带的物品（Lv2）",
+    "appearance.blood_type": "血型（A/B/O/AB/不明）",
+    "appearance.body_image": "体型意识与自我形象（Lv3）",
+    "appearance.body_language_awareness": "肢体语言意识度量表（1=无意识〜5=有意识地控制）（Lv2）",
+    "appearance.body_language_tendency": "肢体语言倾向（手势多/克制/表情丰富/动作少/因场合而异）",
+    "appearance.body_narrative": "身体的故事（Lv3）",
+    "appearance.body_relationship": "与身体的关系（Lv3）",
+    "appearance.brand_preferences_fashion": "偏好的时尚品牌（Lv2）",
+    "appearance.build": "体型（纤细/偏瘦/普通/偏大/健壮/丰满）",
+    "appearance.clothing_size": "服装尺码（Lv2）",
+    "appearance.color_palette_preference": "偏好的色彩搭配（Lv2）",
+    "appearance.comfort_vs_style": "舒适vs风格优先度量表（1=舒适优先〜5=风格优先）（Lv2）",
+    "appearance.dental_care": "牙齿保健（最低限度/定期检查/美白/有矫正经历）（Lv2）",
+    "appearance.distinguishing_features": "显著的外貌特征（Lv3）",
+    "appearance.dominant_hand": "惯用手（右/左/双手利）",
+    "appearance.dress_code_adaptation": "着装规范的适应（严格遵守/自己风格调整/最低限度/无视/因场合而异）（Lv2）",
+    "appearance.eye_color": "眼睛颜色",
+    "appearance.eye_color_hex": "眼睛颜色（HEX代码）（Lv2）",
+    "appearance.eyebrow_style": "眉毛特征（粗/细/普通/浓/淡/修整过）",
+    "appearance.eyewear_style": "眼镜/隐形眼镜详情（Lv2）",
+    "appearance.face_shape": "脸型（圆脸/长脸/鹅蛋脸/方脸/倒三角/国字脸）",
+    "appearance.facial_hair": "胡须（无/络腮胡渣/唇髭/下巴胡/全须/修整过）",
+    "appearance.fashion_budget": "时尚预算感（最低限度/注重性价比/适度投资/投资喜欢的/不在意）（Lv2）",
+    "appearance.fashion_items": "经常穿的单品（Lv2）",
+    "appearance.fashion_style": "穿衣风格（休闲/正式/商务休闲/运动/街头/自然/军事/创意/其他）",
+    "appearance.first_impression_awareness": "第一印象意识（Lv3）",
+    "appearance.fitness_routine": "体型维持方式（有运动习惯/饮食管理/没有特别做/减肥中/综合型）（Lv2）",
+    "appearance.fragrance_preference": "香水偏好（不用/淡淡的/浓郁的/视场合而定）（Lv2）",
+    "appearance.glasses": "眼镜的有无（Lv2）",
+    "appearance.grooming_style": "仪容风格（最低限度/注重整洁/讲究/因场合而异）（Lv2）",
+    "appearance.hair_color": "发色",
+    "appearance.hair_color_hex": "发色（HEX代码）（Lv2）",
+    "appearance.hair_maintenance": "理发频率（每月1次/每2个月1次/在意时/自己剪）（Lv2）",
+    "appearance.hair_style": "发型",
+    "appearance.hat_preference": "帽子偏好（不戴/棒球帽/礼帽/针织帽/因场合而异）（Lv2）",
+    "appearance.height_cm": "身高（cm）",
+    "appearance.hidden_appearance_desires": "隐藏的外貌愿望（Lv3）",
+    "appearance.ideal_self_image": "理想的自我形象（Lv3）",
+    "appearance.layering_style": "穿搭层次倾向（薄穿/喜欢叠穿/按季节变化/功能性优先）（Lv2）",
+    "appearance.makeup_style": "化妆风格（不化/最低限度/自然/精致/视场合而定）（Lv2）",
+    "appearance.nail_style": "指甲风格（不打理/剪短/保持干净/美甲保养/美甲艺术）（Lv2）",
+    "appearance.outerwear_preference": "外套偏好（夹克/帽衫/大衣/羽绒/功能性优先/不讲究）（Lv2）",
+    "appearance.overall_impression": "整体印象（他人视角）",
+    "appearance.photo_preference": "拍照偏好（喜欢/不擅长/喜欢自拍/不喜欢被他人拍/不在意）（Lv2）",
+    "appearance.physical_aging_changes": "衰老变化的记录（Lv3）",
+    "appearance.physical_maintenance": "身体保养（整骨·按摩等）（Lv2）",
+    "appearance.physical_presence": "存在感（强/普通/弱/因场合而异）",
+    "appearance.physical_presentation_awareness": "外表意识度量表（1=完全不在意〜5=非常在意）（Lv2）",
+    "appearance.piercings": "穿孔饰品",
+    "appearance.posture": "姿势（良好/普通/略驼背/略反腰）",
+    "appearance.scars_birthmarks": "疤痕/胎记",
+    "appearance.seasonal_wardrobe": "季节性穿搭变化（大幅变化/略有变化/很少变化/以功能性为主变化）（Lv2）",
+    "appearance.shoe_size": "鞋码",
+    "appearance.shoe_style": "鞋子风格（运动鞋/皮鞋/靴子/凉鞋/功能性优先/混搭）（Lv2）",
+    "appearance.signature_look": "标志性外观/招牌造型（Lv2）",
+    "appearance.skin_care_routine": "护肤（不做/最低限度/每日例行/讲究）（Lv2）",
+    "appearance.skin_tone": "肤色（白皙/普通/偏深/褐色/较深）",
+    "appearance.smile_impression": "笑容印象（经常笑/含蓄/嘿嘿型/灿烂型/很少笑）",
+    "appearance.style_icons": "风格榜样（Lv2）",
+    "appearance.style_turning_points": "风格转变的转折点（Lv3）",
+    "appearance.tattoos": "纹身",
+    "appearance.transformation_frequency": "改变形象的频率（几乎不/每年1次左右/每季/频繁/随心情）（Lv2）",
+    "appearance.voice_quality": "声音特征（低/偏低/普通/偏高/高）",
+    "appearance.voice_sample_url": "音声样本URL（Lv3）",
+    "appearance.voice_volume": "声音音量（小/普通/大/因场合而异）",
+    "appearance.walking_style": "走路方式（快/慢/普通/大步/小步/有特征）",
+    "appearance.watch_jewelry": "手表/首饰（Lv2）",
+    "appearance.weather_dressing": "天气穿搭（功能性优先/不太在意不便/根据天气换搭配）（Lv2）",
+    "appearance.weight_range": "体重范围（〜50kg/50-60kg/60-70kg/70-80kg/80-90kg/90kg〜/不公开）",
+    "appearance.workwear_vs_casualwear": "工作装与便装的差异（几乎相同/略有不同/完全分开/无工作装）（Lv2）",
+    "background": "经历与背景",
+    "background.academic_strengths": "学业擅长领域（Lv2）",
+    "background.accessibility_needs": "无障碍需求（Lv2）",
+    "background.body_limitations": "身体限制事项（Lv2）",
+    "background.broken_patterns": "打破的家族模式（Lv3）",
+    "background.career": "工作经历",
+    "background.career[].current": "现职标记",
+    "background.career[].employment_type": "工作形式（全职/兼职/合同工/派遣/自由职业/远程/弹性/无核心时间/副业/其他）",
+    "background.career[].end_year": "结束年（现职为null）",
+    "background.career[].industry": "行业",
+    "background.career[].organization": "组织名称",
+    "background.career[].role": "职种/角色",
+    "background.career[].start_year": "开始年",
+    "background.career_decision_style": "职业决策风格（计划型/抓住机会/直觉/重视咨询/随缘）（Lv2）",
+    "background.career_motivation_pattern": "职业选择的动机模式（成长/稳定/挑战/报酬/使命感/好奇心）（Lv2）",
+    "background.career_regrets": "职业上的遗憾（Lv3）",
+    "background.career_summary": "职业一句话概要",
+    "background.certifications": "资格/认证（Lv2）",
+    "background.certifications[].name": "资格名称",
+    "background.certifications[].year_obtained": "取得年份",
+    "background.chapters_of_life": "人生的章节划分（Lv3）",
+    "background.childhood_environment": "成长环境的特征（Lv3）",
+    "background.chronic_conditions": "慢性健康状况/持病（Lv2）",
+    "background.conference_community_history": "会议/社区参与经历（Lv2）",
+    "background.crisis_management_history": "克服的危机（Lv2）",
+    "background.cultural_adaptation": "文化适应的经验（Lv2）",
+    "background.cultural_displacement": "文化错位的经历（Lv3）",
+    "background.destiny_vs_choice": "命运与选择的感觉（Lv3）",
+    "background.disability_status": "残障的有无/类型（Lv2）",
+    "background.education": "学历",
+    "background.education[].institution": "学校名称",
+    "background.education[].level": "学校类别（小学/初中/高中/专科/短期大学/大学/研究生院（硕士）/研究生院（博士）/其他）",
+    "background.education[].year_entered": "入学年",
+    "background.education[].year_graduated": "毕业年",
+    "background.education_satisfaction": "对所受教育的满意度量表（1=不满〜5=非常满意）（Lv2）",
+    "background.expertise_areas": "专业领域（Lv2）",
+    "background.failure_experiences_career": "职业上的失败经历（Lv2）",
+    "background.family_dynamics": "家庭动态（Lv3）",
+    "background.financial_turning_points": "经济转折点（Lv2）",
+    "background.formative_experiences": "影响人格形成的经历（自由描述）",
+    "background.formative_relationships": "影响人格形成的关系（Lv3）",
+    "background.generational_influences": "世代性影响（Lv3）",
+    "background.health_impact_on_identity": "健康状况对身份认同的影响（Lv3）",
+    "background.health_management_style": "健康管理风格（重视定期检查/出现症状后/自我管理/运动习惯/饮食管理/综合型）（Lv2）",
+    "background.health_milestones": "健康上的里程碑（Lv2）",
+    "background.health_philosophy": "健康观（身心关系的看法）（Lv3）",
+    "background.industry_transition_pattern": "行业转换模式（一直在同一行业/转向相邻领域/大胆跨行业/多个并行）（Lv2）",
+    "background.influential_books_courses": "受影响的书籍/课程（Lv2）",
+    "background.inherited_patterns": "从家族继承的模式（Lv3）",
+    "background.leadership_experience": "领导经验（团队领导/项目经理/技术主管/管理层/无经验/非正式领导）（Lv2）",
+    "background.learning_failures": "学习的失败/挫折（Lv2）",
+    "background.learning_turning_points": "学习的转折点（Lv2）",
+    "background.life_metaphor": "形容人生的比喻（Lv3）",
+    "background.life_narrative_arc": "人生的叙事弧（Lv3）",
+    "background.life_rhythm_changes": "生活节奏的重大变化（Lv2）",
+    "background.lifestyle_shifts": "生活方式的重大变化（Lv2）",
+    "background.loss_and_recovery": "丧失与恢复的经历（Lv2）",
+    "background.marital_history": "婚姻经历",
+    "background.marital_history[].end_year": "结束年（如适用）",
+    "background.marital_history[].event": "事件（结婚/离婚/丧偶）",
+    "background.marital_history[].impact": "对生活/价值观的影响",
+    "background.marital_history[].start_year": "开始年",
+    "background.medical_experiences": "重要的医疗经历（Lv3）",
+    "background.medical_history": "病史（过去重大疾病/手术等）（Lv2）",
+    "background.mental_health_history": "心理健康经历（Lv2）",
+    "background.mentor_history": "导师的历史（Lv2）",
+    "background.migration_story": "移居/迁移的故事（Lv3）",
+    "background.origin_wounds": "源于成长经历的创伤（Lv3）",
+    "background.parallel_lives": "另一种人生（若做了不同选择）（Lv3）",
+    "background.privilege_awareness": "对特权的认知（Lv3）",
+    "background.professional_network_style": "职业人脉的构建方式（学习会·社区/公司内人脉/SNS/介绍/不太构建）（Lv2）",
+    "background.recovery_stories": "恢复/克服的故事（Lv3）",
+    "background.recurring_themes": "人生中反复出现的主题（Lv3）",
+    "background.relocation_adaptability": "搬迁/移居适应力量表（1=非常不擅长〜5=很快适应）（Lv2）",
+    "background.residence_history": "居住经历",
+    "background.residence_history[].end_year": "居住结束年",
+    "background.residence_history[].location": "地点",
+    "background.residence_history[].significance": "在该地的经历/意义",
+    "background.residence_history[].start_year": "居住开始年",
+    "background.role_transitions": "角色的转变（下属→上司、单身→父母等）（Lv2）",
+    "background.self_education_history": "自学的历史（Lv2）",
+    "background.side_projects": "副业/侧项目（Lv2）",
+    "background.skill_acquisition_timeline": "技能获取时间线（Lv2）",
+    "background.socioeconomic_background": "社会经济背景（Lv3）",
+    "background.survival_stories": "克服的试炼（Lv3）",
+    "background.teaching_experience": "教学经验（Lv2）",
+    "background.technology_adaptation_history": "技术适应的历史（Lv2）",
+    "background.turning_points": "人生的转折点",
+    "background.turning_points[].event": "事件",
+    "background.turning_points[].impact": "影响/变化",
+    "background.turning_points[].year": "年份",
+    "background.unexpected_opportunities": "意想不到的机遇（Lv2）",
+    "background.unfinished_chapters": "未完成的篇章（遗留事项）（Lv3）",
+    "background.value_shift_triggers": "价值观改变的契机（Lv2）",
+    "background.work_achievement_highlights": "工作上的主要亮点（Lv2）",
+    "background.work_location": "工作地点（Lv2）",
+    "background.work_location.remote": "远程可否",
+    "background.work_style": "工作风格（Lv2）",
+    "background.years_of_experience": "总经验年数",
+    "philosophy": "思想与哲学（灵魂的核心）",
+    "philosophy.aesthetic_philosophy": "美的标准/美学（Lv2）",
+    "philosophy.attitude_toward_change": "对变化的态度（积极欢迎/偏好/中立/偏厌恶/强烈抵抗）",
+    "philosophy.axioms_of_thought_system": "思想体系的公理（作为前提的命题）（Lv3）",
+    "philosophy.beliefs": "信念体系（Lv2）",
+    "philosophy.beliefs.politics": "政治观",
+    "philosophy.beliefs.religion": "宗教观",
+    "philosophy.beliefs_that_changed_me": "改变人生的信念/领悟（Lv3）",
+    "philosophy.beliefs_that_changed_me[].belief": "信念/领悟",
+    "philosophy.beliefs_that_changed_me[].trigger": "契机",
+    "philosophy.beliefs_that_changed_me[].year": "年份",
+    "philosophy.contradictions_and_tensions": "内心的矛盾与冲突（Lv3）",
+    "philosophy.core_paradoxes": "根本性悖论（Lv3）",
+    "philosophy.core_values": "核心价值观",
+    "philosophy.creativity_view": "创造性观（Lv2）",
+    "philosophy.decision_principles": "决策原则（优先级规则）（Lv2）",
+    "philosophy.deep_fears": "深层恐惧（存在论性不安）（Lv3）",
+    "philosophy.deep_longings": "深层渴望与追求（Lv3）",
+    "philosophy.definition_of_success": "成功的定义（对自己而言的成功）",
+    "philosophy.ethical_foundation": "伦理基础（善恶判断的基准）",
+    "philosophy.evolution_of_thought": "思想的变迁（Lv3）",
+    "philosophy.existential_stance": "存在主义立场（面对不安·自由·责任的方式）（Lv3）",
+    "philosophy.foundational_experiences": "塑造思想的原始经历（Lv3）",
+    "philosophy.foundational_experiences[].event": "事件",
+    "philosophy.foundational_experiences[].insight": "获得的洞察",
+    "philosophy.foundational_experiences[].year": "年份",
+    "philosophy.guiding_questions": "引导人生的问题（一直在追问的事）",
+    "philosophy.inner_tribunals": "内在审判者（审判自己的声音）（Lv3）",
+    "philosophy.justice_framework": "正义观框架（公正/平等/报应/救济的权重）（Lv2）",
+    "philosophy.legacy_concerns": "对遗留之物的思考（Lv3）",
+    "philosophy.life_motto": "人生座右铭",
+    "philosophy.moral_framework": "伦理观类型（义务论/功利主义/德性伦理/相对主义/实用主义）（Lv2）",
+    "philosophy.ongoing_questions": "深化中的问题（Lv3）",
+    "philosophy.personal_theories": "个人理论/假说（Lv2）",
+    "philosophy.personal_theories[].description": "内容",
+    "philosophy.personal_theories[].theme": "主题",
+    "philosophy.philosophical_blind_spots": "自觉的思想盲点（Lv3）",
+    "philosophy.philosophical_crises": "思想危机/崩塌的经历（Lv3）",
+    "philosophy.philosophical_crises[].event": "事件",
+    "philosophy.philosophical_crises[].resolution": "如何克服",
+    "philosophy.philosophical_crises[].year": "年份",
+    "philosophy.philosophical_influences": "受影响的思想/人物（Lv3）",
+    "philosophy.philosophical_keywords": "表达思想的关键词群",
+    "philosophy.philosophical_lineage": "思想谱系（知识先祖与自身定位）（Lv3）",
+    "philosophy.questions_that_haunt_you": "令人辗转难眠的问题（Lv3）",
+    "philosophy.relationship_with_absurdity": "面对荒诞的方式（Lv3）",
+    "philosophy.relationship_with_transcendence": "与超越性事物的关系（神·宇宙·意义）（Lv3）",
+    "philosophy.relationship_with_uncertainty": "面对不确定性的方式",
+    "philosophy.shadow_beliefs": "压抑着的·不愿承认的信念（Lv3）",
+    "philosophy.source_of_meaning": "意义的源泉（从何处感到生存价值）",
+    "philosophy.spiritual_practices": "精神实践（冥想·祈祷·对话等）（Lv2）",
+    "philosophy.teaching_learning_philosophy": "教育/学习观（Lv2）",
+    "philosophy.tension_pairs": "重要对立轴的立场（自由⇔稳定、个人⇔集体等）（Lv2）",
+    "philosophy.tension_pairs[].note": "补充/理由",
+    "philosophy.tension_pairs[].pair": "对立轴（例：自由⇔稳定）",
+    "philosophy.tension_pairs[].stance": "立场量表（1=偏左〜5=偏右）",
+    "philosophy.time_perspective": "时间观（过去导向/现在导向/未来导向/平衡型）",
+    "philosophy.truth_seeking_method": "追求真理的方法论（对话/实证/冥想/直觉等）（Lv2）",
+    "philosophy.unfinished_arguments": "未完成的论辩（与自己或他人的）（Lv3）",
+    "philosophy.unresolved_dilemmas": "未解决的困境（Lv3）",
+    "philosophy.view_on_ai": "AI观（AI的本质·未来·与人类的关系）",
+    "philosophy.view_on_cooperation_competition": "协调与竞争的平衡观（Lv2）",
+    "philosophy.view_on_death": "生死观（如何面对死亡与有限性）",
+    "philosophy.view_on_emotion_reason": "感性与理性的关系（更信赖哪一方）（Lv2）",
+    "philosophy.view_on_failure": "对失败的态度（如何赋予失败以意义）",
+    "philosophy.view_on_freedom_constraint": "自由与制约的平衡观（Lv2）",
+    "philosophy.view_on_human_nature": "对人性本质的看法（人本质上是善·恶·中立）",
+    "philosophy.view_on_knowledge": "知识性质观（真理是客观/相对/实用）（Lv2）",
+    "philosophy.view_on_life": "人生观（人生的意义何在）",
+    "philosophy.view_on_money_work": "金钱/劳动观（Lv2）",
+    "philosophy.view_on_own_death": "对自身死亡的个人看法（Lv3）",
+    "philosophy.view_on_power": "对权力·权威的态度（Lv2）",
+    "philosophy.view_on_progress": "进步观（历史是前进的？循环的？）（Lv2）",
+    "philosophy.view_on_science": "科学观（科学的范围与局限）（Lv2）",
+    "philosophy.view_on_self": "自我观（固定/流动/关系性）（Lv2）",
+    "philosophy.view_on_society": "社会观（如何看待个人与社会的关系）",
+    "philosophy.view_on_technology": "技术观（技术的作用·可能性·危险性）",
+    "philosophy.view_on_tradition": "对传统·变革的态度（Lv2）",
+    "philosophy.what_they_oppose": "反对的事物/不可容忍之事",
+    "philosophy.what_they_stand_for": "守护的事物/支持之事",
+    "philosophy.worldview": "世界观",
+    "philosophy.worldview_shifts": "世界观转变的时间线（Lv3）",
+    "philosophy.worldview_shifts[].from": "转变前的世界观",
+    "philosophy.worldview_shifts[].to": "转变后的世界观",
+    "philosophy.worldview_shifts[].trigger": "契机",
+    "philosophy.worldview_shifts[].year": "年份",
+    "personality_assessments": "性格测评结果（个性的压缩表达）",
+    "personality_assessments.Big5.agreeableness": "协调性",
+    "personality_assessments.Big5.conscientiousness": "尽责性",
+    "personality_assessments.Big5.extraversion": "外向性",
+    "personality_assessments.Big5.neuroticism": "神经质倾向",
+    "personality_assessments.Big5.openness": "开放性",
+    "personality_assessments.Egogram.A": "成人（Adult）",
+    "personality_assessments.Egogram.AC": "顺应儿童（Adapted Child）",
+    "personality_assessments.Egogram.CP": "批判性父母（Critical Parent）",
+    "personality_assessments.Egogram.FC": "自由儿童（Free Child）",
+    "personality_assessments.Egogram.NP": "养育性父母（Nurturing Parent）",
+    "personality_assessments.Enneagram.type": "类型编号（1〜9）",
+    "personality_assessments.Enneagram.wing": "侧翼编号",
+    "personality_assessments.StrengthsFinder.top5": "前5项优势主题",
+    "personality_assessments.results": "各框架的结果列表",
+    "personality_assessments.results[].assessed_at": "测评日期",
+    "personality_assessments.results[].framework": "框架名称",
+    "personality_assessments.results[].results": "测评结果",
+    "personality_assessments.results[].source": "测评来源/服务名称",
+    "episodes": "情景记忆（RAG联动）",
+    "episodes.sources": "情景来源列表",
+    "episodes.sources[].description": "说明",
+    "episodes.sources[].location": "存储位置/URL",
+    "episodes.sources[].type": "来源类型",
+    "episodes.storage_type": "存储类型",
+    "personality": "性格与行动倾向",
+    "personality.ambiguity_response": "对模糊性的反应（容许/要求明确/自行假设/回避）（Lv2）",
+    "personality.attention_management": "注意力管理风格（专注区块/多任务/屏蔽通知/随缘）（Lv2）",
+    "personality.autonomy_need": "自主性需求量表（1=委托他人〜5=完全自主）",
+    "personality.avoidances": "回避的事物/不擅长之事（Lv2）",
+    "personality.avoided_emotions": "避免直视的情感（Lv3）",
+    "personality.body_self_relationship": "与身体的关系（一体/工具视角/违和感/对话型）（Lv3）",
+    "personality.boundary_communication": "边界的传达方式（明确表达/以距离表示/含糊带过/回避）（Lv2）",
+    "personality.childhood_environment": "成长环境的特征（Lv3）",
+    "personality.cognitive_style": "认知风格（分析型/直觉型/实践型）",
+    "personality.commitment_keeping": "遵守承诺/决心的量表（1=灵活〜5=严格遵守）（Lv2）",
+    "personality.conflict_approach": "面对冲突的处理方式（回避/冷静对话/逻辑论辩/情感面对/迎合对方/请第三方调解）",
+    "personality.conflict_deescalation": "化解冲突的方式（直接对话/冷静一段时间/第三方介入/保持距离）（Lv2）",
+    "personality.context_variations": "因场合而异的表现（Lv3）",
+    "personality.context_variations.at_work": "工作中的样子",
+    "personality.context_variations.under_pressure": "压力下的样子",
+    "personality.context_variations.with_friends": "与朋友在一起时的样子",
+    "personality.conversation_initiation": "开始对话的方式（提问/提供话题/等对方/读气氛）（Lv2）",
+    "personality.cooperativeness": "协调性量表（1=非常低〜5=非常高）",
+    "personality.coping_mechanisms": "压力应对方式列表",
+    "personality.core_identity_anchors": "失去就不再是自己的核心（Lv3）",
+    "personality.core_motivation": "核心动机",
+    "personality.core_wounds": "人生的深层创伤（Lv3）",
+    "personality.crisis_behavior": "危机时的行为（冷静应对/以行动突破/与周围协作/冻结/收集信息）（Lv2）",
+    "personality.critical_period_events": "幼年至青年期的重要事件（Lv3）",
+    "personality.curiosity_level": "好奇心强度量表（1=低〜5=非常高）",
+    "personality.deadline_behavior": "对截止日期的行为（提前完成/分阶段/临近截止集中/经常超期）（Lv2）",
+    "personality.decision_style": "决策风格（直觉型/分析型/两者兼有）",
+    "personality.decision_timing": "决策时机（当机立断/充分考虑/深思型/视情况而定）（Lv2）",
+    "personality.defense_mechanisms": "主要防御机制（Lv3）",
+    "personality.desire_vs_duty": "欲求与义务的冲突（Lv3）",
+    "personality.early_self_concept": "幼年时期的自我认知（Lv3）",
+    "personality.emotion_regulation": "情绪调节风格（认知重评/转移注意/表达/压抑/身体调节）（Lv2）",
+    "personality.emotional_defaults": "默认回归的情绪状态（Lv3）",
+    "personality.emotional_expression_style": "情感表达风格（外显/内敛/中间）",
+    "personality.emotional_pattern": "情感模式（稳定/冷静/感性/波动/压抑/丰富/内向）",
+    "personality.emotional_recovery_speed": "情绪恢复速度量表（1=慢〜5=快）",
+    "personality.emotional_stability": "情绪稳定性量表（1=不稳定〜5=非常稳定）",
+    "personality.emotional_triggers": "强烈反应的触发因素（Lv3）",
+    "personality.empathy_style": "共情风格（认知型/情感型/两者兼有）",
+    "personality.energy_peak_time": "精力峰值时间段（清晨/上午/下午/傍晚/夜晚）（Lv2）",
+    "personality.energy_source": "精力来源（独处/与人交流/两者兼有）",
+    "personality.evaluation_criteria": "判断标准的关键词（数组）（Lv2）",
+    "personality.feedback_processing": "反馈处理方式（即时反映/需要消化时间/筛选/防御性）（Lv2）",
+    "personality.first_impression_style": "初次见面的展现方式（内敛/友好/观察型/主导型）（Lv2）",
+    "personality.formative_figures": "影响人格形成的人物（Lv3）",
+    "personality.grief_patterns": "面对丧失的方式（Lv3）",
+    "personality.group_dynamics_role": "群体中的角色（领导者/协调者/活跃气氛者/观察者/专家）（Lv2）",
+    "personality.growth_approach": "成长方向（垂直/水平/螺旋）（Lv2）",
+    "personality.growth_patterns": "成长模式（Lv3）",
+    "personality.habit_formation_style": "习惯养成风格（触发关联/环境设计/记录/找伙伴）（Lv2）",
+    "personality.ideal_vs_real_self": "理想自我与现实自我的差距（Lv3）",
+    "personality.identity_crises": "过去的身份认同危机（Lv3）",
+    "personality.identity_labels_attachment": "执着的头衔/标签（Lv3）",
+    "personality.impulse_control": "冲动控制量表（1=冲动型〜5=抑制型）（Lv2）",
+    "personality.information_processing": "信息处理方向（从细节到整体/从整体到细节）",
+    "personality.information_threshold": "做决定所需信息量量表（1=少量即可〜5=需要大量）（Lv2）",
+    "personality.integration_challenges": "尚未整合的方面（Lv3）",
+    "personality.internalized_voices": "内化的他人的声音（Lv3）",
+    "personality.interruption_response": "对中断的反应（灵活切换/烦躁/难以恢复/欢迎）（Lv2）",
+    "personality.joy_sources_deep": "发自内心的喜悦来源（Lv3）",
+    "personality.knowledge_transfer_style": "传播学习的途径（写文章/教学/讨论/实践/仅内省）（Lv2）",
+    "personality.learning_retention_style": "记忆巩固风格（反复/关联/输出/体验）（Lv2）",
+    "personality.mentor_seeking_behavior": "寻找导师的方式（主动寻找/偶然际遇/拥有多位/自学倾向）（Lv2）",
+    "personality.mistake_processing": "处理失败的方式（分析/转换心态/反复思虑/分享消化）（Lv2）",
+    "personality.novelty_response": "对新事物的反应（积极探索/谨慎尝试/保持距离/拒绝）（Lv2）",
+    "personality.open_to_feedback": "反馈开放度量表（1=封闭〜5=完全开放）",
+    "personality.outlook_tendency": "人生观倾向（乐观/悲观/现实主义）",
+    "personality.pace_preference": "偏好的节奏量表（1=缓慢〜5=高速）（Lv2）",
+    "personality.perfectionism": "完美主义倾向量表（1=完全没有〜5=极高）",
+    "personality.persona_vs_self": "对外人格与真实自我的差异（Lv3）",
+    "personality.pressure_performance": "压力下的表现（发挥型/崩溃型/无变化/加速型）（Lv2）",
+    "personality.problem_solving_approach": "问题解决方式",
+    "personality.procrastination_tendency": "拖延倾向量表（1=完全没有〜5=非常高）",
+    "personality.projection_targets": "容易投射到他人的特质（Lv3）",
+    "personality.rapport_building_style": "建立信任的风格（寻找共同点/自我披露/倾听/花时间）（Lv2）",
+    "personality.recharge_method": "恢复方式（独处/自然/运动/对话/创作/娱乐）（Lv2）",
+    "personality.reciprocity_expectation": "给予/获取平衡感量表（1=给予型〜5=获取型）（Lv2）",
+    "personality.resilience": "韧性量表（1=恢复慢〜5=非常高）",
+    "personality.reward_delay_tolerance": "延迟满足耐受量表（1=即时型〜5=长期型）（Lv2）",
+    "personality.risk_tolerance": "风险容忍度量表（1=完全回避〜5=积极追求）",
+    "personality.role_conflicts": "角色间的矛盾（Lv3）",
+    "personality.routine_preference": "作息偏好量表（1=喜欢自由〜5=喜欢结构化）",
+    "personality.self_discipline_style": "自律方式（规则化/习惯化/设置奖励/靠意志力）（Lv2）",
+    "personality.self_narrative": "讲述自己的故事（Lv3）",
+    "personality.shadow_traits": "阴影特质/弱点（Lv3）",
+    "personality.social_circle_management": "社交范围管理（窄而深/广而浅/重视中间层/随时而定）（Lv2）",
+    "personality.social_tendency": "社交倾向（内向/外向/兼具两者）",
+    "personality.stress_response": "压力反应（内心承受/向人倾诉/行动发泄/思考整理/回避/表达情感/沉浸遗忘）",
+    "personality.thinking_speed": "思维速度量表（1=深思型〜5=速决型）",
+    "personality.trust_building_speed": "信任构建速度量表（1=非常谨慎〜5=立即信任）",
+    "personality.uncertainty_handling": "处理不确定性的方式（搁置/假设推进/从确定部分着手/撤退）（Lv2）",
+    "personality.unconscious_patterns": "反复出现的无意识模式（Lv3）",
+    "personality.unlearning_ability": "反学习能力量表（1=固执〜5=灵活）（Lv2）",
+    "personality.value_conflicts": "价值观的矛盾（Lv3）",
+    "personality.work_rhythm": "工作节奏（早起型/夜猫型/白天型/随机型）（Lv2）",
+    "knowledge": "知识与专业性",
+    "knowledge.abandoned_expertise": "放弃/远离的专业性（Lv3）",
+    "knowledge.abstraction_preference": "抽象度偏好量表（1=重视具体〜5=重视抽象）",
+    "knowledge.application_tendency": "知识运用倾向（理论重视/实践重视/理论与实践平衡）",
+    "knowledge.autodidact_areas": "完全自学的领域（Lv3）",
+    "knowledge.certification_approach": "对资格/认证的态度（积极获取/最低限度/没兴趣/作为实力证明）（Lv2）",
+    "knowledge.collaboration_in_learning": "学习中的协作（单独/双人/小团体/社区/视场合而定）（Lv2）",
+    "knowledge.cross_domain_connections": "跨领域关联的模式（Lv2）",
+    "knowledge.current_learning_topics": "目前正在积极学习的内容",
+    "knowledge.current_research_topics": "当前的研究课题（Lv3）",
+    "knowledge.experimentation_frequency": "实验/尝试频率量表（1=理论先行〜5=立即实验）（Lv2）",
+    "knowledge.expertise_development_pattern": "专业性培养方式（集中投资/并行发展/需求驱动/好奇心驱动）（Lv2）",
+    "knowledge.expertise_domains": "专业知识领域（深入了解的领域）",
+    "knowledge.favorite_thinkers_authors": "受影响的思想家/作者/作品",
+    "knowledge.forbidden_knowledge_attraction": "对禁忌知识的吸引力（Lv3）",
+    "knowledge.information_diet": "信息摄取习惯（Lv2）",
+    "knowledge.information_source_preference": "信息收集偏好（书籍/网络/从人那里等）",
+    "knowledge.intellectual_community_role": "在知识社区中的角色（发布者/策展人/讨论催化剂/听众/桥梁）（Lv2）",
+    "knowledge.intellectual_curiosity_style": "求知欲风格（广泛探索/深入钻研）",
+    "knowledge.intellectual_debate_style": "知识论辩风格（苏格拉底问答/数据对决/假说碰撞/协作建构）（Lv2）",
+    "knowledge.intellectual_debt": "知识债（未偿还的恩情）（Lv3）",
+    "knowledge.intellectual_fears": "知识恐惧（对认知的不安）（Lv3）",
+    "knowledge.intellectual_heroes": "尊敬的知识人物",
+    "knowledge.intellectual_jealousy": "知识嫉妒（嫉妒谁的什么）（Lv3）",
+    "knowledge.intellectual_loneliness": "知识孤独感（Lv3）",
+    "knowledge.intellectual_obsessions": "知识执念（无法停止的追问）（Lv3）",
+    "knowledge.intellectual_origin_story": "求知欲的原点（Lv3）",
+    "knowledge.intellectual_rebellion": "知识反叛（挑战定论的经历）（Lv3）",
+    "knowledge.interest_domains": "兴趣/关注领域（想学习/喜欢的领域）",
+    "knowledge.knowledge_blind_spot_origins": "薄弱领域的起源（Lv3）",
+    "knowledge.knowledge_blind_spots": "自觉的薄弱/无知领域",
+    "knowledge.knowledge_currency": "用知识交换什么（Lv2）",
+    "knowledge.knowledge_decay_awareness": "对知识老化的意识（一直关注/定期检查/被指出时/很少考虑）（Lv2）",
+    "knowledge.knowledge_depth_tendency": "知识深度倾向量表（1=广而浅〜5=窄而深）",
+    "knowledge.knowledge_gaps_strategy": "对知识空白的应对（立即查找/问人/推迟/系统学习/等到需要时）（Lv2）",
+    "knowledge.knowledge_identity_link": "知识与身份认同的关联（Lv3）",
+    "knowledge.knowledge_inheritance": "从谁那里继承了知识（Lv3）",
+    "knowledge.knowledge_legacy": "想作为知识遗产留下的东西（Lv3）",
+    "knowledge.knowledge_organization_method": "知识整理方法（笔记/思维导图/数据库/脑中/通过对话整理）（Lv2）",
+    "knowledge.knowledge_regrets": "对未学之事的遗憾（Lv3）",
+    "knowledge.knowledge_sharing_style": "知识分享风格（积极发布/被请求时教/通过演讲·写作分享/不太分享）",
+    "knowledge.knowledge_transformation_moments": "知识改变行动的时刻（Lv3）",
+    "knowledge.knowledge_trauma": "与知识相关的创伤（Lv3）",
+    "knowledge.knowledge_update_trigger": "知识更新的触发因素（好奇心/业务需要/他人刺激/危机感/定期习惯）（Lv2）",
+    "knowledge.knowledge_validation_method": "知识验证方法（实践验证/讨论打磨/文献求证/直觉判断）（Lv2）",
+    "knowledge.learning_style": "学习风格（阅读/实践/对话/视频等）",
+    "knowledge.mentoring_style": "指导风格（示范/以问引导/提供资料/一起做/不太做）（Lv2）",
+    "knowledge.note_taking_style": "笔记方式（结构化/自由记述/图解/仅关键词/不记）（Lv2）",
+    "knowledge.output_medium_preference": "输出媒介偏好（文章/代码/图解/演讲/对话/视频）（Lv2）",
+    "knowledge.paradigm_shifts": "改变看世界方式的知识体验（Lv3）",
+    "knowledge.problem_domain_preference": "偏好的问题领域（技术性/概念性/社会性/创造性/实务性）（Lv2）",
+    "knowledge.prototyping_tendency": "试制/实验倾向（立即动手/充分调查后/在脑中实验/先问人）（Lv2）",
+    "knowledge.reading_strategy": "阅读策略（通读/选读/精读/并行阅读/看目录判断）（Lv2）",
+    "knowledge.skills": "技能（Lv2）",
+    "knowledge.skills[].level": "熟练度",
+    "knowledge.skills[].name": "技能名称",
+    "knowledge.synthesis_tendency": "知识跨领域整合倾向量表（1=专业特化〜5=跨领域融合）",
+    "knowledge.teacher_student_dynamics": "师徒关系的动态（Lv3）",
+    "knowledge.teaching_frequency": "教学频率（日常/被请求时/偶尔/几乎不做）（Lv2）",
+    "knowledge.tool_proficiency": "熟练使用的工具/技术（Lv2）",
+    "knowledge.unasked_questions": "尚未提出的问题（Lv3）",
+    "knowledge.unconscious_expertise": "无意识的专业性（本人不易察觉的强项）（Lv3）",
+    "knowledge.update_frequency": "知识更新频率（一直追踪最新/定期更新/仅在需要时/很少更新）",
+    "preferences": "嗜好与爱好",
+    "preferences.aesthetic_formation": "审美观的形成（Lv3）",
+    "preferences.aesthetic_keywords": "表达审美的关键词（极简/复古/有机等）",
+    "preferences.annual_rituals": "年度例行活动/习惯（Lv2）",
+    "preferences.brand_loyalty": "品牌忠诚度量表（1=不讲究〜5=强烈忠诚）（Lv2）",
+    "preferences.break_style": "休息方式（频繁短休/集中后长休/不休息/散步/换换心情型）（Lv2）",
+    "preferences.celebration_style": "庆祝方式（隆重/亲朋好友/安静/不特别/犒赏自己）（Lv2）",
+    "preferences.childhood_favorites": "儿时喜欢的东西（Lv3）",
+    "preferences.color_preferences": "喜欢的颜色/色调",
+    "preferences.comfort_objects": "带来安心感的物品（Lv3）",
+    "preferences.comfort_rituals": "放松的例行程序（Lv2）",
+    "preferences.commute_preference": "出行偏好（汽车/电车/步行/自行车/远程/混合）（Lv2）",
+    "preferences.content_consumption_style": "内容消费风格（一口气看完/慢慢品味/快速浏览）",
+    "preferences.creative_outlets": "创作/表达活动（摄影/音乐/写作等）",
+    "preferences.cuisine_preferences": "喜欢的料理类型",
+    "preferences.customization_tendency": "定制化倾向量表（1=保持默认〜5=极致定制）（Lv2）",
+    "preferences.device_ecosystem": "设备生态系统（Apple/Google/Microsoft/混合/Linux为主）（Lv2）",
+    "preferences.dietary_style": "饮食风格（不讲究/肉食系/海鲜为主/蔬菜为主/素食/纯素/无麸质/其他）",
+    "preferences.digital_vs_analog": "数字/模拟偏好量表（1=完全模拟〜5=完全数字）（Lv2）",
+    "preferences.disliked_environments": "不喜欢的环境（Lv3）",
+    "preferences.downtime_activities": "空闲时间的度过方式（Lv2）",
+    "preferences.dream_possessions": "梦想拥有的物品（Lv3）",
+    "preferences.drink_preferences": "喜欢的饮品",
+    "preferences.entertainment_budget_priority": "娱乐预算的分配（Lv2）",
+    "preferences.environment_preference": "偏好的环境（安静室内/热闹室内/自然中/城市/咖啡厅等半户外/都可以）",
+    "preferences.evening_routine": "晚间例行程序（Lv2）",
+    "preferences.favorite_genres": "喜欢的类型",
+    "preferences.favorite_genres.books": "书籍",
+    "preferences.favorite_genres.games": "游戏",
+    "preferences.favorite_genres.movies": "电影",
+    "preferences.favorite_genres.music": "音乐",
+    "preferences.favorite_works": "喜欢的作品（具体标题/作者名）",
+    "preferences.fiction_vs_nonfiction": "虚构/非虚构偏好量表（1=完全虚构〜5=完全非虚构）",
+    "preferences.food": "饮食偏好",
+    "preferences.food.dislikes": "不喜欢的食物",
+    "preferences.food.favorites": "喜欢的食物",
+    "preferences.gathering_preference": "聚会偏好（家庭聚会/外出就餐/户外/线上/少人数安静聚会）（Lv2）",
+    "preferences.gear_philosophy": "对工具/器材的哲学（Lv2）",
+    "preferences.gift_giving_style": "送礼风格（实用品/体验型/惊喜/按对方要求/不太送）（Lv2）",
+    "preferences.guilty_pleasures": "带罪恶感的快乐（Lv3）",
+    "preferences.hobbies": "爱好",
+    "preferences.ideal_vacation": "理想的假期（Lv2）",
+    "preferences.irreplaceable_experiences": "不可替代的体验（Lv3）",
+    "preferences.leisure_activities": "休闲活动",
+    "preferences.lost_interests": "失去的兴趣及其原因（Lv3）",
+    "preferences.meal_timing": "用餐节奏（三餐规律/两餐/不规律/零食多/想吃就吃）（Lv2）",
+    "preferences.morning_routine": "早晨例行程序（Lv2）",
+    "preferences.nostalgia_triggers": "怀旧触发物（Lv2）",
+    "preferences.owned_items_of_note": "值得注意的拥有物/常用物品",
+    "preferences.pets": "宠物/饲养的生物",
+    "preferences.physical_activities": "体育活动（运动/户外等）",
+    "preferences.planning_horizon": "制定计划的方式（精细安排/大框架/顺其自然/临时决定/混合）（Lv2）",
+    "preferences.preference_contradictions": "偏好中的矛盾（Lv3）",
+    "preferences.preference_inheritance": "从谁那里继承的偏好（Lv3）",
+    "preferences.preference_origin_stories": "偏好的原点（为什么喜欢）（Lv3）",
+    "preferences.quality_vs_quantity": "质与量的倾向量表（1=重视量〜5=重视质）（Lv2）",
+    "preferences.rejected_tastes": "有意识拒绝的偏好（Lv3）",
+    "preferences.ritual_importance": "例行程序的重要度量表（1=不需要〜5=没有就不安）（Lv2）",
+    "preferences.sacred_spaces": "自己心中的圣地（Lv3）",
+    "preferences.seasonal_preferences": "喜欢的季节（春/夏/秋/冬/不分季节）（Lv2）",
+    "preferences.sensory_memories": "感官记忆（因气味·声音·味道而唤起的记忆）（Lv3）",
+    "preferences.sensory_preferences": "感官偏好（Lv3）",
+    "preferences.sensory_preferences.sound": "声音/音响",
+    "preferences.sensory_preferences.texture": "触感/质感",
+    "preferences.sensory_preferences.visual": "视觉偏好",
+    "preferences.shopping_style": "购物风格（冲动购买/仔细比较/重视评价/直觉/最低限度）（Lv2）",
+    "preferences.sleep_pattern": "睡眠模式（早睡早起/夜型/不规律/短睡+午睡/长时间睡眠者）（Lv2）",
+    "preferences.sound_preferences": "喜欢的声音/音环境",
+    "preferences.spending_priority": "花钱的优先顺序（Lv2）",
+    "preferences.subscription_services": "使用的订阅服务（Lv2）",
+    "preferences.taste_evolution": "偏好的变迁（Lv3）",
+    "preferences.taste_identity_link": "偏好与身份认同的关联（Lv3）",
+    "preferences.tech_adoption_speed": "新技术采用速度（早期采用者/观望/需要时再用/谨慎派）（Lv2）",
+    "preferences.travel_style": "旅行风格（Lv2）",
+    "preferences.weekend_pattern": "周末的度过方式（Lv2）",
+    "expression": "语言与表达风格（AI再现中\"像那个人\"的核心）",
+    "expression.abstraction_level_preference": "具体⇔抽象的构建方式（具体→抽象/抽象→具体/混合/仅具体）（Lv2）",
+    "expression.active_listening_signals": "常用的附和/倾听信号（Lv2）",
+    "expression.agreement_expression": "表达同意的方式",
+    "expression.argumentation_style": "论辩风格（主张型/探究型/协调型）",
+    "expression.audience_adaptation": "对听众的适应力（有意识地调整/自然变化/不太调整）（Lv2）",
+    "expression.authenticity_vs_performance": "真心话与对外模式的差异（Lv3）",
+    "expression.catchphrases": "口头禅",
+    "expression.childhood_communication_environment": "成长环境中的沟通特征（Lv3）",
+    "expression.code_switching": "语言/语域切换（频繁/仅在需要时/不擅长/有意识）（Lv2）",
+    "expression.communication_wounds": "与沟通相关的创伤（Lv3）",
+    "expression.conflict_communication": "冲突时的表达（直接/婉转/沉默/幽默缓和/书面传达）（Lv2）",
+    "expression.conversation_depth_preference": "对话深度偏好量表（1=广而浅〜5=深而窄）",
+    "expression.counterargument_handling": "面对反驳的处理风格（接受并改变想法/部分采纳/冷静反驳/情绪化反驳/保留后再想/回避）",
+    "expression.disagreement_expression": "表达不同意/反驳的方式",
+    "expression.dream_narrative_style": "讲述梦想/空想的风格（Lv3）",
+    "expression.emotional_expressiveness": "情感表达丰富度量表（1=抑制〜5=非常丰富）",
+    "expression.emotional_leakage_patterns": "情感泄露到表达中的模式（Lv3）",
+    "expression.emotional_tone_control": "情感语调控制（有意识控制/自然流露/因场合调整/偏抑制）（Lv2）",
+    "expression.evidence_preference": "论据呈现方式（重视数据/重视经验/重视感觉）",
+    "expression.explanation_depth_control": "说明深度调节（配合对方/总是详细/总是简洁/被问时深入）（Lv2）",
+    "expression.expression_turning_points": "表达风格转变的契机（Lv3）",
+    "expression.feedback_giving_style": "反馈传达方式（直率/三明治法/提问形式/用比喻/书面）（Lv2）",
+    "expression.first_person": "第一人称",
+    "expression.formality_switching": "敬语/随意切换（即时切换/逐渐/不擅长/始终一致）（Lv2）",
+    "expression.humor_style": "幽默风格（机智型/自嘲型/超现实·荒诞/谐音双关·文字游戏/观察型幽默/不太使用）",
+    "expression.information_ordering": "信息排列方式（按重要度/按时间/对比/问题→解决）（Lv2）",
+    "expression.inner_monologue_style": "内心独白的风格（Lv3）",
+    "expression.language_influences": "影响用语习惯的人/作品（Lv3）",
+    "expression.listening_style": "倾听风格（倾听型·仔细听/共情型·贴近情感/分析型·整理论点/解决导向型·寻找答案/多任务型）",
+    "expression.logic_style": "逻辑展开风格（归纳/演绎/叙事）",
+    "expression.metaphor_usage": "比喻/类比使用频率量表（1=不使用〜5=多用）",
+    "expression.narrative_perspective": "叙述视角（第一人称/第三人称/客观/混合）（Lv2）",
+    "expression.persuasion_style": "说服风格（逻辑/情感/权威/故事/数据）（Lv2）",
+    "expression.punctuation_style": "标点/换行使用方式（标准/逗号多/逗号少/换行多·段落短/换行少·段落长/口语风）",
+    "expression.question_asking_style": "提问方式/问题的提出（根本性·哲学性/具体·实践性/假设验证型/探索·发散型/确认·整理型/批判性提问）",
+    "expression.question_frequency": "提问频率量表（1=少〜5=多）（Lv2）",
+    "expression.reference_style": "引用/参考方式（频繁引用/用自己的话/基于经验/重视数据）（Lv2）",
+    "expression.response_latency": "回应速度（即时/稍作思考/仔细考虑/视话题而定）（Lv2）",
+    "expression.response_length_tendency": "回答长度量表（1=非常简洁〜5=非常详细）",
+    "expression.second_person": "第二人称（对对方的称呼）",
+    "expression.sentence_endings": "语尾特征（〜哦、〜呢等）",
+    "expression.sentence_length": "句子长度倾向（喜欢短句/喜欢长句/混合）",
+    "expression.signature_phrases_origin": "口头禅/惯用语的由来（Lv3）",
+    "expression.silence_usage": "沉默/停顿的使用方式（Lv3）",
+    "expression.speech_style": "语气",
+    "expression.speech_style.casual": "随意场合",
+    "expression.speech_style.formal": "礼貌用语/正式场合",
+    "expression.storytelling_style": "叙事方式（按时间/结论先行/伏笔型/即兴）（Lv2）",
+    "expression.suppressed_expression_modes": "被压抑的表达模式（Lv3）",
+    "expression.teaching_style": "教学风格（步骤型/概念先行/举例型/提问引导）（Lv2）",
+    "expression.topic_interests_in_conversation": "对话中喜欢的话题",
+    "expression.topic_transition_style": "话题切换方式（自然过渡/明确切换/交给对方/突然切换）（Lv2）",
+    "expression.turn_taking_style": "对话轮换方式（等待/插话/平衡/让给对方）（Lv2）",
+    "expression.unconscious_verbal_habits": "无意识的语言习惯（Lv3）",
+    "expression.untranslatable_expressions": "无法翻译的独特表达（Lv3）",
+    "expression.use_of_emoji_symbols": "表情符号/符号使用倾向量表（1=几乎不用〜5=多用）",
+    "expression.use_of_foreign_words": "外来语/英语使用倾向量表（1=几乎不用〜5=多用）",
+    "expression.use_of_lists": "列表/要点使用频率量表（1=几乎不用〜5=多用）",
+    "expression.use_of_technical_terms": "专业术语使用频率量表（1=不用〜5=多用）",
+    "expression.vocabulary_tendency": "词汇倾向（专业性/通俗/混合）",
+    "expression.voice_of_authority": "能以权威身份发言的主题（Lv3）",
+    "expression.vulnerability_expression": "展现脆弱的方式（用幽默/坦诚/用比喻/不展现/只对信任的人）（Lv3）",
+    "expression.writing_patterns": "文章的习惯/模式（Lv3）",
+    "relationships": "人际关系",
+    "relationships.abandonment_fears": "被抛弃的恐惧（Lv3）",
+    "relationships.apology_style": "道歉方式（坦诚话语/用行动表示/过段时间/送礼物/不擅长）（Lv2）",
+    "relationships.attachment_origin": "依恋风格的起源（Lv3）",
+    "relationships.attachment_style": "依恋风格（安全型/焦虑型/回避型/混乱型）",
+    "relationships.boundary_setting": "边界设定（明确/模糊）",
+    "relationships.chosen_family": "选择的家人（超越血缘的纽带）（Lv3）",
+    "relationships.codependency_awareness": "共依存的自觉（Lv3）",
+    "relationships.community_involvement": "社区参与（Lv3）",
+    "relationships.conflict_style": "冲突处理方式（回避/冷静对话/逻辑论辩/情感面对/冷静一段时间/请第三方调解）",
+    "relationships.confrontation_threshold": "对抗的阈值（立即说/积累后/忍到极限/回避/仅重大时）（Lv2）",
+    "relationships.cross_generational_interaction": "跨世代交流风格（与年长者谈话更自在/与年轻者更自在/同代更轻松/不分世代）（Lv2）",
+    "relationships.dependency_tendency": "依赖倾向量表（1=完全独立〜5=强烈依赖）",
+    "relationships.digital_relationship_style": "数字化关系构建（SNS积极/消息为主/重视线下/灵活运用/最低限度）（Lv2）",
+    "relationships.emotional_support_seeking": "寻求情感支持的方式（坦诚求助/迂回/自己处理/只找特定人/视情况而定）（Lv2）",
+    "relationships.family_contact_frequency": "与家人的联络频率（每天/每周数次/每周1次/每月数次/仅需要时/几乎没有）（Lv2）",
+    "relationships.family_relationship_patterns": "家庭关系模式（Lv3）",
+    "relationships.family_structure": "家庭构成",
+    "relationships.first_significant_relationship": "第一段重要的关系（Lv3）",
+    "relationships.forgiveness_tendency": "宽恕倾向（立即原谅/花时间原谅/有条件原谅/难以原谅/视情况而定）",
+    "relationships.friendship_maintenance": "维持友谊的方法（频繁联系/偶尔深谈/见面时全力/SNS保持联系/顺其自然）（Lv2）",
+    "relationships.gratitude_expression": "表达感谢的方式（用语言/用行动回报/写信·消息/用态度表示/不擅长）（Lv2）",
+    "relationships.group_role_tendency": "在群体中的角色倾向（领导者/支持者/点子王/执行者/协调者/批评·分析者/观察者）",
+    "relationships.has_children": "有无子女",
+    "relationships.how_they_show_care": "表达关心/爱的方式",
+    "relationships.ideal_relationship_vision": "理想的关系图景（Lv3）",
+    "relationships.intimacy_barriers": "亲密关系的障碍（Lv3）",
+    "relationships.intimacy_preference": "亲密度偏好量表（1=与少数深交〜5=与多数广交）",
+    "relationships.jealousy_tendency": "嫉妒倾向量表（1=几乎没有〜5=强烈）（Lv2）",
+    "relationships.key_relationships": "重要的人际关系（Lv2）",
+    "relationships.key_relationships[].closeness": "亲密度",
+    "relationships.key_relationships[].influence": "来自此人的影响",
+    "relationships.key_relationships[].role": "关系类型",
+    "relationships.living_situation": "居住形态（独居/与伴侣同住/与家人同住/合租/其他）",
+    "relationships.loneliness_relationship": "与孤独的关系（Lv3）",
+    "relationships.lost_relationships": "失去的关系（Lv3）",
+    "relationships.love_language_giving": "表达爱的方式（语言/行动/礼物/时间/肢体接触）（Lv2）",
+    "relationships.love_language_receiving": "接受爱的方式（语言/行动/礼物/时间/肢体接触）（Lv2）",
+    "relationships.loyalty_pattern": "忠诚度模式（非常强/强/普通/弱/视对象和情况而定）",
+    "relationships.marital_status": "婚姻状况（未婚/已婚/离异/丧偶/事实婚姻/其他）",
+    "relationships.mentoring_relationship": "导师/学员关系（有导师/有学员/两者都有/没有/非正式）（Lv2）",
+    "relationships.networking_style": "社交网络风格（积极广泛/目标导向/重视关系深度/被动/线上为主/线下为主）",
+    "relationships.new_relationship_approach": "开始新关系的方式（主动搭话/从共同话题/通过介绍/等待/随场合）（Lv2）",
+    "relationships.pet_relationship": "与宠物的关系（Lv2）",
+    "relationships.preferred_social_setting": "偏好的社交场景（1对1/小团体/大团体）",
+    "relationships.professional_relationship_style": "工作关系风格（公私分明/同事兼朋友/重视团队/重视个人/视场合而定）（Lv2）",
+    "relationships.projection_in_relationships": "关系中的投射（Lv3）",
+    "relationships.relationship_exit_style": "结束关系的方式（正式告知/自然消失/保持距离/决断慢/果断）（Lv2）",
+    "relationships.relationship_gratitude": "对关系的感恩（Lv3）",
+    "relationships.relationship_identity": "关系中的自我形象（Lv3）",
+    "relationships.relationship_investment_priority": "关系投入的优先顺序（Lv2）",
+    "relationships.relationship_legacy": "想作为关系遗产留下的东西（Lv3）",
+    "relationships.relationship_maintenance_style": "关系维护风格（频繁联系/仅在需要时）",
+    "relationships.relationship_philosophy": "人际关系哲学（Lv3）",
+    "relationships.relationship_regrets": "关系中的遗憾（Lv3）",
+    "relationships.relationship_role_models": "关系的榜样（Lv3）",
+    "relationships.relationship_style": "关系风格（与少数深交/与多数广交/按目的区分/视情况而定）",
+    "relationships.relationship_with_ai": "对AI关系的看法（Lv3）",
+    "relationships.relationship_wounds": "关系的创伤（Lv3）",
+    "relationships.reunion_behavior": "重逢时的表现（兴奋/自然/有点紧张/接续上次/观望）（Lv2）",
+    "relationships.secret_keeping": "保密方式（绝对保守/只跟信任的人分享/不擅长保密/视情况而定）（Lv2）",
+    "relationships.social_energy_drain": "社交精力消耗量表（1=不消耗〜5=非常消耗）",
+    "relationships.social_hierarchy_sensitivity": "上下关系敏感度量表（1=追求平等〜5=阶层意识强）（Lv2）",
+    "relationships.social_role": "社会角色（领导者/追随者/协调者/专家·顾问/导师/点子王/其他）",
+    "relationships.support_style": "支持他人的方式（情感型/实务型/两者兼有）",
+    "relationships.trust_recovery_pattern": "信任恢复模式（时间解决/对话解决/要求行动证明/困难/视条件而定）（Lv2）",
+    "relationships.unconscious_relationship_patterns": "无意识的关系模式（Lv3）",
+    "relationships.vulnerability_sharing": "分享脆弱面（开放/仅对亲近的人/几乎不展现/视对方而定/逐渐）（Lv2）",
+    "identity.aspirational_identity": "追求的自我形象（Lv3）",
+    "identity.belonging_sense": "归属意识的状态（Lv3）",
+    "identity.birth_date": "出生日期（Lv2）",
+    "identity.childhood_identity": "儿童时期的自我形象（Lv3）",
+    "identity.cultural_background": "文化背景（Lv3）",
+    "identity.cultural_identity_layers": "文化认同的层次（Lv3）",
+    "identity.current_location": "现住址（Lv2）",
+    "identity.era_consciousness": "对时代的意识（Lv3）",
+    "identity.financial_identity": "与金钱的关系（稳健/投资型/享乐型/不在意/战略型）（Lv2）",
+    "identity.health_identity": "对健康的态度（积极管理/适度关注/不在意/仅出问题时）（Lv2）",
+    "identity.hidden_identities": "隐藏的身份认同（Lv3）",
+    "identity.identity_formation_events": "塑造身份认同的事件（Lv3）",
+    "identity.identity_keywords": "描述自己的关键词（例：工程师/父亲/探索者）",
+    "identity.identity_narrative": "自己的故事（从哪里来到哪里去）（Lv3）",
+    "identity.identity_paradoxes": "身份认同的矛盾（Lv3）",
+    "identity.identity_symbols": "象征自己的物品·场所·话语（Lv3）",
+    "identity.identity_wounds": "与身份认同相关的创伤（Lv3）",
+    "identity.imposed_identities": "被他人强加的身份认同（Lv3）",
+    "identity.introduction_style": "自我介绍的模式（从头衔/从爱好/从信条/从成就/视对方而定）（Lv2）",
+    "identity.languages": "使用语言（Lv3）",
+    "identity.legacy_identity": "想留给后世的自我形象（Lv3）",
+    "identity.life_design_priority": "人生规划的优先轴（职业/家庭/自我实现/社会贡献/平衡）（Lv2）",
+    "identity.lineage_consciousness": "对血统·家系的意识（Lv3）",
+    "identity.mortality_awareness_impact": "死亡意识对身份认同的影响（Lv3）",
+    "identity.name_significance": "对名字的意义赋予与由来的感受（Lv3）",
+    "identity.naming_history": "名字的变迁（各时期被称呼的名字）（Lv3）",
+    "identity.native_language": "母语",
+    "identity.nickname": "昵称/称呼",
+    "identity.occupation_summary": "职业一句话概要（例：AI与元宇宙专业的工程师）",
+    "identity.online_handles": "网络上的用户名（数组）",
+    "identity.personal_brand_keywords": "他人眼中的自我形象（Lv2）",
+    "identity.professional_identity": "职业身份认同的核心（Lv2）",
+    "identity.public_persona": "公开场合的自我形象（Lv2）",
+    "identity.rebirth_moments": "重生的瞬间（Lv3）",
+    "identity.regional_attachment": "对出生地/居住地的依恋度量表（1=不关心〜5=强烈依恋）（Lv2）",
+    "identity.rejected_identities": "拒绝/已毕业的身份认同（Lv3）",
+    "identity.reputation_awareness": "对声誉的意识量表（1=不关心〜5=非常在意）（Lv2）",
+    "identity.role_priorities": "人生中角色的优先顺序（Lv2）",
+    "identity.self_description": "自我介绍文（1-2句）",
+    "identity.visibility_preference": "曝光度偏好（前台/幕后/视情况/最低限度）（Lv2）",
+    "identity.work_life_stance": "工作生活平衡观量表（1=以工作为中心〜5=以生活为中心）（Lv2）"
+  },
+  "knowledge": {
+    "identity": {
+      "fields": {
+        "Lv1": {
+          "name": {
+            "label": "姓名"
+          },
+          "maiden_name": {
+            "label": "旧姓"
+          },
+          "nickname": {
+            "label": "昵称/称呼"
+          },
+          "online_handles": {
+            "label": "网络上的用户名"
+          },
+          "birth_year": {
+            "label": "出生年份"
+          },
+          "gender": {
+            "label": "性别",
+            "candidates": [
+              "男性",
+              "女性",
+              "其他",
+              "不愿回答"
+            ]
+          },
+          "nationality": {
+            "label": "国籍"
+          },
+          "native_language": {
+            "label": "母语"
+          },
+          "occupation_summary": {
+            "label": "职业一句话概要"
+          },
+          "self_description": {
+            "label": "自我介绍文"
+          },
+          "life_stage": {
+            "label": "人生阶段",
+            "candidates": [
+              "学生",
+              "职场新人",
+              "Mid-career professional",
+              "Senior professional",
+              "管理层",
+              "管理层",
+              "Freelancer",
+              "Retired",
+              "其他"
+            ]
+          },
+          "identity_keywords": {
+            "label": "描述自己的关键词",
+            "candidates": [
+              "e.g., Engineer",
+              "Father",
+              "研究者·探索者"
+            ]
+          }
+        },
+        "Lv2": {
+          "birth_date": {
+            "label": "出生日期"
+          },
+          "birthplace": {
+            "label": "出生地"
+          },
+          "current_location": {
+            "label": "现住址"
+          },
+          "role_priorities": {
+            "label": "人生中角色的优先顺序"
+          },
+          "professional_identity": {
+            "label": "职业身份认同的核心"
+          },
+          "generational_identity": {
+            "label": "世代认同感"
+          },
+          "regional_attachment": {
+            "label": "对出生地/居住地的依恋度量表"
+          },
+          "digital_presence": {
+            "label": "数字化存在感"
+          },
+          "public_persona": {
+            "label": "公开场合的自我形象"
+          },
+          "introduction_style": {
+            "label": "自我介绍的模式",
+            "candidates": [
+              "从头衔",
+              "从爱好",
+              "从信条",
+              "从成就",
+              "配合对方"
+            ]
+          },
+          "online_offline_gap": {
+            "label": "线上与线下人格差异",
+            "candidates": [
+              "Nearly the same",
+              "略有不同",
+              "Quite different",
+              "完全不同的人格"
+            ]
+          },
+          "life_design_priority": {
+            "label": "人生规划的优先轴",
+            "candidates": [
+              "职业",
+              "家庭",
+              "自我实现",
+              "社会贡献",
+              "平衡"
+            ]
+          },
+          "work_life_stance": {
+            "label": "工作生活平衡观量表"
+          },
+          "financial_identity": {
+            "label": "与金钱的关系",
+            "candidates": [
+              "Steady",
+              "Investment type",
+              "Hedonistic type",
+              "不在意",
+              "策略性"
+            ]
+          },
+          "health_identity": {
+            "label": "对健康的态度",
+            "candidates": [
+              "积极管理",
+              "Moderately aware",
+              "不在意",
+              "Only when problems arise"
+            ]
+          },
+          "life_mission": {
+            "label": "人生使命感"
+          },
+          "personal_brand_keywords": {
+            "label": "他人眼中的自我形象"
+          },
+          "reputation_awareness": {
+            "label": "对声誉的意识量表"
+          },
+          "visibility_preference": {
+            "label": "曝光度偏好",
+            "candidates": [
+              "前台",
+              "幕后",
+              "视情况而定",
+              "最低限度"
+            ]
+          }
+        },
+        "Lv3": {
+          "languages": {
+            "label": "使用语言"
+          },
+          "cultural_background": {
+            "label": "文化背景"
+          },
+          "name_significance": {
+            "label": "对名字的意义赋予与由来的感受"
+          },
+          "identity_formation_events": {
+            "label": "塑造身份认同的事件"
+          },
+          "belonging_sense": {
+            "label": "归属意识的状态"
+          },
+          "rejected_identities": {
+            "label": "拒绝/已毕业的身份认同"
+          },
+          "aspirational_identity": {
+            "label": "追求的自我形象"
+          },
+          "identity_narrative": {
+            "label": "自己的故事"
+          },
+          "cultural_identity_layers": {
+            "label": "文化认同的层次"
+          },
+          "legacy_identity": {
+            "label": "想留给后世的自我形象"
+          },
+          "era_consciousness": {
+            "label": "对时代的意识"
+          },
+          "childhood_identity": {
+            "label": "儿童时期的自我形象"
+          },
+          "imposed_identities": {
+            "label": "被他人强加的身份认同"
+          },
+          "hidden_identities": {
+            "label": "隐藏的身份认同"
+          },
+          "identity_paradoxes": {
+            "label": "身份认同的矛盾"
+          },
+          "mortality_awareness_impact": {
+            "label": "死亡意识对身份认同的影响"
+          },
+          "identity_symbols": {
+            "label": "象征自己的物品·场所·话语"
+          },
+          "rebirth_moments": {
+            "label": "重生的瞬间"
+          },
+          "naming_history": {
+            "label": "名字的变迁"
+          },
+          "lineage_consciousness": {
+            "label": "对血统·家系的意识"
+          },
+          "identity_wounds": {
+            "label": "与身份认同相关的创伤"
+          }
+        }
+      },
+      "description": "基本身份信息（姓名、性别、职业、人生阶段等）",
+      "extraction_tips": "从自我介绍、个人简介、签名及头衔描述中提取。注意'我是……'的句式。"
+    },
+    "appearance": {
+      "fields": {
+        "Lv1": {
+          "height_cm": {
+            "label": "身高"
+          },
+          "build": {
+            "label": "体型",
+            "candidates": [
+              "Slender",
+              "偏瘦",
+              "普通",
+              "偏大",
+              "Muscular / sturdy",
+              "丰满"
+            ]
+          },
+          "hair_style": {
+            "label": "发型"
+          },
+          "hair_color": {
+            "label": "发色"
+          },
+          "eye_color": {
+            "label": "眼睛颜色"
+          },
+          "fashion_style": {
+            "label": "穿衣风格",
+            "candidates": [
+              "休闲",
+              "正式",
+              "商务休闲",
+              "运动",
+              "街头",
+              "自然",
+              "军事风",
+              "创意",
+              "其他"
+            ]
+          },
+          "weight_range": {
+            "label": "体重范围",
+            "candidates": [
+              "Under 50kg",
+              "50-60kg",
+              "60-70kg",
+              "70-80kg",
+              "80-90kg",
+              "90kg〜",
+              "Private"
+            ]
+          },
+          "face_shape": {
+            "label": "脸型",
+            "candidates": [
+              "圆脸",
+              "长脸",
+              "Oval face",
+              "方脸",
+              "倒三角",
+              "国字脸"
+            ]
+          },
+          "skin_tone": {
+            "label": "肤色",
+            "candidates": [
+              "Fair-skinned",
+              "普通",
+              "Somewhat dark",
+              "Tanned/brown",
+              "较深"
+            ]
+          },
+          "posture": {
+            "label": "姿势",
+            "candidates": [
+              "良好",
+              "普通",
+              "Tends to hunch",
+              "略反腰"
+            ]
+          },
+          "voice_quality": {
+            "label": "声音特征",
+            "candidates": [
+              "Low/Short",
+              "偏低",
+              "普通",
+              "偏高",
+              "High/Tall"
+            ]
+          },
+          "voice_volume": {
+            "label": "声音音量",
+            "candidates": [
+              "小",
+              "普通",
+              "大",
+              "因场合而异"
+            ]
+          },
+          "facial_hair": {
+            "label": "胡须",
+            "candidates": [
+              "无",
+              "络腮胡渣",
+              "唇髭",
+              "下巴胡",
+              "全须",
+              "Well-maintained"
+            ]
+          },
+          "tattoos": {
+            "label": "纹身"
+          },
+          "piercings": {
+            "label": "穿孔饰品"
+          },
+          "scars_birthmarks": {
+            "label": "疤痕/胎记"
+          },
+          "smile_impression": {
+            "label": "笑容印象",
+            "candidates": [
+              "经常笑",
+              "克制",
+              "Smirks",
+              "Full-face smile",
+              "很少笑"
+            ]
+          },
+          "overall_impression": {
+            "label": "整体印象"
+          },
+          "dominant_hand": {
+            "label": "惯用手",
+            "candidates": [
+              "Right",
+              "Left",
+              "双手利"
+            ]
+          },
+          "blood_type": {
+            "label": "血型",
+            "candidates": [
+              "A",
+              "B",
+              "O",
+              "AB",
+              "不明"
+            ]
+          },
+          "shoe_size": {
+            "label": "鞋码"
+          },
+          "eyebrow_style": {
+            "label": "眉毛特征",
+            "candidates": [
+              "Heavy-set",
+              "纤细",
+              "普通",
+              "较深",
+              "Light / thin",
+              "Well-maintained"
+            ]
+          },
+          "walking_style": {
+            "label": "走路方式",
+            "candidates": [
+              "快",
+              "慢",
+              "普通",
+              "Long strides",
+              "Short strides",
+              "有特征"
+            ]
+          },
+          "physical_presence": {
+            "label": "存在感",
+            "candidates": [
+              "大",
+              "普通",
+              "克制",
+              "因场合而异"
+            ]
+          },
+          "apparent_age": {
+            "label": "外表年龄",
+            "candidates": [
+              "看起来年轻",
+              "与年龄相符",
+              "看起来成熟",
+              "不清楚"
+            ]
+          },
+          "body_language_tendency": {
+            "label": "肢体语言倾向",
+            "candidates": [
+              "手势多",
+              "克制",
+              "表情丰富",
+              "Little movement",
+              "因场合而异"
+            ]
+          }
+        },
+        "Lv2": {
+          "hair_color_hex": {
+            "label": "发色"
+          },
+          "eye_color_hex": {
+            "label": "眼睛颜色"
+          },
+          "fashion_items": {
+            "label": "经常穿的单品"
+          },
+          "glasses": {
+            "label": "眼镜的有无"
+          },
+          "comfort_vs_style": {
+            "label": "舒适vs风格优先度量表"
+          },
+          "dress_code_adaptation": {
+            "label": "着装规范的适应",
+            "candidates": [
+              "严格遵守",
+              "自己风格调整",
+              "最低限度",
+              "无视",
+              "因场合调整"
+            ]
+          },
+          "seasonal_wardrobe": {
+            "label": "季节性穿搭变化",
+            "candidates": [
+              "大幅变化",
+              "略有变化",
+              "很少变化",
+              "以功能性为主变化"
+            ]
+          },
+          "color_palette_preference": {
+            "label": "偏好的色彩搭配"
+          },
+          "brand_preferences_fashion": {
+            "label": "偏好的时尚品牌"
+          },
+          "style_icons": {
+            "label": "风格榜样"
+          },
+          "fashion_budget": {
+            "label": "时尚预算感",
+            "candidates": [
+              "最低限度",
+              "注重性价比",
+              "适度投资",
+              "Invests in favorites",
+              "不在意"
+            ]
+          },
+          "accessory_preferences": {
+            "label": "配饰偏好"
+          },
+          "watch_jewelry": {
+            "label": "手表/首饰"
+          },
+          "bag_contents": {
+            "label": "随身携带的物品"
+          },
+          "fragrance_preference": {
+            "label": "香水偏好",
+            "candidates": [
+              "不使用",
+              "克制",
+              "Thoroughly",
+              "视情况而定"
+            ]
+          },
+          "grooming_style": {
+            "label": "仪容风格",
+            "candidates": [
+              "最低限度",
+              "Values cleanliness",
+              "Particular",
+              "因场合而异"
+            ]
+          },
+          "hair_maintenance": {
+            "label": "理发频率",
+            "candidates": [
+              "每月1次",
+              "Once every two months",
+              "When it bothers",
+              "自己剪"
+            ]
+          },
+          "skin_care_routine": {
+            "label": "护肤",
+            "candidates": [
+              "无",
+              "最低限度",
+              "每日例行",
+              "Particular"
+            ]
+          },
+          "fitness_routine": {
+            "label": "体型维持方式",
+            "candidates": [
+              "Has exercise habit",
+              "饮食管理",
+              "Not doing anything special",
+              "On a diet",
+              "复杂"
+            ]
+          },
+          "physical_presentation_awareness": {
+            "label": "外表意识度量表"
+          },
+          "signature_look": {
+            "label": "标志性外观/招牌造型"
+          },
+          "photo_preference": {
+            "label": "拍照偏好",
+            "candidates": [
+              "Likes",
+              "不擅长",
+              "Likes selfies",
+              "不喜欢被他人拍",
+              "不在意"
+            ]
+          },
+          "makeup_style": {
+            "label": "化妆风格",
+            "candidates": [
+              "无",
+              "最低限度",
+              "自然",
+              "Thoroughly",
+              "视情况而定"
+            ]
+          },
+          "nail_style": {
+            "label": "指甲风格",
+            "candidates": [
+              "不保养",
+              "剪短",
+              "Keeps clean",
+              "美甲保养",
+              "美甲艺术"
+            ]
+          },
+          "weather_dressing": {
+            "label": "天气穿搭",
+            "candidates": [
+              "Function-focused",
+              "不太在意不便",
+              "Outfit changes with weather"
+            ]
+          },
+          "transformation_frequency": {
+            "label": "改变形象的频率",
+            "candidates": [
+              "几乎不",
+              "大约每年一次",
+              "每个季节",
+              "频繁",
+              "Mood-dependent"
+            ]
+          },
+          "eyewear_style": {
+            "label": "眼镜/隐形眼镜详情"
+          },
+          "shoe_style": {
+            "label": "鞋子风格",
+            "candidates": [
+              "运动鞋",
+              "皮鞋",
+              "靴子",
+              "凉鞋",
+              "Function-focused",
+              "灵活运用"
+            ]
+          },
+          "hat_preference": {
+            "label": "帽子偏好",
+            "candidates": [
+              "不戴",
+              "棒球帽",
+              "礼帽",
+              "针织帽",
+              "因场合调整"
+            ]
+          },
+          "outerwear_preference": {
+            "label": "外套偏好",
+            "candidates": [
+              "夹克",
+              "帽衫",
+              "大衣",
+              "羽绒",
+              "Function-focused",
+              "Not particular"
+            ]
+          },
+          "layering_style": {
+            "label": "穿搭层次倾向",
+            "candidates": [
+              "Light clothing",
+              "喜欢叠穿",
+              "按季节变化",
+              "Function over form"
+            ]
+          },
+          "clothing_size": {
+            "label": "服装尺码"
+          },
+          "workwear_vs_casualwear": {
+            "label": "工作装与便装的差异",
+            "candidates": [
+              "Nearly the same",
+              "略有不同",
+              "完全分开",
+              "无工作装"
+            ]
+          },
+          "physical_maintenance": {
+            "label": "身体保养"
+          },
+          "dental_care": {
+            "label": "牙齿保健",
+            "candidates": [
+              "最低限度",
+              "Regular checkups",
+              "美白",
+              "Had braces"
+            ]
+          },
+          "body_language_awareness": {
+            "label": "肢体语言意识度量表"
+          }
+        },
+        "Lv3": {
+          "distinguishing_features": {
+            "label": "显著的外貌特征"
+          },
+          "avatar_url": {
+            "label": "虚拟形象URL"
+          },
+          "voice_sample_url": {
+            "label": "音声样本URL"
+          },
+          "body_image": {
+            "label": "体型意识与自我形象"
+          },
+          "appearance_confidence": {
+            "label": "外貌自信度量表"
+          },
+          "aging_attitude": {
+            "label": "对衰老的态度",
+            "candidates": [
+              "自然接受",
+              "Resists",
+              "享受",
+              "不安",
+              "无意识"
+            ]
+          },
+          "body_relationship": {
+            "label": "与身体的关系"
+          },
+          "hidden_appearance_desires": {
+            "label": "隐藏的外貌愿望"
+          },
+          "appearance_history": {
+            "label": "外貌的变迁"
+          },
+          "style_turning_points": {
+            "label": "风格转变的转折点"
+          },
+          "appearance_role_models": {
+            "label": "外貌榜样"
+          },
+          "appearance_wounds": {
+            "label": "与外貌相关的创伤"
+          },
+          "appearance_identity_link": {
+            "label": "外貌与身份认同的关联"
+          },
+          "appearance_persona_gap": {
+            "label": "外表与内在的差距"
+          },
+          "first_impression_awareness": {
+            "label": "第一印象意识"
+          },
+          "ideal_self_image": {
+            "label": "理想的自我形象"
+          },
+          "avatar_identity": {
+            "label": "虚拟形象与自我的关系"
+          },
+          "physical_aging_changes": {
+            "label": "衰老变化的记录"
+          },
+          "body_narrative": {
+            "label": "身体的故事"
+          },
+          "appearance_era_snapshots": {
+            "label": "各时期外貌快照"
+          }
+        }
+      },
+      "description": "外貌特征（体型、时尚风格、声音）",
+      "extraction_tips": "几乎无法从文本推断。仅在存在自我描述或照片引用时可用。"
+    },
+    "background": {
+      "fields": {
+        "Lv1": {
+          "education": {
+            "label": "学历"
+          },
+          "career": {
+            "label": "工作经历"
+          },
+          "career_summary": {
+            "label": "职业一句话概要"
+          },
+          "years_of_experience": {
+            "label": "总经验年数"
+          },
+          "marital_history": {
+            "label": "婚姻经历"
+          },
+          "residence_history": {
+            "label": "居住经历"
+          },
+          "turning_points": {
+            "label": "人生的转折点"
+          },
+          "formative_experiences": {
+            "label": "影响人格形成的经历"
+          }
+        },
+        "Lv2": {
+          "certifications": {
+            "label": "资格/认证"
+          },
+          "work_style": {
+            "label": "工作风格"
+          },
+          "work_location": {
+            "label": "工作地点"
+          },
+          "expertise_areas": {
+            "label": "专业领域"
+          },
+          "career_motivation_pattern": {
+            "label": "职业选择的动机模式",
+            "candidates": [
+              "成长",
+              "稳定",
+              "挑战",
+              "报酬",
+              "Mission-driven",
+              "好奇心"
+            ]
+          },
+          "career_decision_style": {
+            "label": "职业决策风格",
+            "candidates": [
+              "计划型",
+              "Opportunity-following",
+              "直觉",
+              "重视咨询",
+              "顺其自然"
+            ]
+          },
+          "industry_transition_pattern": {
+            "label": "行业转换模式",
+            "candidates": [
+              "Loyal to one",
+              "转向相邻领域",
+              "大胆跨行业",
+              "Multiple in parallel"
+            ]
+          },
+          "side_projects": {
+            "label": "副业/侧项目"
+          },
+          "leadership_experience": {
+            "label": "领导经验",
+            "candidates": [
+              "团队领导",
+              "项目经理",
+              "技术主管",
+              "管理层",
+              "无经验",
+              "非正式领导"
+            ]
+          },
+          "work_achievement_highlights": {
+            "label": "工作上的主要亮点"
+          },
+          "failure_experiences_career": {
+            "label": "职业上的失败经历"
+          },
+          "relocation_adaptability": {
+            "label": "搬迁/移居适应力量表"
+          },
+          "life_rhythm_changes": {
+            "label": "生活节奏的重大变化"
+          },
+          "financial_turning_points": {
+            "label": "经济转折点"
+          },
+          "health_milestones": {
+            "label": "健康上的里程碑"
+          },
+          "crisis_management_history": {
+            "label": "克服的危机"
+          },
+          "role_transitions": {
+            "label": "角色的转变"
+          },
+          "technology_adaptation_history": {
+            "label": "技术适应的历史"
+          },
+          "unexpected_opportunities": {
+            "label": "意想不到的机遇"
+          },
+          "loss_and_recovery": {
+            "label": "丧失与恢复的经历"
+          },
+          "value_shift_triggers": {
+            "label": "价值观改变的契机"
+          },
+          "lifestyle_shifts": {
+            "label": "生活方式的重大变化"
+          },
+          "cultural_adaptation": {
+            "label": "文化适应的经验"
+          },
+          "self_education_history": {
+            "label": "自学的历史"
+          },
+          "education_satisfaction": {
+            "label": "对所受教育的满意度量表"
+          },
+          "academic_strengths": {
+            "label": "学业擅长领域"
+          },
+          "professional_network_style": {
+            "label": "职业人脉的构建方式",
+            "candidates": [
+              "Study groups / communities",
+              "Internal network",
+              "社交媒体",
+              "介绍",
+              "Rarely builds"
+            ]
+          },
+          "learning_turning_points": {
+            "label": "学习的转折点"
+          },
+          "mentor_history": {
+            "label": "导师的历史"
+          },
+          "influential_books_courses": {
+            "label": "受影响的书籍/课程"
+          },
+          "skill_acquisition_timeline": {
+            "label": "技能获取时间线"
+          },
+          "learning_failures": {
+            "label": "学习的失败/挫折"
+          },
+          "teaching_experience": {
+            "label": "教学经验"
+          },
+          "conference_community_history": {
+            "label": "会议/社区参与经历"
+          },
+          "chronic_conditions": {
+            "label": "慢性健康状况/持病"
+          },
+          "medical_history": {
+            "label": "病史"
+          },
+          "disability_status": {
+            "label": "残障的有无/类型"
+          },
+          "mental_health_history": {
+            "label": "心理健康经历"
+          },
+          "accessibility_needs": {
+            "label": "无障碍需求"
+          },
+          "body_limitations": {
+            "label": "身体限制事项"
+          },
+          "health_management_style": {
+            "label": "健康管理风格",
+            "candidates": [
+              "Values regular checkups",
+              "出现症状后",
+              "自我管理",
+              "运动习惯",
+              "饮食管理",
+              "复杂"
+            ]
+          }
+        },
+        "Lv3": {
+          "family_dynamics": {
+            "label": "家庭动态"
+          },
+          "childhood_environment": {
+            "label": "成长环境的特征"
+          },
+          "socioeconomic_background": {
+            "label": "社会经济背景"
+          },
+          "inherited_patterns": {
+            "label": "从家族继承的模式"
+          },
+          "broken_patterns": {
+            "label": "打破的家族模式"
+          },
+          "parallel_lives": {
+            "label": "另一种人生"
+          },
+          "career_regrets": {
+            "label": "职业上的遗憾"
+          },
+          "unfinished_chapters": {
+            "label": "未完成的篇章"
+          },
+          "survival_stories": {
+            "label": "克服的试炼"
+          },
+          "migration_story": {
+            "label": "移居/迁移的故事"
+          },
+          "formative_relationships": {
+            "label": "影响人格形成的关系"
+          },
+          "privilege_awareness": {
+            "label": "对特权的认知"
+          },
+          "cultural_displacement": {
+            "label": "文化错位的经历"
+          },
+          "generational_influences": {
+            "label": "世代性影响"
+          },
+          "origin_wounds": {
+            "label": "源于成长经历的创伤"
+          },
+          "life_narrative_arc": {
+            "label": "人生的叙事弧"
+          },
+          "recurring_themes": {
+            "label": "人生中反复出现的主题"
+          },
+          "life_metaphor": {
+            "label": "形容人生的比喻"
+          },
+          "chapters_of_life": {
+            "label": "人生的章节划分"
+          },
+          "destiny_vs_choice": {
+            "label": "命运与选择的感觉"
+          },
+          "health_impact_on_identity": {
+            "label": "健康状况对身份认同的影响"
+          },
+          "medical_experiences": {
+            "label": "重要的医疗经历"
+          },
+          "recovery_stories": {
+            "label": "恢复/克服的故事"
+          },
+          "health_philosophy": {
+            "label": "健康观"
+          }
+        }
+      },
+      "description": "经历与背景（教育、职业、人生转折点）",
+      "extraction_tips": "从职业介绍、过往经历引用、'多年前'或'经历过……之后'等时间表述中提取。"
+    },
+    "philosophy": {
+      "fields": {
+        "Lv1": {
+          "worldview": {
+            "label": "世界观"
+          },
+          "view_on_human_nature": {
+            "label": "对人性本质的看法"
+          },
+          "view_on_society": {
+            "label": "社会观"
+          },
+          "view_on_technology": {
+            "label": "技术观"
+          },
+          "view_on_ai": {
+            "label": "AI观"
+          },
+          "view_on_life": {
+            "label": "人生观"
+          },
+          "source_of_meaning": {
+            "label": "意义的源泉"
+          },
+          "definition_of_success": {
+            "label": "成功的定义"
+          },
+          "view_on_death": {
+            "label": "生死观"
+          },
+          "core_values": {
+            "label": "核心价值观"
+          },
+          "ethical_foundation": {
+            "label": "伦理基础"
+          },
+          "what_they_stand_for": {
+            "label": "守护的事物/支持之事"
+          },
+          "what_they_oppose": {
+            "label": "反对的事物/不可容忍之事"
+          },
+          "view_on_failure": {
+            "label": "对失败的态度"
+          },
+          "relationship_with_uncertainty": {
+            "label": "面对不确定性的方式"
+          },
+          "attitude_toward_change": {
+            "label": "对变化的态度",
+            "candidates": [
+              "积极欢迎",
+              "Somewhat likes",
+              "中立",
+              "Somewhat dislikes",
+              "强烈抵抗"
+            ]
+          },
+          "time_perspective": {
+            "label": "时间观",
+            "candidates": [
+              "过去导向",
+              "现在导向",
+              "未来导向",
+              "平衡型"
+            ]
+          },
+          "life_motto": {
+            "label": "人生座右铭"
+          },
+          "guiding_questions": {
+            "label": "引导人生的问题"
+          },
+          "philosophical_keywords": {
+            "label": "表达思想的关键词群"
+          }
+        },
+        "Lv2": {
+          "beliefs": {
+            "label": "信念体系"
+          },
+          "personal_theories": {
+            "label": "个人理论/假说"
+          },
+          "tension_pairs": {
+            "label": "重要对立轴的立场"
+          },
+          "moral_framework": {
+            "label": "伦理观类型",
+            "candidates": [
+              "义务论",
+              "功利主义",
+              "德性伦理",
+              "相对主义",
+              "实用主义"
+            ]
+          },
+          "decision_principles": {
+            "label": "决策原则"
+          },
+          "justice_framework": {
+            "label": "正义观框架",
+            "candidates": [
+              "Fairness",
+              "平等",
+              "Retribution",
+              "重视救济"
+            ]
+          },
+          "view_on_knowledge": {
+            "label": "知识性质观",
+            "candidates": [
+              "Truth is objective",
+              "Relative",
+              "实践型"
+            ]
+          },
+          "view_on_science": {
+            "label": "科学观"
+          },
+          "truth_seeking_method": {
+            "label": "追求真理的方法论",
+            "candidates": [
+              "对话",
+              "实证",
+              "冥想",
+              "Intuition, etc."
+            ]
+          },
+          "view_on_emotion_reason": {
+            "label": "感性与理性的关系"
+          },
+          "view_on_self": {
+            "label": "自我观",
+            "candidates": [
+              "Strictly kept",
+              "流动",
+              "关系性"
+            ]
+          },
+          "view_on_power": {
+            "label": "对权力·权威的态度"
+          },
+          "view_on_cooperation_competition": {
+            "label": "协调与竞争的平衡观"
+          },
+          "view_on_money_work": {
+            "label": "金钱/劳动观"
+          },
+          "view_on_tradition": {
+            "label": "对传统·变革的态度"
+          },
+          "view_on_progress": {
+            "label": "进步观"
+          },
+          "view_on_freedom_constraint": {
+            "label": "自由与制约的平衡观"
+          },
+          "aesthetic_philosophy": {
+            "label": "美的标准/美学"
+          },
+          "creativity_view": {
+            "label": "创造性观"
+          },
+          "spiritual_practices": {
+            "label": "精神实践"
+          },
+          "teaching_learning_philosophy": {
+            "label": "教育/学习观"
+          }
+        },
+        "Lv3": {
+          "philosophical_influences": {
+            "label": "受影响的思想/人物"
+          },
+          "ongoing_questions": {
+            "label": "深化中的问题"
+          },
+          "contradictions_and_tensions": {
+            "label": "内心的矛盾与冲突"
+          },
+          "evolution_of_thought": {
+            "label": "思想的变迁"
+          },
+          "core_paradoxes": {
+            "label": "根本性悖论"
+          },
+          "unresolved_dilemmas": {
+            "label": "未解决的困境"
+          },
+          "shadow_beliefs": {
+            "label": "压抑着的·不愿承认的信念"
+          },
+          "inner_tribunals": {
+            "label": "内在审判者"
+          },
+          "axioms_of_thought_system": {
+            "label": "思想体系的公理"
+          },
+          "philosophical_blind_spots": {
+            "label": "自觉的思想盲点"
+          },
+          "philosophical_lineage": {
+            "label": "思想谱系"
+          },
+          "foundational_experiences": {
+            "label": "塑造思想的原始经历"
+          },
+          "beliefs_that_changed_me": {
+            "label": "改变人生的信念/领悟"
+          },
+          "worldview_shifts": {
+            "label": "世界观转变的时间线"
+          },
+          "philosophical_crises": {
+            "label": "思想危机/崩塌的经历"
+          },
+          "questions_that_haunt_you": {
+            "label": "令人辗转难眠的问题"
+          },
+          "unfinished_arguments": {
+            "label": "未完成的论辩"
+          },
+          "existential_stance": {
+            "label": "存在主义立场"
+          },
+          "relationship_with_transcendence": {
+            "label": "与超越性事物的关系"
+          },
+          "relationship_with_absurdity": {
+            "label": "面对荒诞的方式"
+          },
+          "deep_fears": {
+            "label": "深层恐惧"
+          },
+          "deep_longings": {
+            "label": "深层渴望与追求"
+          },
+          "legacy_concerns": {
+            "label": "对遗留之物的思考"
+          },
+          "view_on_own_death": {
+            "label": "对自身死亡的个人看法"
+          }
+        }
+      },
+      "description": "思想与哲学（价值观、世界观、信念）",
+      "extraction_tips": "文本分析中最可丰富提取的内容。关注主张、意见、引用、'应该'/'我认为'等表达，以及赞同/反对的对象。"
+    },
+    "personality": {
+      "fields": {
+        "Lv1": {
+          "decision_style": {
+            "label": "决策风格",
+            "candidates": [
+              "直觉型",
+              "分析型",
+              "两者"
+            ]
+          },
+          "cognitive_style": {
+            "label": "认知风格",
+            "candidates": [
+              "分析型",
+              "直觉型",
+              "实践型"
+            ]
+          },
+          "information_processing": {
+            "label": "信息处理方向",
+            "candidates": [
+              "从细节到整体",
+              "从整体到细节"
+            ]
+          },
+          "thinking_speed": {
+            "label": "思维速度量表"
+          },
+          "problem_solving_approach": {
+            "label": "问题解决方式"
+          },
+          "social_tendency": {
+            "label": "社交倾向",
+            "candidates": [
+              "内向",
+              "外向",
+              "兼具两者"
+            ]
+          },
+          "cooperativeness": {
+            "label": "协调性量表"
+          },
+          "trust_building_speed": {
+            "label": "信任构建速度量表"
+          },
+          "conflict_approach": {
+            "label": "面对冲突的处理方式",
+            "candidates": [
+              "回避",
+              "冷静对话",
+              "逻辑论辩",
+              "Faces emotionally",
+              "配合对方",
+              "Seeks third-party mediation"
+            ]
+          },
+          "emotional_pattern": {
+            "label": "情感模式",
+            "candidates": [
+              "稳定",
+              "温和",
+              "感情型",
+              "Fluctuates",
+              "Restrained",
+              "丰富",
+              "Inward-looking"
+            ]
+          },
+          "emotional_expression_style": {
+            "label": "情感表达风格",
+            "candidates": [
+              "外显",
+              "Keeps inside",
+              "Middle / intermediate"
+            ]
+          },
+          "empathy_style": {
+            "label": "共情风格",
+            "candidates": [
+              "认知型",
+              "感情型",
+              "两者"
+            ]
+          },
+          "emotional_stability": {
+            "label": "情绪稳定性量表"
+          },
+          "emotional_recovery_speed": {
+            "label": "情绪恢复速度量表"
+          },
+          "energy_source": {
+            "label": "精力来源",
+            "candidates": [
+              "Solitary time",
+              "与人交流",
+              "两者"
+            ]
+          },
+          "core_motivation": {
+            "label": "核心动机"
+          },
+          "procrastination_tendency": {
+            "label": "拖延倾向量表"
+          },
+          "stress_response": {
+            "label": "压力反应",
+            "candidates": [
+              "Internalizing",
+              "Tells someone",
+              "行动发泄",
+              "Organizes through thinking",
+              "回避",
+              "表达情感",
+              "Immersion / forgetting"
+            ]
+          },
+          "coping_mechanisms": {
+            "label": "压力应对方式列表"
+          },
+          "resilience": {
+            "label": "韧性量表"
+          },
+          "outlook_tendency": {
+            "label": "人生观倾向",
+            "candidates": [
+              "乐观",
+              "悲观",
+              "现实主义者"
+            ]
+          },
+          "risk_tolerance": {
+            "label": "风险容忍度量表"
+          },
+          "perfectionism": {
+            "label": "完美主义倾向量表"
+          },
+          "curiosity_level": {
+            "label": "好奇心强度量表"
+          },
+          "autonomy_need": {
+            "label": "自主性需求量表"
+          },
+          "routine_preference": {
+            "label": "作息偏好量表"
+          },
+          "open_to_feedback": {
+            "label": "反馈开放度量表"
+          }
+        },
+        "Lv2": {
+          "communication_preference": {
+            "label": "沟通偏好"
+          },
+          "motivation_sources": {
+            "label": "动力来源"
+          },
+          "avoidances": {
+            "label": "回避的事物/不擅长之事"
+          },
+          "work_rhythm": {
+            "label": "工作节奏",
+            "candidates": [
+              "早起型",
+              "夜猫型",
+              "白天型",
+              "随机型"
+            ]
+          },
+          "energy_peak_time": {
+            "label": "精力峰值时间段",
+            "candidates": [
+              "清晨",
+              "早上",
+              "下午",
+              "傍晚",
+              "晚上"
+            ]
+          },
+          "pace_preference": {
+            "label": "偏好的节奏量表"
+          },
+          "recharge_method": {
+            "label": "恢复方式",
+            "candidates": [
+              "独处时间",
+              "自然",
+              "运动",
+              "对话",
+              "创作",
+              "娱乐"
+            ]
+          },
+          "decision_timing": {
+            "label": "决策时机",
+            "candidates": [
+              "当机立断",
+              "Thorough consideration first",
+              "深思型",
+              "视情况而定"
+            ]
+          },
+          "information_threshold": {
+            "label": "做决定所需信息量量表"
+          },
+          "uncertainty_handling": {
+            "label": "处理不确定性的方式",
+            "candidates": [
+              "Puts on hold",
+              "Proceeds with tentative assumptions",
+              "Starting from certain parts",
+              "Retreats"
+            ]
+          },
+          "evaluation_criteria": {
+            "label": "判断标准的关键词"
+          },
+          "first_impression_style": {
+            "label": "初次见面的展现方式",
+            "candidates": [
+              "克制",
+              "友好",
+              "Observant type",
+              "Takes the lead"
+            ]
+          },
+          "rapport_building_style": {
+            "label": "建立信任的风格",
+            "candidates": [
+              "寻找共同点",
+              "自我披露",
+              "积极倾听",
+              "花时间"
+            ]
+          },
+          "boundary_communication": {
+            "label": "边界的传达方式",
+            "candidates": [
+              "States clearly",
+              "Shows through distance",
+              "Vaguely evades",
+              "回避"
+            ]
+          },
+          "social_circle_management": {
+            "label": "社交范围管理",
+            "candidates": [
+              "Narrow and deep",
+              "广泛浅显",
+              "Values the middle layer",
+              "From time to time"
+            ]
+          },
+          "conversation_initiation": {
+            "label": "开始对话的方式",
+            "candidates": [
+              "Starting with questions",
+              "Provides topics",
+              "Waits for the other person",
+              "Reads the room"
+            ]
+          },
+          "group_dynamics_role": {
+            "label": "群体中的角色",
+            "candidates": [
+              "领导者",
+              "Mediator / coordinator",
+              "活跃气氛者",
+              "观察者",
+              "专家"
+            ]
+          },
+          "reciprocity_expectation": {
+            "label": "给予/获取平衡感量表"
+          },
+          "conflict_deescalation": {
+            "label": "化解冲突的方式",
+            "candidates": [
+              "直接对话",
+              "Waits a while",
+              "第三方介入",
+              "保持距离"
+            ]
+          },
+          "novelty_response": {
+            "label": "对新事物的反应",
+            "candidates": [
+              "积极探索",
+              "谨慎尝试",
+              "保持距离",
+              "Rejection"
+            ]
+          },
+          "crisis_behavior": {
+            "label": "危机时的行为",
+            "candidates": [
+              "Handles calmly",
+              "Takes action to break through",
+              "与周围协作",
+              "Freezing",
+              "收集信息"
+            ]
+          },
+          "ambiguity_response": {
+            "label": "对模糊性的反应",
+            "candidates": [
+              "Tolerates",
+              "Seeks clarity",
+              "Makes own assumptions",
+              "回避"
+            ]
+          },
+          "pressure_performance": {
+            "label": "压力下的表现",
+            "candidates": [
+              "Performing type",
+              "崩溃型",
+              "无变化",
+              "加速型"
+            ]
+          },
+          "interruption_response": {
+            "label": "对中断的反应",
+            "candidates": [
+              "Flexibly adjusts",
+              "烦躁",
+              "难以恢复",
+              "欢迎"
+            ]
+          },
+          "deadline_behavior": {
+            "label": "对截止日期的行为",
+            "candidates": [
+              "提前完成",
+              "Gradual/stepwise",
+              "Last-minute focus",
+              "Tends to go over"
+            ]
+          },
+          "self_discipline_style": {
+            "label": "自律方式",
+            "candidates": [
+              "Rule-making",
+              "Habitualization",
+              "设置奖励",
+              "Willpower reliance"
+            ]
+          },
+          "reward_delay_tolerance": {
+            "label": "延迟满足耐受量表"
+          },
+          "impulse_control": {
+            "label": "冲动控制量表"
+          },
+          "habit_formation_style": {
+            "label": "习惯养成风格",
+            "candidates": [
+              "触发关联",
+              "环境设计",
+              "Records",
+              "Makes companions"
+            ]
+          },
+          "emotion_regulation": {
+            "label": "情绪调节风格",
+            "candidates": [
+              "认知重评",
+              "转移注意",
+              "表达",
+              "Restrained",
+              "身体调节"
+            ]
+          },
+          "attention_management": {
+            "label": "注意力管理风格",
+            "candidates": [
+              "Focus blocks",
+              "多任务",
+              "屏蔽通知",
+              "顺其自然"
+            ]
+          },
+          "commitment_keeping": {
+            "label": "遵守承诺/决心的量表"
+          },
+          "feedback_processing": {
+            "label": "反馈处理方式",
+            "candidates": [
+              "Immediately applied",
+              "Needs time to digest",
+              "有选择",
+              "防御性"
+            ]
+          },
+          "mistake_processing": {
+            "label": "处理失败的方式",
+            "candidates": [
+              "分析",
+              "Switching",
+              "反复思虑",
+              "Processing by sharing"
+            ]
+          },
+          "growth_approach": {
+            "label": "成长方向",
+            "candidates": [
+              "Vertical / deep",
+              "Horizontal / lateral",
+              "螺旋"
+            ]
+          },
+          "unlearning_ability": {
+            "label": "反学习能力量表"
+          },
+          "learning_retention_style": {
+            "label": "记忆巩固风格",
+            "candidates": [
+              "Repetitive",
+              "关联",
+              "Output / production",
+              "经验"
+            ]
+          },
+          "knowledge_transfer_style": {
+            "label": "传播学习的途径",
+            "candidates": [
+              "Turning into articles",
+              "Teaches",
+              "讨论/辩论",
+              "实践",
+              "Internal reflection only"
+            ]
+          },
+          "mentor_seeking_behavior": {
+            "label": "寻找导师的方式",
+            "candidates": [
+              "主动寻找",
+              "偶然际遇",
+              "Holds multiple",
+              "Self-study oriented"
+            ]
+          }
+        },
+        "Lv3": {
+          "shadow_traits": {
+            "label": "阴影特质/弱点"
+          },
+          "growth_patterns": {
+            "label": "成长模式"
+          },
+          "context_variations": {
+            "label": "因场合而异的表现"
+          },
+          "childhood_environment": {
+            "label": "成长环境的特征"
+          },
+          "formative_figures": {
+            "label": "影响人格形成的人物"
+          },
+          "critical_period_events": {
+            "label": "幼年至青年期的重要事件"
+          },
+          "internalized_voices": {
+            "label": "内化的他人的声音"
+          },
+          "early_self_concept": {
+            "label": "幼年时期的自我认知"
+          },
+          "projection_targets": {
+            "label": "容易投射到他人的特质"
+          },
+          "avoided_emotions": {
+            "label": "避免直视的情感"
+          },
+          "defense_mechanisms": {
+            "label": "主要防御机制"
+          },
+          "unconscious_patterns": {
+            "label": "反复出现的无意识模式"
+          },
+          "value_conflicts": {
+            "label": "价值观的矛盾"
+          },
+          "role_conflicts": {
+            "label": "角色间的矛盾"
+          },
+          "desire_vs_duty": {
+            "label": "欲求与义务的冲突"
+          },
+          "ideal_vs_real_self": {
+            "label": "理想自我与现实自我的差距"
+          },
+          "core_wounds": {
+            "label": "人生的深层创伤"
+          },
+          "emotional_triggers": {
+            "label": "强烈反应的触发因素"
+          },
+          "joy_sources_deep": {
+            "label": "发自内心的喜悦来源"
+          },
+          "grief_patterns": {
+            "label": "面对丧失的方式"
+          },
+          "emotional_defaults": {
+            "label": "默认回归的情绪状态"
+          },
+          "identity_crises": {
+            "label": "过去的身份认同危机"
+          },
+          "integration_challenges": {
+            "label": "尚未整合的方面"
+          },
+          "persona_vs_self": {
+            "label": "对外人格与真实自我的差异"
+          },
+          "self_narrative": {
+            "label": "讲述自己的故事"
+          },
+          "core_identity_anchors": {
+            "label": "失去就不再是自己的核心"
+          },
+          "identity_labels_attachment": {
+            "label": "执着的头衔/标签"
+          },
+          "body_self_relationship": {
+            "label": "与身体的关系",
+            "candidates": [
+              "Unity",
+              "Sees as tools",
+              "不适感/违和感",
+              "对话型"
+            ]
+          }
+        }
+      },
+      "description": "性格与行为倾向（情绪模式、决策风格、特定偏好）",
+      "extraction_tips": "从写作的正式/非正式程度、情感表达频率、逻辑/感性论证风格及压力相关描述中推断。"
+    },
+    "knowledge": {
+      "fields": {
+        "Lv1": {
+          "expertise_domains": {
+            "label": "专业知识领域"
+          },
+          "interest_domains": {
+            "label": "兴趣/关注领域"
+          },
+          "current_learning_topics": {
+            "label": "目前正在积极学习的内容"
+          },
+          "knowledge_blind_spots": {
+            "label": "自觉的薄弱/无知领域"
+          },
+          "learning_style": {
+            "label": "学习风格",
+            "candidates": [
+              "阅读",
+              "实践验证",
+              "对话",
+              "Video, etc."
+            ]
+          },
+          "knowledge_depth_tendency": {
+            "label": "知识深度倾向量表"
+          },
+          "information_source_preference": {
+            "label": "信息收集偏好",
+            "candidates": [
+              "书籍",
+              "Internet",
+              "From people, etc."
+            ]
+          },
+          "update_frequency": {
+            "label": "知识更新频率",
+            "candidates": [
+              "一直追踪最新",
+              "定期更新",
+              "仅在需要时",
+              "Rarely updates"
+            ]
+          },
+          "application_tendency": {
+            "label": "知识运用倾向",
+            "candidates": [
+              "理论重视",
+              "实践重视",
+              "理论与实践平衡"
+            ]
+          },
+          "knowledge_sharing_style": {
+            "label": "知识分享风格",
+            "candidates": [
+              "积极分享",
+              "被请求时教",
+              "Through lectures and writing",
+              "Rarely shares"
+            ]
+          },
+          "synthesis_tendency": {
+            "label": "知识跨领域整合倾向量表"
+          },
+          "intellectual_curiosity_style": {
+            "label": "求知欲风格",
+            "candidates": [
+              "广泛探索",
+              "深入钻研"
+            ]
+          },
+          "favorite_thinkers_authors": {
+            "label": "受影响的思想家/作者/作品"
+          },
+          "intellectual_heroes": {
+            "label": "尊敬的知识人物"
+          },
+          "abstraction_preference": {
+            "label": "抽象度偏好量表"
+          }
+        },
+        "Lv2": {
+          "skills": {
+            "label": "技能"
+          },
+          "knowledge_organization_method": {
+            "label": "知识整理方法",
+            "candidates": [
+              "笔记",
+              "Mind maps",
+              "数据库",
+              "In one's head",
+              "Works through dialogue"
+            ]
+          },
+          "expertise_development_pattern": {
+            "label": "专业性培养方式",
+            "candidates": [
+              "集中投资",
+              "并行发展",
+              "Necessity-driven",
+              "好奇心驱动"
+            ]
+          },
+          "knowledge_validation_method": {
+            "label": "知识验证方法",
+            "candidates": [
+              "Testing in practice",
+              "Polished through discussion",
+              "Literature verification",
+              "Intuitive judgment"
+            ]
+          },
+          "cross_domain_connections": {
+            "label": "跨领域关联的模式"
+          },
+          "information_diet": {
+            "label": "信息摄取习惯"
+          },
+          "tool_proficiency": {
+            "label": "熟练使用的工具/技术"
+          },
+          "problem_domain_preference": {
+            "label": "偏好的问题领域",
+            "candidates": [
+              "专业性",
+              "概念性",
+              "Social",
+              "创意",
+              "Practical/business-oriented"
+            ]
+          },
+          "output_medium_preference": {
+            "label": "输出媒介偏好",
+            "candidates": [
+              "书面",
+              "代码",
+              "图解",
+              "演讲",
+              "对话",
+              "Video"
+            ]
+          },
+          "knowledge_gaps_strategy": {
+            "label": "对知识空白的应对",
+            "candidates": [
+              "Immediately researches",
+              "问人",
+              "Postpones",
+              "系统学习",
+              "Ignores until needed"
+            ]
+          },
+          "prototyping_tendency": {
+            "label": "试制/实验倾向",
+            "candidates": [
+              "Immediately applies",
+              "充分调查后",
+              "Mental experiments",
+              "先问人"
+            ]
+          },
+          "mentoring_style": {
+            "label": "指导风格",
+            "candidates": [
+              "Shows by example",
+              "Guides through questions",
+              "Provides materials",
+              "Works alongside",
+              "很少"
+            ]
+          },
+          "intellectual_debate_style": {
+            "label": "知识论辩风格",
+            "candidates": [
+              "苏格拉底问答",
+              "数据对决",
+              "假说碰撞",
+              "协作建构"
+            ]
+          },
+          "collaboration_in_learning": {
+            "label": "学习中的协作",
+            "candidates": [
+              "单独",
+              "Pair/duo",
+              "小团体",
+              "Through community",
+              "视情况而定"
+            ]
+          },
+          "knowledge_currency": {
+            "label": "用知识交换什么"
+          },
+          "certification_approach": {
+            "label": "对资格/认证的态度",
+            "candidates": [
+              "积极获取",
+              "最低限度",
+              "没兴趣",
+              "Means of proving competence"
+            ]
+          },
+          "reading_strategy": {
+            "label": "阅读策略",
+            "candidates": [
+              "Full reading",
+              "选读",
+              "精读",
+              "并行阅读",
+              "看目录判断"
+            ]
+          },
+          "note_taking_style": {
+            "label": "笔记方式",
+            "candidates": [
+              "结构化",
+              "Free text",
+              "图解",
+              "仅关键词",
+              "不记"
+            ]
+          },
+          "experimentation_frequency": {
+            "label": "实验/尝试频率量表"
+          },
+          "knowledge_decay_awareness": {
+            "label": "对知识老化的意识",
+            "candidates": [
+              "一直关注",
+              "Regular checks",
+              "被指出时",
+              "Rarely thinks about"
+            ]
+          },
+          "intellectual_community_role": {
+            "label": "在知识社区中的角色",
+            "candidates": [
+              "创作者",
+              "策展人",
+              "讨论催化剂",
+              "听众",
+              "桥梁"
+            ]
+          },
+          "teaching_frequency": {
+            "label": "教学频率",
+            "candidates": [
+              "每天",
+              "被请求时",
+              "偶尔",
+              "几乎不"
+            ]
+          },
+          "knowledge_update_trigger": {
+            "label": "知识更新的触发因素",
+            "candidates": [
+              "好奇心",
+              "Job necessity",
+              "Stimulation from others",
+              "Sense of urgency",
+              "Regular routine"
+            ]
+          }
+        },
+        "Lv3": {
+          "current_research_topics": {
+            "label": "当前的研究课题"
+          },
+          "intellectual_origin_story": {
+            "label": "求知欲的原点"
+          },
+          "paradigm_shifts": {
+            "label": "改变看世界方式的知识体验"
+          },
+          "abandoned_expertise": {
+            "label": "放弃/远离的专业性"
+          },
+          "unconscious_expertise": {
+            "label": "无意识的专业性"
+          },
+          "intellectual_obsessions": {
+            "label": "知识执念"
+          },
+          "intellectual_fears": {
+            "label": "知识恐惧"
+          },
+          "knowledge_trauma": {
+            "label": "与知识相关的创伤"
+          },
+          "forbidden_knowledge_attraction": {
+            "label": "对禁忌知识的吸引力"
+          },
+          "intellectual_loneliness": {
+            "label": "知识孤独感"
+          },
+          "knowledge_identity_link": {
+            "label": "知识与身份认同的关联"
+          },
+          "knowledge_legacy": {
+            "label": "想作为知识遗产留下的东西"
+          },
+          "teacher_student_dynamics": {
+            "label": "师徒关系的动态"
+          },
+          "unasked_questions": {
+            "label": "尚未提出的问题"
+          },
+          "knowledge_regrets": {
+            "label": "对未学之事的遗憾"
+          },
+          "knowledge_inheritance": {
+            "label": "从谁那里继承了知识"
+          },
+          "intellectual_rebellion": {
+            "label": "知识反叛"
+          },
+          "autodidact_areas": {
+            "label": "完全自学的领域"
+          },
+          "intellectual_debt": {
+            "label": "知识债"
+          },
+          "knowledge_transformation_moments": {
+            "label": "知识改变行动的时刻"
+          },
+          "intellectual_jealousy": {
+            "label": "知识嫉妒"
+          },
+          "knowledge_blind_spot_origins": {
+            "label": "薄弱领域的起源"
+          }
+        }
+      },
+      "description": "知识、兴趣与专业领域",
+      "extraction_tips": "从使用的专业术语、涉及的领域、引用来源及学习/研究相关引用中提取。注意话题的广度与深度比。"
+    },
+    "preferences": {
+      "fields": {
+        "Lv1": {
+          "hobbies": {
+            "label": "爱好"
+          },
+          "leisure_activities": {
+            "label": "休闲活动"
+          },
+          "creative_outlets": {
+            "label": "创作/表达活动",
+            "candidates": [
+              "摄影",
+              "音乐",
+              "Writing, etc."
+            ]
+          },
+          "physical_activities": {
+            "label": "体育活动",
+            "candidates": [
+              "Sports",
+              "Outdoor, etc."
+            ]
+          },
+          "favorite_genres": {
+            "label": "喜欢的类型"
+          },
+          "favorite_works": {
+            "label": "喜欢的作品"
+          },
+          "content_consumption_style": {
+            "label": "内容消费风格",
+            "candidates": [
+              "一口气看完",
+              "慢慢品味",
+              "Skimming"
+            ]
+          },
+          "fiction_vs_nonfiction": {
+            "label": "虚构/非虚构偏好量表"
+          },
+          "aesthetic_keywords": {
+            "label": "表达审美的关键词",
+            "candidates": [
+              "Minimal",
+              "Retro",
+              "Organic, etc."
+            ]
+          },
+          "color_preferences": {
+            "label": "喜欢的颜色/色调"
+          },
+          "sound_preferences": {
+            "label": "喜欢的声音/音环境"
+          },
+          "environment_preference": {
+            "label": "偏好的环境",
+            "candidates": [
+              "Quiet indoor",
+              "Lively indoor",
+              "自然中",
+              "Urban area",
+              "Semi-outdoor (café, etc.)",
+              "都可以"
+            ]
+          },
+          "food": {
+            "label": "饮食偏好"
+          },
+          "cuisine_preferences": {
+            "label": "喜欢的料理类型"
+          },
+          "dietary_style": {
+            "label": "饮食风格",
+            "candidates": [
+              "不讲究",
+              "Meat-focused",
+              "海鲜为主",
+              "蔬菜为主",
+              "素食",
+              "纯素",
+              "无麸质",
+              "其他"
+            ]
+          },
+          "drink_preferences": {
+            "label": "喜欢的饮品"
+          },
+          "pets": {
+            "label": "宠物/饲养的生物"
+          },
+          "owned_items_of_note": {
+            "label": "值得注意的拥有物/常用物品"
+          }
+        },
+        "Lv2": {
+          "travel_style": {
+            "label": "旅行风格"
+          },
+          "comfort_rituals": {
+            "label": "放松的例行程序"
+          },
+          "shopping_style": {
+            "label": "购物风格",
+            "candidates": [
+              "冲动购买",
+              "Thorough comparison",
+              "重视评价",
+              "直觉",
+              "最低限度"
+            ]
+          },
+          "brand_loyalty": {
+            "label": "品牌忠诚度量表"
+          },
+          "quality_vs_quantity": {
+            "label": "质与量的倾向量表"
+          },
+          "spending_priority": {
+            "label": "花钱的优先顺序"
+          },
+          "gear_philosophy": {
+            "label": "对工具/器材的哲学"
+          },
+          "morning_routine": {
+            "label": "早晨例行程序"
+          },
+          "evening_routine": {
+            "label": "晚间例行程序"
+          },
+          "weekend_pattern": {
+            "label": "周末的度过方式"
+          },
+          "seasonal_preferences": {
+            "label": "喜欢的季节",
+            "candidates": [
+              "春",
+              "夏",
+              "秋",
+              "冬",
+              "Regardless of season"
+            ]
+          },
+          "ideal_vacation": {
+            "label": "理想的假期"
+          },
+          "sleep_pattern": {
+            "label": "睡眠模式",
+            "candidates": [
+              "早睡早起",
+              "夜猫型",
+              "不规律",
+              "Short sleep + nap",
+              "长时间睡眠者"
+            ]
+          },
+          "meal_timing": {
+            "label": "用餐节奏",
+            "candidates": [
+              "三餐规律",
+              "两餐",
+              "不规律",
+              "Frequent snacking",
+              "想吃就吃"
+            ]
+          },
+          "break_style": {
+            "label": "休息方式",
+            "candidates": [
+              "频繁",
+              "集中后长休",
+              "不记",
+              "步行",
+              "Mood-switching type"
+            ]
+          },
+          "commute_preference": {
+            "label": "出行偏好",
+            "candidates": [
+              "汽车",
+              "电车",
+              "步行",
+              "自行车",
+              "远程",
+              "混合"
+            ]
+          },
+          "annual_rituals": {
+            "label": "年度例行活动/习惯"
+          },
+          "downtime_activities": {
+            "label": "空闲时间的度过方式"
+          },
+          "planning_horizon": {
+            "label": "制定计划的方式",
+            "candidates": [
+              "Meticulous scheduling",
+              "Outline only",
+              "顺其自然",
+              "临时决定",
+              "混合"
+            ]
+          },
+          "ritual_importance": {
+            "label": "例行程序的重要度量表"
+          },
+          "gathering_preference": {
+            "label": "聚会偏好",
+            "candidates": [
+              "家庭聚会",
+              "外出就餐",
+              "户外",
+              "线上",
+              "Quietly in a small group"
+            ]
+          },
+          "gift_giving_style": {
+            "label": "送礼风格",
+            "candidates": [
+              "实用品",
+              "基于经验",
+              "Surprise gifts",
+              "What the recipient asked for",
+              "Rarely gives gifts"
+            ]
+          },
+          "celebration_style": {
+            "label": "庆祝方式",
+            "candidates": [
+              "Grand celebration",
+              "亲朋好友",
+              "安静",
+              "不特别",
+              "犒赏自己"
+            ]
+          },
+          "entertainment_budget_priority": {
+            "label": "娱乐预算的分配"
+          },
+          "nostalgia_triggers": {
+            "label": "怀旧触发物"
+          },
+          "tech_adoption_speed": {
+            "label": "新技术采用速度",
+            "candidates": [
+              "早期采用者",
+              "Waits and watches",
+              "需要时再用",
+              "谨慎"
+            ]
+          },
+          "digital_vs_analog": {
+            "label": "数字/模拟偏好量表"
+          },
+          "subscription_services": {
+            "label": "使用的订阅服务"
+          },
+          "device_ecosystem": {
+            "label": "设备生态系统",
+            "candidates": [
+              "Apple",
+              "Google",
+              "Microsoft",
+              "混合",
+              "Linux-focused"
+            ]
+          },
+          "customization_tendency": {
+            "label": "定制化倾向量表"
+          }
+        },
+        "Lv3": {
+          "sensory_preferences": {
+            "label": "感官偏好"
+          },
+          "disliked_environments": {
+            "label": "不喜欢的环境"
+          },
+          "preference_origin_stories": {
+            "label": "偏好的原点"
+          },
+          "childhood_favorites": {
+            "label": "儿时喜欢的东西"
+          },
+          "preference_inheritance": {
+            "label": "从谁那里继承的偏好"
+          },
+          "aesthetic_formation": {
+            "label": "审美观的形成"
+          },
+          "sensory_memories": {
+            "label": "感官记忆"
+          },
+          "taste_evolution": {
+            "label": "偏好的变迁"
+          },
+          "lost_interests": {
+            "label": "失去的兴趣及其原因"
+          },
+          "rejected_tastes": {
+            "label": "有意识拒绝的偏好"
+          },
+          "preference_contradictions": {
+            "label": "偏好中的矛盾"
+          },
+          "guilty_pleasures": {
+            "label": "带罪恶感的快乐"
+          },
+          "comfort_objects": {
+            "label": "带来安心感的物品"
+          },
+          "dream_possessions": {
+            "label": "梦想拥有的物品"
+          },
+          "sacred_spaces": {
+            "label": "自己心中的圣地"
+          },
+          "irreplaceable_experiences": {
+            "label": "不可替代的体验"
+          },
+          "taste_identity_link": {
+            "label": "偏好与身份认同的关联"
+          }
+        }
+      },
+      "description": "品味与偏好（爱好、喜欢的风格、内容）",
+      "extraction_tips": "从'喜欢/不喜欢/最爱'等引用、推荐物品及休闲活动描述中提取。"
+    },
+    "expression": {
+      "fields": {
+        "Lv1": {
+          "first_person": {
+            "label": "第一人称"
+          },
+          "second_person": {
+            "label": "第二人称"
+          },
+          "speech_style": {
+            "label": "语气"
+          },
+          "catchphrases": {
+            "label": "口头禅"
+          },
+          "sentence_endings": {
+            "label": "语尾特征"
+          },
+          "sentence_length": {
+            "label": "句子长度倾向",
+            "candidates": [
+              "喜欢短句",
+              "喜欢长句",
+              "混合"
+            ]
+          },
+          "response_length_tendency": {
+            "label": "回答长度量表"
+          },
+          "use_of_lists": {
+            "label": "列表/要点使用频率量表"
+          },
+          "vocabulary_tendency": {
+            "label": "词汇倾向",
+            "candidates": [
+              "Specialized",
+              "Plain/simple",
+              "混合"
+            ]
+          },
+          "use_of_technical_terms": {
+            "label": "专业术语使用频率量表"
+          },
+          "use_of_foreign_words": {
+            "label": "外来语/英语使用倾向量表"
+          },
+          "metaphor_usage": {
+            "label": "比喻/类比使用频率量表"
+          },
+          "logic_style": {
+            "label": "逻辑展开风格",
+            "candidates": [
+              "归纳",
+              "演绎",
+              "Narrative-style"
+            ]
+          },
+          "argumentation_style": {
+            "label": "论辩风格",
+            "candidates": [
+              "主张型",
+              "探究型",
+              "协调型"
+            ]
+          },
+          "evidence_preference": {
+            "label": "论据呈现方式",
+            "candidates": [
+              "重视数据",
+              "Values experience",
+              "Sensation-focused"
+            ]
+          },
+          "counterargument_handling": {
+            "label": "面对反驳的处理风格",
+            "candidates": [
+              "接受并改变想法",
+              "Partially adopts",
+              "Rebuts calmly",
+              "Rebuts emotionally",
+              "Puts on hold to think later",
+              "回避"
+            ]
+          },
+          "emotional_expressiveness": {
+            "label": "情感表达丰富度量表"
+          },
+          "humor_style": {
+            "label": "幽默风格",
+            "candidates": [
+              "Witty / intellectual",
+              "自嘲",
+              "Surreal / absurdist",
+              "谐音双关·文字游戏",
+              "观察型幽默",
+              "很少使用"
+            ]
+          },
+          "agreement_expression": {
+            "label": "表达同意的方式"
+          },
+          "disagreement_expression": {
+            "label": "表达不同意/反驳的方式"
+          },
+          "question_asking_style": {
+            "label": "提问方式/问题的提出",
+            "candidates": [
+              "根本性·哲学性",
+              "具体·实践性",
+              "假设验证型",
+              "探索·发散型",
+              "Verifying / organizing type",
+              "批判性提问"
+            ]
+          },
+          "topic_interests_in_conversation": {
+            "label": "对话中喜欢的话题"
+          },
+          "conversation_depth_preference": {
+            "label": "对话深度偏好量表"
+          },
+          "listening_style": {
+            "label": "倾听风格",
+            "candidates": [
+              "Listening — takes time to hear",
+              "共情型·贴近情感",
+              "分析型·整理论点",
+              "Solution-oriented — seeks answers",
+              "多任务型"
+            ]
+          },
+          "use_of_emoji_symbols": {
+            "label": "表情符号/符号使用倾向量表"
+          },
+          "punctuation_style": {
+            "label": "标点/换行使用方式",
+            "candidates": [
+              "标准",
+              "逗号多",
+              "逗号少",
+              "Frequent line breaks / short paragraphs",
+              "Few line breaks / long paragraphs",
+              "口语风"
+            ]
+          }
+        },
+        "Lv2": {
+          "metaphor_preferences": {
+            "label": "比喻偏好"
+          },
+          "persuasion_style": {
+            "label": "说服风格",
+            "candidates": [
+              "Logic",
+              "感情/感受",
+              "权威",
+              "叙事型",
+              "数据"
+            ]
+          },
+          "storytelling_style": {
+            "label": "叙事方式",
+            "candidates": [
+              "按时间",
+              "结论先行",
+              "伏笔型",
+              "Spontaneous"
+            ]
+          },
+          "teaching_style": {
+            "label": "教学风格",
+            "candidates": [
+              "Procedural type",
+              "概念先行",
+              "举例型",
+              "提问引导"
+            ]
+          },
+          "explanation_depth_control": {
+            "label": "说明深度调节",
+            "candidates": [
+              "配合对方",
+              "总是详细",
+              "总是简洁",
+              "被问时深入"
+            ]
+          },
+          "feedback_giving_style": {
+            "label": "反馈传达方式",
+            "candidates": [
+              "Frank/direct",
+              "Sandwiched / in-between",
+              "提问形式",
+              "Through metaphor",
+              "书面"
+            ]
+          },
+          "formality_switching": {
+            "label": "敬语/随意切换",
+            "candidates": [
+              "Switches immediately",
+              "逐渐",
+              "不擅长",
+              "始终一致"
+            ]
+          },
+          "audience_adaptation": {
+            "label": "对听众的适应力",
+            "candidates": [
+              "有意识地调整",
+              "自然变化",
+              "很少变化"
+            ]
+          },
+          "code_switching": {
+            "label": "语言/语域切换",
+            "candidates": [
+              "频繁",
+              "仅在需要时",
+              "不擅长",
+              "有意识"
+            ]
+          },
+          "emotional_tone_control": {
+            "label": "情感语调控制",
+            "candidates": [
+              "有意识地控制",
+              "自然流露",
+              "因场合而异",
+              "Somewhat restrained"
+            ]
+          },
+          "conflict_communication": {
+            "label": "冲突时的表达",
+            "candidates": [
+              "直率",
+              "Indirect / euphemistic",
+              "沉默",
+              "幽默缓和",
+              "Through writing"
+            ]
+          },
+          "narrative_perspective": {
+            "label": "叙述视角",
+            "candidates": [
+              "First person",
+              "Third person",
+              "Objective",
+              "混合"
+            ]
+          },
+          "information_ordering": {
+            "label": "信息排列方式",
+            "candidates": [
+              "按重要度",
+              "按时间",
+              "对比",
+              "问题→解决"
+            ]
+          },
+          "abstraction_level_preference": {
+            "label": "具体⇔抽象的构建方式",
+            "candidates": [
+              "具体→抽象",
+              "抽象→具体",
+              "混合",
+              "仅具体"
+            ]
+          },
+          "reference_style": {
+            "label": "引用/参考方式",
+            "candidates": [
+              "Frequently quotes",
+              "用自己的话",
+              "基于经验",
+              "重视数据"
+            ]
+          },
+          "turn_taking_style": {
+            "label": "对话轮换方式",
+            "candidates": [
+              "等待",
+              "插话",
+              "平衡",
+              "Yields to the other person"
+            ]
+          },
+          "topic_transition_style": {
+            "label": "话题切换方式",
+            "candidates": [
+              "Lets it flow naturally",
+              "明确切换",
+              "Leaves it to the other person",
+              "突然"
+            ]
+          },
+          "response_latency": {
+            "label": "回应速度",
+            "candidates": [
+              "即时",
+              "Thinks a bit first",
+              "慢慢品味",
+              "视话题而定"
+            ]
+          },
+          "active_listening_signals": {
+            "label": "常用的附和/倾听信号"
+          },
+          "question_frequency": {
+            "label": "提问频率量表"
+          }
+        },
+        "Lv3": {
+          "writing_patterns": {
+            "label": "文章的习惯/模式"
+          },
+          "silence_usage": {
+            "label": "沉默/停顿的使用方式"
+          },
+          "language_influences": {
+            "label": "影响用语习惯的人/作品"
+          },
+          "expression_turning_points": {
+            "label": "表达风格转变的契机"
+          },
+          "childhood_communication_environment": {
+            "label": "成长环境中的沟通特征"
+          },
+          "suppressed_expression_modes": {
+            "label": "被压抑的表达模式"
+          },
+          "unconscious_verbal_habits": {
+            "label": "无意识的语言习惯"
+          },
+          "emotional_leakage_patterns": {
+            "label": "情感泄露到表达中的模式"
+          },
+          "authenticity_vs_performance": {
+            "label": "真心话与对外模式的差异"
+          },
+          "inner_monologue_style": {
+            "label": "内心独白的风格"
+          },
+          "dream_narrative_style": {
+            "label": "讲述梦想/空想的风格"
+          },
+          "untranslatable_expressions": {
+            "label": "无法翻译的独特表达"
+          },
+          "signature_phrases_origin": {
+            "label": "口头禅/惯用语的由来"
+          },
+          "voice_of_authority": {
+            "label": "能以权威身份发言的主题"
+          },
+          "vulnerability_expression": {
+            "label": "展现脆弱的方式",
+            "candidates": [
+              "用幽默",
+              "Frankly",
+              "Through metaphor",
+              "不展现",
+              "Only to trusted people"
+            ]
+          },
+          "communication_wounds": {
+            "label": "与沟通相关的创伤"
+          }
+        }
+      },
+      "description": "表达与沟通风格",
+      "extraction_tips": "文本本身即为表达的直接证据。分析写作风格、比喻用法、逻辑结构、幽默类型及句末特征。"
+    },
+    "relationships": {
+      "fields": {
+        "Lv1": {
+          "family_structure": {
+            "label": "家庭构成"
+          },
+          "marital_status": {
+            "label": "婚姻状况",
+            "candidates": [
+              "Unmarried",
+              "已婚",
+              "离异",
+              "丧偶",
+              "事实婚姻",
+              "其他"
+            ]
+          },
+          "has_children": {
+            "label": "有无子女"
+          },
+          "living_situation": {
+            "label": "居住形态",
+            "candidates": [
+              "独居",
+              "Living with partner",
+              "Living with family",
+              "合租",
+              "其他"
+            ]
+          },
+          "relationship_style": {
+            "label": "关系风格",
+            "candidates": [
+              "Few, deeply",
+              "Many, broadly",
+              "按目的区分",
+              "视情况而定"
+            ]
+          },
+          "attachment_style": {
+            "label": "依恋风格",
+            "candidates": [
+              "稳定",
+              "焦虑型",
+              "回避型",
+              "混乱型"
+            ]
+          },
+          "intimacy_preference": {
+            "label": "亲密度偏好量表"
+          },
+          "preferred_social_setting": {
+            "label": "偏好的社交场景",
+            "candidates": [
+              "One-on-one",
+              "Small groups",
+              "Large groups"
+            ]
+          },
+          "social_energy_drain": {
+            "label": "社交精力消耗量表"
+          },
+          "how_they_show_care": {
+            "label": "表达关心/爱的方式"
+          },
+          "support_style": {
+            "label": "支持他人的方式",
+            "candidates": [
+              "感情型",
+              "Practical/business-oriented",
+              "两者"
+            ]
+          },
+          "conflict_style": {
+            "label": "冲突处理方式",
+            "candidates": [
+              "回避",
+              "冷静对话",
+              "逻辑论辩",
+              "Faces emotionally",
+              "花时间",
+              "Seeks third-party mediation"
+            ]
+          },
+          "forgiveness_tendency": {
+            "label": "宽恕倾向",
+            "candidates": [
+              "Forgives immediately",
+              "Forgives over time",
+              "Forgives conditionally",
+              "Hard to forgive",
+              "视情况而定"
+            ]
+          },
+          "loyalty_pattern": {
+            "label": "忠诚度模式",
+            "candidates": [
+              "非常强",
+              "强",
+              "普通",
+              "弱",
+              "视情况而定"
+            ]
+          },
+          "social_role": {
+            "label": "社会角色",
+            "candidates": [
+              "领导者",
+              "追随者",
+              "Mediator / coordinator",
+              "专家·顾问",
+              "有导师",
+              "点子王",
+              "其他"
+            ]
+          },
+          "group_role_tendency": {
+            "label": "在群体中的角色倾向",
+            "candidates": [
+              "领导者",
+              "支持者",
+              "点子王",
+              "执行者",
+              "Mediator / coordinator",
+              "批评·分析者",
+              "观察者"
+            ]
+          },
+          "networking_style": {
+            "label": "社交网络风格",
+            "candidates": [
+              "积极广泛",
+              "Goal-oriented, connects with needed people",
+              "Relationship-focused, deeply connected",
+              "被动",
+              "Online-focused",
+              "In-person-focused"
+            ]
+          },
+          "boundary_setting": {
+            "label": "边界设定",
+            "candidates": [
+              "明确",
+              "模糊"
+            ]
+          },
+          "relationship_maintenance_style": {
+            "label": "关系维护风格",
+            "candidates": [
+              "Frequent contact",
+              "仅在需要时"
+            ]
+          },
+          "dependency_tendency": {
+            "label": "依赖倾向量表"
+          }
+        },
+        "Lv2": {
+          "key_relationships": {
+            "label": "重要的人际关系"
+          },
+          "love_language_giving": {
+            "label": "表达爱的方式",
+            "candidates": [
+              "语言",
+              "用行动",
+              "礼物",
+              "时间",
+              "肢体接触"
+            ]
+          },
+          "love_language_receiving": {
+            "label": "接受爱的方式",
+            "candidates": [
+              "语言",
+              "用行动",
+              "礼物",
+              "时间",
+              "肢体接触"
+            ]
+          },
+          "apology_style": {
+            "label": "道歉方式",
+            "candidates": [
+              "坦诚话语",
+              "用行动表示",
+              "过段时间",
+              "礼物",
+              "不擅长"
+            ]
+          },
+          "gratitude_expression": {
+            "label": "表达感谢的方式",
+            "candidates": [
+              "用语言",
+              "Returns with action",
+              "Letters / messages",
+              "用态度表示",
+              "不擅长"
+            ]
+          },
+          "emotional_support_seeking": {
+            "label": "寻求情感支持的方式",
+            "candidates": [
+              "Relies openly",
+              "Indirectly",
+              "Handles personally",
+              "Only to specific people",
+              "视情况而定"
+            ]
+          },
+          "reunion_behavior": {
+            "label": "重逢时的表现",
+            "candidates": [
+              "兴奋",
+              "Natural / unaffected",
+              "Slightly nervous",
+              "From where we left off",
+              "Waits and watches"
+            ]
+          },
+          "relationship_investment_priority": {
+            "label": "关系投入的优先顺序"
+          },
+          "friendship_maintenance": {
+            "label": "维持友谊的方法",
+            "candidates": [
+              "Frequent contact",
+              "偶尔深谈",
+              "Goes all-in when meeting",
+              "SNS保持联系",
+              "顺其自然"
+            ]
+          },
+          "family_contact_frequency": {
+            "label": "与家人的联络频率",
+            "candidates": [
+              "每天",
+              "每周数次",
+              "每周一次",
+              "每月数次",
+              "仅在需要时",
+              "几乎没有"
+            ]
+          },
+          "digital_relationship_style": {
+            "label": "数字化关系构建",
+            "candidates": [
+              "SNS积极",
+              "Message-focused",
+              "Values in-person",
+              "灵活运用",
+              "最低限度"
+            ]
+          },
+          "new_relationship_approach": {
+            "label": "开始新关系的方式",
+            "candidates": [
+              "主动搭话",
+              "从共同话题",
+              "通过介绍",
+              "等待",
+              "Following the flow"
+            ]
+          },
+          "relationship_exit_style": {
+            "label": "结束关系的方式",
+            "candidates": [
+              "正式告知",
+              "Natural dissolution",
+              "保持距离",
+              "Slow to decide",
+              "果断"
+            ]
+          },
+          "social_hierarchy_sensitivity": {
+            "label": "上下关系敏感度量表"
+          },
+          "mentoring_relationship": {
+            "label": "导师/学员关系",
+            "candidates": [
+              "Has a mentor",
+              "Has mentees",
+              "两者",
+              "无",
+              "Informally"
+            ]
+          },
+          "professional_relationship_style": {
+            "label": "工作关系风格",
+            "candidates": [
+              "Work-life separation",
+              "Work colleagues are also friends",
+              "重视团队",
+              "重视个人",
+              "视情况而定"
+            ]
+          },
+          "cross_generational_interaction": {
+            "label": "跨世代交流风格",
+            "candidates": [
+              "与年长者更自在",
+              "与年轻者更自在",
+              "Most comfortable with same generation",
+              "不分世代"
+            ]
+          },
+          "pet_relationship": {
+            "label": "与宠物的关系"
+          },
+          "jealousy_tendency": {
+            "label": "嫉妒倾向量表"
+          },
+          "trust_recovery_pattern": {
+            "label": "信任恢复模式",
+            "candidates": [
+              "时间解决",
+              "Through discussion",
+              "Seeks proof through actions",
+              "困难",
+              "视条件而定"
+            ]
+          },
+          "confrontation_threshold": {
+            "label": "对抗的阈值",
+            "candidates": [
+              "立即说",
+              "积累后",
+              "忍到极限",
+              "回避",
+              "Only in serious matters"
+            ]
+          },
+          "secret_keeping": {
+            "label": "保密方式",
+            "candidates": [
+              "绝对保守",
+              "Shared only with trusted people",
+              "不擅长保密",
+              "视情况而定"
+            ]
+          },
+          "vulnerability_sharing": {
+            "label": "分享脆弱面",
+            "candidates": [
+              "开放",
+              "Only with close people",
+              "Rarely shows",
+              "视对方而定",
+              "逐渐"
+            ]
+          }
+        },
+        "Lv3": {
+          "community_involvement": {
+            "label": "社区参与"
+          },
+          "attachment_origin": {
+            "label": "依恋风格的起源"
+          },
+          "first_significant_relationship": {
+            "label": "第一段重要的关系"
+          },
+          "relationship_role_models": {
+            "label": "关系的榜样"
+          },
+          "family_relationship_patterns": {
+            "label": "家庭关系模式"
+          },
+          "relationship_wounds": {
+            "label": "关系的创伤"
+          },
+          "abandonment_fears": {
+            "label": "被抛弃的恐惧"
+          },
+          "intimacy_barriers": {
+            "label": "亲密关系的障碍"
+          },
+          "unconscious_relationship_patterns": {
+            "label": "无意识的关系模式"
+          },
+          "projection_in_relationships": {
+            "label": "关系中的投射"
+          },
+          "codependency_awareness": {
+            "label": "共依存的自觉"
+          },
+          "relationship_identity": {
+            "label": "关系中的自我形象"
+          },
+          "loneliness_relationship": {
+            "label": "与孤独的关系"
+          },
+          "ideal_relationship_vision": {
+            "label": "理想的关系图景"
+          },
+          "chosen_family": {
+            "label": "选择的家人"
+          },
+          "relationship_with_ai": {
+            "label": "对AI关系的看法"
+          },
+          "lost_relationships": {
+            "label": "失去的关系"
+          },
+          "relationship_regrets": {
+            "label": "关系中的遗憾"
+          },
+          "relationship_gratitude": {
+            "label": "对关系的感恩"
+          },
+          "relationship_legacy": {
+            "label": "想作为关系遗产留下的东西"
+          },
+          "relationship_philosophy": {
+            "label": "人际关系哲学"
+          }
+        }
+      },
+      "description": "人际关系与社会参与",
+      "extraction_tips": "从对他人的提及方式、'我们'与'我'的使用、对社会话题的关注及家人/朋友的提及中提取。"
+    },
+    "episodes": {
+      "fields": {},
+      "description": "情节记忆（用于RAG存储）",
+      "extraction_tips": "文本本身成为情节的来源。作为原始资料记录，而非分析结果。"
+    },
+    "personality_assessments": {
+      "fields": {},
+      "description": "性格评估结果（Big5、MBTI等）",
+      "extraction_tips": "仅在本人明确表明评估结果时使用。切勿从文本推断MBTI等（因为会不准确）。"
+    }
+  }
+}

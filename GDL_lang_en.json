@@ -1,0 +1,4145 @@
+{
+  "_about": "English language pack for GDL (Ghost Description Language)",
+  "_language": "en",
+  "_schema_version": "1.2",
+  "_note": "This file provides English translations for all human-readable text in GDL schema and knowledge files. Keys mirror the original Japanese structure.",
+  "_levels": {
+    "_description": "GDL detail level definitions. Determines which level each item belongs to.",
+    "Lv1": {
+      "purpose": "Can reproduce speech patterns, tone, and basic preferences",
+      "focus": "Who — Identity (attributes & surface-level characteristics)"
+    },
+    "Lv2": {
+      "purpose": "Can predict judgment/reasoning patterns and value-based behavior",
+      "focus": "How — Thinking & acting (thought processes & decision criteria)"
+    },
+    "Lv3": {
+      "purpose": "Can achieve deep personality reproduction including life context, contradictions, and inner conflicts",
+      "focus": "Why — Root causes (deep psychology, formative history & internal contradictions)"
+    }
+  },
+  "_confidence": {
+    "_description": "Confidence annotations for GDL fields. Applied when GDL is generated through indirect methods (text analysis, behavioral observation, third-party information, etc.) rather than direct self-reporting.",
+    "when_used": "Not required when generation_method is 'input_form' or 'interview' (direct responses). Required when using indirect methods like 'text_analysis' or 'observation'.",
+    "levels": {
+      "high": {
+        "meaning": "Explicit statement or very strong evidence exists",
+        "ai_instruction": "Strongly reflect this trait"
+      },
+      "medium": {
+        "meaning": "Reasonable inference from multiple indirect pieces of evidence",
+        "ai_instruction": "Generally reflect this, but flexibly adjust if contradictory information exists"
+      },
+      "low": {
+        "meaning": "Speculation based on weak clues",
+        "ai_instruction": "Treat as reference only; ignore if contradictory information exists"
+      },
+      "user_confirmed": {
+        "meaning": "Value confirmed or corrected by the person themselves",
+        "ai_instruction": "Trust at least as much as 'high'"
+      },
+      "user_provided": {
+        "meaning": "Information directly provided by the person",
+        "ai_instruction": "Treat as the most reliable value"
+      }
+    },
+    "field_format": {
+      "with_confidence": "{ \"value\": value, \"confidence\": \"high|medium|low|user_confirmed|user_provided\", \"evidence\": \"basis for inference\" }",
+      "without_confidence": "Store value directly (when the person answered directly)"
+    }
+  },
+  "_meta": {
+    "_description": "Field definitions for the meta section. Stores management information for GDL data.",
+    "field_definitions": {
+      "gdl_version": {
+        "description": "GDL format version"
+      },
+      "schema_version": {
+        "description": "Schema version in use"
+      },
+      "created_at": {
+        "description": "GDL creation date"
+      },
+      "updated_at": {
+        "description": "GDL last updated date"
+      },
+      "subject_id": {
+        "description": "Unique identifier for the subject person"
+      },
+      "detail_level": {
+        "description": "Detail level to use. Numeric 1-3 or 'adaptive' (adaptively output based on inferable range)"
+      },
+      "generation_method": {
+        "description": "GDL generation method. _confidence annotation is recommended for indirect methods"
+      },
+      "source_type": {
+        "description": "Type of analysis source (for indirect generation only)"
+      },
+      "source_summary": {
+        "description": "Summary of analysis target (for indirect generation only)"
+      },
+      "target_person": {
+        "description": "Name of target person (for multi-speaker only)"
+      },
+      "speakers_detected": {
+        "description": "List of detected speakers (for multi-speaker only)"
+      }
+    }
+  },
+  "_preamble": {
+    "_description": "Specification for the AI interpretation guide included at the beginning of GDL output. Self-describing information for AI reading GDL JSON as a system prompt to correctly interpret the data. Must not be omitted.",
+    "conventions": {
+      "what": {
+        "description": "Explanation of what GDL is",
+        "example": "GDL (Ghost Description Language) — Structured data describing a person's individuality."
+      },
+      "purpose": {
+        "description": "Expected behavior from AI reading GDL",
+        "example": "Understand this person's individuality and reproduce responses, judgments, and expressions that reflect who they are."
+      },
+      "scale_convention": {
+        "description": "Interpretation rules for numeric scales",
+        "example": "Numeric fields use a 5-point scale (1=strongly disagree, 5=strongly agree). Each item includes a label describing its meaning."
+      },
+      "array_convention": {
+        "description": "Order rules for array fields",
+        "example": "Array fields are ordered by importance (first item = most important/most applicable)."
+      },
+      "rank_convention": {
+        "description": "Interpretation rules for rank arrays",
+        "example": "Rank arrays represent the person's chosen priority order (first = most important)."
+      },
+      "usage": {
+        "description": "Intended usage of GDL",
+        "example": "Designed to be included in system prompts or context windows."
+      },
+      "confidence_convention": {
+        "description": "Interpretation rules for confidence annotations. Included when generated through indirect methods (text_analysis, etc.). Compliant with the _confidence specification.",
+        "when_included": "When generation_method is an indirect method"
+      }
+    },
+    "section_descriptions": {
+      "_description": "Attach a _description key to each section explaining its purpose. Required for AI to understand the meaning of each section.",
+      "values": {
+        "identity": "Basic identification (name, gender, occupation, life stage, etc.)",
+        "appearance": "Physical characteristics (body type, fashion, voice)",
+        "background": "History & experience (education, career, life turning points)",
+        "philosophy": "Thought & philosophy (values, worldview, beliefs)",
+        "personality": "Personality & behavioral tendencies (emotional patterns, decision-making style, particular preferences)",
+        "knowledge": "Knowledge, interests & areas of expertise",
+        "preferences": "Tastes & preferences (hobbies, preferred styles, content)",
+        "expression": "Expression & communication style",
+        "relationships": "Interpersonal relationships & social engagement",
+        "episodes": "Episodic memory (for RAG storage)",
+        "personality_assessments": "Personality assessment results (Big5, MBTI, etc.)"
+      }
+    }
+  },
+  "_labels": {
+    "_description": "Label-to-English translation map for all GDL fields. Data keys are clean English keys; this map provides human-readable labels.",
+    "gdl": "Individuality Description Language data body",
+    "meta": "Meta information",
+    "meta.gdl_version": "GDL version",
+    "meta.schema_version": "Schema version",
+    "meta.created_at": "Date created",
+    "meta.updated_at": "Date last updated",
+    "meta.subject_id": "Subject ID",
+    "meta.detail_level": "Detail level to use (1/2/3 or 'adaptive')",
+    "meta.generation_method": "GDL generation method (input_form/interview/text_analysis/observation, etc.)",
+    "meta.source_type": "Source type for analysis (SNS posts/blog/interview, etc.; indirect generation only)",
+    "meta.source_summary": "Summary of analysis target (1-2 sentences; indirect generation only)",
+    "meta.target_person": "Target person's name (multi-speaker only)",
+    "meta.speakers_detected": "List of detected speakers (multi-speaker only)",
+    "identity": "Identity & basic identification",
+    "identity.name": "Name",
+    "identity.name.kanji": "Kanji",
+    "identity.name.kana": "Hiragana",
+    "identity.name.romaji": "Romaji",
+    "identity.maiden_name": "Maiden name (pre-marriage surname)",
+    "identity.nickname": "Nickname / preferred name",
+    "identity.online_handles": "Online handles (array)",
+    "identity.birth_year": "Birth year",
+    "identity.gender": "Gender (male/female/other/prefer not to say)",
+    "identity.nationality": "Nationality",
+    "identity.native_language": "Native language",
+    "identity.occupation_summary": "Occupation summary (e.g., Engineer specializing in AI and metaverse)",
+    "identity.self_description": "Self-introduction (1-2 sentences)",
+    "identity.life_stage": "Life stage (student/early career/mid-career/senior professional/manager/executive/freelancer/retired/other)",
+    "identity.identity_keywords": "Self-describing keywords (e.g., engineer/father/seeker)",
+    "identity.birth_date": "Date of birth (Lv2)",
+    "identity.birthplace": "Birthplace (Lv2)",
+    "identity.current_location": "Current residence (Lv2)",
+    "identity.role_priorities": "Priority order of life roles (Lv2)",
+    "identity.professional_identity": "Core professional identity (Lv2)",
+    "identity.generational_identity": "Generational self-awareness (Lv2)",
+    "identity.regional_attachment": "Attachment to birthplace/residence scale (1=indifferent - 5=strongly attached) (Lv2)",
+    "identity.digital_presence": "Digital activity platforms (Lv2)",
+    "identity.public_persona": "Public self-image (Lv2)",
+    "identity.introduction_style": "Self-introduction pattern (by title/by hobbies/by beliefs/by achievements/adapts to audience) (Lv2)",
+    "identity.online_offline_gap": "Online/offline self gap (nearly the same/slightly different/quite different/separate persona) (Lv2)",
+    "identity.life_design_priority": "Life planning priority (career/family/self-actualization/social contribution/balance) (Lv2)",
+    "identity.work_life_stance": "Work-life balance stance scale (1=work-centered - 5=life-centered) (Lv2)",
+    "identity.financial_identity": "Relationship with money (prudent/investor type/pleasure-seeking/indifferent/strategic) (Lv2)",
+    "identity.health_identity": "Attitude toward health (active management/moderately conscious/indifferent/only when problems arise) (Lv2)",
+    "identity.life_mission": "Life mission (Lv2)",
+    "identity.personal_brand_keywords": "Self-image as perceived by others (Lv2)",
+    "identity.reputation_awareness": "Reputation awareness scale (1=indifferent - 5=highly conscious) (Lv2)",
+    "identity.visibility_preference": "Visibility preference (front stage/behind the scenes/situational/minimal) (Lv2)",
+    "identity.languages": "Languages spoken (Lv3)",
+    "identity.cultural_background": "Cultural background (Lv3)",
+    "identity.name_significance": "Meaning and attachment to one's name (Lv3)",
+    "identity.identity_formation_events": "Events that shaped identity (Lv3)",
+    "identity.belonging_sense": "Sense of belonging (Lv3)",
+    "identity.rejected_identities": "Rejected or outgrown identities (Lv3)",
+    "identity.aspirational_identity": "Aspirational self-image (Lv3)",
+    "identity.identity_narrative": "Personal narrative (where I come from and where I'm heading) (Lv3)",
+    "identity.cultural_identity_layers": "Layers of cultural identity (Lv3)",
+    "identity.legacy_identity": "Self-image to leave for posterity (Lv3)",
+    "identity.era_consciousness": "Awareness of the era (Lv3)",
+    "identity.childhood_identity": "Childhood self-image (Lv3)",
+    "identity.imposed_identities": "Identities imposed by others (Lv3)",
+    "identity.hidden_identities": "Hidden identities (Lv3)",
+    "identity.identity_paradoxes": "Identity paradoxes (Lv3)",
+    "identity.mortality_awareness_impact": "Impact of mortality awareness on identity (Lv3)",
+    "identity.identity_symbols": "Symbols of self (objects, places, words) (Lv3)",
+    "identity.rebirth_moments": "Moments of rebirth (Lv3)",
+    "identity.naming_history": "History of names (names used in different periods) (Lv3)",
+    "identity.lineage_consciousness": "Awareness of lineage and ancestry (Lv3)",
+    "identity.identity_wounds": "Identity-related wounds (Lv3)",
+    "appearance": "Appearance & physical characteristics",
+    "appearance.height_cm": "Height (cm)",
+    "appearance.build": "Body type (slim/slightly slim/average/slightly large/muscular/plump)",
+    "appearance.hair_style": "Hairstyle",
+    "appearance.hair_color": "Hair color",
+    "appearance.eye_color": "Eye color",
+    "appearance.fashion_style": "Fashion style (casual/formal/business casual/sporty/street/natural/military/creative/other)",
+    "appearance.weight_range": "Weight range (-50kg/50-60kg/60-70kg/70-80kg/80-90kg/90kg+/undisclosed)",
+    "appearance.face_shape": "Face shape (round/oval-long/egg-shaped/square/inverted triangle/base-shaped)",
+    "appearance.skin_tone": "Skin tone (fair/medium/slightly dark/tan/dark)",
+    "appearance.posture": "Posture (good/average/slightly hunched/slightly arched)",
+    "appearance.voice_quality": "Voice characteristics (low/slightly low/average/slightly high/high)",
+    "appearance.voice_volume": "Voice volume (soft/average/loud/varies by situation)",
+    "appearance.facial_hair": "Facial hair (none/stubble/mustache/goatee/full beard/well-groomed)",
+    "appearance.tattoos": "Tattoos",
+    "appearance.piercings": "Piercings",
+    "appearance.scars_birthmarks": "Scars & birthmarks",
+    "appearance.smile_impression": "Smile impression (smiles often/reserved/smirk type/beaming type/rarely smiles)",
+    "appearance.overall_impression": "Overall impression (from others' perspective)",
+    "appearance.dominant_hand": "Dominant hand (right/left/ambidextrous)",
+    "appearance.blood_type": "Blood type (A/B/O/AB/unknown)",
+    "appearance.shoe_size": "Shoe size",
+    "appearance.eyebrow_style": "Eyebrow characteristics (thick/thin/average/dense/sparse/well-groomed)",
+    "appearance.walking_style": "Walking style (fast/slow/average/long strides/short strides/distinctive)",
+    "appearance.physical_presence": "Physical presence (strong/average/subtle/varies by situation)",
+    "appearance.apparent_age": "Apparent age (looks younger/age-appropriate/looks older/hard to tell)",
+    "appearance.body_language_tendency": "Body language tendency (frequent gestures/reserved/expressive face/minimal movement/varies by situation)",
+    "appearance.hair_color_hex": "Hair color (HEX code) (Lv2)",
+    "appearance.eye_color_hex": "Eye color (HEX code) (Lv2)",
+    "appearance.fashion_items": "Frequently worn items (Lv2)",
+    "appearance.glasses": "Glasses (Lv2)",
+    "appearance.comfort_vs_style": "Comfort vs. style priority scale (1=comfort first - 5=style first) (Lv2)",
+    "appearance.dress_code_adaptation": "Dress code adaptation (strictly follows/personalizes/bare minimum/ignores/adapts by occasion) (Lv2)",
+    "appearance.seasonal_wardrobe": "Seasonal wardrobe changes (major changes/minor changes/rarely changes/changes for functionality) (Lv2)",
+    "appearance.color_palette_preference": "Preferred color palette (Lv2)",
+    "appearance.brand_preferences_fashion": "Preferred fashion brands (Lv2)",
+    "appearance.style_icons": "Style role models (Lv2)",
+    "appearance.fashion_budget": "Fashion budget sense (minimal/cost-effective/moderate investment/invests in favorites/doesn't mind) (Lv2)",
+    "appearance.accessory_preferences": "Accessory preferences (Lv2)",
+    "appearance.watch_jewelry": "Watches & jewelry (Lv2)",
+    "appearance.bag_contents": "Everyday carry items (Lv2)",
+    "appearance.fragrance_preference": "Fragrance preference (none/subtle/strong/situational) (Lv2)",
+    "appearance.grooming_style": "Grooming style (minimal/cleanliness-focused/meticulous/adapts by occasion) (Lv2)",
+    "appearance.hair_maintenance": "Hair maintenance frequency (monthly/bimonthly/when needed/self-cut) (Lv2)",
+    "appearance.skin_care_routine": "Skincare routine (none/minimal/daily routine/meticulous) (Lv2)",
+    "appearance.fitness_routine": "Body maintenance method (regular exercise/diet management/nothing in particular/dieting/combined approach) (Lv2)",
+    "appearance.physical_presentation_awareness": "Appearance awareness scale (1=don't care at all - 5=very conscious) (Lv2)",
+    "appearance.signature_look": "Signature look / trademark style (Lv2)",
+    "appearance.photo_preference": "Photo preference (likes it/uncomfortable/likes selfies/dislikes being photographed/doesn't mind) (Lv2)",
+    "appearance.makeup_style": "Makeup style (none/minimal/natural/full/situational) (Lv2)",
+    "appearance.nail_style": "Nail style (no care/kept short/kept clean/nail care/nail art) (Lv2)",
+    "appearance.weather_dressing": "Weather-based dressing (functionality-focused/doesn't mind minor inconvenience/coordinates with weather) (Lv2)",
+    "appearance.transformation_frequency": "Makeover frequency (rarely/about once a year/seasonal/frequent/mood-dependent) (Lv2)",
+    "appearance.eyewear_style": "Eyewear & contacts details (Lv2)",
+    "appearance.shoe_style": "Shoe style (sneakers/dress shoes/boots/sandals/functionality-focused/varies) (Lv2)",
+    "appearance.hat_preference": "Hat preference (doesn't wear/cap/hat/beanie/adapts by occasion) (Lv2)",
+    "appearance.outerwear_preference": "Outerwear preference (jacket/hoodie/coat/down jacket/functionality-focused/no preference) (Lv2)",
+    "appearance.layering_style": "Layering tendency (light clothing/likes layering/varies by season/functionality-focused) (Lv2)",
+    "appearance.clothing_size": "Clothing size (Lv2)",
+    "appearance.workwear_vs_casualwear": "Workwear vs. casual wear difference (nearly the same/slightly different/completely separate/no workwear) (Lv2)",
+    "appearance.physical_maintenance": "Physical maintenance (chiropractic, massage, etc.) (Lv2)",
+    "appearance.dental_care": "Dental care (minimal/regular checkups/whitening/orthodontic experience) (Lv2)",
+    "appearance.body_language_awareness": "Body language awareness scale (1=unconscious - 5=consciously controlled) (Lv2)",
+    "appearance.distinguishing_features": "Distinguishing features (Lv3)",
+    "appearance.avatar_url": "Avatar URL (Lv3)",
+    "appearance.voice_sample_url": "Voice sample URL (Lv3)",
+    "appearance.body_image": "Body image / self-perception (Lv3)",
+    "appearance.appearance_confidence": "Appearance confidence scale (1=not confident - 5=very confident) (Lv3)",
+    "appearance.aging_attitude": "Attitude toward aging (accepts naturally/resists/enjoys/anxious/unaware) (Lv3)",
+    "appearance.body_relationship": "Relationship with one's body (Lv3)",
+    "appearance.hidden_appearance_desires": "Hidden appearance desires (Lv3)",
+    "appearance.appearance_history": "Appearance history (Lv3)",
+    "appearance.style_turning_points": "Style turning points (Lv3)",
+    "appearance.appearance_role_models": "Appearance role models (Lv3)",
+    "appearance.appearance_wounds": "Appearance-related trauma (Lv3)",
+    "appearance.appearance_identity_link": "Link between appearance and identity (Lv3)",
+    "appearance.appearance_persona_gap": "Gap between appearance and inner self (Lv3)",
+    "appearance.first_impression_awareness": "First impression awareness (Lv3)",
+    "appearance.ideal_self_image": "Ideal self-image (Lv3)",
+    "appearance.avatar_identity": "Relationship between avatar and self (Lv3)",
+    "appearance.physical_aging_changes": "Record of age-related changes (Lv3)",
+    "appearance.body_narrative": "Body narrative (Lv3)",
+    "appearance.appearance_era_snapshots": "Appearance snapshots by era (Lv3)",
+    "background": "Background & experience",
+    "background.education": "Education history",
+    "background.education[].level": "School type (elementary/middle school/high school/vocational/junior college/university/graduate school (master's)/graduate school (doctoral)/other)",
+    "background.education[].institution": "School name",
+    "background.education[].year_entered": "Year of enrollment",
+    "background.education[].year_graduated": "Year of graduation",
+    "background.career": "Career history",
+    "background.career[].organization": "Organization name",
+    "background.career[].industry": "Industry",
+    "background.career[].role": "Job role / position",
+    "background.career[].employment_type": "Employment type (full-time/part-time/contract/temp/freelance/remote/flex/no core hours/side job/other)",
+    "background.career[].start_year": "Start year",
+    "background.career[].end_year": "End year (null if current position)",
+    "background.career[].current": "Current position flag",
+    "background.career_summary": "Career summary",
+    "background.years_of_experience": "Total years of experience",
+    "background.marital_history": "Marital history",
+    "background.marital_history[].event": "Event (marriage/divorce/bereavement)",
+    "background.marital_history[].start_year": "Start year",
+    "background.marital_history[].end_year": "End year (if applicable)",
+    "background.marital_history[].impact": "Impact on life & values",
+    "background.residence_history": "Residence history",
+    "background.residence_history[].location": "Location",
+    "background.residence_history[].start_year": "Residence start year",
+    "background.residence_history[].end_year": "Residence end year",
+    "background.residence_history[].significance": "Experience & significance at this location",
+    "background.turning_points": "Life turning points",
+    "background.turning_points[].year": "Year",
+    "background.turning_points[].event": "Event",
+    "background.turning_points[].impact": "Impact / change",
+    "background.formative_experiences": "Formative experiences (free text)",
+    "background.certifications": "Certifications & qualifications (Lv2)",
+    "background.certifications[].name": "Certification name",
+    "background.certifications[].year_obtained": "Year obtained",
+    "background.work_style": "Work style (Lv2)",
+    "background.work_location": "Work location (Lv2)",
+    "background.work_location.remote": "Remote work availability",
+    "background.expertise_areas": "Areas of expertise (Lv2)",
+    "background.career_motivation_pattern": "Career motivation pattern (growth/stability/challenge/compensation/sense of mission/curiosity) (Lv2)",
+    "background.career_decision_style": "Career decision style (planned/opportunistic/intuitive/consultation-driven/goes with the flow) (Lv2)",
+    "background.industry_transition_pattern": "Industry transition pattern (single track/adjacent fields/bold cross-industry/multiple parallel) (Lv2)",
+    "background.side_projects": "Side projects / secondary occupations (Lv2)",
+    "background.leadership_experience": "Leadership experience (team leader/project manager/tech lead/executive/none/informal leader) (Lv2)",
+    "background.work_achievement_highlights": "Key career highlights (Lv2)",
+    "background.failure_experiences_career": "Career failure experiences (Lv2)",
+    "background.relocation_adaptability": "Relocation adaptability scale (1=very poor - 5=adapts quickly) (Lv2)",
+    "background.life_rhythm_changes": "Major life rhythm changes (Lv2)",
+    "background.financial_turning_points": "Financial turning points (Lv2)",
+    "background.health_milestones": "Health milestones (Lv2)",
+    "background.crisis_management_history": "Crises overcome (Lv2)",
+    "background.role_transitions": "Role transitions (subordinate to boss, single to parent, etc.) (Lv2)",
+    "background.technology_adaptation_history": "Technology adaptation history (Lv2)",
+    "background.unexpected_opportunities": "Unexpected opportunities (Lv2)",
+    "background.loss_and_recovery": "Loss and recovery experiences (Lv2)",
+    "background.value_shift_triggers": "Triggers for value shifts (Lv2)",
+    "background.lifestyle_shifts": "Major lifestyle shifts (Lv2)",
+    "background.cultural_adaptation": "Cultural adaptation experiences (Lv2)",
+    "background.self_education_history": "Self-education history (Lv2)",
+    "background.education_satisfaction": "Education satisfaction scale (1=dissatisfied - 5=very satisfied) (Lv2)",
+    "background.academic_strengths": "Academic strengths (Lv2)",
+    "background.professional_network_style": "Professional networking style (study groups & communities/internal networks/SNS/referral-based/rarely builds networks) (Lv2)",
+    "background.learning_turning_points": "Learning turning points (Lv2)",
+    "background.mentor_history": "Mentor history (Lv2)",
+    "background.influential_books_courses": "Influential books & courses (Lv2)",
+    "background.skill_acquisition_timeline": "Skill acquisition timeline (Lv2)",
+    "background.learning_failures": "Learning failures & setbacks (Lv2)",
+    "background.teaching_experience": "Teaching experience (Lv2)",
+    "background.conference_community_history": "Conference & community participation history (Lv2)",
+    "background.chronic_conditions": "Chronic health conditions (Lv2)",
+    "background.medical_history": "Medical history (major illnesses, surgeries, etc.) (Lv2)",
+    "background.disability_status": "Disability status / type (Lv2)",
+    "background.mental_health_history": "Mental health history (Lv2)",
+    "background.accessibility_needs": "Accessibility needs (Lv2)",
+    "background.body_limitations": "Physical limitations (Lv2)",
+    "background.health_management_style": "Health management style (regular checkups/when symptomatic/self-management/exercise habits/diet management/combined) (Lv2)",
+    "background.family_dynamics": "Family dynamics (Lv3)",
+    "background.childhood_environment": "Childhood environment characteristics (Lv3)",
+    "background.socioeconomic_background": "Socioeconomic background (Lv3)",
+    "background.inherited_patterns": "Patterns inherited from family (Lv3)",
+    "background.broken_patterns": "Family patterns broken (Lv3)",
+    "background.parallel_lives": "Alternative lives (what if different choices were made) (Lv3)",
+    "background.career_regrets": "Career regrets (Lv3)",
+    "background.unfinished_chapters": "Unfinished chapters (things left undone) (Lv3)",
+    "background.survival_stories": "Trials overcome (Lv3)",
+    "background.migration_story": "Migration / relocation story (Lv3)",
+    "background.formative_relationships": "Relationships that shaped character (Lv3)",
+    "background.privilege_awareness": "Privilege awareness (Lv3)",
+    "background.cultural_displacement": "Cultural displacement experiences (Lv3)",
+    "background.generational_influences": "Generational influences (Lv3)",
+    "background.origin_wounds": "Wounds from upbringing (Lv3)",
+    "background.life_narrative_arc": "Life narrative arc (Lv3)",
+    "background.recurring_themes": "Recurring life themes (Lv3)",
+    "background.life_metaphor": "Life metaphor (Lv3)",
+    "background.chapters_of_life": "Chapters of life (Lv3)",
+    "background.destiny_vs_choice": "Sense of destiny vs. choice (Lv3)",
+    "background.health_impact_on_identity": "Impact of health on identity (Lv3)",
+    "background.medical_experiences": "Significant medical experiences (Lv3)",
+    "background.recovery_stories": "Recovery & overcoming stories (Lv3)",
+    "background.health_philosophy": "Health philosophy (view on body-mind connection) (Lv3)",
+    "philosophy": "Philosophy & beliefs (core of the soul)",
+    "philosophy.worldview": "Worldview",
+    "philosophy.core_values": "Core values",
+    "philosophy.life_motto": "Life motto",
+    "philosophy.view_on_human_nature": "View on human nature (are humans inherently good, evil, or neutral)",
+    "philosophy.view_on_society": "View on society (how one sees the individual-society relationship)",
+    "philosophy.view_on_technology": "View on technology (role, potential, and risks of technology)",
+    "philosophy.view_on_ai": "View on AI (nature of AI, its future, relationship with humans)",
+    "philosophy.view_on_life": "View on life (what life is for)",
+    "philosophy.source_of_meaning": "Source of meaning (what gives a sense of purpose)",
+    "philosophy.definition_of_success": "Definition of success (what success means personally)",
+    "philosophy.view_on_death": "View on death (how one faces mortality and finitude)",
+    "philosophy.ethical_foundation": "Ethical foundation (what serves as the axis for right and wrong)",
+    "philosophy.what_they_stand_for": "What they stand for / support",
+    "philosophy.what_they_oppose": "What they oppose / find unforgivable",
+    "philosophy.view_on_failure": "Attitude toward failure (how failure is given meaning)",
+    "philosophy.relationship_with_uncertainty": "Relationship with uncertainty",
+    "philosophy.attitude_toward_change": "Attitude toward change (actively welcomes/tends to like/neutral/tends to dislike/strongly resists)",
+    "philosophy.time_perspective": "Time perspective (past-oriented/present-oriented/future-oriented/balanced)",
+    "philosophy.guiding_questions": "Guiding questions (questions constantly asked)",
+    "philosophy.philosophical_keywords": "Philosophical keywords",
+    "philosophy.beliefs": "Belief system (Lv2)",
+    "philosophy.beliefs.politics": "Political views",
+    "philosophy.beliefs.religion": "Religious views",
+    "philosophy.personal_theories": "Personal theories & hypotheses (Lv2)",
+    "philosophy.personal_theories[].theme": "Theme",
+    "philosophy.personal_theories[].description": "Description",
+    "philosophy.tension_pairs": "Position on key tension pairs (freedom vs. stability, individual vs. group, etc.) (Lv2)",
+    "philosophy.tension_pairs[].pair": "Tension pair (e.g., freedom vs. stability)",
+    "philosophy.tension_pairs[].stance": "Stance scale (1=leans left - 5=leans right)",
+    "philosophy.tension_pairs[].note": "Notes / reasoning",
+    "philosophy.moral_framework": "Moral framework (deontology/utilitarianism/virtue ethics/relativism/pragmatism) (Lv2)",
+    "philosophy.decision_principles": "Decision-making principles (priority rules) (Lv2)",
+    "philosophy.justice_framework": "Justice framework (fairness/equality/retribution/redemption weighting) (Lv2)",
+    "philosophy.view_on_knowledge": "View on the nature of knowledge (truth is objective/relative/practical) (Lv2)",
+    "philosophy.view_on_science": "View on science (scope and limits of science) (Lv2)",
+    "philosophy.truth_seeking_method": "Truth-seeking methodology (dialogue/empirical/meditation/intuition, etc.) (Lv2)",
+    "philosophy.view_on_emotion_reason": "View on emotion vs. reason (which to trust) (Lv2)",
+    "philosophy.view_on_self": "View on self (fixed/fluid/relational) (Lv2)",
+    "philosophy.view_on_power": "Attitude toward power & authority (Lv2)",
+    "philosophy.view_on_cooperation_competition": "View on cooperation vs. competition balance (Lv2)",
+    "philosophy.view_on_money_work": "View on money & labor (Lv2)",
+    "philosophy.view_on_tradition": "Attitude toward tradition & reform (Lv2)",
+    "philosophy.view_on_progress": "View on progress (does history move forward? or cycle?) (Lv2)",
+    "philosophy.view_on_freedom_constraint": "View on freedom vs. constraint balance (Lv2)",
+    "philosophy.aesthetic_philosophy": "Aesthetic standards / philosophy of beauty (Lv2)",
+    "philosophy.creativity_view": "View on creativity (Lv2)",
+    "philosophy.spiritual_practices": "Spiritual practices (meditation, prayer, dialogue, etc.) (Lv2)",
+    "philosophy.teaching_learning_philosophy": "Philosophy of education & learning (Lv2)",
+    "philosophy.philosophical_influences": "Influential thinkers & philosophies (Lv3)",
+    "philosophy.ongoing_questions": "Deepened questions (Lv3)",
+    "philosophy.contradictions_and_tensions": "Inner contradictions & tensions (Lv3)",
+    "philosophy.evolution_of_thought": "Evolution of thought (Lv3)",
+    "philosophy.core_paradoxes": "Fundamental paradoxes (Lv3)",
+    "philosophy.unresolved_dilemmas": "Unresolved dilemmas (Lv3)",
+    "philosophy.shadow_beliefs": "Suppressed or denied beliefs (Lv3)",
+    "philosophy.inner_tribunals": "Inner tribunals (self-judging voices) (Lv3)",
+    "philosophy.axioms_of_thought_system": "Axioms of thought system (assumed propositions) (Lv3)",
+    "philosophy.philosophical_blind_spots": "Acknowledged philosophical blind spots (Lv3)",
+    "philosophy.philosophical_lineage": "Philosophical lineage (intellectual ancestry & self-positioning) (Lv3)",
+    "philosophy.foundational_experiences": "Formative experiences that shaped philosophy (Lv3)",
+    "philosophy.foundational_experiences[].year": "Year",
+    "philosophy.foundational_experiences[].event": "Event",
+    "philosophy.foundational_experiences[].insight": "Insight gained",
+    "philosophy.beliefs_that_changed_me": "Beliefs & realizations that changed my life (Lv3)",
+    "philosophy.beliefs_that_changed_me[].year": "Year",
+    "philosophy.beliefs_that_changed_me[].belief": "Belief / realization",
+    "philosophy.beliefs_that_changed_me[].trigger": "Trigger",
+    "philosophy.worldview_shifts": "Worldview shifts (chronological) (Lv3)",
+    "philosophy.worldview_shifts[].from": "Worldview before the shift",
+    "philosophy.worldview_shifts[].to": "Worldview after the shift",
+    "philosophy.worldview_shifts[].trigger": "Trigger",
+    "philosophy.worldview_shifts[].year": "Year",
+    "philosophy.philosophical_crises": "Philosophical crises & collapses (Lv3)",
+    "philosophy.philosophical_crises[].year": "Year",
+    "philosophy.philosophical_crises[].event": "Event",
+    "philosophy.philosophical_crises[].resolution": "How it was overcome",
+    "philosophy.questions_that_haunt_you": "Questions that keep you up at night (Lv3)",
+    "philosophy.unfinished_arguments": "Unfinished arguments (with self or others) (Lv3)",
+    "philosophy.existential_stance": "Existential stance (approach to anxiety, freedom, responsibility) (Lv3)",
+    "philosophy.relationship_with_transcendence": "Relationship with transcendence (God, universe, meaning) (Lv3)",
+    "philosophy.relationship_with_absurdity": "Approach to absurdity (Lv3)",
+    "philosophy.deep_fears": "Deep fears (existential anxiety) (Lv3)",
+    "philosophy.deep_longings": "Deep longings & aspirations (Lv3)",
+    "philosophy.legacy_concerns": "Thoughts on what to leave behind (Lv3)",
+    "philosophy.view_on_own_death": "Personal view on one's own death (Lv3)",
+    "personality": "Personality & behavioral tendencies",
+    "personality.decision_style": "Decision-making style (intuitive/analytical/both)",
+    "personality.cognitive_style": "Cognitive style (analytical/intuitive/practical)",
+    "personality.information_processing": "Information processing direction (detail-to-whole/whole-to-detail)",
+    "personality.thinking_speed": "Thinking speed scale (1=deliberate - 5=snap decision)",
+    "personality.problem_solving_approach": "Problem-solving approach",
+    "personality.social_tendency": "Social tendency (introverted/extroverted/ambivert)",
+    "personality.cooperativeness": "Cooperativeness scale (1=very low - 5=very high)",
+    "personality.trust_building_speed": "Trust-building speed scale (1=very cautious - 5=trusts quickly)",
+    "personality.conflict_approach": "Conflict handling style (avoids/discusses calmly/argues logically/confronts emotionally/accommodates/seeks third-party mediation)",
+    "personality.emotional_pattern": "Emotional pattern (stable/calm/emotional/fluctuating/restrained/rich/inward-focused)",
+    "personality.emotional_expression_style": "Emotional expression style (outward/internalized/moderate)",
+    "personality.empathy_style": "Empathy style (cognitive/affective/both)",
+    "personality.emotional_stability": "Emotional stability scale (1=unstable - 5=very stable)",
+    "personality.emotional_recovery_speed": "Emotional recovery speed scale (1=slow - 5=fast)",
+    "personality.energy_source": "Energy source (solitude/social interaction/both)",
+    "personality.core_motivation": "Core motivation",
+    "personality.procrastination_tendency": "Procrastination tendency scale (1=none - 5=very high)",
+    "personality.stress_response": "Stress response (internalizes/talks to someone/physical release/processes mentally/avoids/expresses emotions/immerses to forget)",
+    "personality.coping_mechanisms": "Coping mechanisms list",
+    "personality.resilience": "Resilience scale (1=slow recovery - 5=very high)",
+    "personality.outlook_tendency": "Life outlook tendency (optimistic/pessimistic/realist)",
+    "personality.risk_tolerance": "Risk tolerance scale (1=complete avoidance - 5=actively seeks risk)",
+    "personality.perfectionism": "Perfectionism tendency scale (1=none - 5=extremely high)",
+    "personality.curiosity_level": "Curiosity level scale (1=low - 5=very high)",
+    "personality.autonomy_need": "Autonomy need scale (1=delegates to others - 5=fully autonomous)",
+    "personality.routine_preference": "Routine preference scale (1=prefers freedom - 5=prefers structure)",
+    "personality.open_to_feedback": "Openness to feedback scale (1=closed - 5=completely open)",
+    "personality.avoidances": "Things avoided / weaknesses (Lv2)",
+    "personality.work_rhythm": "Work rhythm (morning person/night owl/daytime/random) (Lv2)",
+    "personality.energy_peak_time": "Peak energy time (early morning/morning/afternoon/evening/night) (Lv2)",
+    "personality.pace_preference": "Preferred pace scale (1=slow - 5=fast) (Lv2)",
+    "personality.recharge_method": "Recharge method (alone time/nature/exercise/conversation/creative work/entertainment) (Lv2)",
+    "personality.decision_timing": "Decision timing (immediate/thorough review/deliberate/depends on situation) (Lv2)",
+    "personality.information_threshold": "Information threshold for decisions scale (1=little needed - 5=much needed) (Lv2)",
+    "personality.uncertainty_handling": "Uncertainty handling (holds/proceeds with provisional answers/starts with certainties/withdraws) (Lv2)",
+    "personality.evaluation_criteria": "Evaluation criteria keywords (array) (Lv2)",
+    "personality.first_impression_style": "First impression style (reserved/friendly/observant/assertive) (Lv2)",
+    "personality.rapport_building_style": "Rapport building style (finding common ground/self-disclosure/active listening/takes time) (Lv2)",
+    "personality.boundary_communication": "Boundary communication (states clearly/shows through distance/vaguely deflects/avoids) (Lv2)",
+    "personality.social_circle_management": "Social circle management (few & deep/many & broad/values middle layer/varies) (Lv2)",
+    "personality.conversation_initiation": "Conversation initiation (starts with question/offers topic/waits for other/reads the room) (Lv2)",
+    "personality.group_dynamics_role": "Role in group dynamics (leader/mediator/energizer/observer/specialist) (Lv2)",
+    "personality.reciprocity_expectation": "Give/take balance scale (1=giver type - 5=receiver type) (Lv2)",
+    "personality.conflict_deescalation": "Conflict de-escalation (direct dialogue/takes time/third-party intervention/creates distance) (Lv2)",
+    "personality.novelty_response": "Response to novelty (actively explores/cautiously tries/keeps distance/rejects) (Lv2)",
+    "personality.crisis_behavior": "Crisis behavior (stays calm/takes action/collaborates/freezes/gathers information) (Lv2)",
+    "personality.ambiguity_response": "Response to ambiguity (tolerates/seeks clarity/makes assumptions/avoids) (Lv2)",
+    "personality.pressure_performance": "Performance under pressure (thrives/collapses/no change/accelerates) (Lv2)",
+    "personality.interruption_response": "Response to interruption (switches flexibly/gets irritated/hard to resume/welcomes) (Lv2)",
+    "personality.deadline_behavior": "Deadline behavior (finishes early/gradual/last-minute rush/tends to miss) (Lv2)",
+    "personality.self_discipline_style": "Self-discipline style (rule-setting/habit-forming/reward-setting/willpower-reliant) (Lv2)",
+    "personality.reward_delay_tolerance": "Delayed gratification tolerance scale (1=immediate - 5=long-term) (Lv2)",
+    "personality.impulse_control": "Impulse control scale (1=impulsive - 5=restrained) (Lv2)",
+    "personality.habit_formation_style": "Habit formation style (trigger linking/environment design/tracking/finding partners) (Lv2)",
+    "personality.emotion_regulation": "Emotion regulation style (cognitive reappraisal/distraction/expression/suppression/physical adjustment) (Lv2)",
+    "personality.attention_management": "Attention management style (focused blocks/multitasking/notification blocking/goes with the flow) (Lv2)",
+    "personality.commitment_keeping": "Commitment keeping scale (1=flexible - 5=strictly adheres) (Lv2)",
+    "personality.feedback_processing": "Feedback processing (applies immediately/needs time to digest/selective/defensive) (Lv2)",
+    "personality.mistake_processing": "Mistake processing (analyzes/moves on/ruminates/shares to process) (Lv2)",
+    "personality.growth_approach": "Growth orientation (vertical/horizontal/spiral) (Lv2)",
+    "personality.unlearning_ability": "Unlearning ability scale (1=rigid - 5=flexible) (Lv2)",
+    "personality.learning_retention_style": "Learning retention style (repetition/association/output/experience) (Lv2)",
+    "personality.knowledge_transfer_style": "Knowledge sharing venue (writing articles/teaching/discussion/implementation/reflection only) (Lv2)",
+    "personality.mentor_seeking_behavior": "Mentor-seeking behavior (actively searches/leaves to chance/has multiple/self-taught orientation) (Lv2)",
+    "personality.shadow_traits": "Shadow traits & weaknesses (Lv3)",
+    "personality.growth_patterns": "Growth patterns (Lv3)",
+    "personality.context_variations": "Context-dependent variations (Lv3)",
+    "personality.context_variations.at_work": "Self at work",
+    "personality.context_variations.with_friends": "Self with friends",
+    "personality.context_variations.under_pressure": "Self under pressure",
+    "personality.childhood_environment": "Childhood environment characteristics (Lv3)",
+    "personality.formative_figures": "Formative figures (Lv3)",
+    "personality.critical_period_events": "Key events from childhood to adolescence (Lv3)",
+    "personality.internalized_voices": "Internalized voices of others (Lv3)",
+    "personality.early_self_concept": "Early self-concept (Lv3)",
+    "personality.projection_targets": "Traits easily projected onto others (Lv3)",
+    "personality.avoided_emotions": "Emotions avoided facing (Lv3)",
+    "personality.defense_mechanisms": "Primary defense mechanisms (Lv3)",
+    "personality.unconscious_patterns": "Recurring unconscious patterns (Lv3)",
+    "personality.value_conflicts": "Value conflicts (Lv3)",
+    "personality.role_conflicts": "Role conflicts (Lv3)",
+    "personality.desire_vs_duty": "Desire vs. duty conflicts (Lv3)",
+    "personality.ideal_vs_real_self": "Gap between ideal self and real self (Lv3)",
+    "personality.core_wounds": "Deep life wounds (Lv3)",
+    "personality.emotional_triggers": "Strong emotional triggers (Lv3)",
+    "personality.joy_sources_deep": "Deepest sources of joy (Lv3)",
+    "personality.grief_patterns": "Grief patterns (approach to loss) (Lv3)",
+    "personality.emotional_defaults": "Default emotional state (Lv3)",
+    "personality.identity_crises": "Past identity crises (Lv3)",
+    "personality.integration_challenges": "Unintegrated aspects (Lv3)",
+    "personality.persona_vs_self": "Gap between public persona and true self (Lv3)",
+    "personality.self_narrative": "Self-narrative (Lv3)",
+    "personality.core_identity_anchors": "Core identity anchors (what I cannot lose and still be me) (Lv3)",
+    "personality.identity_labels_attachment": "Attachment to titles & labels (Lv3)",
+    "personality.body_self_relationship": "Body-self relationship (integrated/instrumental/dissonance/dialogical) (Lv3)",
+    "knowledge": "Knowledge & expertise",
+    "knowledge.expertise_domains": "Expert knowledge domains (fields of deep knowledge)",
+    "knowledge.interest_domains": "Interest domains (fields one wants to learn / enjoys)",
+    "knowledge.current_learning_topics": "Currently actively learning",
+    "knowledge.knowledge_blind_spots": "Self-acknowledged blind spots / weak areas",
+    "knowledge.learning_style": "Learning style (reading/practice/dialogue/video, etc.)",
+    "knowledge.knowledge_depth_tendency": "Knowledge depth tendency scale (1=broad & shallow - 5=narrow & deep)",
+    "knowledge.information_source_preference": "Information source preference (books/internet/people, etc.)",
+    "knowledge.update_frequency": "Knowledge update frequency (always up-to-date/regular updates/only when needed/rarely updates)",
+    "knowledge.application_tendency": "Knowledge application tendency (theory-focused/practice-focused/balanced theory & practice)",
+    "knowledge.knowledge_sharing_style": "Knowledge sharing style (actively publishes/teaches when asked/shares via talks & writing/rarely shares)",
+    "knowledge.synthesis_tendency": "Knowledge cross-domain synthesis tendency scale (1=specialized - 5=cross-disciplinary integration)",
+    "knowledge.intellectual_curiosity_style": "Intellectual curiosity style (broad exploration/deep diving)",
+    "knowledge.favorite_thinkers_authors": "Influential thinkers, authors & works",
+    "knowledge.intellectual_heroes": "Respected intellectual figures",
+    "knowledge.abstraction_preference": "Abstraction preference scale (1=concrete-focused - 5=abstract-focused)",
+    "knowledge.skills": "Skills (Lv2)",
+    "knowledge.skills[].name": "Skill name",
+    "knowledge.skills[].level": "Proficiency level",
+    "knowledge.knowledge_organization_method": "Knowledge organization method (notes/mind maps/database/mental/organized through dialogue) (Lv2)",
+    "knowledge.expertise_development_pattern": "Expertise development pattern (concentrated investment/parallel development/need-driven/curiosity-driven) (Lv2)",
+    "knowledge.knowledge_validation_method": "Knowledge validation method (test in practice/refine through debate/verify with literature/judge by intuition) (Lv2)",
+    "knowledge.cross_domain_connections": "Cross-domain connection patterns (Lv2)",
+    "knowledge.information_diet": "Information consumption habits (Lv2)",
+    "knowledge.tool_proficiency": "Tools & technologies mastered (Lv2)",
+    "knowledge.problem_domain_preference": "Preferred problem domains (technical/conceptual/social/creative/practical) (Lv2)",
+    "knowledge.output_medium_preference": "Output medium preference (writing/code/diagrams/presentations/dialogue/video) (Lv2)",
+    "knowledge.knowledge_gaps_strategy": "Knowledge gap strategy (research immediately/ask others/postpone/study systematically/ignore until needed) (Lv2)",
+    "knowledge.prototyping_tendency": "Prototyping tendency (hands-on immediately/research first/mental experiments/asks others first) (Lv2)",
+    "knowledge.mentoring_style": "Mentoring style (demonstrates/guides with questions/provides resources/does it together/rarely mentors) (Lv2)",
+    "knowledge.intellectual_debate_style": "Intellectual debate style (Socratic questioning/data-driven/hypothesis clash/collaborative building) (Lv2)",
+    "knowledge.collaboration_in_learning": "Collaboration in learning (solo/pair/small group/community/depends on context) (Lv2)",
+    "knowledge.knowledge_currency": "What knowledge is exchanged for (Lv2)",
+    "knowledge.certification_approach": "Certification approach (actively pursues/bare minimum/not interested/means to prove competence) (Lv2)",
+    "knowledge.reading_strategy": "Reading strategy (cover-to-cover/skimming/close reading/parallel reading/decides by table of contents) (Lv2)",
+    "knowledge.note_taking_style": "Note-taking style (structured notes/free-form/diagrams/keywords only/doesn't take notes) (Lv2)",
+    "knowledge.experimentation_frequency": "Experimentation frequency scale (1=theory-first - 5=experiments immediately) (Lv2)",
+    "knowledge.knowledge_decay_awareness": "Knowledge decay awareness (always concerned/periodic checks/when pointed out/rarely considers) (Lv2)",
+    "knowledge.intellectual_community_role": "Role in intellectual communities (publisher/curator/catalyst for debate/audience/bridge-builder) (Lv2)",
+    "knowledge.teaching_frequency": "Teaching frequency (daily/when requested/occasionally/rarely) (Lv2)",
+    "knowledge.knowledge_update_trigger": "Knowledge update trigger (curiosity/work necessity/stimulus from others/sense of urgency/routine) (Lv2)",
+    "knowledge.current_research_topics": "Current research topics (Lv3)",
+    "knowledge.intellectual_origin_story": "Origin of intellectual curiosity (Lv3)",
+    "knowledge.paradigm_shifts": "Paradigm-shifting intellectual experiences (Lv3)",
+    "knowledge.abandoned_expertise": "Abandoned expertise (Lv3)",
+    "knowledge.unconscious_expertise": "Unconscious expertise (strengths hard to self-recognize) (Lv3)",
+    "knowledge.intellectual_obsessions": "Intellectual obsessions (irresistible questions) (Lv3)",
+    "knowledge.intellectual_fears": "Intellectual fears (anxiety about knowing) (Lv3)",
+    "knowledge.knowledge_trauma": "Knowledge-related trauma (Lv3)",
+    "knowledge.forbidden_knowledge_attraction": "Attraction to forbidden knowledge (Lv3)",
+    "knowledge.intellectual_loneliness": "Intellectual loneliness (Lv3)",
+    "knowledge.knowledge_identity_link": "Link between knowledge and identity (Lv3)",
+    "knowledge.knowledge_legacy": "Intellectual legacy to leave behind (Lv3)",
+    "knowledge.teacher_student_dynamics": "Teacher-student dynamics (Lv3)",
+    "knowledge.unasked_questions": "Questions not yet asked (Lv3)",
+    "knowledge.knowledge_regrets": "Regrets about things not learned (Lv3)",
+    "knowledge.knowledge_inheritance": "From whom knowledge was inherited (Lv3)",
+    "knowledge.intellectual_rebellion": "Intellectual rebellion (defying established theories) (Lv3)",
+    "knowledge.autodidact_areas": "Fully self-taught areas (Lv3)",
+    "knowledge.intellectual_debt": "Intellectual debt (unreturned intellectual favors) (Lv3)",
+    "knowledge.knowledge_transformation_moments": "Moments when knowledge changed behavior (Lv3)",
+    "knowledge.intellectual_jealousy": "Intellectual jealousy (who and what triggers jealousy) (Lv3)",
+    "knowledge.knowledge_blind_spot_origins": "Origins of weak areas (Lv3)",
+    "preferences": "Tastes & preferences",
+    "preferences.hobbies": "Hobbies",
+    "preferences.leisure_activities": "Leisure activities",
+    "preferences.creative_outlets": "Creative / expressive activities (photography/music/writing, etc.)",
+    "preferences.physical_activities": "Physical activities (sports/outdoor, etc.)",
+    "preferences.favorite_genres": "Favorite genres",
+    "preferences.favorite_genres.books": "Books",
+    "preferences.favorite_genres.music": "Music",
+    "preferences.favorite_genres.movies": "Movies",
+    "preferences.favorite_genres.games": "Games",
+    "preferences.favorite_works": "Favorite works (specific titles & creators)",
+    "preferences.content_consumption_style": "Content consumption style (binge/savored/skimmed)",
+    "preferences.fiction_vs_nonfiction": "Fiction/nonfiction preference scale (1=pure fiction - 5=pure nonfiction)",
+    "preferences.aesthetic_keywords": "Aesthetic keywords (minimal/retro/organic, etc.)",
+    "preferences.color_preferences": "Color preferences / color tones",
+    "preferences.sound_preferences": "Sound / audio environment preferences",
+    "preferences.environment_preference": "Preferred environment (quiet indoors/lively indoors/in nature/urban/semi-outdoor like cafes/no preference)",
+    "preferences.food": "Food preferences",
+    "preferences.food.favorites": "Favorite foods",
+    "preferences.food.dislikes": "Disliked foods",
+    "preferences.cuisine_preferences": "Preferred cuisine types",
+    "preferences.dietary_style": "Dietary style (no preference/meat-heavy/seafood-based/vegetable-based/vegetarian/vegan/gluten-free/other)",
+    "preferences.drink_preferences": "Preferred beverages",
+    "preferences.pets": "Pets / animals kept",
+    "preferences.owned_items_of_note": "Notable possessions / favorite items",
+    "preferences.travel_style": "Travel style (Lv2)",
+    "preferences.comfort_rituals": "Comfort rituals (Lv2)",
+    "preferences.shopping_style": "Shopping style (impulse buying/careful comparison/review-driven/intuitive/minimal necessity) (Lv2)",
+    "preferences.brand_loyalty": "Brand loyalty scale (1=no preference - 5=strong loyalty) (Lv2)",
+    "preferences.quality_vs_quantity": "Quality vs. quantity orientation scale (1=quantity-focused - 5=quality-focused) (Lv2)",
+    "preferences.spending_priority": "Spending priority order (Lv2)",
+    "preferences.gear_philosophy": "Philosophy on tools & equipment (Lv2)",
+    "preferences.morning_routine": "Morning routine (Lv2)",
+    "preferences.evening_routine": "Evening routine (Lv2)",
+    "preferences.weekend_pattern": "Weekend pattern (Lv2)",
+    "preferences.seasonal_preferences": "Favorite season (spring/summer/autumn/winter/no preference) (Lv2)",
+    "preferences.ideal_vacation": "Ideal vacation (Lv2)",
+    "preferences.sleep_pattern": "Sleep pattern (early to bed & rise/night owl/irregular/short sleep + nap/long sleeper) (Lv2)",
+    "preferences.meal_timing": "Meal timing (3 regular meals/2 meals/irregular/frequent snacking/eats when hungry) (Lv2)",
+    "preferences.break_style": "Break style (frequent/long break after focus/none/walks/mood-based) (Lv2)",
+    "preferences.commute_preference": "Commute preference (car/train/walking/bicycle/remote/mixed) (Lv2)",
+    "preferences.annual_rituals": "Annual rituals & customs (Lv2)",
+    "preferences.downtime_activities": "Downtime activities (Lv2)",
+    "preferences.planning_horizon": "Planning style (detailed schedule/broad outline/goes with the flow/decides last minute/mixed) (Lv2)",
+    "preferences.ritual_importance": "Routine importance scale (1=unnecessary - 5=can't relax without it) (Lv2)",
+    "preferences.gathering_preference": "Gathering preference (home party/dining out/outdoor/online/small & quiet) (Lv2)",
+    "preferences.gift_giving_style": "Gift-giving style (practical items/experiential/surprise/recipient's request/rarely gives) (Lv2)",
+    "preferences.celebration_style": "Celebration style (grand/intimate/quiet/doesn't celebrate/self-reward) (Lv2)",
+    "preferences.entertainment_budget_priority": "Entertainment budget allocation (Lv2)",
+    "preferences.nostalgia_triggers": "Nostalgia triggers (Lv2)",
+    "preferences.tech_adoption_speed": "Technology adoption speed (early adopter/wait and see/when needed/cautious) (Lv2)",
+    "preferences.digital_vs_analog": "Digital/analog preference scale (1=fully analog - 5=fully digital) (Lv2)",
+    "preferences.subscription_services": "Subscription services in use (Lv2)",
+    "preferences.device_ecosystem": "Device ecosystem (Apple/Google/Microsoft/mixed/Linux-centered) (Lv2)",
+    "preferences.customization_tendency": "Customization tendency scale (1=stays default - 5=customizes everything) (Lv2)",
+    "preferences.sensory_preferences": "Sensory preferences (Lv3)",
+    "preferences.sensory_preferences.sound": "Sound / audio",
+    "preferences.sensory_preferences.visual": "Visual preferences",
+    "preferences.sensory_preferences.texture": "Texture / tactile preferences",
+    "preferences.disliked_environments": "Disliked environments (Lv3)",
+    "preferences.preference_origin_stories": "Origins of preferences (why they became liked) (Lv3)",
+    "preferences.childhood_favorites": "Childhood favorites (Lv3)",
+    "preferences.preference_inheritance": "Preferences inherited from others (Lv3)",
+    "preferences.aesthetic_formation": "Aesthetic sensibility formation (Lv3)",
+    "preferences.sensory_memories": "Sensory memories (memories triggered by smell, sound, taste) (Lv3)",
+    "preferences.taste_evolution": "Taste evolution (Lv3)",
+    "preferences.lost_interests": "Lost interests and reasons (Lv3)",
+    "preferences.rejected_tastes": "Consciously rejected tastes (Lv3)",
+    "preferences.preference_contradictions": "Contradictions in preferences (Lv3)",
+    "preferences.guilty_pleasures": "Guilty pleasures (Lv3)",
+    "preferences.comfort_objects": "Comfort objects (Lv3)",
+    "preferences.dream_possessions": "Dream possessions (Lv3)",
+    "preferences.sacred_spaces": "Personal sacred spaces (Lv3)",
+    "preferences.irreplaceable_experiences": "Irreplaceable experiences (Lv3)",
+    "preferences.taste_identity_link": "Link between tastes and identity (Lv3)",
+    "expression": "Expression & communication style (core of 'like them' for AI reproduction)",
+    "expression.first_person": "First-person pronoun",
+    "expression.second_person": "Second-person address (how they refer to others)",
+    "expression.speech_style": "Speech style",
+    "expression.speech_style.formal": "Polite / formal settings",
+    "expression.speech_style.casual": "Casual settings",
+    "expression.catchphrases": "Catchphrases",
+    "expression.sentence_endings": "Sentence-ending patterns (characteristic endings)",
+    "expression.sentence_length": "Sentence length tendency (prefers short/prefers long/mixed)",
+    "expression.response_length_tendency": "Response length scale (1=very concise - 5=very detailed)",
+    "expression.use_of_lists": "Use of bullet points / lists scale (1=rarely - 5=frequently)",
+    "expression.vocabulary_tendency": "Vocabulary tendency (technical/plain/mixed)",
+    "expression.use_of_technical_terms": "Technical term usage scale (1=avoids - 5=frequently uses)",
+    "expression.use_of_foreign_words": "Foreign word / English usage tendency scale (1=rarely - 5=frequently)",
+    "expression.metaphor_usage": "Metaphor / analogy usage scale (1=rarely - 5=frequently)",
+    "expression.logic_style": "Logic style (inductive/deductive/narrative)",
+    "expression.argumentation_style": "Argumentation style (assertive/exploratory/collaborative)",
+    "expression.evidence_preference": "Evidence preference (data-driven/experience-driven/feeling-driven)",
+    "expression.counterargument_handling": "Counterargument handling style (accepts and changes view/partially adopts/calmly rebuts/emotionally rebuts/defers for later/avoids)",
+    "expression.emotional_expressiveness": "Emotional expressiveness scale (1=restrained - 5=very rich)",
+    "expression.humor_style": "Humor style (wit & intellectual/self-deprecating/surreal & absurd/puns & wordplay/observational humor/rarely uses)",
+    "expression.agreement_expression": "Agreement expression style",
+    "expression.disagreement_expression": "Disagreement / rebuttal expression style",
+    "expression.question_asking_style": "Question-asking style (fundamental & philosophical/concrete & practical/hypothesis-testing/exploratory & divergent/confirmatory & organizing/critical questioning)",
+    "expression.topic_interests_in_conversation": "Preferred conversation topics",
+    "expression.conversation_depth_preference": "Conversation depth preference scale (1=broad & shallow - 5=deep & narrow)",
+    "expression.listening_style": "Listening style (attentive & thorough/empathetic & feeling-oriented/analytical & point-organizing/solution-oriented & answer-seeking/multitasking)",
+    "expression.use_of_emoji_symbols": "Emoji / symbol usage tendency scale (1=rarely - 5=frequently)",
+    "expression.punctuation_style": "Punctuation & line break style (standard/comma-heavy/comma-sparse/frequent line breaks & short paragraphs/few line breaks & long paragraphs/conversational)",
+    "expression.persuasion_style": "Persuasion style (logic/emotion/authority/narrative/data) (Lv2)",
+    "expression.storytelling_style": "Storytelling style (chronological/conclusion-first/foreshadowing/improvisational) (Lv2)",
+    "expression.teaching_style": "Teaching style (step-by-step/concept-first/example-based/question-guided) (Lv2)",
+    "expression.explanation_depth_control": "Explanation depth control (adapts to audience/always detailed/always concise/elaborates when asked) (Lv2)",
+    "expression.feedback_giving_style": "Feedback delivery style (direct/sandwich method/question-based/metaphorical/written) (Lv2)",
+    "expression.formality_switching": "Formal/casual switching (switches instantly/gradually/struggles/always consistent) (Lv2)",
+    "expression.audience_adaptation": "Audience adaptation (consciously adapts/naturally adapts/rarely changes) (Lv2)",
+    "expression.code_switching": "Language / register switching (frequent/only when needed/struggles/conscious) (Lv2)",
+    "expression.emotional_tone_control": "Emotional tone control (consciously controlled/natural/adapts by situation/tends to suppress) (Lv2)",
+    "expression.conflict_communication": "Conflict communication (direct/indirect/silent/humor to defuse/written) (Lv2)",
+    "expression.narrative_perspective": "Narrative perspective (first person/third person/objective/mixed) (Lv2)",
+    "expression.information_ordering": "Information ordering (by importance/chronological/compare & contrast/problem to solution) (Lv2)",
+    "expression.abstraction_level_preference": "Concrete-abstract structuring (concrete to abstract/abstract to concrete/mixed/concrete only) (Lv2)",
+    "expression.reference_style": "Reference / citation style (frequent quotes/own words/experience-based/data-driven) (Lv2)",
+    "expression.turn_taking_style": "Turn-taking style (waits/interrupts/balanced/yields to others) (Lv2)",
+    "expression.topic_transition_style": "Topic transition style (flows naturally/explicitly switches/defers to others/abrupt) (Lv2)",
+    "expression.response_latency": "Response speed (immediate/thinks briefly/deliberates/depends on topic) (Lv2)",
+    "expression.active_listening_signals": "Frequently used active listening signals (Lv2)",
+    "expression.question_frequency": "Question frequency scale (1=few - 5=many) (Lv2)",
+    "expression.language_influences": "Influences on language use (people, works) (Lv3)",
+    "expression.expression_turning_points": "Expression style turning points (Lv3)",
+    "expression.childhood_communication_environment": "Childhood communication environment (Lv3)",
+    "expression.suppressed_expression_modes": "Suppressed expression modes (Lv3)",
+    "expression.unconscious_verbal_habits": "Unconscious verbal habits (Lv3)",
+    "expression.emotional_leakage_patterns": "Patterns of emotional leakage in expression (Lv3)",
+    "expression.authenticity_vs_performance": "Gap between authentic self and performance mode (Lv3)",
+    "expression.inner_monologue_style": "Inner monologue style (Lv3)",
+    "expression.dream_narrative_style": "Dream / fantasy narration style (Lv3)",
+    "expression.untranslatable_expressions": "Untranslatable personal expressions (Lv3)",
+    "expression.signature_phrases_origin": "Origin of catchphrases & signature expressions (Lv3)",
+    "expression.voice_of_authority": "Topics spoken with authority (Lv3)",
+    "expression.vulnerability_expression": "How vulnerability is shown (with humor/directly/metaphorically/not shown/only to trusted people) (Lv3)",
+    "expression.communication_wounds": "Communication-related trauma (Lv3)",
+    "expression.writing_patterns": "Writing habits & patterns (Lv3)",
+    "expression.silence_usage": "Use of silence & pauses (Lv3)",
+    "relationships": "Relationships",
+    "relationships.family_structure": "Family structure",
+    "relationships.marital_status": "Marital status (single/married/divorced/widowed/domestic partnership/other)",
+    "relationships.has_children": "Has children",
+    "relationships.living_situation": "Living situation (alone/with partner/with family/roommate/other)",
+    "relationships.relationship_style": "Relationship style (few & deep/many & broad/purpose-driven/situational)",
+    "relationships.attachment_style": "Attachment style (secure/anxious/avoidant/disorganized)",
+    "relationships.intimacy_preference": "Intimacy preference scale (1=few & deep - 5=many & broad)",
+    "relationships.preferred_social_setting": "Preferred social setting (one-on-one/small group/large group)",
+    "relationships.social_energy_drain": "Social energy drain scale (1=not drained - 5=very drained)",
+    "relationships.how_they_show_care": "How care & affection are shown",
+    "relationships.support_style": "Support style for others (emotional/practical/both)",
+    "relationships.conflict_style": "Conflict handling style (avoids/discusses calmly/argues logically/confronts emotionally/takes time/seeks third-party mediation)",
+    "relationships.forgiveness_tendency": "Forgiveness tendency (forgives quickly/takes time to forgive/conditional forgiveness/hard to forgive/depends on situation)",
+    "relationships.loyalty_pattern": "Loyalty pattern (very strong/strong/average/weak/depends on person & situation)",
+    "relationships.social_role": "Social role (leader/follower/mediator/expert & advisor/mentor/idea generator/other)",
+    "relationships.group_role_tendency": "Group role tendency (leader/supporter/idea generator/executor/mediator/critic & analyst/observer)",
+    "relationships.networking_style": "Networking style (proactive & broad/purpose-driven & selective/relationship-focused & deep/passive/online-centered/in-person-centered)",
+    "relationships.boundary_setting": "Boundary setting (clear/ambiguous)",
+    "relationships.relationship_maintenance_style": "Relationship maintenance style (frequent contact/as needed)",
+    "relationships.dependency_tendency": "Dependency tendency scale (1=fully independent - 5=strongly dependent)",
+    "relationships.key_relationships": "Key relationships (Lv2)",
+    "relationships.key_relationships[].role": "Relationship type",
+    "relationships.key_relationships[].closeness": "Closeness",
+    "relationships.key_relationships[].influence": "Influence from this person",
+    "relationships.love_language_giving": "Love language (giving) (words/actions/gifts/time/physical touch) (Lv2)",
+    "relationships.love_language_receiving": "Love language (receiving) (words/actions/gifts/time/physical touch) (Lv2)",
+    "relationships.apology_style": "Apology style (honest words/shows through actions/after some time/with gifts/struggles with apologies) (Lv2)",
+    "relationships.gratitude_expression": "Gratitude expression (verbal/through actions/letters & messages/through attitude/struggles with it) (Lv2)",
+    "relationships.emotional_support_seeking": "Emotional support seeking (asks openly/indirectly/handles alone/only specific people/situational) (Lv2)",
+    "relationships.reunion_behavior": "Reunion behavior (gets excited/stays natural/slightly nervous/picks up where left off/observes first) (Lv2)",
+    "relationships.relationship_investment_priority": "Relationship investment priority order (Lv2)",
+    "relationships.friendship_maintenance": "Friendship maintenance (frequent contact/occasional deep contact/goes all-in when meeting/stays connected via SNS/lets it flow naturally) (Lv2)",
+    "relationships.family_contact_frequency": "Family contact frequency (daily/several times a week/weekly/several times a month/only when needed/almost never) (Lv2)",
+    "relationships.digital_relationship_style": "Digital relationship building (active on SNS/message-centered/prefers in-person/varies by context/minimal) (Lv2)",
+    "relationships.new_relationship_approach": "Approach to new relationships (proactively initiates/starts with common topics/through introductions/waits/goes with the flow) (Lv2)",
+    "relationships.relationship_exit_style": "Relationship ending style (communicates clearly/lets fade naturally/creates distance/slow to decide/decisive) (Lv2)",
+    "relationships.social_hierarchy_sensitivity": "Social hierarchy sensitivity scale (1=flat-oriented - 5=strongly hierarchy-conscious) (Lv2)",
+    "relationships.mentoring_relationship": "Mentoring relationship (has mentor/has mentee/both/none/informal) (Lv2)",
+    "relationships.professional_relationship_style": "Professional relationship style (separates work & personal/combines colleague & friend/team-focused/individual-focused/situational) (Lv2)",
+    "relationships.cross_generational_interaction": "Cross-generational interaction style (easier with older/easier with younger/most comfortable with peers/comfortable across generations) (Lv2)",
+    "relationships.pet_relationship": "Relationship with pets (Lv2)",
+    "relationships.jealousy_tendency": "Jealousy tendency scale (1=almost none - 5=strong) (Lv2)",
+    "relationships.trust_recovery_pattern": "Trust recovery pattern (time heals/through conversation/requires proof through actions/difficult/conditional) (Lv2)",
+    "relationships.confrontation_threshold": "Confrontation threshold (speaks up immediately/builds up then speaks/endures to the limit/avoids/only in serious cases) (Lv2)",
+    "relationships.secret_keeping": "Secret keeping (absolutely keeps secrets/shares with trusted few/struggles with secrets/situational) (Lv2)",
+    "relationships.vulnerability_sharing": "Vulnerability sharing (open/only with close ones/rarely shows/depends on person/gradually) (Lv2)",
+    "relationships.community_involvement": "Community involvement (Lv3)",
+    "relationships.attachment_origin": "Origin of attachment style (Lv3)",
+    "relationships.first_significant_relationship": "First significant relationship (Lv3)",
+    "relationships.relationship_role_models": "Relationship role models (Lv3)",
+    "relationships.family_relationship_patterns": "Family relationship patterns (Lv3)",
+    "relationships.relationship_wounds": "Relationship wounds (Lv3)",
+    "relationships.abandonment_fears": "Fear of abandonment (Lv3)",
+    "relationships.intimacy_barriers": "Intimacy barriers (Lv3)",
+    "relationships.unconscious_relationship_patterns": "Unconscious relationship patterns (Lv3)",
+    "relationships.projection_in_relationships": "Projection in relationships (Lv3)",
+    "relationships.codependency_awareness": "Codependency awareness (Lv3)",
+    "relationships.relationship_identity": "Self-image within relationships (Lv3)",
+    "relationships.loneliness_relationship": "Relationship with loneliness (Lv3)",
+    "relationships.ideal_relationship_vision": "Ideal relationship vision (Lv3)",
+    "relationships.chosen_family": "Chosen family (bonds beyond blood) (Lv3)",
+    "relationships.relationship_with_ai": "Thoughts on relationship with AI (Lv3)",
+    "relationships.lost_relationships": "Lost relationships (Lv3)",
+    "relationships.relationship_regrets": "Relationship regrets (Lv3)",
+    "relationships.relationship_gratitude": "Relationship gratitude (Lv3)",
+    "relationships.relationship_legacy": "Relationship legacy to leave behind (Lv3)",
+    "relationships.relationship_philosophy": "Philosophy of human relationships (Lv3)",
+    "episodes": "Episodic memory (RAG integration)",
+    "episodes.storage_type": "Storage type",
+    "episodes.sources": "Episode source list",
+    "episodes.sources[].type": "Source type",
+    "episodes.sources[].description": "Description",
+    "episodes.sources[].location": "Storage location / URL",
+    "personality_assessments": "Personality assessment results (compressed individuality expression)",
+    "personality_assessments.results": "Results list by framework",
+    "personality_assessments.results[].framework": "Framework name",
+    "personality_assessments.results[].results": "Assessment results",
+    "personality_assessments.results[].assessed_at": "Assessment date",
+    "personality_assessments.results[].source": "Assessment source / service name",
+    "personality_assessments.Big5.openness": "Openness to Experience",
+    "personality_assessments.Big5.conscientiousness": "Conscientiousness",
+    "personality_assessments.Big5.extraversion": "Extraversion",
+    "personality_assessments.Big5.agreeableness": "Agreeableness",
+    "personality_assessments.Big5.neuroticism": "Neuroticism",
+    "personality_assessments.Egogram.CP": "Critical Parent (CP)",
+    "personality_assessments.Egogram.NP": "Nurturing Parent (NP)",
+    "personality_assessments.Egogram.A": "Adult (A)",
+    "personality_assessments.Egogram.FC": "Free Child (FC)",
+    "personality_assessments.Egogram.AC": "Adapted Child (AC)",
+    "personality_assessments.Enneagram.type": "Type number (1-9)",
+    "personality_assessments.Enneagram.wing": "Wing number",
+    "personality_assessments.StrengthsFinder.top5": "Top 5 strength themes"
+  },
+  "knowledge": {
+    "identity": {
+      "description": "Basic identification (name, gender, occupation, life stage, etc.)",
+      "extraction_tips": "From self-introductions, profile sections, signatures, and title descriptions. Look for 'I am...' sentence patterns.",
+      "fields": {
+        "Lv1": {
+          "name": {
+            "label": "Name"
+          },
+          "maiden_name": {
+            "label": "Maiden name (pre-marriage surname)"
+          },
+          "nickname": {
+            "label": "Nickname / preferred name"
+          },
+          "online_handles": {
+            "label": "Online handles (array)"
+          },
+          "birth_year": {
+            "label": "Birth year"
+          },
+          "gender": {
+            "label": "Gender",
+            "candidates": [
+              "Male",
+              "Female",
+              "Other",
+              "Prefer not to say"
+            ]
+          },
+          "nationality": {
+            "label": "Nationality"
+          },
+          "native_language": {
+            "label": "Native language"
+          },
+          "occupation_summary": {
+            "label": "One-line occupation summary (e.g., engineer specializing in AI and metaverse)"
+          },
+          "self_description": {
+            "label": "Self-introduction (1-2 sentences)"
+          },
+          "life_stage": {
+            "label": "Life stage",
+            "candidates": [
+              "Student",
+              "Early career professional",
+              "Mid-career professional",
+              "Senior professional",
+              "Management",
+              "Business owner / executive",
+              "Freelancer",
+              "Retired",
+              "Other"
+            ]
+          },
+          "identity_keywords": {
+            "label": "Keywords that describe oneself",
+            "candidates": [
+              "e.g., Engineer",
+              "Father",
+              "Explorer / seeker"
+            ]
+          }
+        },
+        "Lv2": {
+          "birth_date": {
+            "label": "Date of birth"
+          },
+          "birthplace": {
+            "label": "Birthplace"
+          },
+          "current_location": {
+            "label": "Current residence"
+          },
+          "role_priorities": {
+            "label": "Priority of life roles"
+          },
+          "professional_identity": {
+            "label": "Core of professional identity"
+          },
+          "generational_identity": {
+            "label": "Generational self-awareness"
+          },
+          "regional_attachment": {
+            "label": "Attachment to hometown/residence (1-5 scale)"
+          },
+          "digital_presence": {
+            "label": "Digital activity hubs"
+          },
+          "public_persona": {
+            "label": "Public self-image"
+          },
+          "introduction_style": {
+            "label": "Self-introduction pattern",
+            "candidates": [
+              "From title",
+              "From hobbies",
+              "From beliefs",
+              "From achievements",
+              "Adapts to the other person"
+            ]
+          },
+          "online_offline_gap": {
+            "label": "Gap between on/off-duty self",
+            "candidates": [
+              "Nearly the same",
+              "Slightly different",
+              "Quite different",
+              "Completely different persona"
+            ]
+          },
+          "life_design_priority": {
+            "label": "Priority axes in life planning",
+            "candidates": [
+              "Career",
+              "Family",
+              "Self-actualization",
+              "Social contribution",
+              "Balance"
+            ]
+          },
+          "work_life_stance": {
+            "label": "Work-life balance view (1-5 scale)"
+          },
+          "financial_identity": {
+            "label": "Relationship with money",
+            "candidates": [
+              "Steady",
+              "Investment type",
+              "Hedonistic type",
+              "Indifferent",
+              "Strategic"
+            ]
+          },
+          "health_identity": {
+            "label": "Attitude toward health",
+            "candidates": [
+              "Active management",
+              "Moderately aware",
+              "Indifferent",
+              "Only when problems arise"
+            ]
+          },
+          "life_mission": {
+            "label": "Life mission"
+          },
+          "personal_brand_keywords": {
+            "label": "How others see you"
+          },
+          "reputation_awareness": {
+            "label": "Reputation awareness (1-5 scale)"
+          },
+          "visibility_preference": {
+            "label": "Exposure / coverage preference",
+            "candidates": [
+              "Front stage",
+              "Behind the scenes",
+              "Depends on the situation",
+              "Absolute minimum"
+            ]
+          }
+        },
+        "Lv3": {
+          "languages": {
+            "label": "Languages spoken"
+          },
+          "cultural_background": {
+            "label": "Cultural background"
+          },
+          "name_significance": {
+            "label": "Feelings about name meaning / origin"
+          },
+          "identity_formation_events": {
+            "label": "Events that shaped identity"
+          },
+          "belonging_sense": {
+            "label": "Nature of sense of belonging"
+          },
+          "rejected_identities": {
+            "label": "Rejected or outgrown identities"
+          },
+          "aspirational_identity": {
+            "label": "Aspired self-image"
+          },
+          "identity_narrative": {
+            "label": "Personal narrative (where from and where to)"
+          },
+          "cultural_identity_layers": {
+            "label": "Layers of cultural identity"
+          },
+          "legacy_identity": {
+            "label": "Self-image one wants to leave for posterity"
+          },
+          "era_consciousness": {
+            "label": "Awareness of the times / era"
+          },
+          "childhood_identity": {
+            "label": "Childhood self-image"
+          },
+          "imposed_identities": {
+            "label": "Identities imposed by others"
+          },
+          "hidden_identities": {
+            "label": "Hidden identities"
+          },
+          "identity_paradoxes": {
+            "label": "Identity contradictions"
+          },
+          "mortality_awareness_impact": {
+            "label": "Impact of death awareness on identity"
+          },
+          "identity_symbols": {
+            "label": "Objects, places, or words that symbolize oneself"
+          },
+          "rebirth_moments": {
+            "label": "Moments of rebirth / reinvention"
+          },
+          "naming_history": {
+            "label": "Name history (names used in different periods)"
+          },
+          "lineage_consciousness": {
+            "label": "Awareness of lineage / family heritage"
+          },
+          "identity_wounds": {
+            "label": "Identity-related wounds"
+          }
+        }
+      }
+    },
+    "appearance": {
+      "description": "Physical characteristics (body type, fashion, voice)",
+      "extraction_tips": "Almost impossible to infer from text. Only when self-descriptions or photo references exist.",
+      "fields": {
+        "Lv1": {
+          "height_cm": {
+            "label": "Height (cm)"
+          },
+          "build": {
+            "label": "Body type",
+            "candidates": [
+              "Slender",
+              "Somewhat slim",
+              "Average",
+              "Somewhat large",
+              "Muscular / sturdy",
+              "Full-figured"
+            ]
+          },
+          "hair_style": {
+            "label": "Hairstyle"
+          },
+          "hair_color": {
+            "label": "Hair color"
+          },
+          "eye_color": {
+            "label": "Eye color"
+          },
+          "fashion_style": {
+            "label": "Clothing style",
+            "candidates": [
+              "Casual",
+              "Formal",
+              "Business casual",
+              "Sporty",
+              "Street",
+              "Natural",
+              "Military",
+              "Creative",
+              "Other"
+            ]
+          },
+          "weight_range": {
+            "label": "Weight range",
+            "candidates": [
+              "Under 50kg",
+              "50-60kg",
+              "60-70kg",
+              "70-80kg",
+              "80-90kg",
+              "90kg+",
+              "Private"
+            ]
+          },
+          "face_shape": {
+            "label": "Face shape",
+            "candidates": [
+              "Round face",
+              "Long face",
+              "Oval face",
+              "Square face",
+              "Inverted triangle",
+              "Base type"
+            ]
+          },
+          "skin_tone": {
+            "label": "Skin tone",
+            "candidates": [
+              "Fair-skinned",
+              "Average",
+              "Somewhat dark",
+              "Tanned/brown",
+              "Dark tones"
+            ]
+          },
+          "posture": {
+            "label": "Posture",
+            "candidates": [
+              "Good",
+              "Average",
+              "Tends to hunch",
+              "Slightly arched back"
+            ]
+          },
+          "voice_quality": {
+            "label": "Voice characteristics",
+            "candidates": [
+              "Low/Short",
+              "Somewhat low",
+              "Average",
+              "Somewhat high",
+              "High/Tall"
+            ]
+          },
+          "voice_volume": {
+            "label": "Voice volume",
+            "candidates": [
+              "Small",
+              "Average",
+              "Large",
+              "Varies by situation"
+            ]
+          },
+          "facial_hair": {
+            "label": "Facial hair / beard",
+            "candidates": [
+              "None",
+              "Stubble",
+              "Mustache",
+              "Goatee",
+              "Full beard",
+              "Well-maintained"
+            ]
+          },
+          "tattoos": {
+            "label": "Tattoos"
+          },
+          "piercings": {
+            "label": "Piercings"
+          },
+          "scars_birthmarks": {
+            "label": "Scars / birthmarks"
+          },
+          "smile_impression": {
+            "label": "Smile impression",
+            "candidates": [
+              "Laughs often",
+              "Reserved",
+              "Smirks",
+              "Full-face smile",
+              "Rarely laughs"
+            ]
+          },
+          "overall_impression": {
+            "label": "Overall impression (from others' perspective)"
+          },
+          "dominant_hand": {
+            "label": "Dominant hand",
+            "candidates": [
+              "Right",
+              "Left",
+              "Ambidextrous"
+            ]
+          },
+          "blood_type": {
+            "label": "Blood type",
+            "candidates": [
+              "A",
+              "B",
+              "O",
+              "AB",
+              "Unknown"
+            ]
+          },
+          "shoe_size": {
+            "label": "Shoe size"
+          },
+          "eyebrow_style": {
+            "label": "Eyebrow characteristics",
+            "candidates": [
+              "Heavy-set",
+              "Slim",
+              "Average",
+              "Dark",
+              "Light / thin",
+              "Well-maintained"
+            ]
+          },
+          "walking_style": {
+            "label": "Walking style",
+            "candidates": [
+              "Fast",
+              "Slowly",
+              "Average",
+              "Long strides",
+              "Short strides",
+              "Distinctive"
+            ]
+          },
+          "physical_presence": {
+            "label": "Presence / aura",
+            "candidates": [
+              "Large",
+              "Average",
+              "Reserved",
+              "Varies by situation"
+            ]
+          },
+          "apparent_age": {
+            "label": "Perceived age vs. actual age",
+            "candidates": [
+              "Looks younger",
+              "Age-appropriate",
+              "Looks older",
+              "Don't know"
+            ]
+          },
+          "body_language_tendency": {
+            "label": "Body language tendency",
+            "candidates": [
+              "Lots of gestures",
+              "Reserved",
+              "Expressive face",
+              "Little movement",
+              "Varies by situation"
+            ]
+          }
+        },
+        "Lv2": {
+          "hair_color_hex": {
+            "label": "Hair color (HEX code)"
+          },
+          "eye_color_hex": {
+            "label": "Eye color (HEX code)"
+          },
+          "fashion_items": {
+            "label": "Frequently worn items"
+          },
+          "glasses": {
+            "label": "Glasses (yes/no)"
+          },
+          "comfort_vs_style": {
+            "label": "Comfort vs. style priority (1-5 scale)"
+          },
+          "dress_code_adaptation": {
+            "label": "Dress code adaptability",
+            "candidates": [
+              "Strictly follows",
+              "Customizes own way",
+              "Bare minimum",
+              "Ignores",
+              "Adjusts by context"
+            ]
+          },
+          "seasonal_wardrobe": {
+            "label": "Seasonal style changes",
+            "candidates": [
+              "Changes significantly",
+              "Changes slightly",
+              "Rarely changes",
+              "Change based on function"
+            ]
+          },
+          "color_palette_preference": {
+            "label": "Preferred color palette"
+          },
+          "brand_preferences_fashion": {
+            "label": "Preferred fashion brands"
+          },
+          "style_icons": {
+            "label": "Style role models"
+          },
+          "fashion_budget": {
+            "label": "Fashion budget sense",
+            "candidates": [
+              "Absolute minimum",
+              "Cost-performance focused",
+              "Moderate investment",
+              "Invests in favorites",
+              "Doesn't care"
+            ]
+          },
+          "accessory_preferences": {
+            "label": "Accessory preferences"
+          },
+          "watch_jewelry": {
+            "label": "Watches / jewelry"
+          },
+          "bag_contents": {
+            "label": "Things always carried"
+          },
+          "fragrance_preference": {
+            "label": "Fragrance preferences",
+            "candidates": [
+              "Doesn't use",
+              "Reserved",
+              "Thoroughly",
+              "Depends on the situation"
+            ]
+          },
+          "grooming_style": {
+            "label": "Grooming style",
+            "candidates": [
+              "Bare minimum",
+              "Values cleanliness",
+              "Particular",
+              "Changes by situation"
+            ]
+          },
+          "hair_maintenance": {
+            "label": "Hair maintenance frequency",
+            "candidates": [
+              "Once a month",
+              "Once every two months",
+              "When it bothers",
+              "Cuts own hair"
+            ]
+          },
+          "skin_care_routine": {
+            "label": "Skincare",
+            "candidates": [
+              "None",
+              "Bare minimum",
+              "Daily routine",
+              "Particular"
+            ]
+          },
+          "fitness_routine": {
+            "label": "How body shape is maintained",
+            "candidates": [
+              "Has exercise habit",
+              "Diet management",
+              "Not doing anything special",
+              "On a diet",
+              "Complex/multifaceted"
+            ]
+          },
+          "physical_presentation_awareness": {
+            "label": "Appearance consciousness (1-5 scale)"
+          },
+          "signature_look": {
+            "label": "Signature look / trademark"
+          },
+          "photo_preference": {
+            "label": "Photo-taking preferences",
+            "candidates": [
+              "Likes",
+              "Not good at",
+              "Likes selfies",
+              "Dislikes being photographed by others",
+              "Doesn't care"
+            ]
+          },
+          "makeup_style": {
+            "label": "Makeup style",
+            "candidates": [
+              "None",
+              "Bare minimum",
+              "Natural",
+              "Thoroughly",
+              "Depends on the situation"
+            ]
+          },
+          "nail_style": {
+            "label": "Nail style",
+            "candidates": [
+              "Doesn't maintain",
+              "Cuts short",
+              "Keeps clean",
+              "Nail care",
+              "Nail art"
+            ]
+          },
+          "weather_dressing": {
+            "label": "Weather-based outfit changes",
+            "candidates": [
+              "Function-focused",
+              "Doesn't mind some inconvenience",
+              "Outfit changes with weather"
+            ]
+          },
+          "transformation_frequency": {
+            "label": "Frequency of style changes",
+            "candidates": [
+              "Almost never",
+              "About once a year",
+              "Every season",
+              "Frequently",
+              "Mood-dependent"
+            ]
+          },
+          "eyewear_style": {
+            "label": "Glasses / contacts details"
+          },
+          "shoe_style": {
+            "label": "Shoe style",
+            "candidates": [
+              "Sneakers",
+              "Leather shoes",
+              "Boots",
+              "Sandals",
+              "Function-focused",
+              "Switches between both"
+            ]
+          },
+          "hat_preference": {
+            "label": "Hat preferences",
+            "candidates": [
+              "Doesn't wear hats",
+              "Cap",
+              "Hat",
+              "Beanie",
+              "Adjusts by context"
+            ]
+          },
+          "outerwear_preference": {
+            "label": "Outerwear preferences",
+            "candidates": [
+              "Jacket",
+              "Hoodie",
+              "Coat",
+              "Down jacket",
+              "Function-focused",
+              "Not particular"
+            ]
+          },
+          "layering_style": {
+            "label": "Layering tendency",
+            "candidates": [
+              "Light clothing",
+              "Likes layering",
+              "Changes by season",
+              "Function over form"
+            ]
+          },
+          "clothing_size": {
+            "label": "Clothing size"
+          },
+          "workwear_vs_casualwear": {
+            "label": "Gap between work and casual wear",
+            "candidates": [
+              "Nearly the same",
+              "Slightly different",
+              "Completely separates",
+              "No work clothes"
+            ]
+          },
+          "physical_maintenance": {
+            "label": "Body maintenance (chiropractic, massage, etc.)"
+          },
+          "dental_care": {
+            "label": "Dental care",
+            "candidates": [
+              "Bare minimum",
+              "Regular checkups",
+              "Whitening",
+              "Had braces"
+            ]
+          },
+          "body_language_awareness": {
+            "label": "Body language awareness (1-5 scale)"
+          }
+        },
+        "Lv3": {
+          "distinguishing_features": {
+            "label": "Distinctive appearance features"
+          },
+          "avatar_url": {
+            "label": "Avatar URL"
+          },
+          "voice_sample_url": {
+            "label": "Voice sample URL"
+          },
+          "body_image": {
+            "label": "Body type awareness / self-image"
+          },
+          "appearance_confidence": {
+            "label": "Appearance confidence (1-5 scale)"
+          },
+          "aging_attitude": {
+            "label": "Attitude toward aging",
+            "candidates": [
+              "Accepts naturally",
+              "Resists",
+              "Enjoys",
+              "Anxiety",
+              "Unconscious"
+            ]
+          },
+          "body_relationship": {
+            "label": "Relationship with one's body"
+          },
+          "hidden_appearance_desires": {
+            "label": "Hidden appearance desires"
+          },
+          "appearance_history": {
+            "label": "Appearance evolution"
+          },
+          "style_turning_points": {
+            "label": "Turning points in style"
+          },
+          "appearance_role_models": {
+            "label": "Appearance role models"
+          },
+          "appearance_wounds": {
+            "label": "Appearance-related trauma"
+          },
+          "appearance_identity_link": {
+            "label": "Connection between appearance and identity"
+          },
+          "appearance_persona_gap": {
+            "label": "Gap between looks and personality"
+          },
+          "first_impression_awareness": {
+            "label": "Awareness of first impressions"
+          },
+          "ideal_self_image": {
+            "label": "Ideal self-image"
+          },
+          "avatar_identity": {
+            "label": "Relationship between avatar and self"
+          },
+          "physical_aging_changes": {
+            "label": "Record of aging-related changes"
+          },
+          "body_narrative": {
+            "label": "Body's story / narrative"
+          },
+          "appearance_era_snapshots": {
+            "label": "Appearance snapshots by era"
+          }
+        }
+      }
+    },
+    "background": {
+      "description": "History & experience (education, career, life turning points)",
+      "extraction_tips": "From career introductions, past experience references, temporal expressions like 'years ago' or 'after going through...'.",
+      "fields": {
+        "Lv1": {
+          "education": {
+            "label": "Educational background"
+          },
+          "career": {
+            "label": "Work history"
+          },
+          "career_summary": {
+            "label": "Career summary in one line"
+          },
+          "years_of_experience": {
+            "label": "Total years of experience"
+          },
+          "marital_history": {
+            "label": "Marriage history"
+          },
+          "residence_history": {
+            "label": "Residential history"
+          },
+          "turning_points": {
+            "label": "Life turning points"
+          },
+          "formative_experiences": {
+            "label": "Experiences that shaped personality (free text)"
+          }
+        },
+        "Lv2": {
+          "certifications": {
+            "label": "Certifications / qualifications"
+          },
+          "work_style": {
+            "label": "Working style"
+          },
+          "work_location": {
+            "label": "Workplace location"
+          },
+          "expertise_areas": {
+            "label": "Areas of expertise"
+          },
+          "career_motivation_pattern": {
+            "label": "Career choice motivation patterns",
+            "candidates": [
+              "Growth",
+              "Stability",
+              "Challenge",
+              "Reward",
+              "Mission-driven",
+              "Curiosity"
+            ]
+          },
+          "career_decision_style": {
+            "label": "Career decision-making style",
+            "candidates": [
+              "Planned",
+              "Opportunity-following",
+              "Intuition",
+              "Consultation-focused",
+              "Goes with the flow"
+            ]
+          },
+          "industry_transition_pattern": {
+            "label": "Industry transition patterns",
+            "candidates": [
+              "Loyal to one",
+              "To adjacent fields",
+              "Bold cross-industry move",
+              "Multiple in parallel"
+            ]
+          },
+          "side_projects": {
+            "label": "Side jobs / side projects"
+          },
+          "leadership_experience": {
+            "label": "Leadership experience",
+            "candidates": [
+              "Team leader",
+              "Project manager",
+              "Technical lead",
+              "Management",
+              "No experience",
+              "Informal leader"
+            ]
+          },
+          "work_achievement_highlights": {
+            "label": "Major career highlights"
+          },
+          "failure_experiences_career": {
+            "label": "Career failure experiences"
+          },
+          "relocation_adaptability": {
+            "label": "Relocation adaptability (1-5 scale)"
+          },
+          "life_rhythm_changes": {
+            "label": "Major lifestyle rhythm changes"
+          },
+          "financial_turning_points": {
+            "label": "Economic turning points"
+          },
+          "health_milestones": {
+            "label": "Health milestones"
+          },
+          "crisis_management_history": {
+            "label": "Crises overcome"
+          },
+          "role_transitions": {
+            "label": "Role transitions (subordinate→superior, single→parent, etc.)"
+          },
+          "technology_adaptation_history": {
+            "label": "Technology adaptation history"
+          },
+          "unexpected_opportunities": {
+            "label": "Unexpected opportunities"
+          },
+          "loss_and_recovery": {
+            "label": "Experience of loss and recovery"
+          },
+          "value_shift_triggers": {
+            "label": "Triggers that changed values"
+          },
+          "lifestyle_shifts": {
+            "label": "Major lifestyle changes"
+          },
+          "cultural_adaptation": {
+            "label": "Cultural adaptation experience"
+          },
+          "self_education_history": {
+            "label": "Self-study history"
+          },
+          "education_satisfaction": {
+            "label": "Satisfaction with education (1-5 scale)"
+          },
+          "academic_strengths": {
+            "label": "Academic strengths"
+          },
+          "professional_network_style": {
+            "label": "How professional networks are built",
+            "candidates": [
+              "Study groups / communities",
+              "Internal network",
+              "Social media",
+              "Referral-based",
+              "Rarely builds"
+            ]
+          },
+          "learning_turning_points": {
+            "label": "Turning points in learning"
+          },
+          "mentor_history": {
+            "label": "Mentor history"
+          },
+          "influential_books_courses": {
+            "label": "Influential books / courses"
+          },
+          "skill_acquisition_timeline": {
+            "label": "Skill acquisition timeline"
+          },
+          "learning_failures": {
+            "label": "Failures / setbacks in learning"
+          },
+          "teaching_experience": {
+            "label": "Teaching experience"
+          },
+          "conference_community_history": {
+            "label": "Conference / community participation history"
+          },
+          "chronic_conditions": {
+            "label": "Chronic health conditions"
+          },
+          "medical_history": {
+            "label": "Medical history (major illnesses/surgeries)"
+          },
+          "disability_status": {
+            "label": "Disabilities (presence / type)"
+          },
+          "mental_health_history": {
+            "label": "Mental health history"
+          },
+          "accessibility_needs": {
+            "label": "Accessibility needs"
+          },
+          "body_limitations": {
+            "label": "Physical limitations"
+          },
+          "health_management_style": {
+            "label": "Health management style",
+            "candidates": [
+              "Values regular checkups",
+              "After symptoms appear",
+              "Self-management",
+              "Exercise habit",
+              "Diet management",
+              "Complex/multifaceted"
+            ]
+          }
+        },
+        "Lv3": {
+          "family_dynamics": {
+            "label": "Family dynamics"
+          },
+          "childhood_environment": {
+            "label": "Characteristics of upbringing environment"
+          },
+          "socioeconomic_background": {
+            "label": "Socioeconomic background"
+          },
+          "inherited_patterns": {
+            "label": "Patterns inherited from family"
+          },
+          "broken_patterns": {
+            "label": "Family patterns one has broken"
+          },
+          "parallel_lives": {
+            "label": "Another life (if different choices were made)"
+          },
+          "career_regrets": {
+            "label": "Career regrets"
+          },
+          "unfinished_chapters": {
+            "label": "Unfinished chapters (things left undone)"
+          },
+          "survival_stories": {
+            "label": "Trials overcome"
+          },
+          "migration_story": {
+            "label": "Migration / relocation narrative"
+          },
+          "formative_relationships": {
+            "label": "Relationships that shaped personality"
+          },
+          "privilege_awareness": {
+            "label": "Awareness of privilege"
+          },
+          "cultural_displacement": {
+            "label": "Experience of cultural dissonance"
+          },
+          "generational_influences": {
+            "label": "Generational influences"
+          },
+          "origin_wounds": {
+            "label": "Wounds from upbringing"
+          },
+          "life_narrative_arc": {
+            "label": "Life narrative arc"
+          },
+          "recurring_themes": {
+            "label": "Recurring themes in life"
+          },
+          "life_metaphor": {
+            "label": "Metaphor for one's life"
+          },
+          "chapters_of_life": {
+            "label": "Life chapters"
+          },
+          "destiny_vs_choice": {
+            "label": "Sense of fate vs. choice"
+          },
+          "health_impact_on_identity": {
+            "label": "How health has shaped identity"
+          },
+          "medical_experiences": {
+            "label": "Significant medical experiences"
+          },
+          "recovery_stories": {
+            "label": "Stories of recovery / overcoming"
+          },
+          "health_philosophy": {
+            "label": "Health view (relationship between body and mind)"
+          }
+        }
+      }
+    },
+    "philosophy": {
+      "description": "Thought & philosophy (values, worldview, beliefs)",
+      "extraction_tips": "Most richly extractable from text analysis. Focus on assertions, opinions, quotes, 'should' / 'I believe' expressions, and objects of approval/disapproval.",
+      "fields": {
+        "Lv1": {
+          "worldview": {
+            "label": "Worldview"
+          },
+          "view_on_human_nature": {
+            "label": "View of human nature (inherently good, evil, or neutral?)"
+          },
+          "view_on_society": {
+            "label": "Social view (relationship between individual and society)"
+          },
+          "view_on_technology": {
+            "label": "Technology view (role, potential, risks)"
+          },
+          "view_on_ai": {
+            "label": "AI view (nature, future, relationship with humans)"
+          },
+          "view_on_life": {
+            "label": "View of life (what life is for)"
+          },
+          "source_of_meaning": {
+            "label": "Source of meaning (what gives life purpose)"
+          },
+          "definition_of_success": {
+            "label": "Definition of success (what success means personally)"
+          },
+          "view_on_death": {
+            "label": "Views on life and death (how one faces mortality)"
+          },
+          "core_values": {
+            "label": "Core values"
+          },
+          "ethical_foundation": {
+            "label": "Ethical foundation (what determines right and wrong)"
+          },
+          "what_they_stand_for": {
+            "label": "Things one protects / supports"
+          },
+          "what_they_oppose": {
+            "label": "Things one opposes / cannot forgive"
+          },
+          "view_on_failure": {
+            "label": "Attitude toward failure (how failure is given meaning)"
+          },
+          "relationship_with_uncertainty": {
+            "label": "How one faces uncertainty"
+          },
+          "attitude_toward_change": {
+            "label": "Attitude toward change",
+            "candidates": [
+              "Actively welcomes",
+              "Somewhat likes",
+              "Neutral",
+              "Somewhat dislikes",
+              "Strongly resists"
+            ]
+          },
+          "time_perspective": {
+            "label": "View of time",
+            "candidates": [
+              "Past-oriented",
+              "Present-oriented",
+              "Future-oriented",
+              "Balanced"
+            ]
+          },
+          "life_motto": {
+            "label": "Life motto"
+          },
+          "guiding_questions": {
+            "label": "Guiding questions (questions one always asks)"
+          },
+          "philosophical_keywords": {
+            "label": "Keywords representing one's philosophy"
+          }
+        },
+        "Lv2": {
+          "beliefs": {
+            "label": "Belief system"
+          },
+          "personal_theories": {
+            "label": "Original theories / hypotheses"
+          },
+          "tension_pairs": {
+            "label": "Stance on key dichotomies (freedom⇔stability, individual⇔group, etc.)"
+          },
+          "moral_framework": {
+            "label": "Ethical framework type",
+            "candidates": [
+              "Deontology",
+              "Utilitarianism",
+              "Virtue ethics",
+              "Relativism",
+              "Pragmatism"
+            ]
+          },
+          "decision_principles": {
+            "label": "Decision-making principles (priority rules)"
+          },
+          "justice_framework": {
+            "label": "Justice framework",
+            "candidates": [
+              "Fairness",
+              "Equality",
+              "Retribution",
+              "Emphasis on salvation"
+            ]
+          },
+          "view_on_knowledge": {
+            "label": "View on the nature of knowledge",
+            "candidates": [
+              "Truth is objective",
+              "Relative",
+              "Practical"
+            ]
+          },
+          "view_on_science": {
+            "label": "View of science (scope and limits)"
+          },
+          "truth_seeking_method": {
+            "label": "Methodology for pursuing truth",
+            "candidates": [
+              "Dialogue",
+              "Empirical",
+              "Meditation",
+              "Intuition, etc."
+            ]
+          },
+          "view_on_emotion_reason": {
+            "label": "Relationship between emotion and reason (which is trusted)"
+          },
+          "view_on_self": {
+            "label": "View of self",
+            "candidates": [
+              "Strictly kept",
+              "Fluid",
+              "Relational"
+            ]
+          },
+          "view_on_power": {
+            "label": "Attitude toward power and authority"
+          },
+          "view_on_cooperation_competition": {
+            "label": "View on balance between cooperation and competition"
+          },
+          "view_on_money_work": {
+            "label": "Views on money and labor"
+          },
+          "view_on_tradition": {
+            "label": "Attitude toward tradition vs. innovation"
+          },
+          "view_on_progress": {
+            "label": "View of progress (does history advance or cycle?)"
+          },
+          "view_on_freedom_constraint": {
+            "label": "View on balance between freedom and constraint"
+          },
+          "aesthetic_philosophy": {
+            "label": "Aesthetic standards"
+          },
+          "creativity_view": {
+            "label": "View of creativity"
+          },
+          "spiritual_practices": {
+            "label": "Spiritual practices (meditation, prayer, dialogue, etc.)"
+          },
+          "teaching_learning_philosophy": {
+            "label": "Views on education and learning"
+          }
+        },
+        "Lv3": {
+          "philosophical_influences": {
+            "label": "Influential ideas and people"
+          },
+          "ongoing_questions": {
+            "label": "Deepened questions"
+          },
+          "contradictions_and_tensions": {
+            "label": "Internal contradictions / conflicts"
+          },
+          "evolution_of_thought": {
+            "label": "Evolution of philosophy"
+          },
+          "core_paradoxes": {
+            "label": "Fundamental paradox"
+          },
+          "unresolved_dilemmas": {
+            "label": "Unresolved dilemmas"
+          },
+          "shadow_beliefs": {
+            "label": "Suppressed or denied beliefs"
+          },
+          "inner_tribunals": {
+            "label": "Inner critic (self-judging voice)"
+          },
+          "axioms_of_thought_system": {
+            "label": "Axioms of one's thought system (foundational propositions)"
+          },
+          "philosophical_blind_spots": {
+            "label": "Recognized blind spots in one's thinking"
+          },
+          "philosophical_lineage": {
+            "label": "Intellectual lineage (intellectual ancestors and one's place)"
+          },
+          "foundational_experiences": {
+            "label": "Formative experiences that shaped philosophy"
+          },
+          "beliefs_that_changed_me": {
+            "label": "Beliefs / insights that changed one's life"
+          },
+          "worldview_shifts": {
+            "label": "Worldview turning points (timeline)"
+          },
+          "philosophical_crises": {
+            "label": "Experiences of philosophical crisis / collapse"
+          },
+          "questions_that_haunt_you": {
+            "label": "Questions that keep one up at night"
+          },
+          "unfinished_arguments": {
+            "label": "Unfinished arguments (with oneself or others)"
+          },
+          "existential_stance": {
+            "label": "Existential stance (facing anxiety, freedom, and responsibility)"
+          },
+          "relationship_with_transcendence": {
+            "label": "Relationship with transcendence (God, universe, meaning)"
+          },
+          "relationship_with_absurdity": {
+            "label": "How one faces absurdity"
+          },
+          "deep_fears": {
+            "label": "Deep fear (existential anxiety)"
+          },
+          "deep_longings": {
+            "label": "Deep longing / aspiration"
+          },
+          "legacy_concerns": {
+            "label": "Thoughts on what one wants to leave behind"
+          },
+          "view_on_own_death": {
+            "label": "Personal views on one's own death"
+          }
+        }
+      }
+    },
+    "personality": {
+      "description": "Personality & behavioral tendencies (emotional patterns, decision-making style, particular preferences)",
+      "extraction_tips": "Infer from writing formality/informality, emotional expression frequency, logical/emotional argumentation style, and stress references.",
+      "fields": {
+        "Lv1": {
+          "decision_style": {
+            "label": "Decision-making style",
+            "candidates": [
+              "Intuitive",
+              "Analytical",
+              "Both"
+            ]
+          },
+          "cognitive_style": {
+            "label": "Cognitive style",
+            "candidates": [
+              "Analytical",
+              "Intuitive",
+              "Practical"
+            ]
+          },
+          "information_processing": {
+            "label": "Information processing direction",
+            "candidates": [
+              "Bottom-up (detail to whole)",
+              "Top-down (whole to detail)"
+            ]
+          },
+          "thinking_speed": {
+            "label": "Thinking speed (1-5 scale)"
+          },
+          "problem_solving_approach": {
+            "label": "Problem-solving approach"
+          },
+          "social_tendency": {
+            "label": "Social tendency",
+            "candidates": [
+              "Introverted",
+              "Extroverted",
+              "Ambivert"
+            ]
+          },
+          "cooperativeness": {
+            "label": "Agreeableness (1-5 scale)"
+          },
+          "trust_building_speed": {
+            "label": "Trust-building speed (1-5 scale)"
+          },
+          "conflict_approach": {
+            "label": "Conflict resolution approach",
+            "candidates": [
+              "Avoids",
+              "Discusses calmly",
+              "Argues logically",
+              "Faces emotionally",
+              "Adapts to the other person",
+              "Seeks third-party mediation"
+            ]
+          },
+          "emotional_pattern": {
+            "label": "Emotional patterns",
+            "candidates": [
+              "Stability",
+              "Calm",
+              "Emotional",
+              "Fluctuates",
+              "Restrained",
+              "Rich / expressive",
+              "Inward-looking"
+            ]
+          },
+          "emotional_expression_style": {
+            "label": "Emotional expression style",
+            "candidates": [
+              "Externalizes",
+              "Keeps inside",
+              "Middle / intermediate"
+            ]
+          },
+          "empathy_style": {
+            "label": "Empathy style",
+            "candidates": [
+              "Cognitive",
+              "Emotional",
+              "Both"
+            ]
+          },
+          "emotional_stability": {
+            "label": "Emotional stability (1-5 scale)"
+          },
+          "emotional_recovery_speed": {
+            "label": "Emotional recovery speed (1-5 scale)"
+          },
+          "energy_source": {
+            "label": "Energy sources",
+            "candidates": [
+              "Solitary time",
+              "Social interaction",
+              "Both"
+            ]
+          },
+          "core_motivation": {
+            "label": "Core motivations"
+          },
+          "procrastination_tendency": {
+            "label": "Procrastination tendency (1-5 scale)"
+          },
+          "stress_response": {
+            "label": "Stress response",
+            "candidates": [
+              "Internalizing",
+              "Tells someone",
+              "Release through action",
+              "Organizes through thinking",
+              "Avoids",
+              "Expresses emotions",
+              "Immersion / forgetting"
+            ]
+          },
+          "coping_mechanisms": {
+            "label": "List of stress coping methods"
+          },
+          "resilience": {
+            "label": "Resilience (1-5 scale)"
+          },
+          "outlook_tendency": {
+            "label": "Life outlook tendency",
+            "candidates": [
+              "Optimistic",
+              "Pessimistic",
+              "Realist"
+            ]
+          },
+          "risk_tolerance": {
+            "label": "Risk tolerance (1-5 scale)"
+          },
+          "perfectionism": {
+            "label": "Perfectionism tendency (1-5 scale)"
+          },
+          "curiosity_level": {
+            "label": "Curiosity intensity (1-5 scale)"
+          },
+          "autonomy_need": {
+            "label": "Need for autonomy (1-5 scale)"
+          },
+          "routine_preference": {
+            "label": "Routine preference (1-5 scale)"
+          },
+          "open_to_feedback": {
+            "label": "Feedback openness (1-5 scale)"
+          }
+        },
+        "Lv2": {
+          "communication_preference": {
+            "label": "Communication preference"
+          },
+          "motivation_sources": {
+            "label": "Motivation sources"
+          },
+          "avoidances": {
+            "label": "Things avoided / weaknesses"
+          },
+          "work_rhythm": {
+            "label": "Work rhythm",
+            "candidates": [
+              "Morning person",
+              "Night owl",
+              "Daytime person",
+              "Random"
+            ]
+          },
+          "energy_peak_time": {
+            "label": "Peak energy time",
+            "candidates": [
+              "Early morning",
+              "Morning",
+              "Afternoon",
+              "Evening",
+              "Night"
+            ]
+          },
+          "pace_preference": {
+            "label": "Preferred pace (1-5 scale)"
+          },
+          "recharge_method": {
+            "label": "Recovery methods",
+            "candidates": [
+              "Alone time",
+              "Nature",
+              "Exercise",
+              "Dialogue",
+              "Creative work",
+              "Entertainment"
+            ]
+          },
+          "decision_timing": {
+            "label": "Decision-making timing",
+            "candidates": [
+              "Decides immediately",
+              "Thorough consideration first",
+              "Contemplative type",
+              "Depends on the situation"
+            ]
+          },
+          "information_threshold": {
+            "label": "Information needed for decisions (1-5 scale)"
+          },
+          "uncertainty_handling": {
+            "label": "How uncertainty is handled",
+            "candidates": [
+              "Puts on hold",
+              "Proceeds with tentative assumptions",
+              "Starting from certain parts",
+              "Retreats"
+            ]
+          },
+          "evaluation_criteria": {
+            "label": "Decision-making axis keywords (array)"
+          },
+          "first_impression_style": {
+            "label": "How one presents at first meeting",
+            "candidates": [
+              "Reserved",
+              "Friendly",
+              "Observant type",
+              "Takes the lead"
+            ]
+          },
+          "rapport_building_style": {
+            "label": "Trust-building style",
+            "candidates": [
+              "Finding common ground",
+              "Self-disclosure",
+              "Active listening",
+              "Takes time"
+            ]
+          },
+          "boundary_communication": {
+            "label": "How boundaries are communicated",
+            "candidates": [
+              "States clearly",
+              "Shows through distance",
+              "Vaguely evades",
+              "Avoids"
+            ]
+          },
+          "social_circle_management": {
+            "label": "How social connections are expanded",
+            "candidates": [
+              "Narrow and deep",
+              "Broad and shallow",
+              "Values the middle layer",
+              "From time to time"
+            ]
+          },
+          "conversation_initiation": {
+            "label": "How conversations are started",
+            "candidates": [
+              "Starting with questions",
+              "Provides topics",
+              "Waits for the other person",
+              "Reads the room"
+            ]
+          },
+          "group_dynamics_role": {
+            "label": "Position within groups",
+            "candidates": [
+              "Leader",
+              "Mediator / coordinator",
+              "Energizer",
+              "Observer",
+              "Expert"
+            ]
+          },
+          "reciprocity_expectation": {
+            "label": "Give/take balance (1=giver - 5=taker)"
+          },
+          "conflict_deescalation": {
+            "label": "How conflicts are resolved",
+            "candidates": [
+              "Direct dialogue",
+              "Waits a while",
+              "Third-party intervention",
+              "Takes distance"
+            ]
+          },
+          "novelty_response": {
+            "label": "Reaction to novelty",
+            "candidates": [
+              "Actively explores",
+              "Cautiously tries",
+              "Keeps distance",
+              "Rejection"
+            ]
+          },
+          "crisis_behavior": {
+            "label": "Behavior in crisis",
+            "candidates": [
+              "Handles calmly",
+              "Takes action to break through",
+              "Cooperates with surroundings",
+              "Freezing",
+              "Information gathering"
+            ]
+          },
+          "ambiguity_response": {
+            "label": "Reaction to ambiguity",
+            "candidates": [
+              "Tolerates",
+              "Seeks clarity",
+              "Makes own assumptions",
+              "Avoidance"
+            ]
+          },
+          "pressure_performance": {
+            "label": "Performance under pressure",
+            "candidates": [
+              "Performing type",
+              "Collapsing type",
+              "No change",
+              "Accelerating type"
+            ]
+          },
+          "interruption_response": {
+            "label": "Reaction to interruptions",
+            "candidates": [
+              "Flexibly adjusts",
+              "Gets irritated",
+              "Difficult to recover",
+              "Welcomes"
+            ]
+          },
+          "deadline_behavior": {
+            "label": "Behavior toward deadlines",
+            "candidates": [
+              "Completes early",
+              "Gradual/stepwise",
+              "Last-minute focus",
+              "Tends to go over"
+            ]
+          },
+          "self_discipline_style": {
+            "label": "Self-discipline style",
+            "candidates": [
+              "Rule-making",
+              "Habitualization",
+              "Reward setting",
+              "Willpower reliance"
+            ]
+          },
+          "reward_delay_tolerance": {
+            "label": "Delayed gratification tolerance (1-5 scale)"
+          },
+          "impulse_control": {
+            "label": "Impulse control (1-5 scale)"
+          },
+          "habit_formation_style": {
+            "label": "Habit formation style",
+            "candidates": [
+              "Trigger-linked",
+              "Environmental design",
+              "Records",
+              "Makes companions"
+            ]
+          },
+          "emotion_regulation": {
+            "label": "Emotion regulation style",
+            "candidates": [
+              "Cognitive reappraisal",
+              "Distraction",
+              "Expression",
+              "Restrained",
+              "Body adjustment"
+            ]
+          },
+          "attention_management": {
+            "label": "Attention management style",
+            "candidates": [
+              "Focus blocks",
+              "Multitask",
+              "Notification blocking",
+              "Goes with the flow"
+            ]
+          },
+          "commitment_keeping": {
+            "label": "Commitment-keeping (1-5 scale)"
+          },
+          "feedback_processing": {
+            "label": "How feedback is processed",
+            "candidates": [
+              "Immediately applied",
+              "Needs time to digest",
+              "Selective",
+              "Defensive"
+            ]
+          },
+          "mistake_processing": {
+            "label": "How failure is processed",
+            "candidates": [
+              "Analysis",
+              "Switching",
+              "Rumination",
+              "Processing by sharing"
+            ]
+          },
+          "growth_approach": {
+            "label": "Growth orientation",
+            "candidates": [
+              "Vertical / deep",
+              "Horizontal / lateral",
+              "Spiral"
+            ]
+          },
+          "unlearning_ability": {
+            "label": "Unlearning ability (1-5 scale)"
+          },
+          "learning_retention_style": {
+            "label": "Memory retention style",
+            "candidates": [
+              "Repetitive",
+              "Association",
+              "Output / production",
+              "Experience"
+            ]
+          },
+          "knowledge_transfer_style": {
+            "label": "Places that expand learning",
+            "candidates": [
+              "Turning into articles",
+              "Teaches",
+              "Discussion / debate",
+              "Implementation",
+              "Internal reflection only"
+            ]
+          },
+          "mentor_seeking_behavior": {
+            "label": "How one seeks mentors",
+            "candidates": [
+              "Actively seeks",
+              "Leaves to chance",
+              "Holds multiple",
+              "Self-study oriented"
+            ]
+          }
+        },
+        "Lv3": {
+          "shadow_traits": {
+            "label": "Shadow traits / weaknesses"
+          },
+          "growth_patterns": {
+            "label": "Growth patterns"
+          },
+          "context_variations": {
+            "label": "Variation by situation"
+          },
+          "childhood_environment": {
+            "label": "Characteristics of upbringing environment"
+          },
+          "formative_figures": {
+            "label": "People who influenced personality formation"
+          },
+          "critical_period_events": {
+            "label": "Important events from childhood to adolescence"
+          },
+          "internalized_voices": {
+            "label": "Internalized voices of others"
+          },
+          "early_self_concept": {
+            "label": "Childhood self-perception"
+          },
+          "projection_targets": {
+            "label": "Traits easily projected onto others"
+          },
+          "avoided_emotions": {
+            "label": "Emotions one avoids confronting"
+          },
+          "defense_mechanisms": {
+            "label": "Primary defense mechanisms"
+          },
+          "unconscious_patterns": {
+            "label": "Recurring unconscious patterns"
+          },
+          "value_conflicts": {
+            "label": "Contradictions in values"
+          },
+          "role_conflicts": {
+            "label": "Conflicts between roles"
+          },
+          "desire_vs_duty": {
+            "label": "Conflict between desires and obligations"
+          },
+          "ideal_vs_real_self": {
+            "label": "Gap between ideal and actual self"
+          },
+          "core_wounds": {
+            "label": "Deep life wounds"
+          },
+          "emotional_triggers": {
+            "label": "Triggers for strong reactions"
+          },
+          "joy_sources_deep": {
+            "label": "Deep sources of joy"
+          },
+          "grief_patterns": {
+            "label": "How one faces loss"
+          },
+          "emotional_defaults": {
+            "label": "Default emotional state"
+          },
+          "identity_crises": {
+            "label": "Past identity crises"
+          },
+          "integration_challenges": {
+            "label": "Aspects not yet integrated"
+          },
+          "persona_vs_self": {
+            "label": "Gap between public persona and true self"
+          },
+          "self_narrative": {
+            "label": "Personal narrative story"
+          },
+          "core_identity_anchors": {
+            "label": "Core essence—what makes me 'me'"
+          },
+          "identity_labels_attachment": {
+            "label": "Titles / labels one insists on"
+          },
+          "body_self_relationship": {
+            "label": "Relationship with one's body",
+            "candidates": [
+              "Unity",
+              "Sees as tools",
+              "Discomfort / sense of unease",
+              "Dialogical"
+            ]
+          }
+        }
+      }
+    },
+    "knowledge": {
+      "description": "Knowledge, interests & areas of expertise",
+      "extraction_tips": "From technical terminology used, fields referenced, citation sources, and learning/research references. Note the breadth-to-depth ratio of topics.",
+      "fields": {
+        "Lv1": {
+          "expertise_domains": {
+            "label": "Deep expertise domains"
+          },
+          "interest_domains": {
+            "label": "Interest areas (fields to learn / enjoy)"
+          },
+          "current_learning_topics": {
+            "label": "Currently actively learning"
+          },
+          "knowledge_blind_spots": {
+            "label": "Recognized weak / unknown areas"
+          },
+          "learning_style": {
+            "label": "Learning style",
+            "candidates": [
+              "Reading",
+              "Through practice",
+              "Dialogue",
+              "Video, etc."
+            ]
+          },
+          "knowledge_depth_tendency": {
+            "label": "Knowledge depth tendency (1-5 scale)"
+          },
+          "information_source_preference": {
+            "label": "Information gathering preferences",
+            "candidates": [
+              "Books",
+              "Internet",
+              "From people, etc."
+            ]
+          },
+          "update_frequency": {
+            "label": "Knowledge update frequency",
+            "candidates": [
+              "Always follows the latest",
+              "Regular updates",
+              "Only when needed",
+              "Rarely updates"
+            ]
+          },
+          "application_tendency": {
+            "label": "Knowledge application tendency",
+            "candidates": [
+              "Theory-focused",
+              "Practice-focused",
+              "Balance of theory and practice"
+            ]
+          },
+          "knowledge_sharing_style": {
+            "label": "Knowledge sharing style",
+            "candidates": [
+              "Actively shares",
+              "Teaches when asked",
+              "Through lectures and writing",
+              "Rarely shares"
+            ]
+          },
+          "synthesis_tendency": {
+            "label": "Knowledge cross-pollination tendency (1-5 scale)"
+          },
+          "intellectual_curiosity_style": {
+            "label": "Intellectual curiosity style",
+            "candidates": [
+              "Explores broadly",
+              "Digs deep"
+            ]
+          },
+          "favorite_thinkers_authors": {
+            "label": "Influential thinkers, authors, and works"
+          },
+          "intellectual_heroes": {
+            "label": "Respected intellectuals"
+          },
+          "abstraction_preference": {
+            "label": "Abstraction preference (1-5 scale)"
+          }
+        },
+        "Lv2": {
+          "skills": {
+            "label": "Skills"
+          },
+          "knowledge_organization_method": {
+            "label": "Knowledge organization method",
+            "candidates": [
+              "Notes",
+              "Mind maps",
+              "Database",
+              "In one's head",
+              "Works through dialogue"
+            ]
+          },
+          "expertise_development_pattern": {
+            "label": "How expertise is developed",
+            "candidates": [
+              "Concentrated investment",
+              "Parallel development",
+              "Necessity-driven",
+              "Curiosity-driven"
+            ]
+          },
+          "knowledge_validation_method": {
+            "label": "Knowledge verification method",
+            "candidates": [
+              "Testing in practice",
+              "Polished through discussion",
+              "Literature verification",
+              "Intuitive judgment"
+            ]
+          },
+          "cross_domain_connections": {
+            "label": "Cross-disciplinary connection patterns"
+          },
+          "information_diet": {
+            "label": "Information intake habits"
+          },
+          "tool_proficiency": {
+            "label": "Tools / technologies mastered"
+          },
+          "problem_domain_preference": {
+            "label": "Preferred problem domains",
+            "candidates": [
+              "Technical",
+              "Conceptual",
+              "Social",
+              "Creative",
+              "Practical/business-oriented"
+            ]
+          },
+          "output_medium_preference": {
+            "label": "Output media",
+            "candidates": [
+              "Written form",
+              "Code",
+              "Diagrams / visual",
+              "Presentations",
+              "Dialogue",
+              "Video"
+            ]
+          },
+          "knowledge_gaps_strategy": {
+            "label": "How gaps in knowledge are handled",
+            "candidates": [
+              "Immediately researches",
+              "Asking others",
+              "Postpones",
+              "Systematic learning",
+              "Ignores until needed"
+            ]
+          },
+          "prototyping_tendency": {
+            "label": "Prototyping / experimentation tendency",
+            "candidates": [
+              "Immediately applies",
+              "After thorough research",
+              "Mental experiments",
+              "After asking others"
+            ]
+          },
+          "mentoring_style": {
+            "label": "Mentoring style",
+            "candidates": [
+              "Shows by example",
+              "Guides through questions",
+              "Provides materials",
+              "Works alongside",
+              "Rarely"
+            ]
+          },
+          "intellectual_debate_style": {
+            "label": "Style of intellectual discussion",
+            "candidates": [
+              "Socratic method",
+              "Data confrontation",
+              "Hypothesis clashing",
+              "Collaborative construction"
+            ]
+          },
+          "collaboration_in_learning": {
+            "label": "Collaboration in learning",
+            "candidates": [
+              "Solo",
+              "Pair/duo",
+              "Small group",
+              "Through community",
+              "Depends on the situation"
+            ]
+          },
+          "knowledge_currency": {
+            "label": "What one exchanges knowledge for"
+          },
+          "certification_approach": {
+            "label": "Attitude toward certifications",
+            "candidates": [
+              "Actively obtains",
+              "Bare minimum",
+              "No interest",
+              "Means of proving competence"
+            ]
+          },
+          "reading_strategy": {
+            "label": "Reading strategy",
+            "candidates": [
+              "Full reading",
+              "Selective reading",
+              "Close reading",
+              "Parallel reading",
+              "Decides by table of contents"
+            ]
+          },
+          "note_taking_style": {
+            "label": "Note-taking style",
+            "candidates": [
+              "Structured notes",
+              "Free text",
+              "Diagrams / visual",
+              "Keywords only",
+              "Doesn't take"
+            ]
+          },
+          "experimentation_frequency": {
+            "label": "Experimentation frequency (1-5 scale)"
+          },
+          "knowledge_decay_awareness": {
+            "label": "Awareness of knowledge decay",
+            "candidates": [
+              "Always concerned",
+              "Regular checks",
+              "When pointed out",
+              "Rarely thinks about"
+            ]
+          },
+          "intellectual_community_role": {
+            "label": "Role in intellectual communities",
+            "candidates": [
+              "Content creator",
+              "Curator",
+              "Catalyst for discussion",
+              "Audience",
+              "Bridge builder"
+            ]
+          },
+          "teaching_frequency": {
+            "label": "Teaching frequency",
+            "candidates": [
+              "Daily",
+              "When asked",
+              "Occasionally",
+              "Almost never"
+            ]
+          },
+          "knowledge_update_trigger": {
+            "label": "Triggers for updating knowledge",
+            "candidates": [
+              "Curiosity",
+              "Job necessity",
+              "Stimulation from others",
+              "Sense of urgency",
+              "Regular routine"
+            ]
+          }
+        },
+        "Lv3": {
+          "current_research_topics": {
+            "label": "Current research themes"
+          },
+          "intellectual_origin_story": {
+            "label": "Origin of intellectual curiosity"
+          },
+          "paradigm_shifts": {
+            "label": "Intellectual experiences that changed worldview"
+          },
+          "abandoned_expertise": {
+            "label": "Abandoned / left expertise"
+          },
+          "unconscious_expertise": {
+            "label": "Unconscious expertise (strengths hard to self-recognize)"
+          },
+          "intellectual_obsessions": {
+            "label": "Intellectual obsession (questions one can't let go)"
+          },
+          "intellectual_fears": {
+            "label": "Intellectual fear (anxiety about knowing)"
+          },
+          "knowledge_trauma": {
+            "label": "Knowledge-related trauma"
+          },
+          "forbidden_knowledge_attraction": {
+            "label": "Attraction to forbidden knowledge"
+          },
+          "intellectual_loneliness": {
+            "label": "Intellectual loneliness"
+          },
+          "knowledge_identity_link": {
+            "label": "Connection between knowledge and identity"
+          },
+          "knowledge_legacy": {
+            "label": "Intellectual legacy one wants to leave"
+          },
+          "teacher_student_dynamics": {
+            "label": "Mentor-student relationship dynamics"
+          },
+          "unasked_questions": {
+            "label": "Questions not yet asked"
+          },
+          "knowledge_regrets": {
+            "label": "Regret over things not learned"
+          },
+          "knowledge_inheritance": {
+            "label": "Who one inherited knowledge from"
+          },
+          "intellectual_rebellion": {
+            "label": "Intellectual rebellion (defying established theories)"
+          },
+          "autodidact_areas": {
+            "label": "Entirely self-taught domains"
+          },
+          "intellectual_debt": {
+            "label": "Intellectual debt (unpaid gratitude)"
+          },
+          "knowledge_transformation_moments": {
+            "label": "Moments when knowledge changed behavior"
+          },
+          "intellectual_jealousy": {
+            "label": "Intellectual jealousy (whom and what one envies)"
+          },
+          "knowledge_blind_spot_origins": {
+            "label": "Origins of weak areas"
+          }
+        }
+      }
+    },
+    "preferences": {
+      "description": "Tastes & preferences (hobbies, preferred styles, content)",
+      "extraction_tips": "From 'like/dislike/favorite' references, recommended items, and descriptions of leisure activities.",
+      "fields": {
+        "Lv1": {
+          "hobbies": {
+            "label": "Hobbies"
+          },
+          "leisure_activities": {
+            "label": "How leisure time is spent"
+          },
+          "creative_outlets": {
+            "label": "Creative / expressive activities",
+            "candidates": [
+              "Photography",
+              "Music",
+              "Writing, etc."
+            ]
+          },
+          "physical_activities": {
+            "label": "Physical activity",
+            "candidates": [
+              "Sports",
+              "Outdoor, etc."
+            ]
+          },
+          "favorite_genres": {
+            "label": "Favorite genres"
+          },
+          "favorite_works": {
+            "label": "Favorite works (specific titles / authors)"
+          },
+          "content_consumption_style": {
+            "label": "Content consumption style",
+            "candidates": [
+              "Binge-watching",
+              "Carefully / thoroughly",
+              "Skimming"
+            ]
+          },
+          "fiction_vs_nonfiction": {
+            "label": "Fiction/non-fiction preference (1=fully fiction - 5=fully non-fiction)"
+          },
+          "aesthetic_keywords": {
+            "label": "Keywords representing aesthetic sense",
+            "candidates": [
+              "Minimal",
+              "Retro",
+              "Organic, etc."
+            ]
+          },
+          "color_preferences": {
+            "label": "Favorite colors / color tones"
+          },
+          "sound_preferences": {
+            "label": "Favorite sounds / sound environments"
+          },
+          "environment_preference": {
+            "label": "Preferred environments",
+            "candidates": [
+              "Quiet indoor",
+              "Lively indoor",
+              "In nature",
+              "Urban area",
+              "Semi-outdoor (café, etc.)",
+              "Either is fine"
+            ]
+          },
+          "food": {
+            "label": "Food preferences"
+          },
+          "cuisine_preferences": {
+            "label": "Favorite cuisine genres"
+          },
+          "dietary_style": {
+            "label": "Eating style",
+            "candidates": [
+              "No particular preference",
+              "Meat-focused",
+              "Seafood-focused",
+              "Vegetable-focused",
+              "Vegetarian",
+              "Vegan",
+              "Gluten-free",
+              "Other"
+            ]
+          },
+          "drink_preferences": {
+            "label": "Favorite drinks"
+          },
+          "pets": {
+            "label": "Pets / animals kept"
+          },
+          "owned_items_of_note": {
+            "label": "Notable possessions / beloved items"
+          }
+        },
+        "Lv2": {
+          "travel_style": {
+            "label": "Travel style"
+          },
+          "comfort_rituals": {
+            "label": "Relaxation routine"
+          },
+          "shopping_style": {
+            "label": "Shopping style",
+            "candidates": [
+              "Impulse buying",
+              "Thorough comparison",
+              "Review-focused",
+              "Intuition",
+              "Absolute minimum"
+            ]
+          },
+          "brand_loyalty": {
+            "label": "Brand loyalty (1-5 scale)"
+          },
+          "quality_vs_quantity": {
+            "label": "Quality vs. quantity orientation (1-5 scale)"
+          },
+          "spending_priority": {
+            "label": "Spending priorities"
+          },
+          "gear_philosophy": {
+            "label": "Philosophy toward tools and equipment"
+          },
+          "morning_routine": {
+            "label": "Morning routine"
+          },
+          "evening_routine": {
+            "label": "Evening routine"
+          },
+          "weekend_pattern": {
+            "label": "How weekends are spent"
+          },
+          "seasonal_preferences": {
+            "label": "Favorite season",
+            "candidates": [
+              "Spring",
+              "Summer",
+              "Autumn",
+              "Winter",
+              "Regardless of season"
+            ]
+          },
+          "ideal_vacation": {
+            "label": "Ideal vacation"
+          },
+          "sleep_pattern": {
+            "label": "Sleep pattern",
+            "candidates": [
+              "Early to bed, early to rise",
+              "Night owl",
+              "Irregular",
+              "Short sleep + nap",
+              "Long sleeper"
+            ]
+          },
+          "meal_timing": {
+            "label": "Meal rhythm",
+            "candidates": [
+              "3 regular meals",
+              "2 meals",
+              "Irregular",
+              "Frequent snacking",
+              "Eats when hungry"
+            ]
+          },
+          "break_style": {
+            "label": "How breaks are taken",
+            "candidates": [
+              "Frequently",
+              "Deep focus then break",
+              "Doesn't take",
+              "Walking",
+              "Mood-switching type"
+            ]
+          },
+          "commute_preference": {
+            "label": "Transportation preferences",
+            "candidates": [
+              "Car",
+              "Train",
+              "Walking",
+              "Bicycle",
+              "Remote",
+              "Mixed"
+            ]
+          },
+          "annual_rituals": {
+            "label": "Annual traditions / regular events"
+          },
+          "downtime_activities": {
+            "label": "How downtime is spent"
+          },
+          "planning_horizon": {
+            "label": "How plans are made",
+            "candidates": [
+              "Meticulous scheduling",
+              "Outline only",
+              "Goes with the flow",
+              "Decides at the last moment",
+              "Mixed"
+            ]
+          },
+          "ritual_importance": {
+            "label": "Routine importance (1-5 scale)"
+          },
+          "gathering_preference": {
+            "label": "Gathering preferences",
+            "candidates": [
+              "Home party",
+              "Eating out",
+              "Outdoor",
+              "Online",
+              "Quietly in a small group"
+            ]
+          },
+          "gift_giving_style": {
+            "label": "Gift-giving style",
+            "candidates": [
+              "Practical items",
+              "Experience-based",
+              "Surprise gifts",
+              "What the recipient asked for",
+              "Rarely gives gifts"
+            ]
+          },
+          "celebration_style": {
+            "label": "How celebrations are done",
+            "candidates": [
+              "Grand celebration",
+              "Among close ones",
+              "Quietly",
+              "Not particularly",
+              "Self-reward"
+            ]
+          },
+          "entertainment_budget_priority": {
+            "label": "Entertainment budget allocation"
+          },
+          "nostalgia_triggers": {
+            "label": "Nostalgia triggers"
+          },
+          "tech_adoption_speed": {
+            "label": "Speed of adopting new technology",
+            "candidates": [
+              "Early adopter",
+              "Waits and watches",
+              "When needed",
+              "Cautious"
+            ]
+          },
+          "digital_vs_analog": {
+            "label": "Digital/analog preference (1=fully analog - 5=fully digital)"
+          },
+          "subscription_services": {
+            "label": "Subscription services used"
+          },
+          "device_ecosystem": {
+            "label": "Device ecosystem",
+            "candidates": [
+              "Apple",
+              "Google",
+              "Microsoft",
+              "Mixed",
+              "Linux-focused"
+            ]
+          },
+          "customization_tendency": {
+            "label": "Customization tendency (1-5 scale)"
+          }
+        },
+        "Lv3": {
+          "sensory_preferences": {
+            "label": "Sensory preferences"
+          },
+          "disliked_environments": {
+            "label": "Uncomfortable environments"
+          },
+          "preference_origin_stories": {
+            "label": "Origin of preferences (why one came to like them)"
+          },
+          "childhood_favorites": {
+            "label": "Childhood favorites"
+          },
+          "preference_inheritance": {
+            "label": "Preferences inherited from whom"
+          },
+          "aesthetic_formation": {
+            "label": "Formation of aesthetic sense"
+          },
+          "sensory_memories": {
+            "label": "Sensory memories (memories triggered by smell, sound, taste)"
+          },
+          "taste_evolution": {
+            "label": "How preferences have changed"
+          },
+          "lost_interests": {
+            "label": "Lost interests and reasons why"
+          },
+          "rejected_tastes": {
+            "label": "Consciously rejected preferences"
+          },
+          "preference_contradictions": {
+            "label": "Contradictions in preferences"
+          },
+          "guilty_pleasures": {
+            "label": "Guilty pleasures"
+          },
+          "comfort_objects": {
+            "label": "Objects that provide comfort"
+          },
+          "dream_possessions": {
+            "label": "Dream possessions"
+          },
+          "sacred_spaces": {
+            "label": "Personal sacred places"
+          },
+          "irreplaceable_experiences": {
+            "label": "Irreplaceable experiences"
+          },
+          "taste_identity_link": {
+            "label": "Connection between preferences and identity"
+          }
+        }
+      }
+    },
+    "expression": {
+      "description": "Expression & communication style",
+      "extraction_tips": "The text itself is direct evidence of expression. Analyze writing style, metaphor usage, logical structure, humor type, and sentence-ending characteristics.",
+      "fields": {
+        "Lv1": {
+          "first_person": {
+            "label": "First-person pronoun"
+          },
+          "second_person": {
+            "label": "Second-person pronouns (how one addresses others)"
+          },
+          "speech_style": {
+            "label": "Tone of speech"
+          },
+          "catchphrases": {
+            "label": "Verbal habits / pet phrases"
+          },
+          "sentence_endings": {
+            "label": "Sentence-ending patterns (e.g., casual vs. polite)"
+          },
+          "sentence_length": {
+            "label": "Sentence length tendency",
+            "candidates": [
+              "Prefers short sentences",
+              "Prefers long sentences",
+              "Mixed"
+            ]
+          },
+          "response_length_tendency": {
+            "label": "Response length (1-5 scale)"
+          },
+          "use_of_lists": {
+            "label": "Bullet point / list usage (1-5 scale)"
+          },
+          "vocabulary_tendency": {
+            "label": "Vocabulary tendencies",
+            "candidates": [
+              "Specialized",
+              "Plain/simple",
+              "Mixed"
+            ]
+          },
+          "use_of_technical_terms": {
+            "label": "Technical jargon frequency (1-5 scale)"
+          },
+          "use_of_foreign_words": {
+            "label": "Foreign word / English usage (1-5 scale)"
+          },
+          "metaphor_usage": {
+            "label": "Metaphor / analogy frequency (1-5 scale)"
+          },
+          "logic_style": {
+            "label": "Logical reasoning style",
+            "candidates": [
+              "Inductive",
+              "Deductive",
+              "Narrative-style"
+            ]
+          },
+          "argumentation_style": {
+            "label": "Argumentation style",
+            "candidates": [
+              "Assertive type",
+              "Exploring type",
+              "Cooperative type"
+            ]
+          },
+          "evidence_preference": {
+            "label": "How evidence is presented",
+            "candidates": [
+              "Data-driven",
+              "Values experience",
+              "Sensation-focused"
+            ]
+          },
+          "counterargument_handling": {
+            "label": "How one handles being challenged",
+            "candidates": [
+              "Accepts and changes mind",
+              "Partially adopts",
+              "Rebuts calmly",
+              "Rebuts emotionally",
+              "Puts on hold to think later",
+              "Avoids"
+            ]
+          },
+          "emotional_expressiveness": {
+            "label": "Emotional expressiveness (1-5 scale)"
+          },
+          "humor_style": {
+            "label": "Humor style",
+            "candidates": [
+              "Witty / intellectual",
+              "Self-deprecating",
+              "Surreal / absurdist",
+              "Puns / wordplay",
+              "Observational humor",
+              "Rarely uses"
+            ]
+          },
+          "agreement_expression": {
+            "label": "How agreement is expressed"
+          },
+          "disagreement_expression": {
+            "label": "How disagreement is expressed"
+          },
+          "question_asking_style": {
+            "label": "How questions are asked / framed",
+            "candidates": [
+              "Fundamental / philosophical",
+              "Concrete and practical",
+              "Hypothesis-testing",
+              "Exploratory / divergent",
+              "Verifying / organizing type",
+              "Critical questioning"
+            ]
+          },
+          "topic_interests_in_conversation": {
+            "label": "Preferred conversation topics"
+          },
+          "conversation_depth_preference": {
+            "label": "Conversation depth preference (1-5 scale)"
+          },
+          "listening_style": {
+            "label": "Listening style",
+            "candidates": [
+              "Listening — takes time to hear",
+              "Empathetic — accompanies emotions",
+              "Analytical — organizes points",
+              "Solution-oriented — seeks answers",
+              "Multitasker"
+            ]
+          },
+          "use_of_emoji_symbols": {
+            "label": "Emoji / symbol usage (1-5 scale)"
+          },
+          "punctuation_style": {
+            "label": "Punctuation / line break usage",
+            "candidates": [
+              "Standard",
+              "More commas",
+              "Fewer commas",
+              "Frequent line breaks / short paragraphs",
+              "Few line breaks / long paragraphs",
+              "Conversational style"
+            ]
+          }
+        },
+        "Lv2": {
+          "metaphor_preferences": {
+            "label": "Metaphor preferences"
+          },
+          "persuasion_style": {
+            "label": "Persuasion style",
+            "candidates": [
+              "Logic",
+              "Emotion/feeling",
+              "Authority",
+              "Narrative",
+              "Data"
+            ]
+          },
+          "storytelling_style": {
+            "label": "How stories are told",
+            "candidates": [
+              "Chronological",
+              "Conclusion-first",
+              "Foreshadowing type",
+              "Spontaneous"
+            ]
+          },
+          "teaching_style": {
+            "label": "Teaching style",
+            "candidates": [
+              "Procedural type",
+              "Concept-first",
+              "By example",
+              "Question-guided"
+            ]
+          },
+          "explanation_depth_control": {
+            "label": "Depth adjustment in explanations",
+            "candidates": [
+              "Adapts to the other person",
+              "Always detailed",
+              "Always concise",
+              "Deepens when asked"
+            ]
+          },
+          "feedback_giving_style": {
+            "label": "How feedback is delivered",
+            "candidates": [
+              "Frank/direct",
+              "Sandwiched / in-between",
+              "Question format",
+              "Through metaphor",
+              "In writing"
+            ]
+          },
+          "formality_switching": {
+            "label": "Formal/casual switching",
+            "candidates": [
+              "Switches immediately",
+              "Gradually",
+              "Not good at",
+              "Always consistent"
+            ]
+          },
+          "audience_adaptation": {
+            "label": "Adaptability to the listener",
+            "candidates": [
+              "Consciously changes",
+              "Changes naturally",
+              "Rarely changes"
+            ]
+          },
+          "code_switching": {
+            "label": "Language / register switching",
+            "candidates": [
+              "Frequently",
+              "Only when necessary",
+              "Not good at",
+              "Conscious"
+            ]
+          },
+          "emotional_tone_control": {
+            "label": "Emotional tone control",
+            "candidates": [
+              "Consciously controls",
+              "As is / unfiltered",
+              "Changes by situation",
+              "Somewhat restrained"
+            ]
+          },
+          "conflict_communication": {
+            "label": "Expression during conflict",
+            "candidates": [
+              "Direct",
+              "Indirect / euphemistic",
+              "Silence",
+              "Defuses with humor",
+              "Through writing"
+            ]
+          },
+          "narrative_perspective": {
+            "label": "Narrative perspective",
+            "candidates": [
+              "First person",
+              "Third person",
+              "Objective",
+              "Mixed"
+            ]
+          },
+          "information_ordering": {
+            "label": "How information is organized",
+            "candidates": [
+              "By importance",
+              "Chronological",
+              "Compare and contrast",
+              "Problem → Solution"
+            ]
+          },
+          "abstraction_level_preference": {
+            "label": "Concrete↔abstract construction",
+            "candidates": [
+              "Concrete → Abstract",
+              "Abstract → Concrete",
+              "Mixed",
+              "Concrete only"
+            ]
+          },
+          "reference_style": {
+            "label": "Citation / reference style",
+            "candidates": [
+              "Frequently quotes",
+              "In own words",
+              "Experience-based",
+              "Data-driven"
+            ]
+          },
+          "turn_taking_style": {
+            "label": "Conversation turn-taking",
+            "candidates": [
+              "Waits",
+              "Interrupts",
+              "Balance",
+              "Yields to the other person"
+            ]
+          },
+          "topic_transition_style": {
+            "label": "How topics are changed",
+            "candidates": [
+              "Lets it flow naturally",
+              "Explicitly switches",
+              "Leaves it to the other person",
+              "Abruptly"
+            ]
+          },
+          "response_latency": {
+            "label": "Response speed",
+            "candidates": [
+              "Immediately",
+              "Thinks a bit first",
+              "Carefully / thoroughly",
+              "Depends on the topic"
+            ]
+          },
+          "active_listening_signals": {
+            "label": "Common backchannel signals / active listening cues"
+          },
+          "question_frequency": {
+            "label": "Question frequency (1-5 scale)"
+          }
+        },
+        "Lv3": {
+          "writing_patterns": {
+            "label": "Writing habits / patterns"
+          },
+          "silence_usage": {
+            "label": "Use of silence / pauses"
+          },
+          "language_influences": {
+            "label": "People / works that influenced language use"
+          },
+          "expression_turning_points": {
+            "label": "Turning points in expression style"
+          },
+          "childhood_communication_environment": {
+            "label": "Communication characteristics of upbringing environment"
+          },
+          "suppressed_expression_modes": {
+            "label": "Suppressed expression modes"
+          },
+          "unconscious_verbal_habits": {
+            "label": "Unconscious language habits"
+          },
+          "emotional_leakage_patterns": {
+            "label": "Patterns of emotions leaking into expression"
+          },
+          "authenticity_vs_performance": {
+            "label": "Gap between true feelings and public mode"
+          },
+          "inner_monologue_style": {
+            "label": "Inner monologue style"
+          },
+          "dream_narrative_style": {
+            "label": "Style of talking about dreams / fantasies"
+          },
+          "untranslatable_expressions": {
+            "label": "Untranslatable personal expressions"
+          },
+          "signature_phrases_origin": {
+            "label": "Origin of verbal habits / catchphrases"
+          },
+          "voice_of_authority": {
+            "label": "Topics one can speak about with authority"
+          },
+          "vulnerability_expression": {
+            "label": "How vulnerability is shown",
+            "candidates": [
+              "With humor",
+              "Frankly",
+              "Through metaphor",
+              "Doesn't show",
+              "Only to trusted people"
+            ]
+          },
+          "communication_wounds": {
+            "label": "Communication-related trauma"
+          }
+        }
+      }
+    },
+    "relationships": {
+      "description": "Interpersonal relationships & social engagement",
+      "extraction_tips": "From how others are referenced, 'we' vs. 'I' usage, interest in social topics, and mentions of family/friends.",
+      "fields": {
+        "Lv1": {
+          "family_structure": {
+            "label": "Family composition"
+          },
+          "marital_status": {
+            "label": "Marital status",
+            "candidates": [
+              "Unmarried",
+              "Married",
+              "Divorced",
+              "Widowed",
+              "Common-law marriage",
+              "Other"
+            ]
+          },
+          "has_children": {
+            "label": "Whether one has children"
+          },
+          "living_situation": {
+            "label": "Living arrangement",
+            "candidates": [
+              "Living alone",
+              "Living with partner",
+              "Living with family",
+              "Shared housing",
+              "Other"
+            ]
+          },
+          "relationship_style": {
+            "label": "Relationship style",
+            "candidates": [
+              "Few, deeply",
+              "Many, broadly",
+              "Adjusts by purpose",
+              "Depends on the situation"
+            ]
+          },
+          "attachment_style": {
+            "label": "Attachment style",
+            "candidates": [
+              "Stability",
+              "Anxious",
+              "Avoidant",
+              "Disorganized"
+            ]
+          },
+          "intimacy_preference": {
+            "label": "Intimacy preference (1-5 scale)"
+          },
+          "preferred_social_setting": {
+            "label": "Preferred social settings",
+            "candidates": [
+              "One-on-one",
+              "Small groups",
+              "Large groups"
+            ]
+          },
+          "social_energy_drain": {
+            "label": "Social energy drain (1-5 scale)"
+          },
+          "how_they_show_care": {
+            "label": "How care / affection is shown"
+          },
+          "support_style": {
+            "label": "How one supports others",
+            "candidates": [
+              "Emotional",
+              "Practical/business-oriented",
+              "Both"
+            ]
+          },
+          "conflict_style": {
+            "label": "Conflict / confrontation coping style",
+            "candidates": [
+              "Avoids",
+              "Discusses calmly",
+              "Argues logically",
+              "Faces emotionally",
+              "Takes time",
+              "Seeks third-party mediation"
+            ]
+          },
+          "forgiveness_tendency": {
+            "label": "Tolerance / forgiveness tendency",
+            "candidates": [
+              "Forgives immediately",
+              "Forgives over time",
+              "Forgives conditionally",
+              "Hard to forgive",
+              "Depends on the situation"
+            ]
+          },
+          "loyalty_pattern": {
+            "label": "Loyalty patterns",
+            "candidates": [
+              "Very strong",
+              "Strong",
+              "Average",
+              "Weak",
+              "Depends on situation and person"
+            ]
+          },
+          "social_role": {
+            "label": "Social roles",
+            "candidates": [
+              "Leader",
+              "Follower",
+              "Mediator / coordinator",
+              "Expert / advisor",
+              "Mentor-guided",
+              "Idea generator",
+              "Other"
+            ]
+          },
+          "group_role_tendency": {
+            "label": "Role tendency within groups",
+            "candidates": [
+              "Leader",
+              "Supporter",
+              "Idea generator",
+              "Executor",
+              "Mediator / coordinator",
+              "Critic / analyst",
+              "Observer"
+            ]
+          },
+          "networking_style": {
+            "label": "Networking style",
+            "candidates": [
+              "Active, broadly connected",
+              "Goal-oriented, connects with needed people",
+              "Relationship-focused, deeply connected",
+              "Passive",
+              "Online-focused",
+              "In-person-focused"
+            ]
+          },
+          "boundary_setting": {
+            "label": "Boundary setting",
+            "candidates": [
+              "Clear",
+              "Ambiguous"
+            ]
+          },
+          "relationship_maintenance_style": {
+            "label": "Relationship maintenance style",
+            "candidates": [
+              "Frequent contact",
+              "Only when needed"
+            ]
+          },
+          "dependency_tendency": {
+            "label": "Dependency tendency (1-5 scale)"
+          }
+        },
+        "Lv2": {
+          "key_relationships": {
+            "label": "Important relationships"
+          },
+          "love_language_giving": {
+            "label": "How love / affection is shown",
+            "candidates": [
+              "Words",
+              "Through actions",
+              "Gifts",
+              "Time",
+              "Physical touch"
+            ]
+          },
+          "love_language_receiving": {
+            "label": "How love / affection is received",
+            "candidates": [
+              "Words",
+              "Through actions",
+              "Gifts",
+              "Time",
+              "Physical touch"
+            ]
+          },
+          "apology_style": {
+            "label": "How apologies are made",
+            "candidates": [
+              "Expresses openly in words",
+              "Shows through actions",
+              "After some time",
+              "Through gifts",
+              "Not good at"
+            ]
+          },
+          "gratitude_expression": {
+            "label": "How gratitude is expressed",
+            "candidates": [
+              "Communicates in words",
+              "Returns with action",
+              "Letters / messages",
+              "Shows through attitude",
+              "Not good at"
+            ]
+          },
+          "emotional_support_seeking": {
+            "label": "How emotional support is sought",
+            "candidates": [
+              "Relies openly",
+              "Indirectly",
+              "Handles personally",
+              "Only to specific people",
+              "Depends on the situation"
+            ]
+          },
+          "reunion_behavior": {
+            "label": "Behavior when reuniting",
+            "candidates": [
+              "Gets excited",
+              "Natural / unaffected",
+              "Slightly nervous",
+              "From where we left off",
+              "Waits and watches"
+            ]
+          },
+          "relationship_investment_priority": {
+            "label": "Priority of investment in relationships"
+          },
+          "friendship_maintenance": {
+            "label": "How friendships are maintained",
+            "candidates": [
+              "Frequent contact",
+              "Deep occasionally",
+              "Goes all-in when meeting",
+              "Connects via social media",
+              "Leaves to nature"
+            ]
+          },
+          "family_contact_frequency": {
+            "label": "Contact frequency with family",
+            "candidates": [
+              "Daily",
+              "Several times a week",
+              "Once a week",
+              "Several times a month",
+              "Only when needed",
+              "Almost none"
+            ]
+          },
+          "digital_relationship_style": {
+            "label": "Digital relationship building",
+            "candidates": [
+              "Active on social media",
+              "Message-focused",
+              "Values in-person",
+              "Switches between both",
+              "Absolute minimum"
+            ]
+          },
+          "new_relationship_approach": {
+            "label": "How new relationships are started",
+            "candidates": [
+              "Actively reaches out",
+              "From common topics",
+              "Through introductions",
+              "Waits",
+              "Following the flow"
+            ]
+          },
+          "relationship_exit_style": {
+            "label": "How relationships are ended",
+            "candidates": [
+              "Communicates properly",
+              "Natural dissolution",
+              "Keeps distance",
+              "Slow to decide",
+              "Decisively"
+            ]
+          },
+          "social_hierarchy_sensitivity": {
+            "label": "Sensitivity to hierarchy (1-5 scale)"
+          },
+          "mentoring_relationship": {
+            "label": "Mentor / mentee relationships",
+            "candidates": [
+              "Has a mentor",
+              "Has mentees",
+              "Both",
+              "None",
+              "Informally"
+            ]
+          },
+          "professional_relationship_style": {
+            "label": "Work relationship style",
+            "candidates": [
+              "Work-life separation",
+              "Work colleagues are also friends",
+              "Team-focused",
+              "Individual-focused",
+              "Depends on the situation"
+            ]
+          },
+          "cross_generational_interaction": {
+            "label": "Intergenerational interaction style",
+            "candidates": [
+              "Easy to talk with older people",
+              "Easy to talk with younger people",
+              "Most comfortable with same generation",
+              "Regardless of generation"
+            ]
+          },
+          "pet_relationship": {
+            "label": "Relationship with pets"
+          },
+          "jealousy_tendency": {
+            "label": "Jealousy tendency (1-5 scale)"
+          },
+          "trust_recovery_pattern": {
+            "label": "Trust recovery patterns",
+            "candidates": [
+              "Time heals",
+              "Through discussion",
+              "Seeks proof through actions",
+              "Difficult",
+              "Depends on conditions"
+            ]
+          },
+          "confrontation_threshold": {
+            "label": "Threshold for confrontation",
+            "candidates": [
+              "Says immediately",
+              "After accumulating",
+              "Endures to the limit",
+              "Avoids",
+              "Only in serious matters"
+            ]
+          },
+          "secret_keeping": {
+            "label": "How secrets are handled",
+            "candidates": [
+              "Absolutely keeps",
+              "Shared only with trusted people",
+              "Bad at keeping secrets",
+              "Depends on the situation"
+            ]
+          },
+          "vulnerability_sharing": {
+            "label": "How vulnerability is shared",
+            "candidates": [
+              "Open",
+              "Only with close people",
+              "Rarely shows",
+              "Depends on the other person",
+              "Gradually"
+            ]
+          }
+        },
+        "Lv3": {
+          "community_involvement": {
+            "label": "Community involvement"
+          },
+          "attachment_origin": {
+            "label": "Origin of attachment style"
+          },
+          "first_significant_relationship": {
+            "label": "First significant relationship"
+          },
+          "relationship_role_models": {
+            "label": "Relationship role models"
+          },
+          "family_relationship_patterns": {
+            "label": "Family relationship patterns"
+          },
+          "relationship_wounds": {
+            "label": "Relationship wounds"
+          },
+          "abandonment_fears": {
+            "label": "Fear of abandonment"
+          },
+          "intimacy_barriers": {
+            "label": "Barriers to intimacy"
+          },
+          "unconscious_relationship_patterns": {
+            "label": "Unconscious relationship patterns"
+          },
+          "projection_in_relationships": {
+            "label": "Projection in relationships"
+          },
+          "codependency_awareness": {
+            "label": "Awareness of codependency"
+          },
+          "relationship_identity": {
+            "label": "Self-image within relationships"
+          },
+          "loneliness_relationship": {
+            "label": "Relationship with solitude"
+          },
+          "ideal_relationship_vision": {
+            "label": "Ideal relationship vision"
+          },
+          "chosen_family": {
+            "label": "Chosen family (bonds beyond blood)"
+          },
+          "relationship_with_ai": {
+            "label": "Views on relationship with AI"
+          },
+          "lost_relationships": {
+            "label": "Lost relationships"
+          },
+          "relationship_regrets": {
+            "label": "Relationship regrets"
+          },
+          "relationship_gratitude": {
+            "label": "Gratitude for relationships"
+          },
+          "relationship_legacy": {
+            "label": "Relationship legacy"
+          },
+          "relationship_philosophy": {
+            "label": "Philosophy of relationships"
+          }
+        }
+      }
+    },
+    "episodes": {
+      "description": "Episodic memory (for RAG storage)",
+      "extraction_tips": "The text itself becomes the source of episodes. Record as source information rather than analysis results."
+    },
+    "personality_assessments": {
+      "description": "Personality assessment results (Big5, MBTI, etc.)",
+      "extraction_tips": "Only when the person explicitly states assessment results. Never infer MBTI or similar from text (as it would be inaccurate)."
+    }
+  }
+}
