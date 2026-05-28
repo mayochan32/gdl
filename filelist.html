@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GDL Repository — File List</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --text-muted: #8b949e;
+    --accent: #58a6ff;
+    --accent-subtle: #1f6feb22;
+    --tag-schema: #388bfd;
+    --tag-prompt: #a371f7;
+    --tag-lang: #3fb950;
+    --tag-web: #f0883e;
+    --tag-tool: #d29922;
+    --tag-doc: #8b949e;
+    --tag-data: #f778ba;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 2rem;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  .subtitle a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .subtitle a:hover { text-decoration: underline; }
+
+  /* Category headers */
+  .category {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .category-icon { font-size: 1.1rem; }
+
+  /* File cards */
+  .file-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.6rem;
+    transition: border-color 0.2s;
+  }
+  .file-card:hover { border-color: var(--accent); }
+  .file-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+  .file-name {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .file-name:hover { text-decoration: underline; }
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    color: #fff;
+    line-height: 1.4;
+  }
+  .tag-schema  { background: var(--tag-schema); }
+  .tag-prompt  { background: var(--tag-prompt); }
+  .tag-lang    { background: var(--tag-lang); }
+  .tag-web     { background: var(--tag-web); }
+  .tag-tool    { background: var(--tag-tool); }
+  .tag-doc     { background: var(--tag-doc); }
+  .tag-data    { background: var(--tag-data); }
+  .tag-ja      { background: #e8491d; }
+  .tag-en      { background: #1a7f37; }
+  .tag-zh      { background: #cf222e; }
+
+  .file-summary {
+    font-size: 0.92rem;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+  .file-detail {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* Stats bar */
+  .stats {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .stats strong { color: var(--text); }
+
+  /* Footer */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>GDL — Repository File List</h1>
+  <p class="subtitle">
+    <a href="https://github.com/mayochan32/gdl">github.com/mayochan32/gdl</a>
+    &nbsp;·&nbsp;Ghost Description Language v1.0 / Schema v1.2
+  </p>
+
+  <div class="stats">
+    <span><strong>21</strong> files</span>
+    <span><strong>3</strong> languages (JA / EN / ZH)</span>
+    <span><strong>642+</strong> personality fields</span>
+    <span><strong>11</strong> sections × 3 levels</span>
+  </div>
+
+  <!-- ===== Schema & Data ===== -->
+  <div class="category"><span class="category-icon">📐</span> スキーマ & データ定義</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema.json">GDL_schema.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDLマスタースキーマ（Single Source of Truth）</div>
+    <div class="file-detail">全11セクション × Lv1/Lv2/Lv3 の全フィールド定義を含むマスターファイル。_labels（日本語対訳マップ）、_levels（レベル定義）、_confidence（信頼度仕様）、_preamble（AI解読ガイド仕様）を内包。他の全ファイルはこのスキーマを参照して整合性を保つ。schema_version: 1.2。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv1.json">GDL_schema_lv1.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv1スキーマ（Who — 属性・表層のらしさ）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1フィールドのみを抽出。話し方・口調・基本的な好みの再現に必要な最小限の項目セット。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv2.json">GDL_schema_lv2.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv2スキーマ（How — 思考プロセス・判断基準）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2フィールドを含む。判断・推論パターン、価値観に基づく行動予測に必要な項目セット。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv3.json">GDL_schema_lv3.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv3スキーマ（Why — 深層心理・形成史・内的矛盾）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2 + Lv3の全フィールド（642項目以上）を含む完全版。人生の文脈・矛盾・葛藤を含めた深い人格再現が可能。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_questions.json">GDL_questions.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+      <span class="tag tag-en">EN</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">インタビュー質問セット（56問・3言語対応）</div>
+    <div class="file-detail">GDL Interview Agent が使用する全56問の質問データ。7セクション（S1〜S7）構成。各質問にはtype（select/multi_select/scale/rank/direct）、候補選択肢、GDLフィールドへのマッピング情報を含む。日本語・英語・中国語の3言語フィールドを内包。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_knowledge.json">GDL_TextAnalyzer_knowledge.json</a>
+      <span class="tag tag-data">Knowledge</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">Text Analyzer用ナレッジファイル</div>
+    <div class="file-detail">GDL Text Analyzer GPTs の Knowledge としてアップロードするファイル。GDLスキーマの全構造定義に加え、各フィールドの推論ガイドライン（extraction_tips）、出力フォーマット仕様、セクション説明を含む。GPTがテキストからGDLフィールドへ正確にマッピングするための参照データ。</div>
+  </div>
+
+  <!-- ===== Language Packs ===== -->
+  <div class="category"><span class="category-icon">🌐</span> 言語パック（i18n）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_lang_en.json">GDL_lang_en.json</a>
+      <span class="tag tag-lang">Lang Pack</span>
+      <span class="tag tag-en">EN</span>
+    </div>
+    <div class="file-summary">英語言語パック（2,339リーフ値）</div>
+    <div class="file-detail">GDLスキーマの全テキストを英語に翻訳した言語パック。_levels（レベル定義）、_confidence（信頼度仕様）、_meta（メタ情報）、_preamble（AIガイド）、_labels（全フィールド対訳）、knowledge（11セクションのフィールド定義・候補・説明）を網羅。Web UIのi18n切り替えやGPTs英語版の参照データとして使用。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_lang_zh.json">GDL_lang_zh.json</a>
+      <span class="tag tag-lang">Lang Pack</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">簡体字中国語言語パック（2,340リーフ値）</div>
+    <div class="file-detail">GDLスキーマの全テキストを簡体字中国語に翻訳した言語パック。英語版と構造完全一致。Web UIのi18n切り替えやGPTs中国語版の参照データとして使用。</div>
+  </div>
+
+  <!-- ===== GPTs Prompts ===== -->
+  <div class="category"><span class="category-icon">🤖</span> GPTs システムプロンプト</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt.md">GDL_GPTs_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDL Interview Agent — GPTs設定ガイド＆システムプロンプト（日本語）</div>
+    <div class="file-detail">OpenAI GPTs として GDL Interview Agent を構築するための設定ガイドとシステムプロンプト。56問のインタビューを1問ずつ進行し、回答からGDL v1.2形式のJSONを自動生成する。質問タイプ別の表示フォーマット、フィールドマッピングルール、_preamble・_description・labelの必須出力ルールを定義。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt_en.md">GDL_GPTs_prompt_en.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-en">EN</span>
+    </div>
+    <div class="file-summary">GDL Interview Agent — GPTs Setup Guide & System Prompt (English)</div>
+    <div class="file-detail">英語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を英語で記述。英語圏ユーザーがGPTsを構築する際に使用。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt_zh.md">GDL_GPTs_prompt_zh.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">GDL Interview Agent — GPTs 设置指南 & 系统提示词（简体中文）</div>
+    <div class="file-detail">簡体字中国語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を中国語で記述。中国語圏ユーザーがGPTsを構築する際に使用。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt.md">GDL_TextAnalyzer_GPTs_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDL Text Analyzer — GPTs設定ガイド＆システムプロンプト（日本語）</div>
+    <div class="file-detail">テキスト（SNS投稿、ブログ、書籍、インタビュー等）から個性を推論しGDLを自動生成するエージェントのシステムプロンプト。マルチスピーカー処理（ステップ1.5）、6視点分析、3段階confidence体系、値の柔軟性ルール、特殊分析パターン（A〜H）を定義。v1.2形式で出力。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt_en.md">GDL_TextAnalyzer_GPTs_prompt_en.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-en">EN</span>
+    </div>
+    <div class="file-summary">GDL Text Analyzer — GPTs Setup Guide & System Prompt (English)</div>
+    <div class="file-detail">英語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、confidence体系など全機能を網羅。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt_zh.md">GDL_TextAnalyzer_GPTs_prompt_zh.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">GDL Text Analyzer — GPTs 设置指南 & 系统提示词（简体中文）</div>
+    <div class="file-detail">簡体字中国語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、置信度体系など全機能を網羅。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_Gems_prompt.md">GDL_Gems_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDL Interview Agent — Google Gemini Gems用プロンプト</div>
+    <div class="file-detail">Google Gemini の Gems 機能向けに最適化された GDL Interview Agent のシステムプロンプト。GPTs版と同等のインタビュー機能をGemini環境で実現するための設定ガイド。</div>
+  </div>
+
+  <!-- ===== Web UI ===== -->
+  <div class="category"><span class="category-icon">🖥️</span> Web UI</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/index.html">index.html</a>
+      <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+      <span class="tag tag-en">EN</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">GDLランディングページ（3言語対応）</div>
+    <div class="file-detail">GDLプロジェクトの紹介ページ。GDLの概要、スキーマ構成、詳細度レベルの説明、使い方ガイド、GDL作成の2ルート誘導（インタビュー形式 or AI GPTs）を提供。i18n対応で日本語・英語・中国語を切り替え可能。GitHub Pages でホスティング。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/input.html">input.html</a>
+      <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+      <span class="tag tag-en">EN</span>
+      <span class="tag tag-zh">ZH</span>
+    </div>
+    <div class="file-summary">GDL入力フォーム（Lv1・3言語対応）</div>
+    <div class="file-detail">ブラウザ上でインタビュー形式の質問にラジオボタン・チェックボックス・スライダーで回答し、GDL JSONを自動生成・ダウンロードできるWeb UI。GDL_questions.json を参照して動的に質問を生成。「その他」選択時の自由入力欄、_preambleとスケール説明の自動付与に対応。現在Lv1対応。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_input.html">GDL_input.html</a>
+      <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDL入力フォーム（旧版・日本語のみ）</div>
+    <div class="file-detail">input.html の前身となる初期バージョンの入力フォーム。日本語のみ対応。質問データがHTML内に直接埋め込まれた構成。現在は input.html に置き換え済みだが、参考用として保持。</div>
+  </div>
+
+  <!-- ===== Tools & Config ===== -->
+  <div class="category"><span class="category-icon">🔧</span> ツール & 設定</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/build_schemas.js">build_schemas.js</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">レベル別スキーマ自動生成スクリプト</div>
+    <div class="file-detail">GDL_schema.json（マスター）から GDL_schema_lv1.json / lv2.json / lv3.json を自動生成する Node.js スクリプト。各セクション内のフィールドを _level プロパティに基づいてフィルタリングし、レベル別ファイルを出力する。<code>node build_schemas.js</code> で実行。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/.gitignore">.gitignore</a>
+      <span class="tag tag-doc">Config</span>
+    </div>
+    <div class="file-summary">Git除外設定</div>
+    <div class="file-detail">.DS_Store など、バージョン管理不要なファイルの除外ルールを定義。</div>
+  </div>
+
+  <!-- ===== Documentation ===== -->
+  <div class="category"><span class="category-icon">📖</span> ドキュメント & プレゼン</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/README.md">README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">リポジトリ README（プロジェクト説明書）</div>
+    <div class="file-detail">GDLプロジェクトの全体説明ドキュメント。概要、主な用途（AIパーソナライズ・デジタルツイン・没後継承等）、スキーマ構成表、Lv1/Lv2/Lv3の設計思想と具体例、マスター＋ジェネレーター構成の説明、_labelsマップ、ファイル構成、AIへの読み込み方（GPTs/Claude/その他LLM）、サンプルJSON を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_concept_v2.pptx">GDL_concept_v2.pptx</a>
+      <span class="tag tag-doc">Presentation</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDLコンセプトプレゼンテーション（v2）</div>
+    <div class="file-detail">GDLの概念・設計思想・ユースケースを説明するプレゼンテーション資料。PowerPoint形式。講演や社内説明会、外部発表向け。</div>
+  </div>
+
+  <div class="footer">
+    Generated on 2026-05-28 · GDL (Ghost Description Language) by mayo — AI共創アーキテクト
+  </div>
+
+</div>
+</body>
+</html>
