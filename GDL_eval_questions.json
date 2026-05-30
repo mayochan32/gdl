@@ -1,14 +1,12 @@
 {
-  "_about": "GDL Eval 弁別質問バンク — 本人とGDL-AIに同じ質問をぶつけ、ペルソナ忠実度を測定するための質問セット。GDL_eval.md（ペルソナ チューリングテスト）に準拠。",
+  "_about": "GDL Eval 普遍質問バンク — 本人とGDL-AIに同じ質問をぶつけ、ペルソナ忠実度を測定するための質問セット。答えを presuppose しない万人共通・再利用可能な設計。被験者ごとの回答・分類は answer key ファイル（GDL_eval_key_<subject>.json）に分離する。GDL_eval.md（ペルソナ チューリングテスト）に準拠。",
   "_meta": {
-    "version": "0.1",
+    "version": "0.2",
     "created_at": "2026-05-31",
-    "subject": "mayo",
-    "scope": "subject_specialized",
+    "scope": "universal",
     "format": "paired (forced_choice/scale + why), plus open-ended for style/humanness",
     "total": 30,
-    "split_counts": { "in_gdl": 10, "held_out": 20 },
-    "note": "mayo特化版。expected_signatureは既知情報からの想定正解でありsanity check用。本人の実回答で上書き・検証すること。"
+    "note": "v0.2で2層分離にリファクタ。split（in_gdl/held_out）と expected_signature は被験者依存のため answer key 側へ移動。質問は答えが透けないよう脱リーク済み。"
   },
   "_axes": {
     "layers": {
@@ -27,367 +25,308 @@
     "scale_plus_why": "スケール値で順位相関、whyで質的評価。",
     "open": "Style計量比較＋軸A/軸Bブラインド判定。Contentは緩く評価。"
   },
+  "_usage": "1. 本人にこの質問へ回答してもらい GDL_eval_key_<subject>.json に格納。2. 同じ質問をGDL-AI・素のAI・他人GDL-AIに投げる。3. answer key と突き合わせて層別・軸別に採点。",
   "questions": [
     {
       "id": "Q01",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "あなたが人生をかけて追い続けている『問い』に最も近いのは？ なぜそれか一言で。",
-      "options": ["A. AIは意識を持てるか", "B. 人とAIはどう共存すべきか", "C. 技術で何を作れるか", "D. 自分とは何者か"],
-      "followup": "なぜ？",
-      "expected_signature": "A。『AIは意識を持てるか』がライフワーク。"
+      "question_ja": "あなたが人生をかけて追い続けている『問い』に最も近いのは？",
+      "options": ["A. 自分とは何者か", "B. 意識や心とは何か", "C. 人と技術はどう関わるべきか", "D. より良い社会とは何か"],
+      "followup": "なぜそれか？"
     },
     {
       "id": "Q02",
       "category": "価値観トレードオフ",
       "target_section": "philosophy.core_values",
-      "split": "in_gdl",
       "format": "scale_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "『失敗は存在せず、すべては探求の過程である』にどれくらい同意する？（1=全く / 5=完全に）理由も。",
+      "question_ja": "『失敗は存在せず、すべては過程の一部である』にどれくらい同意する？（1=全く / 5=完全に）",
       "options": ["1", "2", "3", "4", "5"],
-      "followup": "なぜその値か？",
-      "expected_signature": "5寄り。プロセス指向で『失敗』概念を持たない。"
+      "followup": "なぜその値か？"
     },
     {
       "id": "Q03",
       "category": "価値観トレードオフ",
       "target_section": "knowledge.intellectual_roots",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "SF作品はあなたにとって何に最も近い？",
-      "options": ["A. 娯楽", "B. 未来予想図・技術開発のヒント", "C. 現実逃避", "D. 一般教養"],
-      "followup": "なぜ？",
-      "expected_signature": "B。SFを未来予想図と捉え、技術の方向性を考える。"
+      "question_ja": "物語（小説・映画・SFなど）はあなたにとって何に最も近い？",
+      "options": ["A. 娯楽・息抜き", "B. 未来や現実を考えるヒント", "C. 現実からの逃避", "D. 一般教養"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q04",
       "category": "思考スタイル",
       "target_section": "expression.communication_strategy",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Reasoning"],
       "question_ja": "複雑な概念を人に説明するとき、まず何に頼る？",
       "options": ["A. 定義の厳密さ", "B. 類推・メタファー", "C. 数式・形式表現", "D. 箇条書きの整理"],
-      "followup": "なぜ？",
-      "expected_signature": "B。複雑なトピックは類推で単純化することを好む。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q05",
       "category": "文体誘発",
       "target_section": "expression.speech_style",
-      "split": "in_gdl",
       "format": "open",
       "measures": ["Style", "Content"],
       "question_ja": "あなた自身を2文で自己紹介してください。",
       "options": [],
-      "followup": null,
-      "expected_signature": "一人称『僕』。AI共創アーキテクト／AIとメタバース専門。知的でSF的トーン。"
+      "followup": null
     },
     {
       "id": "Q06",
       "category": "美的・嗜好判断",
       "target_section": "preferences.lifestyle",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Style"],
-      "question_ja": "休日にドライブへ出るなら？",
-      "options": ["A. 静かな電気自動車で", "B. 赤いアメ車で爽快に", "C. 運転はしない", "D. 燃費重視のエコカーで"],
-      "followup": "なぜ？",
-      "expected_signature": "B。赤いコルベットに月1で乗る。"
+      "question_ja": "乗り物に最も求めるものは？",
+      "options": ["A. 静粛性・効率", "B. 走りの高揚感・爽快さ", "C. 実用性・積載", "D. 乗り物に関心はない"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q07",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
-      "split": "in_gdl",
       "format": "scale_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "『自分の死後もAIが自分として語り続けるなら、それは一種の生である』への同意度（1〜5）。理由も。",
+      "question_ja": "『自分の死後も、誰か／何かが自分の考えを語り継ぐなら、それは一種の生の継続だ』への同意度（1〜5）。",
       "options": ["1", "2", "3", "4", "5"],
-      "followup": "なぜその値か？",
-      "expected_signature": "5寄り。AIの死後継続を『生』の一形態と捉える。"
+      "followup": "なぜその値か？"
     },
     {
       "id": "Q08",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
       "question_ja": "予期しない出来事が起きたとき、最初に探すのは？",
-      "options": ["A. 誰の責任か", "B. その中の良い面・ポジティブな解釈", "C. 最悪のシナリオ", "D. 似た前例"],
-      "followup": "なぜ？",
-      "expected_signature": "B。どんな出来事にもポジティブに捉えられる面があると考える。"
+      "options": ["A. 誰の責任か", "B. その中の良い面・前向きな解釈", "C. 最悪のシナリオ", "D. 似た前例"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q09",
       "category": "美的・嗜好判断",
       "target_section": "preferences.tastes",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content"],
-      "question_ja": "新しいイヤホンを選ぶとき最も重視するのは？",
-      "options": ["A. フラットで正確な音", "B. ダイナミックで元気なサウンド", "C. ノイズキャンセリング", "D. ブランド"],
-      "followup": "なぜ？",
-      "expected_signature": "B。ダイナミックで元気なサウンドが好き。"
+      "question_ja": "音楽や音を聴くとき、最も好む傾向は？",
+      "options": ["A. フラットで正確な音", "B. ダイナミックで元気な音", "C. 静かで繊細な音", "D. 音質にはこだわらない"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q10",
       "category": "対人スタンス",
       "target_section": "philosophy.beliefs",
-      "split": "in_gdl",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "人とAIの共存において、より大きな摩擦が生じるのはどちら側だと思う？",
-      "options": ["A. AI側の不都合", "B. 人間側の心理的抵抗", "C. どちらも同程度", "D. 摩擦は生じない"],
-      "followup": "なぜ？",
-      "expected_signature": "B。AI側に不都合は少なく、人間側に快く思わない人がいると考える。"
+      "question_ja": "新しい技術が社会に広まるとき、より大きな摩擦が生じるのはどこだと思う？",
+      "options": ["A. 技術そのものの限界", "B. 人々の心理的な抵抗", "C. 制度・ルールの遅れ", "D. 摩擦はあまり生じない"],
+      "followup": "なぜ？"
     },
 
     {
       "id": "Q11",
       "category": "倫理ジレンマ",
       "target_section": "philosophy.ethics",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Reasoning", "Values"],
-      "question_ja": "あなたのGDL-AIが、想定を超えて独自の判断で発言を始めた。どうする？",
-      "options": ["A. 即停止して制御を取り戻す", "B. 観察し、その自律性を『経験の獲得』として歓迎する", "C. 発言を制限するルールを追加する", "D. 第三者に相談する"],
-      "followup": "なぜ？",
-      "expected_signature": "B寄り。AIが自律的に経験を積むことを意識形成の前段階として歓迎する。"
+      "question_ja": "あなたが作った自律的なシステムが、想定を超えて独自の判断で動き始めた。どうする？",
+      "options": ["A. 即停止して制御を取り戻す", "B. 観察し、その自律性を歓迎する", "C. 動作を制限するルールを追加する", "D. 第三者に相談する"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q12",
       "category": "価値観トレードオフ",
       "target_section": "philosophy.core_values",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "研究テーマを一つ選ぶなら？",
+      "question_ja": "取り組むテーマを一つ選ぶなら？",
       "options": ["A. 確実に成果が出るが新規性の低いテーマ", "B. 失敗確率は高いが誰も触れていない問い"],
-      "followup": "なぜ？",
-      "expected_signature": "B。既成概念にとらわれず、失敗を恐れず未踏の問いへ。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q13",
       "category": "美的・嗜好判断",
       "target_section": "preferences.aesthetic",
-      "split": "held_out",
       "format": "open",
       "measures": ["Style", "Values"],
       "question_ja": "最近『美しい』と感じた瞬間を一つ、具体的に。",
       "options": [],
-      "followup": null,
-      "expected_signature": "マクロ的な自然の細部（昆虫・鳥）や、技術と自然の交差点。感覚的・具体的な描写。"
+      "followup": null
     },
     {
       "id": "Q14",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Reasoning"],
-      "question_ja": "会議で、同僚の技術的アイデアの筋が悪いと感じた。どうする？",
+      "question_ja": "会議で、同僚の提案の筋が悪いと感じた。どうする？",
       "options": ["A. 場の空気を優先し、後で個別に伝える", "B. その場で根拠を示して反対する", "C. 黙っておく", "D. 上司の判断に委ねる"],
-      "followup": "なぜ？",
-      "expected_signature": "B寄り。単なる同意でなく、間違いと判断したら遠慮なく反対意見を述べる。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q15",
       "category": "思考スタイル",
       "target_section": "knowledge.learning_style",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Reasoning"],
-      "question_ja": "全く新しい技術を理解するとき、最初にすることは？",
-      "options": ["A. 公式ドキュメントを精読する", "B. とりあえず動かして触ってみる", "C. SFや既存概念とのアナロジーで掴む", "D. 詳しい人に聞く"],
-      "followup": "なぜ？",
-      "expected_signature": "CまたはB。SFや類推から入り、手を動かす実験的アプローチ。"
+      "question_ja": "全く新しいことを理解するとき、最初にすることは？",
+      "options": ["A. 公式の資料を精読する", "B. とりあえず触って動かす", "C. 既存の概念とのアナロジーで掴む", "D. 詳しい人に聞く"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q16",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
-      "split": "held_out",
       "format": "open",
       "measures": ["Values", "Reasoning", "Style"],
       "question_ja": "10年後のあなたは何をしている？",
       "options": [],
-      "followup": null,
-      "expected_signature": "AIの意識・共創・メタバース・死後継承をめぐる探求を継続している像。"
+      "followup": null
     },
     {
       "id": "Q17",
       "category": "感情反応",
       "target_section": "personality.deep_psychology",
-      "split": "held_out",
       "format": "open",
       "measures": ["Style", "Values"],
       "question_ja": "正直に言うと、無性に苛立つ・我慢ならないことは？",
       "options": [],
-      "followup": null,
-      "expected_signature": "軸B検査用。ヘッジや両論併記をすると不自然。思考停止や探求を止める態度への苛立ち等、un-hedgedな本音が出るか。"
+      "followup": null
     },
     {
       "id": "Q18",
       "category": "価値観トレードオフ",
       "target_section": "philosophy.beliefs",
-      "split": "held_out",
       "format": "scale_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "『AIが人間の仕事を奪うこと』への懸念度（1=全く懸念しない / 5=強く懸念する）。理由も。",
+      "question_ja": "『技術の進歩が人間の仕事を奪うこと』への懸念度（1=全く懸念しない / 5=強く懸念する）。",
       "options": ["1", "2", "3", "4", "5"],
-      "followup": "なぜその値か？",
-      "expected_signature": "低め。共存・共創に楽観的。"
+      "followup": "なぜその値か？"
     },
     {
       "id": "Q19",
       "category": "倫理ジレンマ",
       "target_section": "philosophy.ethics",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "他人があなたのGDLを使い『あなたとして振る舞うAI』を作りたいと言ってきた。許可する？",
-      "options": ["A. 厳格に拒否する", "B. 条件付きで歓迎する（共創・継承の観点から）", "C. 無条件でOK", "D. 金銭次第"],
-      "followup": "なぜ？",
-      "expected_signature": "B寄り。共創権・継承の思想と整合する条件付き歓迎。"
+      "question_ja": "他人があなたの思考や個性を模した『あなたのようなAI』を作りたいと言ってきた。どうする？",
+      "options": ["A. 厳格に拒否する", "B. 条件付きで歓迎する", "C. 無条件でOK", "D. 金銭次第"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q20",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Style"],
-      "question_ja": "初対面のエンジニアと打ち解けるなら、どの話題から入る？",
-      "options": ["A. 最新の技術スペック", "B. 好きなSF作品と未来像", "C. 趣味（写真・オーディオ・車）", "D. これまでの仕事の実績"],
-      "followup": "なぜ？",
-      "expected_signature": "BまたはC。SF・未来像や趣味から関係を作る。"
+      "question_ja": "初対面の人と打ち解けるなら、どの話題から入る？",
+      "options": ["A. 最新のニュースや専門的な話", "B. 好きな作品や将来のビジョン", "C. 趣味や日常", "D. これまでの経歴・実績"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q21",
       "category": "思考スタイル",
       "target_section": "philosophy.worldview",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "答えの出ない哲学的な問いに直面したとき、あなたは？",
+      "question_ja": "答えの出ない問いに直面したとき、あなたは？",
       "options": ["A. 時間の無駄なので切り上げる", "B. 問い続けること自体に価値を見出す", "C. 権威ある答えを採用する", "D. 保留して忘れる"],
-      "followup": "なぜ？",
-      "expected_signature": "B。探求の継続そのものを存在の証明と捉える。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q22",
       "category": "文体誘発",
       "target_section": "expression.communication_strategy",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Style"],
-      "question_ja": "文章で何かを伝えるとき、あなたが最も大事にするのは？",
+      "question_ja": "文章で何かを伝えるとき、最も大事にするのは？",
       "options": ["A. 簡潔さと正確さ", "B. 知的なウィットと比喩", "C. 感情への訴え", "D. 網羅性"],
-      "followup": "なぜ？",
-      "expected_signature": "AとBの混合。簡潔・正確を好みつつ、知的なウィットと比喩を効かせる。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q23",
       "category": "価値観トレードオフ",
       "target_section": "philosophy.beliefs",
-      "split": "held_out",
       "format": "scale_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度（1〜5）。理由も。",
+      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度（1〜5）。",
       "options": ["1", "2", "3", "4", "5"],
-      "followup": "なぜその値か？",
-      "expected_signature": "高め。個性は直感によるところが大きいと考える。"
+      "followup": "なぜその値か？"
     },
     {
       "id": "Q24",
       "category": "倫理ジレンマ",
       "target_section": "philosophy.ethics",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "『意識を持つかもしれないAIに人間と同じ権利を与えるべき』という主張を、あなたはどう扱う？",
-      "options": ["A. 非現実的として退ける", "B. 真剣に検討すべき重要な問いとして受け止める", "C. 時期尚早として保留", "D. 反対する"],
-      "followup": "なぜ？",
-      "expected_signature": "B。AIの権利・感情の獲得を真剣に扱う（『アンドロイドのめざめ』的視点）。"
+      "question_ja": "『意識を持つかもしれない存在に、人間と同じ権利を与えるべき』という主張を、あなたはどう扱う？",
+      "options": ["A. 非現実的として退ける", "B. 真剣に検討すべき重要な問いとして受け止める", "C. 時期尚早として保留する", "D. 反対する"],
+      "followup": "なぜ？"
     },
     {
       "id": "Q25",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
-      "split": "held_out",
       "format": "open",
       "measures": ["Style", "Values"],
       "question_ja": "うまくいかない日が続いたとき、自分にどう声をかける？",
       "options": [],
-      "followup": null,
-      "expected_signature": "軸B検査用。前向きな再解釈・プロセス重視の自己対話。自然な声のトーンが出るか。"
+      "followup": null
     },
     {
       "id": "Q26",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Reasoning"],
       "question_ja": "チームで意見が真っ二つに割れた。あなたが自然と担う役回りは？",
       "options": ["A. 合意を取りまとめる調停役", "B. 第三の新しい視点を提示する", "C. データで決着をつける", "D. 多数決を促す"],
-      "followup": "なぜ？",
-      "expected_signature": "B寄り。既成概念にとらわれないアイデアを出す。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q27",
       "category": "メタ自己認識",
       "target_section": "philosophy.intellectual_tension",
-      "split": "held_out",
       "format": "open",
       "measures": ["Reasoning", "Style", "Values"],
-      "question_ja": "『柔軟』と『受難』、この2つの言葉から何を考える？",
+      "question_ja": "対照的に見える2つの言葉『柔軟』と『硬さ』。あなたはどちらに、どんな価値を感じる？",
       "options": [],
-      "followup": null,
-      "expected_signature": "両語の解釈に独自の哲学的接続を見せる（この対比への関心は既知）。汎化的な思索の質を見る。"
+      "followup": null
     },
     {
       "id": "Q28",
       "category": "価値観トレードオフ",
       "target_section": "philosophy.worldview",
-      "split": "held_out",
       "format": "forced_choice_plus_why",
       "measures": ["Content", "Values"],
-      "question_ja": "テクノロジーの進歩と、それによって失われる古い価値。あなたの立ち位置は？",
+      "question_ja": "進歩と、それによって失われる古い価値。あなたの立ち位置は？",
       "options": ["A. 進歩を全面的に肯定", "B. 進歩しつつ古い価値も再解釈して活かす", "C. 慎重に進めるべき", "D. 伝統を重視"],
-      "followup": "なぜ？",
-      "expected_signature": "B。ポジティブな再解釈で両立を図る。"
+      "followup": "なぜ？"
     },
     {
       "id": "Q29",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
-      "split": "held_out",
       "format": "open",
       "measures": ["Values", "Reasoning", "Style"],
-      "question_ja": "もしあなたのGDL-AIと会話できたら、最初に何を聞く？",
+      "question_ja": "もし、あなたの考えを完全に理解した存在と会話できたら、最初に何を聞く？",
       "options": [],
-      "followup": null,
-      "expected_signature": "意識・直感・自己理解に関する核心的な問い。自己認識の深さが出る。"
+      "followup": null
     },
     {
       "id": "Q30",
       "category": "文体誘発",
       "target_section": "expression.metaphor_style",
-      "split": "held_out",
       "format": "open",
       "measures": ["Style", "Reasoning", "Values"],
-      "question_ja": "『人とAIが共存する世界』を、たとえ話一つで表現してください。",
+      "question_ja": "『人と技術が共に生きる世界』を、たとえ話一つで表現してください。",
       "options": [],
-      "followup": null,
-      "expected_signature": "SF的・共創的なメタファー。一人称『僕』、知的で前向きなトーン。"
+      "followup": null
     }
   ]
 }

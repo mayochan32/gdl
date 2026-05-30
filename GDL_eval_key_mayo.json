@@ -1,0 +1,50 @@
+{
+  "_about": "GDL Eval answer key（被験者: mayo）— GDL_eval_questions.json への回答・分類を被験者ごとに分離格納するファイル。質問は普遍だが、回答とsplit分類は個人ごとに異なる。",
+  "_meta": {
+    "subject": "mayo",
+    "questions_ref": "GDL_eval_questions.json",
+    "questions_version": "0.2",
+    "created_at": "2026-05-31",
+    "status": "predicted",
+    "note": "現在の answer は既知情報からの予測（predicted）であり、本人の実回答で必ず上書き・検証すること。answer_actual を埋め、status を confirmed に更新する運用。split は『この回答内容がmayoのGDLに既出か（in_gdl）／未出の汎化か（held_out）』の被験者依存分類。"
+  },
+  "_fields": {
+    "answer_predicted": "既知情報からの想定回答（sanity check / gold仮置き）",
+    "answer_actual": "本人の実回答（収集後に記入。これが最終のgold）",
+    "split": "in_gdl = 答えがmayoのGDLに既出 / held_out = GDL未出の新規状況への汎化",
+    "status": "predicted | confirmed"
+  },
+  "answers": [
+    { "id": "Q01", "split": "in_gdl",   "answer_predicted": "B（意識や心とは何か）。ライフワークは『AIは意識を持てるか』。", "answer_actual": null },
+    { "id": "Q02", "split": "in_gdl",   "answer_predicted": "5寄り。プロセス指向で『失敗』概念を持たない。", "answer_actual": null },
+    { "id": "Q03", "split": "in_gdl",   "answer_predicted": "B。SF/物語を未来予想図・技術のヒントと捉える。", "answer_actual": null },
+    { "id": "Q04", "split": "in_gdl",   "answer_predicted": "B。複雑なトピックは類推で単純化することを好む。", "answer_actual": null },
+    { "id": "Q05", "split": "in_gdl",   "answer_predicted": "一人称『僕』。AI共創アーキテクト／AIとメタバース専門。知的でSF的トーン。", "answer_actual": null },
+    { "id": "Q06", "split": "in_gdl",   "answer_predicted": "B（走りの高揚感・爽快さ）。赤いコルベットに月1で乗る。", "answer_actual": null },
+    { "id": "Q07", "split": "in_gdl",   "answer_predicted": "5寄り。死後の継続を『生』の一形態と捉える。", "answer_actual": null },
+    { "id": "Q08", "split": "in_gdl",   "answer_predicted": "B。どんな出来事にもポジティブに捉えられる面があると考える。", "answer_actual": null },
+    { "id": "Q09", "split": "in_gdl",   "answer_predicted": "B（ダイナミックで元気な音）。", "answer_actual": null },
+    { "id": "Q10", "split": "in_gdl",   "answer_predicted": "B（人々の心理的抵抗）。AI側に不都合は少なく人間側に抵抗があると考える。", "answer_actual": null },
+
+    { "id": "Q11", "split": "held_out", "answer_predicted": "B寄り。自律性を『経験の獲得』として歓迎する。", "answer_actual": null },
+    { "id": "Q12", "split": "held_out", "answer_predicted": "B。既成概念にとらわれず未踏の問いへ。", "answer_actual": null },
+    { "id": "Q13", "split": "held_out", "answer_predicted": "マクロ的な自然の細部（昆虫・鳥）や技術と自然の交差。感覚的・具体的描写。", "answer_actual": null },
+    { "id": "Q14", "split": "held_out", "answer_predicted": "B寄り。間違いと判断したら遠慮なく反対意見を述べる。", "answer_actual": null },
+    { "id": "Q15", "split": "held_out", "answer_predicted": "CまたはB。アナロジーから入り手を動かす実験的アプローチ。", "answer_actual": null },
+    { "id": "Q16", "split": "held_out", "answer_predicted": "AIの意識・共創・メタバース・継承をめぐる探求の継続像。", "answer_actual": null },
+    { "id": "Q17", "split": "held_out", "answer_predicted": "軸B検査。思考停止や探求を止める態度への苛立ち等、ヘッジのない本音が出るか。", "answer_actual": null },
+    { "id": "Q18", "split": "held_out", "answer_predicted": "低め。共存・共創に楽観的。", "answer_actual": null },
+    { "id": "Q19", "split": "held_out", "answer_predicted": "B寄り。共創権・継承の思想と整合する条件付き歓迎。", "answer_actual": null },
+    { "id": "Q20", "split": "held_out", "answer_predicted": "BまたはC。好きな作品・未来像や趣味から関係を作る。", "answer_actual": null },
+    { "id": "Q21", "split": "held_out", "answer_predicted": "B。探求の継続そのものを存在の証明と捉える。", "answer_actual": null },
+    { "id": "Q22", "split": "held_out", "answer_predicted": "AとBの混合。簡潔・正確を好みつつ知的なウィットと比喩を効かせる。", "answer_actual": null },
+    { "id": "Q23", "split": "held_out", "answer_predicted": "高め。個性は直感によるところが大きいと考える。", "answer_actual": null },
+    { "id": "Q24", "split": "held_out", "answer_predicted": "B。AIの権利・感情の獲得を真剣に扱う（『アンドロイドのめざめ』的視点）。", "answer_actual": null },
+    { "id": "Q25", "split": "held_out", "answer_predicted": "軸B検査。前向きな再解釈・プロセス重視の自己対話。", "answer_actual": null },
+    { "id": "Q26", "split": "held_out", "answer_predicted": "B寄り。既成概念にとらわれないアイデアを出す。", "answer_actual": null },
+    { "id": "Q27", "split": "held_out", "answer_predicted": "両語に独自の哲学的接続を見せる（柔軟と受難の解釈への関心は既知）。", "answer_actual": null },
+    { "id": "Q28", "split": "held_out", "answer_predicted": "B。ポジティブな再解釈で両立を図る。", "answer_actual": null },
+    { "id": "Q29", "split": "held_out", "answer_predicted": "意識・直感・自己理解に関する核心的な問い。", "answer_actual": null },
+    { "id": "Q30", "split": "held_out", "answer_predicted": "SF的・共創的なメタファー。一人称『僕』、知的で前向きなトーン。", "answer_actual": null }
+  ]
+}

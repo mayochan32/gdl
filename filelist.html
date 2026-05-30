@@ -220,8 +220,18 @@
       <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">ペルソナ忠実度評価用 弁別質問バンク（30問・mayo特化v0.1）</div>
-    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。In-GDL 10問（想起精度）/ Held-out 20問（汎化）に分割。8カテゴリ（価値観トレードオフ・倫理ジレンマ・美的判断・思考スタイル・対人スタンス・メタ自己認識・感情反応・文体誘発）。各質問にtarget_section、split、format（強制選択/スケール＋why、自由記述）、measures（Content/Reasoning/Style/Values）、expected_signature（sanity check用の想定正解）を付与。現在mayo特化版。</div>
+    <div class="file-summary">ペルソナ忠実度評価用 普遍質問バンク（30問・v0.2）</div>
+    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な設計（v0.2で2層分離リファクタ：split と expected_signature は被験者依存のため answer key 側へ分離）。8カテゴリ（価値観トレードオフ・倫理ジレンマ・美的判断・思考スタイル・対人スタンス・メタ自己認識・感情反応・文体誘発）。各質問に target_section、format（強制選択/スケール＋why、自由記述）、measures（Content/Reasoning/Style/Values）を付与。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_key_mayo.json">GDL_eval_key_mayo.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 answer key（被験者: mayo）</div>
+    <div class="file-detail">GDL_eval_questions.json への被験者ごとの回答・分類を分離格納するファイル。質問は普遍だが回答とsplit分類は個人ごとに異なるため別ファイル化。各質問IDに answer_predicted（既知情報からの想定回答=gold仮置き）、answer_actual（本人実回答=最終gold、収集後に記入）、split（in_gdl=GDL既出 / held_out=未出の汎化）を保持。In-GDL 10問 / Held-out 20問。status は predicted→confirmed で運用。</div>
   </div>
 
   <div class="file-card">
