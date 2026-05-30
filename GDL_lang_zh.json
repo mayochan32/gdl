@@ -114,9 +114,10 @@
         "example": "设计用于包含在system prompt或context window中使用。"
       },
       "confidence_convention": {
-        "description": "置信度标注的解读规则",
+        "description": "置信度标注的解读规则。通过间接生成方法（text_analysis等）生成时包含。遵循_confidence规范。",
         "example": "每个值可附带confidence字段（high/medium/low/user_confirmed/user_provided）。未标注时默认为medium。",
-        "when_included": "当generation_method为间接方法时"
+        "when_included": "当generation_method为间接方法时",
+        "reference": "参见_confidence部分"
       }
     },
     "section_descriptions": {

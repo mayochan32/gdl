@@ -974,6 +974,7 @@
       },
       "confidence_convention": {
         "description": "信頼度アノテーションの解釈ルール。間接的な生成方法（text_analysis等）で生成した場合に含める。_confidence仕様に準拠。",
+        "example": "各値に confidence フィールドを付与可能（high/medium/low/user_confirmed/user_provided）。未注釈の場合はデフォルトで medium とみなす。",
         "when_included": "generation_methodが間接的な方法の場合",
         "reference": "_confidence セクションを参照"
       }

@@ -115,7 +115,9 @@
       },
       "confidence_convention": {
         "description": "Interpretation rules for confidence annotations. Included when generated through indirect methods (text_analysis, etc.). Compliant with the _confidence specification.",
-        "when_included": "When generation_method is an indirect method"
+        "example": "Each value may carry a confidence field (high/medium/low/user_confirmed/user_provided). When unannotated, it defaults to medium.",
+        "when_included": "When generation_method is an indirect method",
+        "reference": "See the _confidence section"
       }
     },
     "section_descriptions": {
