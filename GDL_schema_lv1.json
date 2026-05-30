@@ -23,7 +23,12 @@
     "meta.created_at": "作成日",
     "meta.updated_at": "最終更新日",
     "meta.subject_id": "対象者ID",
-    "meta.detail_level": "使用する詳細度レベル（1〜3）",
+    "meta.detail_level": "使用する詳細度レベル（1/2/3 または 'adaptive'）",
+    "meta.generation_method": "GDL生成方法（input_form/interview/text_analysis/observation 等）",
+    "meta.source_type": "分析ソースの種類（SNS投稿/ブログ/インタビュー等。間接生成時のみ）",
+    "meta.source_summary": "分析対象の概要（1〜2文。間接生成時のみ）",
+    "meta.target_person": "分析対象者名（マルチスピーカー時のみ）",
+    "meta.speakers_detected": "検出された話者一覧（マルチスピーカー時のみ）",
     "identity": "同一性・基本識別情報",
     "identity.name": "名前",
     "identity.name.kanji": "漢字",
@@ -743,11 +748,16 @@
   "gdl": {
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.0",
+      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "",
-      "detail_level": 1
+      "detail_level": 1,
+      "generation_method": "",
+      "source_type": "",
+      "source_summary": "",
+      "target_person": "",
+      "speakers_detected": []
     },
     "personality_assessments": {
       "results": [
