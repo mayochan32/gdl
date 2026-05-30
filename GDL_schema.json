@@ -75,12 +75,11 @@
     "identity.online_handles": "オンライン上のハンドルネーム（配列）",
 
     "identity.birth_year": "生年",
-    "identity.gender": "性別",
+    "identity.gender": "性別（男性/女性/その他/無回答）",
     "identity.nationality": "国籍",
     "identity.native_language": "母国語",
     "identity.occupation_summary": "職業の一言要約（例：AIとメタバース専門のエンジニア）",
 
-    "identity.gender": "性別（男性/女性/その他/無回答）",
     "identity.self_description": "自己紹介文（1〜2文）",
     "identity.life_stage": "ライフステージ（学生/社会人・若手/社会人・中堅/社会人・ベテラン/管理職/経営者/フリーランス/定年後/その他）",
     "identity.identity_keywords": "自分を表すキーワード（例：エンジニア/父/探求者）",
