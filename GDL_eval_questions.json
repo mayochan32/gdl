@@ -254,7 +254,7 @@
       "target_section": "philosophy.beliefs",
       "format": "scale_plus_why",
       "measures": ["Content", "Values", "Reasoning"],
-      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度（1〜5）。",
+      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度（1=全く同意しない / 5=完全に同意）。",
       "options": ["1", "2", "3", "4", "5"],
       "followup": "なぜその値か？"
     },
