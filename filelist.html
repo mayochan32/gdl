@@ -221,7 +221,17 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">ペルソナ忠実度評価用 質問バンク（46問・v0.3ハイブリッド）</div>
-    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な2層分離設計（回答は answer key 側へ分離）。v0.3でハイブリッド化：選択式40問（4択＋どれでもない、各選択肢に性格軸座標 axis_pos を付与し『類似度=1−|pos差|』の距離ベース傾向採点）を主力に、軸B（人間性）と文体を守る自由記述6問を専用層として併設。8カテゴリ（価値観トレードオフ・倫理ジレンマ・美的判断・思考スタイル・対人スタンス・メタ自己認識・感情反応・文体傾向）各5問。各問に trait_axis、target_section を付与。</div>
+    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な2層分離設計（回答は answer key 側へ分離）。v0.3でハイブリッド化：選択式40問（4択＋どれでもない、各選択肢に性格軸座標 axis_pos を付与し『類似度=1−|pos差|』の距離ベース傾向採点、選択肢順はランダム化）を主力に、軸B（人間性）と文体を守る自由記述6問を専用層として併設。8カテゴリ各5問。各問に trait_axis、target_section を付与。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_axes.json">GDL_eval_axes.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 軸タクソノミー（生成器の設計図）</div>
+    <div class="file-detail">大量質問プール（目標〜1000問）を品質と被覆を保って生成するための trait_axis 体系。8カテゴリ×5軸=40軸を定義し、各軸に低極/高極・target_section を付与。1軸をシナリオ領域に当てはめて20〜30バリエーション量産する生成テンプレートと、層化サンプリング方針、軸ごとの平均ポジション（傾向プロファイル）で比較する採点単位を規定。出題が毎回変わっても安定して比較できる設計。</div>
   </div>
 
   <div class="file-card">
@@ -231,7 +241,17 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">ペルソナ忠実度評価 answer key（被験者: mayo）</div>
-    <div class="file-detail">GDL_eval_questions.json への被験者ごとの回答・分類を分離格納するファイル。質問は普遍だが回答とsplit分類は個人ごとに異なるため別ファイル化。各質問IDに answer_predicted（既知情報からの想定回答=gold仮置き）、answer_actual（本人実回答=最終gold、収集後に記入）、split（in_gdl=GDL既出 / held_out=未出の汎化）を保持。In-GDL 10問 / Held-out 20問。status は predicted→confirmed で運用。</div>
+    <div class="file-detail">GDL_eval_questions.json への被験者ごとの回答・分類を分離格納するファイル。質問は普遍だが回答とsplit分類は個人ごとに異なるため別ファイル化。各質問IDに answer_predicted（既知情報からの想定回答=gold仮置き）、answer_actual（本人実回答=最終gold）、split（in_gdl/held_out）、predicted_hit（予測との照合 hit/partial/miss）を保持。v0.2(自由文30問)への回答記録＝予測的中率の答え合わせ履歴（25hit/2partial/3miss）。質問はv0.3に更新済みのため履歴扱い。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_key_mayo_v03.json">GDL_eval_key_mayo_v03.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 answer key v0.3（被験者: mayo）</div>
+    <div class="file-detail">GDL_eval_questions.json v0.3（ハイブリッド46問）への本人実回答。choice40問（選択キー）＋open6問（自由記述、v0.2流用）。46/46 confirmed。選択肢ランダム順化に伴い回答記号は意味単位で再マッピング済み。傾向プロファイル例：倫理1.00/思考1.00/対人0.94/メタ0.93/価値観0.93/感情0.80/美的0.72/文体0.30（全体平均0.83）＝思想は高極の探求者、文体は簡潔ミニマルという構造。</div>
   </div>
 
   <div class="file-card">

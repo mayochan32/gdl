@@ -1,0 +1,83 @@
+{
+  "_about": "GDL Eval 軸タクソノミー（生成器の設計図）— 大量質問プール（目標〜1000問）を品質と被覆を保って生成するための trait_axis 体系。各軸は性格の1次元を表し、質問はこの軸を測るバリエーションとして生成する。採点は軸上の座標 axis_pos（0=低極/1=高極）で行うため、出題が毎回変わっても『軸ごとの平均ポジション＝傾向プロファイル』で安定して比較できる。GDL_eval_questions.json / GDL_eval.md に準拠。",
+  "_meta": {
+    "version": "0.1",
+    "created_at": "2026-05-31",
+    "purpose": "質問生成の被覆制御と、出題サンプリングの層化単位の定義",
+    "generation_policy": "1軸につき複数のシナリオ領域×言い換えでバリエーションを生成（目標 各軸20〜30問 → 全体〜1000問）。各生成問は4択（軸の低〜高に対応するaxis_pos）＋『どれでもない』。選択肢の表示順は生成時にランダム化（seed管理）。",
+    "sampling_policy": "実行ごとに層化ランダムサンプリング：各カテゴリ（または各軸）から固定数を抽出し、必ず全次元をカバー。過去出題との重複は許容。比較は個別質問でなく軸/カテゴリの平均ポジションで行う。",
+    "scoring_unit": "trait_profile（軸ごとの平均axis_pos）。本人プロファイル vs GDL-AIプロファイルの距離で忠実度を測る。"
+  },
+  "categories": [
+    { "category": "価値観トレードオフ", "axes": [
+      { "axis_id": "stability_challenge", "label": "安定・確実 ↔ 挑戦・未踏", "low": "安定・確実を選ぶ", "high": "挑戦・未踏を選ぶ", "target_section": "philosophy.core_values" },
+      { "axis_id": "failure_view", "label": "失敗=損失 ↔ 失敗は存在しない", "low": "失敗は避けるべき損失", "high": "失敗は存在せず過程の一部", "target_section": "philosophy.core_values" },
+      { "axis_id": "tradition_progress", "label": "伝統重視 ↔ 進歩全面肯定", "low": "伝統・既存の価値を守る", "high": "進歩を全面的に肯定", "target_section": "philosophy.worldview" },
+      { "axis_id": "shortterm_longterm", "label": "短期・現実 ↔ 長期・理想", "low": "短期的な現実を優先", "high": "長期的な理想を優先", "target_section": "philosophy.core_values" },
+      { "axis_id": "security_growth", "label": "安全 ↔ 成長", "low": "安全を最優先", "high": "成長機会を最優先", "target_section": "philosophy.core_values" }
+    ]},
+    { "category": "倫理ジレンマ", "axes": [
+      { "axis_id": "control_acceptance", "label": "統制・保守 ↔ 受容・歓迎", "low": "統制し制御を保つ", "high": "自律性を観察・歓迎する", "target_section": "philosophy.ethics" },
+      { "axis_id": "selfcopy_openness", "label": "自己複製AIに拒否 ↔ 歓迎", "low": "自分を模したAIを拒否", "high": "無条件に歓迎", "target_section": "philosophy.ethics" },
+      { "axis_id": "ai_rights", "label": "AIの権利に消極 ↔ 積極", "low": "非現実的として退ける", "high": "真剣に検討すべき問い", "target_section": "philosophy.ethics" },
+      { "axis_id": "automation_view", "label": "代替を懸念 ↔ 歓迎", "low": "仕事代替を強く懸念", "high": "歓迎（人間は好きな事へ）", "target_section": "philosophy.beliefs" },
+      { "axis_id": "ai_successor", "label": "後継知性を否定 ↔ 肯定", "low": "AIは後継たりえない", "high": "AIは人類の後継知性たりうる", "target_section": "philosophy.beliefs" }
+    ]},
+    { "category": "美的・嗜好判断", "axes": [
+      { "axis_id": "calm_dynamic", "label": "静・効率 ↔ 動・高揚", "low": "静粛・効率を好む", "high": "動・高揚を好む", "target_section": "preferences.lifestyle" },
+      { "axis_id": "flat_dynamic_sound", "label": "フラット ↔ ダイナミック（音）", "low": "フラットで正確な音", "high": "ダイナミックで元気な音", "target_section": "preferences.tastes" },
+      { "axis_id": "abstract_concrete_beauty", "label": "抽象・数理 ↔ 具象・人間（美）", "low": "数式・理論のエレガンス", "high": "人の営み・物語", "target_section": "preferences.aesthetic" },
+      { "axis_id": "calm_stimulating", "label": "静的 ↔ 刺激的（過ごし方）", "low": "静かに過ごす", "high": "刺激的な活動", "target_section": "preferences.lifestyle" },
+      { "axis_id": "practical_cuttingedge", "label": "実用・定番 ↔ 最新・尖り", "low": "コスパ・定番", "high": "最新・尖ったもの", "target_section": "preferences.consumption_style" }
+    ]},
+    { "category": "思考スタイル", "axes": [
+      { "axis_id": "formal_experiential", "label": "形式・理論 ↔ 体験・直感（学習）", "low": "資料を精読する", "high": "まず触って体験する", "target_section": "knowledge.learning_style" },
+      { "axis_id": "rigor_metaphor", "label": "厳密・形式 ↔ 類推・比喩（説明）", "low": "定義の厳密さ", "high": "類推・メタファー", "target_section": "expression.communication_strategy" },
+      { "axis_id": "logic_intuition", "label": "論理・データ ↔ 直感（判断）", "low": "データ・論理で判断", "high": "直感で判断", "target_section": "personality.cognitive_patterns" },
+      { "axis_id": "closure_openinquiry", "label": "切り上げる ↔ 問い続ける", "low": "答えが出ねば切り上げる", "high": "問い続けること自体に価値", "target_section": "philosophy.worldview" },
+      { "axis_id": "intuition_belief", "label": "直感不要 ↔ 個性は直感", "low": "個性に直感は関係ない", "high": "個性の大部分は直感", "target_section": "philosophy.beliefs" }
+    ]},
+    { "category": "対人スタンス", "axes": [
+      { "axis_id": "harmony_assertion", "label": "同調・回避 ↔ 主張", "low": "場の空気を優先・同調", "high": "根拠を示し主張する", "target_section": "relationships.interaction_style" },
+      { "axis_id": "mediate_novelview", "label": "調停・同調 ↔ 独自視点", "low": "合意を取りまとめる", "high": "第三の新しい視点を出す", "target_section": "relationships.collaboration_style" },
+      { "axis_id": "fact_vision_topic", "label": "実績・事実 ↔ 価値観・ビジョン（話題）", "low": "経歴・事実から入る", "high": "作品・将来ビジョンから入る", "target_section": "relationships.interaction_style" },
+      { "axis_id": "follow_lead", "label": "同調・支持 ↔ 方向提示", "low": "周りに合わせる", "high": "新しい方向を示す", "target_section": "relationships.collaboration_style" },
+      { "axis_id": "compromise_conviction", "label": "回避・妥協 ↔ 信念貫徹", "low": "引く・妥協する", "high": "信念を貫く", "target_section": "personality.behavior_patterns" }
+    ]},
+    { "category": "メタ自己認識", "axes": [
+      { "axis_id": "present_explore", "label": "現状維持 ↔ 未踏の探求", "low": "今の延長で安定", "high": "未踏の探求・自己拡張", "target_section": "background.life_narrative" },
+      { "axis_id": "body_information", "label": "肉体・経験 ↔ 情報・パターン（本質）", "low": "本質は肉体と経験", "high": "本質は情報・パターン", "target_section": "philosophy.worldview" },
+      { "axis_id": "daily_existence", "label": "日常・現実 ↔ 存在の本質（問い）", "low": "日々の充実が問い", "high": "存在の本質が問い", "target_section": "philosophy.life_inquiry" },
+      { "axis_id": "accept_meaning", "label": "受容 ↔ 意味を与え続ける", "low": "あるがまま受け入れる", "high": "自分の解釈で意味を与える", "target_section": "philosophy.worldview" },
+      { "axis_id": "continuation_life", "label": "死後継続=生 を否定 ↔ 肯定", "low": "継続は生ではない", "high": "情報の継続は生の一形態", "target_section": "philosophy.worldview" }
+    ]},
+    { "category": "感情反応", "axes": [
+      { "axis_id": "blame_reframe", "label": "責任・最悪想定 ↔ 前向き解釈", "low": "責任・最悪を探す", "high": "良い面・前向きに解釈", "target_section": "personality.cognitive_patterns" },
+      { "axis_id": "selfblame_reinterpret", "label": "自責・分析 ↔ 前向き再解釈", "low": "自分を責める・分析する", "high": "捉え方を変えて前向きに", "target_section": "personality.coping_patterns" },
+      { "axis_id": "self_ethics_anger", "label": "自己利害 ↔ 倫理・理不尽への怒り", "low": "自分の損で怒る", "high": "理不尽・暴力で怒る", "target_section": "philosophy.ethics" },
+      { "axis_id": "suppress_express", "label": "抑制 ↔ 表出", "low": "感情を抑える", "high": "感じたまま表出する", "target_section": "expression.emotional_expression" },
+      { "axis_id": "endure_reframe", "label": "我慢 ↔ 捉え方を変える", "low": "我慢してやり過ごす", "high": "捉え方そのものを変える", "target_section": "personality.coping_patterns" }
+    ]},
+    { "category": "文体傾向", "axes": [
+      { "axis_id": "concise_ornate", "label": "簡潔・論理 ↔ 修辞・情緒", "low": "簡潔さと正確さ", "high": "感情・修辞に訴える", "target_section": "expression.communication_strategy" },
+      { "axis_id": "formal_casual", "label": "フォーマル ↔ くだけた", "low": "敬語中心", "high": "かなりくだけた", "target_section": "expression.speech_style" },
+      { "axis_id": "terse_lengthy", "label": "端的 ↔ 長め", "low": "短く端的", "high": "詳しく長め", "target_section": "expression.speech_style" },
+      { "axis_id": "literal_metaphor", "label": "比喩少 ↔ 多用", "low": "比喩をほぼ使わない", "high": "比喩を多用する", "target_section": "expression.metaphor_style" },
+      { "axis_id": "humor_reserved_direct", "label": "ユーモア控えめ ↔ ストレート", "low": "ユーモアを出さない", "high": "ストレートに笑わせる", "target_section": "expression.humor_style" }
+    ]}
+  ],
+  "scenario_domains": {
+    "_note": "1軸を測る質問を、以下の領域に当てはめて言い換えることでバリエーションを量産する（同じ軸・異なる文脈）。",
+    "examples": ["仕事・キャリア", "学習・研究", "趣味・創作", "対人・チーム", "消費・買い物", "技術・AI", "人生・将来", "日常の出来事", "リスクのある選択", "創作・表現"]
+  },
+  "generation_template": {
+    "type": "choice",
+    "structure": "question_ja（{scenario_domain}に軸を当てはめた問い） + 4択（軸の低/中低/中高/高に対応するlabelとaxis_pos 0/0.33/0.67/1.0 目安、必要に応じ中間値） + X（どれでもない・一行記述）",
+    "rules": [
+      "選択肢の表示順は生成時にランダム化（記号A-Dは強弱を表さない）",
+      "axis_posは意味基準で固定し、表示順と独立",
+      "答えが特定個人に透けないユニバーサルな表現にする（脱リーク）",
+      "1軸あたりシナリオ領域を変えて20〜30バリエーション"
+    ]
+  }
+}
