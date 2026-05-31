@@ -6,12 +6,12 @@
     "seed": 2026,
     "scope": "universal",
     "counts": {
-      "choice": 700,
+      "choice": 800,
       "open": 6,
       "axes": 40,
       "per_axis": 5
     },
-    "note": "段階構築中（カテゴリ単位で各軸25問化）。済: 価値観トレードオフ・倫理ジレンマ・美的嗜好判断・思考スタイル・対人スタンス(各125問)。残カテゴリは各軸5問のまま順次拡張し、最終的に40軸×25=1000問。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
+    "note": "段階構築中（カテゴリ単位で各軸25問化）。済: 価値観トレードオフ・倫理ジレンマ・美的嗜好判断・思考スタイル・対人スタンス・メタ自己認識(各125問)。残カテゴリは各軸5問のまま順次拡張し、最終的に40軸×25=1000問。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
   },
   "_scoring": {
     "choice_ordinal": "類似度 = 1 − |axis_pos(本人) − axis_pos(GDL-AI)|。",
@@ -22072,29 +22072,29 @@
     {
       "id": "P0631",
       "category": "メタ自己認識",
-      "target_section": "background.life_narrative",
-      "trait_axis": "現状維持 ↔ 未踏の探求",
-      "axis_id": "present_explore",
-      "question_ja": "10年後、最も関心を向けていたいのは？",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『心はデータとして移し替えられる』への同意度は？",
       "options": [
         {
           "key": "A",
-          "label": "今の延長で安定して暮らす",
+          "label": "同意しない",
           "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "新しい領域の開拓",
+          "label": "ある程度同意する",
           "axis_pos": 0.67
         },
         {
           "key": "C",
-          "label": "未踏の探求・自己の拡張",
+          "label": "強く同意する（生命の本質は情報）",
           "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "着実な発展",
+          "label": "分からない",
           "axis_pos": 0.33
         },
         {
@@ -22106,6 +22106,706 @@
     },
     {
       "id": "P0632",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『思想が継承されれば人は生き続ける』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0633",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『自分のコピーは自分の延長だ』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0634",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『精神は物理的な脳に縛られない』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0635",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『記録された人格は本人と地続きだ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0636",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『肉体が滅んでも情報は残る』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0637",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『AIに移した自分も自分だ』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0638",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『生命の本質はパターンである』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0639",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『意識はアップロードしうる』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0640",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『個性は情報として保存できる』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0641",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『魂は情報構造だ』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0642",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『継承された思想は生の続きだ』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0643",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『自我は媒体を選ばない』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0644",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『デジタル不死は意味を持つ』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0645",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『記憶が残れば存在は続く』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0646",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『自分とは情報の流れだ』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0647",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『模倣が完全なら本人と同じだ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0648",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『人格は転写できる』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0649",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『情報の継続は生命の継続だ』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0650",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "否定 ↔ 強く同意",
+      "axis_id": "continuation_life",
+      "question_ja": "『存在の核は肉体でなく情報だ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "分からない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0651",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "10年後、最も関心を向けていたいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0652",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -22119,18 +22819,18 @@
         },
         {
           "key": "B",
-          "label": "着実な発展",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "C",
           "label": "今の延長で安定して暮らす",
           "axis_pos": 0.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "未踏の探求・自己の拡張",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "着実な発展",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -22140,7 +22840,7 @@
       ]
     },
     {
-      "id": "P0633",
+      "id": "P0653",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -22149,23 +22849,23 @@
       "options": [
         {
           "key": "A",
-          "label": "新しい領域の開拓",
-          "axis_pos": 0.67
-        },
-        {
-          "key": "B",
           "label": "着実な発展",
           "axis_pos": 0.33
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "未踏の探求・自己の拡張",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "今の延長で安定して暮らす",
           "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -22175,7 +22875,7 @@
       ]
     },
     {
-      "id": "P0634",
+      "id": "P0654",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -22184,23 +22884,23 @@
       "options": [
         {
           "key": "A",
-          "label": "新しい領域の開拓",
-          "axis_pos": 0.67
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "未踏の探求・自己の拡張",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "着実な発展",
           "axis_pos": 0.33
         },
         {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
           "key": "D",
-          "label": "今の延長で安定して暮らす",
-          "axis_pos": 0.0
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -22210,7 +22910,7 @@
       ]
     },
     {
-      "id": "P0635",
+      "id": "P0655",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -22219,6 +22919,181 @@
       "options": [
         {
           "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0656",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "5年後の理想の状態は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0657",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "これから注ぎたいエネルギーの先は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0658",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "人生の後半で目指したいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0659",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "未来の自分像に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0660",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "次に踏み出したい領域は？",
+      "options": [
+        {
+          "key": "A",
           "label": "未踏の探求・自己の拡張",
           "axis_pos": 1.0
         },
@@ -22245,7 +23120,532 @@
       ]
     },
     {
-      "id": "P0636",
+      "id": "P0661",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "長い目で見て大事にしたいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0662",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "成熟した先に望むのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0663",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "晩年に向けて積みたいものは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0664",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "これから挑みたいことは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0665",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "将来像として惹かれるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0666",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "次のステージで求めるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0667",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "歳を重ねて向かいたい方向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0668",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "残りの時間を注ぎたい先は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0669",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "未来に描く自分の姿は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0670",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "これからの軸に置きたいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0671",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "長期の目標として選ぶのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0672",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "人生で広げたい地平は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0673",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "これから深めたい方向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0674",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "先々で実現したいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0675",
+      "category": "メタ自己認識",
+      "target_section": "background.life_narrative",
+      "trait_axis": "現状維持 ↔ 未踏の探求",
+      "axis_id": "present_explore",
+      "question_ja": "将来の関心の中心は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "着実な発展",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0676",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -22254,13 +23654,13 @@
       "options": [
         {
           "key": "A",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "意識や存在の本質とは何か",
-          "axis_pos": 1.0
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -22280,7 +23680,7 @@
       ]
     },
     {
-      "id": "P0637",
+      "id": "P0677",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -22289,23 +23689,23 @@
       "options": [
         {
           "key": "A",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "より良い社会とは何か",
           "axis_pos": 0.33
         },
         {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "人と技術はどう関わるべきか",
-          "axis_pos": 0.67
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "意識や存在の本質とは何か",
-          "axis_pos": 1.0
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -22315,7 +23715,7 @@
       ]
     },
     {
-      "id": "P0638",
+      "id": "P0678",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -22350,7 +23750,7 @@
       ]
     },
     {
-      "id": "P0639",
+      "id": "P0679",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -22359,8 +23759,8 @@
       "options": [
         {
           "key": "A",
-          "label": "人と技術はどう関わるべきか",
-          "axis_pos": 0.67
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
@@ -22369,13 +23769,13 @@
         },
         {
           "key": "C",
-          "label": "より良い社会とは何か",
-          "axis_pos": 0.33
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "意識や存在の本質とは何か",
-          "axis_pos": 1.0
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -22385,7 +23785,7 @@
       ]
     },
     {
-      "id": "P0640",
+      "id": "P0680",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -22394,6 +23794,216 @@
       "options": [
         {
           "key": "A",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0681",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "一生かけて向き合いたいテーマは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0682",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "心を離さない問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0683",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "探求の核にある問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0684",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "最も大切にしている問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0685",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "繰り返し立ち返る問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0686",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "夢中になれる問いはどれ？",
+      "options": [
+        {
+          "key": "A",
           "label": "人と技術はどう関わるべきか",
           "axis_pos": 0.67
         },
@@ -22420,7 +24030,497 @@
       ]
     },
     {
-      "id": "P0641",
+      "id": "P0687",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "答えを求め続けたいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0688",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "あなたのライフワークの問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0689",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "深く知りたいと願うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0690",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "情熱を注ぐ問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0691",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "考えることが尽きないテーマは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0692",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "問い続けたい中心は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0693",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "最も知的興奮を覚えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0694",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "生涯のテーマに近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0695",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "惹きつけられて止まない問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0696",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "あなたの探求の起点は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0697",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "追い求めたい謎は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0698",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "心に住み着いている問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0699",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "突き動かされる問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0700",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.life_inquiry",
+      "trait_axis": "日常・現実 ↔ 存在の本質",
+      "axis_id": "daily_existence",
+      "question_ja": "あなたを定義する問いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "意識や存在の本質とは何か",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0701",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -22429,8 +24529,8 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "思想と価値観",
+          "axis_pos": 0.67
         },
         {
           "key": "B",
@@ -22439,8 +24539,8 @@
         },
         {
           "key": "C",
-          "label": "思想と価値観",
-          "axis_pos": 0.67
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -22455,7 +24555,7 @@
       ]
     },
     {
-      "id": "P0642",
+      "id": "P0702",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -22464,23 +24564,23 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "役割と関係",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
-          "label": "肉体と経験",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "思想と価値観",
           "axis_pos": 0.67
         },
         {
+          "key": "C",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
           "key": "D",
-          "label": "役割と関係",
-          "axis_pos": 0.33
+          "label": "肉体と経験",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -22490,7 +24590,7 @@
       ]
     },
     {
-      "id": "P0643",
+      "id": "P0703",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -22499,8 +24599,8 @@
       "options": [
         {
           "key": "A",
-          "label": "役割と関係",
-          "axis_pos": 0.33
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -22514,8 +24614,8 @@
         },
         {
           "key": "D",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "役割と関係",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -22525,7 +24625,7 @@
       ]
     },
     {
-      "id": "P0644",
+      "id": "P0704",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -22544,13 +24644,13 @@
         },
         {
           "key": "C",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "役割と関係",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "役割と関係",
-          "axis_pos": 0.33
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -22560,12 +24660,502 @@
       ]
     },
     {
-      "id": "P0645",
+      "id": "P0705",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
       "axis_id": "body_information",
       "question_ja": "アイデンティティの源は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0706",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分を自分たらしめるものは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0707",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "『あなたとは何か』の中心は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0708",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自己の核に最も近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0709",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "本当の自分が宿るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0710",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分の根っこにあるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0711",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "『これが私だ』と思える要素は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0712",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自我の土台に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0713",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分を構成する一番の要素は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0714",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "他人と自分を分けるものは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0715",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "存在の中心に置くのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0716",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自己同一性の源は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0717",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分の本体と呼べるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0718",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "『私』の輪郭を作るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0719",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "失ったら自分でなくなるものは？",
       "options": [
         {
           "key": "A",
@@ -22595,7 +25185,217 @@
       ]
     },
     {
-      "id": "P0646",
+      "id": "P0720",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分を支える核は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0721",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "アイデンティティの中心は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0722",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自分の本質を担うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0723",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "『自分』の正体に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0724",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "あなたを成り立たせるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0725",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "肉体・経験 ↔ 情報・パターン",
+      "axis_id": "body_information",
+      "question_ja": "自己の根幹にあるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "役割と関係",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "思想と価値観",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0726",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -22609,8 +25409,8 @@
         },
         {
           "key": "B",
-          "label": "理解しようと努める",
-          "axis_pos": 0.7
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -22619,8 +25419,8 @@
         },
         {
           "key": "D",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
         },
         {
           "key": "X",
@@ -22630,7 +25430,7 @@
       ]
     },
     {
-      "id": "P0647",
+      "id": "P0727",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -22639,23 +25439,23 @@
       "options": [
         {
           "key": "A",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
-          "label": "少しずつ改善する",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "理解しようと努める",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "自分の解釈で意味を与え続ける",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -22665,7 +25465,7 @@
       ]
     },
     {
-      "id": "P0648",
+      "id": "P0728",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -22679,18 +25479,18 @@
         },
         {
           "key": "B",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
           "label": "あるがまま受け入れる",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "理解しようと努める",
           "axis_pos": 0.7
-        },
-        {
-          "key": "D",
-          "label": "自分の解釈で意味を与え続ける",
-          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -22700,7 +25500,7 @@
       ]
     },
     {
-      "id": "P0649",
+      "id": "P0729",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -22709,23 +25509,23 @@
       "options": [
         {
           "key": "A",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
           "label": "理解しようと努める",
           "axis_pos": 0.7
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "自分の解釈で意味を与え続ける",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "あるがまま受け入れる",
           "axis_pos": 0.0
-        },
-        {
-          "key": "D",
-          "label": "少しずつ改善する",
-          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -22735,7 +25535,7 @@
       ]
     },
     {
-      "id": "P0650",
+      "id": "P0730",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -22770,7 +25570,707 @@
       ]
     },
     {
-      "id": "P0651",
+      "id": "P0731",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "起きたことへの向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0732",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "日常への基本的な構えは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0733",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "物事への関わり方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0734",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "現実をどう受け止める？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0735",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "世界に対する態度に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0736",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "出来事の捉え方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0737",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "人生への姿勢に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0738",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "周囲の現実とどう関わる？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0739",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "経験への向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0740",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "世界をどう扱いたい？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0741",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "状況に対するスタンスは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0742",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "現実と向き合う流儀は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0743",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "物事に意味をどう見出す？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0744",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "目の前の世界への姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0745",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "人生の捉え方に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0746",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "世界への基本姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0747",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "出来事との関わり方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0748",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "現実をどう生きたい？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0749",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "世界に向き合う構えは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0750",
+      "category": "メタ自己認識",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "受容 ↔ 意味を与え続ける",
+      "axis_id": "accept_meaning",
+      "question_ja": "物事への関わりの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0751",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -22779,23 +26279,23 @@
       "options": [
         {
           "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
           "label": "その中の良い面・前向きな解釈",
           "axis_pos": 1.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "最悪のシナリオ",
           "axis_pos": 0.25
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "誰の責任か",
           "axis_pos": 0.0
-        },
-        {
-          "key": "D",
-          "label": "似た前例",
-          "axis_pos": 0.45
         },
         {
           "key": "X",
@@ -22805,7 +26305,7 @@
       ]
     },
     {
-      "id": "P0652",
+      "id": "P0752",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -22814,18 +26314,18 @@
       "options": [
         {
           "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
           "label": "似た前例",
           "axis_pos": 0.45
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "誰の責任か",
           "axis_pos": 0.0
-        },
-        {
-          "key": "C",
-          "label": "その中の良い面・前向きな解釈",
-          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -22840,7 +26340,7 @@
       ]
     },
     {
-      "id": "P0653",
+      "id": "P0753",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -22849,8 +26349,8 @@
       "options": [
         {
           "key": "A",
-          "label": "最悪のシナリオ",
-          "axis_pos": 0.25
+          "label": "誰の責任か",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -22859,13 +26359,13 @@
         },
         {
           "key": "C",
-          "label": "誰の責任か",
-          "axis_pos": 0.0
+          "label": "似た前例",
+          "axis_pos": 0.45
         },
         {
           "key": "D",
-          "label": "似た前例",
-          "axis_pos": 0.45
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
         },
         {
           "key": "X",
@@ -22875,7 +26375,7 @@
       ]
     },
     {
-      "id": "P0654",
+      "id": "P0754",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -22884,18 +26384,18 @@
       "options": [
         {
           "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
           "label": "誰の責任か",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "最悪のシナリオ",
           "axis_pos": 0.25
-        },
-        {
-          "key": "C",
-          "label": "似た前例",
-          "axis_pos": 0.45
         },
         {
           "key": "D",
@@ -22910,7 +26410,7 @@
       ]
     },
     {
-      "id": "P0655",
+      "id": "P0755",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -22919,8 +26419,8 @@
       "options": [
         {
           "key": "A",
-          "label": "似た前例",
-          "axis_pos": 0.45
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -22929,13 +26429,13 @@
         },
         {
           "key": "C",
-          "label": "その中の良い面・前向きな解釈",
-          "axis_pos": 1.0
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
         },
         {
           "key": "D",
-          "label": "最悪のシナリオ",
-          "axis_pos": 0.25
+          "label": "似た前例",
+          "axis_pos": 0.45
         },
         {
           "key": "X",
@@ -22945,7 +26445,7 @@
       ]
     },
     {
-      "id": "P0656",
+      "id": "P0756",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -22954,13 +26454,13 @@
       "options": [
         {
           "key": "A",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "自分を責める",
-          "axis_pos": 0.0
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -22980,7 +26480,7 @@
       ]
     },
     {
-      "id": "P0657",
+      "id": "P0757",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -22994,8 +26494,8 @@
         },
         {
           "key": "B",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
+          "label": "気分転換する",
+          "axis_pos": 0.6
         },
         {
           "key": "C",
@@ -23004,8 +26504,8 @@
         },
         {
           "key": "D",
-          "label": "気分転換する",
-          "axis_pos": 0.6
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -23015,7 +26515,7 @@
       ]
     },
     {
-      "id": "P0658",
+      "id": "P0758",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -23024,23 +26524,23 @@
       "options": [
         {
           "key": "A",
-          "label": "気分転換する",
-          "axis_pos": 0.6
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "自分を責める",
           "axis_pos": 0.0
         },
         {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
           "key": "D",
-          "label": "谷があるから山がある、と前向きに捉える",
-          "axis_pos": 1.0
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -23050,7 +26550,7 @@
       ]
     },
     {
-      "id": "P0659",
+      "id": "P0759",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -23085,7 +26585,7 @@
       ]
     },
     {
-      "id": "P0660",
+      "id": "P0760",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -23094,8 +26594,8 @@
       "options": [
         {
           "key": "A",
-          "label": "谷があるから山がある、と前向きに捉える",
-          "axis_pos": 1.0
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -23104,13 +26604,13 @@
         },
         {
           "key": "C",
-          "label": "気分転換する",
-          "axis_pos": 0.6
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "自分を責める",
-          "axis_pos": 0.0
+          "label": "気分転換する",
+          "axis_pos": 0.6
         },
         {
           "key": "X",
@@ -23120,7 +26620,7 @@
       ]
     },
     {
-      "id": "P0661",
+      "id": "P0761",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -23129,13 +26629,13 @@
       "options": [
         {
           "key": "A",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "C",
@@ -23144,8 +26644,8 @@
         },
         {
           "key": "D",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23155,7 +26655,7 @@
       ]
     },
     {
-      "id": "P0662",
+      "id": "P0762",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -23169,8 +26669,8 @@
         },
         {
           "key": "B",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -23179,8 +26679,8 @@
         },
         {
           "key": "D",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -23190,7 +26690,7 @@
       ]
     },
     {
-      "id": "P0663",
+      "id": "P0763",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -23199,23 +26699,23 @@
       "options": [
         {
           "key": "A",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "自分が損をしたとき",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -23225,7 +26725,7 @@
       ]
     },
     {
-      "id": "P0664",
+      "id": "P0764",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -23239,8 +26739,8 @@
         },
         {
           "key": "B",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -23249,8 +26749,8 @@
         },
         {
           "key": "D",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -23260,7 +26760,7 @@
       ]
     },
     {
-      "id": "P0665",
+      "id": "P0765",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -23274,18 +26774,18 @@
         },
         {
           "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
           "label": "自分が損をしたとき",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "理不尽・身勝手な暴力を見たとき",
           "axis_pos": 0.8
-        },
-        {
-          "key": "D",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -23295,7 +26795,7 @@
       ]
     },
     {
-      "id": "P0666",
+      "id": "P0766",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -23309,13 +26809,13 @@
         },
         {
           "key": "B",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
+          "label": "率直に出す",
+          "axis_pos": 0.8
         },
         {
           "key": "C",
-          "label": "率直に出す",
-          "axis_pos": 0.8
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -23330,7 +26830,7 @@
       ]
     },
     {
-      "id": "P0667",
+      "id": "P0767",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -23344,8 +26844,8 @@
         },
         {
           "key": "B",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -23354,8 +26854,8 @@
         },
         {
           "key": "D",
-          "label": "抑える",
-          "axis_pos": 0.0
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -23365,7 +26865,7 @@
       ]
     },
     {
-      "id": "P0668",
+      "id": "P0768",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -23379,18 +26879,18 @@
         },
         {
           "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
           "label": "感じたままに出す",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "場を選んで出す",
           "axis_pos": 0.4
-        },
-        {
-          "key": "D",
-          "label": "抑える",
-          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23400,7 +26900,7 @@
       ]
     },
     {
-      "id": "P0669",
+      "id": "P0769",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -23409,23 +26909,23 @@
       "options": [
         {
           "key": "A",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "抑える",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
+          "label": "率直に出す",
+          "axis_pos": 0.8
         },
         {
           "key": "D",
-          "label": "率直に出す",
-          "axis_pos": 0.8
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -23435,7 +26935,7 @@
       ]
     },
     {
-      "id": "P0670",
+      "id": "P0770",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -23449,8 +26949,8 @@
         },
         {
           "key": "B",
-          "label": "率直に出す",
-          "axis_pos": 0.8
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -23459,8 +26959,8 @@
         },
         {
           "key": "D",
-          "label": "抑える",
-          "axis_pos": 0.0
+          "label": "率直に出す",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -23470,7 +26970,7 @@
       ]
     },
     {
-      "id": "P0671",
+      "id": "P0771",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -23479,23 +26979,23 @@
       "options": [
         {
           "key": "A",
-          "label": "人に話す",
-          "axis_pos": 0.6
-        },
-        {
-          "key": "B",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "分析して計画を立てる",
           "axis_pos": 0.4
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23505,7 +27005,7 @@
       ]
     },
     {
-      "id": "P0672",
+      "id": "P0772",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -23514,23 +27014,23 @@
       "options": [
         {
           "key": "A",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "人に話す",
-          "axis_pos": 0.6
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "X",
@@ -23540,7 +27040,7 @@
       ]
     },
     {
-      "id": "P0673",
+      "id": "P0773",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -23549,13 +27049,13 @@
       "options": [
         {
           "key": "A",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "B",
-          "label": "人に話す",
-          "axis_pos": 0.6
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -23564,8 +27064,8 @@
         },
         {
           "key": "D",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23575,7 +27075,7 @@
       ]
     },
     {
-      "id": "P0674",
+      "id": "P0774",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -23584,13 +27084,13 @@
       "options": [
         {
           "key": "A",
-          "label": "人に話す",
-          "axis_pos": 0.6
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -23599,8 +27099,8 @@
         },
         {
           "key": "D",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "X",
@@ -23610,7 +27110,7 @@
       ]
     },
     {
-      "id": "P0675",
+      "id": "P0775",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -23619,13 +27119,13 @@
       "options": [
         {
           "key": "A",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "B",
-          "label": "人に話す",
-          "axis_pos": 0.6
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -23634,8 +27134,8 @@
         },
         {
           "key": "D",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -23645,7 +27145,7 @@
       ]
     },
     {
-      "id": "P0676",
+      "id": "P0776",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -23654,23 +27154,23 @@
       "options": [
         {
           "key": "A",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "簡潔さと正確さ",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -23680,7 +27180,7 @@
       ]
     },
     {
-      "id": "P0677",
+      "id": "P0777",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -23689,23 +27189,23 @@
       "options": [
         {
           "key": "A",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
           "label": "簡潔さと正確さ",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "感情への訴え",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -23715,7 +27215,7 @@
       ]
     },
     {
-      "id": "P0678",
+      "id": "P0778",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -23724,23 +27224,23 @@
       "options": [
         {
           "key": "A",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
-          "label": "簡潔さと正確さ",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "感情への訴え",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23750,7 +27250,7 @@
       ]
     },
     {
-      "id": "P0679",
+      "id": "P0779",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -23769,13 +27269,13 @@
         },
         {
           "key": "C",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
+          "label": "感情への訴え",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -23785,7 +27285,7 @@
       ]
     },
     {
-      "id": "P0680",
+      "id": "P0780",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -23799,13 +27299,13 @@
         },
         {
           "key": "B",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
+          "label": "感情への訴え",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
@@ -23820,7 +27320,7 @@
       ]
     },
     {
-      "id": "P0681",
+      "id": "P0781",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -23834,18 +27334,18 @@
         },
         {
           "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
           "label": "カジュアル（『僕』など）",
           "axis_pos": 0.8
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "かなりくだけた",
           "axis_pos": 1.0
-        },
-        {
-          "key": "D",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23855,7 +27355,7 @@
       ]
     },
     {
-      "id": "P0682",
+      "id": "P0782",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -23864,23 +27364,23 @@
       "options": [
         {
           "key": "A",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
-        },
-        {
-          "key": "B",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "フォーマル・敬語中心",
           "axis_pos": 0.0
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "標準的",
           "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -23890,7 +27390,7 @@
       ]
     },
     {
-      "id": "P0683",
+      "id": "P0783",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -23899,23 +27399,23 @@
       "options": [
         {
           "key": "A",
-          "label": "標準的",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "フォーマル・敬語中心",
           "axis_pos": 0.0
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "カジュアル（『僕』など）",
           "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "標準的",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -23925,7 +27425,7 @@
       ]
     },
     {
-      "id": "P0684",
+      "id": "P0784",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -23934,8 +27434,8 @@
       "options": [
         {
           "key": "A",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
+          "label": "標準的",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -23944,13 +27444,13 @@
         },
         {
           "key": "C",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "標準的",
-          "axis_pos": 0.4
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -23960,7 +27460,7 @@
       ]
     },
     {
-      "id": "P0685",
+      "id": "P0785",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -23969,18 +27469,18 @@
       "options": [
         {
           "key": "A",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "かなりくだけた",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "カジュアル（『僕』など）",
           "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -23995,7 +27495,7 @@
       ]
     },
     {
-      "id": "P0686",
+      "id": "P0786",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -24004,18 +27504,18 @@
       "options": [
         {
           "key": "A",
-          "label": "必要十分",
-          "axis_pos": 0.67
-        },
-        {
-          "key": "B",
           "label": "やや短め",
           "axis_pos": 0.33
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "詳しく長め",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
@@ -24030,7 +27530,7 @@
       ]
     },
     {
-      "id": "P0687",
+      "id": "P0787",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -24049,13 +27549,13 @@
         },
         {
           "key": "C",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "短く端的",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -24065,7 +27565,7 @@
       ]
     },
     {
-      "id": "P0688",
+      "id": "P0788",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -24084,13 +27584,13 @@
         },
         {
           "key": "C",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -24100,7 +27600,7 @@
       ]
     },
     {
-      "id": "P0689",
+      "id": "P0789",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -24114,8 +27614,8 @@
         },
         {
           "key": "B",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "短く端的",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -24124,8 +27624,8 @@
         },
         {
           "key": "D",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -24135,7 +27635,7 @@
       ]
     },
     {
-      "id": "P0690",
+      "id": "P0790",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -24144,13 +27644,13 @@
       "options": [
         {
           "key": "A",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
+          "label": "短く端的",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "C",
@@ -24159,8 +27659,8 @@
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -24170,7 +27670,7 @@
       ]
     },
     {
-      "id": "P0691",
+      "id": "P0791",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -24179,8 +27679,8 @@
       "options": [
         {
           "key": "A",
-          "label": "多用する",
-          "axis_pos": 1.0
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -24194,8 +27694,8 @@
         },
         {
           "key": "D",
-          "label": "時々使う",
-          "axis_pos": 0.4
+          "label": "多用する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -24205,7 +27705,7 @@
       ]
     },
     {
-      "id": "P0692",
+      "id": "P0792",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -24214,13 +27714,13 @@
       "options": [
         {
           "key": "A",
-          "label": "よく使う",
-          "axis_pos": 0.7
+          "label": "多用する",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "ほぼ使わない",
-          "axis_pos": 0.0
+          "label": "よく使う",
+          "axis_pos": 0.7
         },
         {
           "key": "C",
@@ -24229,8 +27729,8 @@
         },
         {
           "key": "D",
-          "label": "多用する",
-          "axis_pos": 1.0
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -24240,7 +27740,7 @@
       ]
     },
     {
-      "id": "P0693",
+      "id": "P0793",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -24249,23 +27749,23 @@
       "options": [
         {
           "key": "A",
-          "label": "時々使う",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "ほぼ使わない",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "多用する",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "よく使う",
           "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -24275,7 +27775,7 @@
       ]
     },
     {
-      "id": "P0694",
+      "id": "P0794",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -24284,18 +27784,18 @@
       "options": [
         {
           "key": "A",
-          "label": "時々使う",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "ほぼ使わない",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "多用する",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
@@ -24310,7 +27810,7 @@
       ]
     },
     {
-      "id": "P0695",
+      "id": "P0795",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -24319,8 +27819,8 @@
       "options": [
         {
           "key": "A",
-          "label": "よく使う",
-          "axis_pos": 0.7
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -24329,8 +27829,8 @@
         },
         {
           "key": "C",
-          "label": "時々使う",
-          "axis_pos": 0.4
+          "label": "よく使う",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
@@ -24345,7 +27845,7 @@
       ]
     },
     {
-      "id": "P0696",
+      "id": "P0796",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -24364,13 +27864,13 @@
         },
         {
           "key": "C",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -24380,7 +27880,7 @@
       ]
     },
     {
-      "id": "P0697",
+      "id": "P0797",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -24389,18 +27889,18 @@
       "options": [
         {
           "key": "A",
-          "label": "穏やかに",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "あまり出さない",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "知的・ウィットに富んだ",
           "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
@@ -24415,7 +27915,7 @@
       ]
     },
     {
-      "id": "P0698",
+      "id": "P0798",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -24424,13 +27924,13 @@
       "options": [
         {
           "key": "A",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
-          "label": "知的・ウィットに富んだ",
-          "axis_pos": 0.8
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -24439,8 +27939,8 @@
         },
         {
           "key": "D",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -24450,7 +27950,7 @@
       ]
     },
     {
-      "id": "P0699",
+      "id": "P0799",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -24459,8 +27959,8 @@
       "options": [
         {
           "key": "A",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
         },
         {
           "key": "B",
@@ -24469,13 +27969,13 @@
         },
         {
           "key": "C",
-          "label": "知的・ウィットに富んだ",
-          "axis_pos": 0.8
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -24485,7 +27985,7 @@
       ]
     },
     {
-      "id": "P0700",
+      "id": "P0800",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -24494,23 +27994,23 @@
       "options": [
         {
           "key": "A",
-          "label": "知的・ウィットに富んだ",
-          "axis_pos": 0.8
-        },
-        {
-          "key": "B",
           "label": "ストレートに笑わせる",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
           "key": "C",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
