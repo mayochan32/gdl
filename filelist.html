@@ -422,6 +422,35 @@
 
   <div class="file-card">
     <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPTs_prompt.md">gpts/PTT_GPTs_prompt.md</a>
+      <span class="tag tag-doc">GPTs</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト GPTs システムプロンプト（v1・軸A）</div>
+    <div class="file-detail">GDL-AIの本人再現度をA/B/C比較で測るGPTsのInstructions全文。A=GDL無しの素のAI（床）、B=GDL有りのAI、C=人間本人（gold）。汚染防止の核は「GDLはファイル添付のみ・Bフェーズまで開かない（Code Interpreterではファイルは開くまで文脈に入らないためAがクリーンになる）」とA→B→C順序厳守。Code Interpreterで ptt_scorer.py を実行し採点、チャットレポート＋result.json＋report.md を出力。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/ptt_scorer.py">gpts/ptt_scorer.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト 採点エンジン（GPTs同梱・依存なし）</div>
+    <div class="file-detail">GPTsのKnowledgeに同梱しCode Interpreterで実行する採点コア（標準ライブラリのみ）。sample（1000問プールから各軸n問を層化抽出してA/B/C共通の出題サブセット作成）、score（axis_pos距離でsim(A,C)・sim(B,C)・GDL Fidelity Score=(simBC−simAC)/(天井−simAC)・カテゴリ別・傾向プロファイルを算出）、to_markdown（レポート生成）。採点はaxis_pos基準でLLMの暗算に依存しない。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/README.md">gpts/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト GPTs 運用手順</div>
+    <div class="file-detail">GPTの作り方（Instructions貼付・Code Interpreter ON・Knowledgeに2ファイル）、被験者の使い方（GDLをファイル添付→開始→80問回答→レポート）、汚染防止の仕組み、既知の限界（1回実施・天井1.0近似・軸B未対応）、ローカル検証コマンドを記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
       <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/build_schemas.js">build_schemas.js</a>
       <span class="tag tag-tool">Tool</span>
     </div>
