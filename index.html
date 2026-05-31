@@ -301,6 +301,7 @@
       <a href="#schema" data-i18n="nav.schema">スキーマ</a>
       <a href="#levels" data-i18n="nav.levels">詳細度</a>
       <a href="#sample" data-i18n="nav.sample">サンプル</a>
+      <a href="#eval" data-i18n="nav.eval">評価</a>
       <a href="input.html" data-i18n="nav.form">入力フォーム →</a>
     </div>
     <div class="lang-switch">
@@ -541,6 +542,46 @@
 
 <hr class="divider" />
 
+<!-- EVAL -->
+<section id="eval">
+  <div class="section-tag">Evaluation</div>
+  <h2 data-i18n="eval.title">ペルソナ チューリングテスト</h2>
+  <p class="section-desc" data-i18n="eval.desc">
+    「個性を記述できた」ことと「AIが本当にその人らしく振る舞う」ことは別問題。GDLには、再現の忠実度を定量的に測定する評価フレームワークがあります。
+  </p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(91,140,255,0.12);">🎭</div>
+      <h3 data-i18n="eval.card1_title">軸A：同一性</h3>
+      <p data-i18n="eval.card1_desc">本人とGDL-AIの回答を並べ、本人をよく知る人に「どちらが本物か」を当てさせる。正答率が50%に近いほど区別不能＝高再現。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(124,92,252,0.12);">🤖</div>
+      <h3 data-i18n="eval.card2_title">軸B：人間かAIか</h3>
+      <p data-i18n="eval.card2_desc">内容が似ていても、AI特有の癖が出れば「その人らしい」とは言えない。『ブレードランナー』の検査のように、AIだと露呈しないかを測る。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(62,207,142,0.12);">📊</div>
+      <h3 data-i18n="eval.card3_title">GDL Fidelity Score</h3>
+      <p data-i18n="eval.card3_desc">生スコアは無意味。素のAI（床）と本人の再現性（天井）の間で正規化し、GDLがどれだけ効いているかを一つの指標にする。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(245,166,35,0.12);">🧪</div>
+      <h3 data-i18n="eval.card4_title">ハイブリッド質問＋ハーネス</h3>
+      <p data-i18n="eval.card4_desc">選択式（性格軸の座標で傾向を採点）と自由記述を組み合わせ、Python製の評価ハーネスで自動採点。GDL改善のループを回す。</p>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:2rem;">
+    <a href="GDL_eval.md" class="btn btn-primary" style="font-size:0.95rem; padding:0.9rem 1.5rem;">
+      📄 <span data-i18n="eval.btn">評価仕様を読む（GDL_eval.md）</span>
+    </a>
+  </div>
+</section>
+
+<hr class="divider" />
+
 <!-- CTA -->
 <div class="cta-section">
   <div class="section-tag" style="text-align:center;">Try it now</div>
@@ -599,6 +640,7 @@ const I18N = {
     "nav.schema": "スキーマ",
     "nav.levels": "詳細度",
     "nav.sample": "サンプル",
+    "nav.eval": "評価",
     "nav.form": "入力フォーム →",
     // hero
     "hero.title": '人の<span>個性</span>を、<br>データ化する。',
@@ -658,6 +700,18 @@ const I18N = {
     // sample
     "sample.title": "GDL サンプル（Lv1）",
     "sample.desc": "最小構成のGDLデータです。このJSONをAIに渡すだけでパーソナライズが始まります。",
+    // eval
+    "eval.title": "ペルソナ チューリングテスト",
+    "eval.desc": "「個性を記述できた」ことと「AIが本当にその人らしく振る舞う」ことは別問題。GDLには、再現の忠実度を定量的に測定する評価フレームワークがあります。",
+    "eval.card1_title": "軸A：同一性",
+    "eval.card1_desc": "本人とGDL-AIの回答を並べ、本人をよく知る人に「どちらが本物か」を当てさせる。正答率が50%に近いほど区別不能＝高再現。",
+    "eval.card2_title": "軸B：人間かAIか",
+    "eval.card2_desc": "内容が似ていても、AI特有の癖が出れば「その人らしい」とは言えない。『ブレードランナー』の検査のように、AIだと露呈しないかを測る。",
+    "eval.card3_title": "GDL Fidelity Score",
+    "eval.card3_desc": "生スコアは無意味。素のAI（床）と本人の再現性（天井）の間で正規化し、GDLがどれだけ効いているかを一つの指標にする。",
+    "eval.card4_title": "ハイブリッド質問＋ハーネス",
+    "eval.card4_desc": "選択式（性格軸の座標で傾向を採点）と自由記述を組み合わせ、Python製の評価ハーネスで自動採点。GDL改善のループを回す。",
+    "eval.btn": "評価仕様を読む（GDL_eval.md）",
     // cta
     "cta.title": "あなたのGDLを作ろう",
     "cta.subtitle": "2つの方法から、あなたに合った作り方を選べます。",
@@ -683,6 +737,7 @@ const I18N = {
     "nav.schema": "Schema",
     "nav.levels": "Levels",
     "nav.sample": "Sample",
+    "nav.eval": "Evaluation",
     "nav.form": "Input Form →",
     "hero.title": 'Encode Human<br><span>Individuality</span><br>as Data.',
     "hero.sub": 'Philosophy, values, personality, memories — digitize everything that makes you <em>you</em>.<br>Reproduce your authentic self.',
@@ -736,6 +791,17 @@ const I18N = {
     "levels.lv3_desc": "Deep personality reproduction including life context, contradictions, and inner conflicts.",
     "sample.title": "GDL Sample (Lv1)",
     "sample.desc": "A minimal GDL dataset. Just pass this JSON to an AI and personalization begins.",
+    "eval.title": "Persona Turing Test",
+    "eval.desc": "Describing a personality is not the same as an AI truly acting like that person. GDL includes an evaluation framework that quantifies how faithfully the persona is reproduced.",
+    "eval.card1_title": "Axis A: Identity",
+    "eval.card1_desc": "Place the person's and the GDL-AI's answers side by side and ask someone who knows them to pick the real one. The closer to 50% (chance), the more indistinguishable — i.e., high fidelity.",
+    "eval.card2_title": "Axis B: Human or AI",
+    "eval.card2_desc": "Even with matching content, AI tells give it away. Like the test in Blade Runner, we measure whether it fails to pass as human.",
+    "eval.card3_title": "GDL Fidelity Score",
+    "eval.card3_desc": "Raw scores are meaningless. We normalize between a plain AI (floor) and the person's own consistency (ceiling) into a single measure of how much GDL helps.",
+    "eval.card4_title": "Hybrid Questions + Harness",
+    "eval.card4_desc": "Multiple-choice (graded by trait-axis coordinates) plus free text, auto-scored by a Python harness — closing the loop for GDL improvement.",
+    "eval.btn": "Read the Eval Spec (GDL_eval.md)",
     "cta.title": "Create Your GDL",
     "cta.subtitle": "Choose the method that suits you best.",
     "cta.form_title": "Answer Questions",
@@ -759,6 +825,7 @@ const I18N = {
     "nav.schema": "架构",
     "nav.levels": "详细度",
     "nav.sample": "示例",
+    "nav.eval": "评估",
     "nav.form": "输入表单 →",
     "hero.title": '将人的<span>个性</span>，<br>数据化。',
     "hero.sub": '思想、价值观、性格、记忆——将构成"你"的一切数据化。<br>再现独属于你的特质。',
@@ -812,6 +879,17 @@ const I18N = {
     "levels.lv3_desc": "包含人生背景、矛盾和内心冲突的深层人格再现。深层心理、形成史、内在对立。",
     "sample.title": "GDL 示例（Lv1）",
     "sample.desc": "最小构成的GDL数据。只需将此JSON传递给AI，个性化即刻开始。",
+    "eval.title": "人格图灵测试",
+    "eval.desc": "“能够描述个性”与“AI真正像那个人一样行动”是两回事。GDL提供了一套量化再现忠实度的评估框架。",
+    "eval.card1_title": "维度A：同一性",
+    "eval.card1_desc": "将本人与GDL-AI的回答并列，让熟悉本人的人判断“哪个是真的”。正确率越接近50%（随机水平）越无法区分＝高再现。",
+    "eval.card2_title": "维度B：人还是AI",
+    "eval.card2_desc": "即使内容相似，若露出AI特有的痕迹也算不上“像那个人”。如同《银翼杀手》的测试，衡量是否会暴露为AI。",
+    "eval.card3_title": "GDL Fidelity Score",
+    "eval.card3_desc": "原始分数没有意义。在普通AI（下限）与本人自身一致性（上限）之间归一化，得出GDL效果的单一指标。",
+    "eval.card4_title": "混合题型＋评分工具",
+    "eval.card4_desc": "选择题（按性格轴坐标进行倾向评分）与自由作答相结合，由Python评分工具自动评分，驱动GDL改进的闭环。",
+    "eval.btn": "阅读评估规范（GDL_eval.md）",
     "cta.title": "创建你的GDL",
     "cta.subtitle": "两种方式，选择适合你的。",
     "cta.form_title": "回答问题创建",
