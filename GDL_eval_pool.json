@@ -1,17 +1,17 @@
 {
   "_about": "GDL Eval 質問プール（生成物）— GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開。各軸5問×40=200問の選択式＋自由記述6問。層化ランダムサンプリングで毎回の出題を抽出して使う。",
   "_meta": {
-    "version": "0.5-pool-v2",
+    "version": "1.0-pool-full",
     "generated_by": "GDL_eval_gen.py",
     "seed": 2026,
     "scope": "universal",
     "counts": {
-      "choice": 800,
+      "choice": 1000,
       "open": 6,
       "axes": 40,
       "per_axis": 5
     },
-    "note": "段階構築中（カテゴリ単位で各軸25問化）。済: 価値観トレードオフ・倫理ジレンマ・美的嗜好判断・思考スタイル・対人スタンス・メタ自己認識(各125問)。残カテゴリは各軸5問のまま順次拡張し、最終的に40軸×25=1000問。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
+    "note": "全8カテゴリ完成：40軸×25問=1000問。層化ランダムサンプリングで毎回の出題を抽出。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
   },
   "_scoring": {
     "choice_ordinal": "類似度 = 1 − |axis_pos(本人) − axis_pos(GDL-AI)|。",
@@ -26310,7 +26310,7 @@
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
       "axis_id": "blame_reframe",
-      "question_ja": "トラブル発生時にまず考えるのは？",
+      "question_ja": "想定外のことが起きたとき、まず向かう思考は？",
       "options": [
         {
           "key": "A",
@@ -26345,7 +26345,7 @@
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
       "axis_id": "blame_reframe",
-      "question_ja": "悪い知らせを受けたら何を思う？",
+      "question_ja": "知らせを受けて最初に浮かぶのは？",
       "options": [
         {
           "key": "A",
@@ -26380,7 +26380,7 @@
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
       "axis_id": "blame_reframe",
-      "question_ja": "計画が狂ったとき最初に向かう思考は？",
+      "question_ja": "計画が変わったとき最初に考えるのは？",
       "options": [
         {
           "key": "A",
@@ -26447,6 +26447,706 @@
     {
       "id": "P0756",
       "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "急な変化に直面したとき最初に思うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0757",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "予想と違う展開で最初に着目するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0758",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "ハプニングのとき最初に探すのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0759",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "状況が変わったとき真っ先に考えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0760",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "突然の出来事への第一の思考は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0761",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "番狂わせのとき最初に向くのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0762",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "想定が崩れたとき最初に探すのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0763",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "サプライズな事態で最初に思うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0764",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "流れが変わったとき最初に考えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0765",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "予期せぬ報せに最初に向かうのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "B",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0766",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "想定外の連絡で最初に浮かぶのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0767",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "段取りが崩れたとき最初に探すのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0768",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "不意の事態への最初の着眼は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0769",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "想定と違ったとき最初に考えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0770",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "予想外の結果に最初に向くのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0771",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "急展開のとき最初に探すのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "B",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0772",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "思いがけない事態への第一反応は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0773",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "計画外のことが起きたとき最初に思うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "D",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0774",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "想定を外れたとき最初に着目するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "C",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0775",
+      "category": "感情反応",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
+      "axis_id": "blame_reframe",
+      "question_ja": "予期しない知らせへの最初の思考は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "似た前例",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0776",
+      "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
       "axis_id": "selfblame_reinterpret",
@@ -26459,18 +27159,18 @@
         },
         {
           "key": "B",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "谷があるから山がある、と前向きに捉える",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "気分転換する",
           "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -26480,7 +27180,7 @@
       ]
     },
     {
-      "id": "P0757",
+      "id": "P0777",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -26489,18 +27189,18 @@
       "options": [
         {
           "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
           "label": "谷があるから山がある、と前向きに捉える",
           "axis_pos": 1.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "気分転換する",
           "axis_pos": 0.6
-        },
-        {
-          "key": "C",
-          "label": "自分を責める",
-          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -26515,7 +27215,7 @@
       ]
     },
     {
-      "id": "P0758",
+      "id": "P0778",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -26529,8 +27229,78 @@
         },
         {
           "key": "B",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
           "label": "自分を責める",
           "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0779",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "思うようにいかない時期の心の持ち方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0780",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "停滞を感じたときの乗り越え方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -26550,12 +27320,47 @@
       ]
     },
     {
-      "id": "P0759",
+      "id": "P0781",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
       "axis_id": "selfblame_reinterpret",
-      "question_ja": "失敗が重なったときの心の持ち方は？",
+      "question_ja": "気分が沈んだときの戻し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0782",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "成果が出ない時期との向き合い方は？",
       "options": [
         {
           "key": "A",
@@ -26566,6 +27371,251 @@
           "key": "B",
           "label": "原因を冷静に分析する",
           "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0783",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "壁にぶつかったときの心構えは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0784",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "調子が出ないときの自分への接し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0785",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "意気消沈したときどうする？",
+      "options": [
+        {
+          "key": "A",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0786",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "うまくいかない自分をどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0787",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "気落ちしたときの立ち直り方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0788",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "へこんだときの気持ちの整え方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0789",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "空回りする時期の過ごし方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -26585,12 +27635,12 @@
       ]
     },
     {
-      "id": "P0760",
+      "id": "P0790",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
       "axis_id": "selfblame_reinterpret",
-      "question_ja": "つらい時期の乗り越え方は？",
+      "question_ja": "低調なときの自分への向き合い方は？",
       "options": [
         {
           "key": "A",
@@ -26599,8 +27649,288 @@
         },
         {
           "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
           "label": "原因を冷静に分析する",
           "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0791",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "うまく進まないときの構えは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0792",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "気分が乗らないときの対処は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0793",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "停滞期の心の保ち方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0794",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "結果が伴わない日々への向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0795",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "落ち込みからの戻し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0796",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "つまずいたときの心の整え方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0797",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "うまくいかない自分への声かけは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0798",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "不振のときの心の持ちようは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -26620,7 +27950,77 @@
       ]
     },
     {
-      "id": "P0761",
+      "id": "P0799",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "気分の落ち込みへの対処は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "B",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0800",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "自責・分析 ↔ 前向き再解釈",
+      "axis_id": "selfblame_reinterpret",
+      "question_ja": "ままならない時期との付き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "気分転換する",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分を責める",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0801",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -26629,8 +28029,8 @@
       "options": [
         {
           "key": "A",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -26644,8 +28044,8 @@
         },
         {
           "key": "D",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -26655,7 +28055,7 @@
       ]
     },
     {
-      "id": "P0762",
+      "id": "P0802",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -26664,8 +28064,8 @@
       "options": [
         {
           "key": "A",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -26674,8 +28074,8 @@
         },
         {
           "key": "C",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "D",
@@ -26690,7 +28090,7 @@
       ]
     },
     {
-      "id": "P0763",
+      "id": "P0803",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -26699,23 +28099,23 @@
       "options": [
         {
           "key": "A",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "信念や尊厳が侵されたとき",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "D",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -26725,7 +28125,7 @@
       ]
     },
     {
-      "id": "P0764",
+      "id": "P0804",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -26734,8 +28134,8 @@
       "options": [
         {
           "key": "A",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "B",
@@ -26749,8 +28149,8 @@
         },
         {
           "key": "D",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -26760,7 +28160,7 @@
       ]
     },
     {
-      "id": "P0765",
+      "id": "P0805",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -26774,6 +28174,251 @@
         },
         {
           "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0806",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "腹の底から怒るのはどんなとき？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0807",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "見過ごせないと感じるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0808",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "怒りが抑えられないのはどんな場面？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0809",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "最も憤慨するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0810",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "黙っていられないと感じるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0811",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "強い反発を覚えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0812",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "許しがたいと思うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
           "label": "信念や尊厳が侵されたとき",
           "axis_pos": 1.0
         },
@@ -26795,7 +28440,462 @@
       ]
     },
     {
-      "id": "P0766",
+      "id": "P0813",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "怒りで胸が熱くなるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0814",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "理不尽さを最も感じるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0815",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "声を上げたくなるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0816",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "怒りのスイッチが入るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0817",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "看過できないと思うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0818",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "最も癇に障るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0819",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "強く咎めたくなるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0820",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "義憤に駆られるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0821",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "心がざわつくほど怒るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0822",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "正面から怒りを覚えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0823",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "最も腹立たしいのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0824",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "怒りが込み上げるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0825",
+      "category": "感情反応",
+      "target_section": "philosophy.ethics",
+      "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
+      "axis_id": "self_ethics_anger",
+      "question_ja": "強い不快と怒りを覚えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0826",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -26804,23 +28904,23 @@
       "options": [
         {
           "key": "A",
-          "label": "抑える",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "率直に出す",
           "axis_pos": 0.8
         },
         {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -26830,7 +28930,7 @@
       ]
     },
     {
-      "id": "P0767",
+      "id": "P0827",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -26839,23 +28939,23 @@
       "options": [
         {
           "key": "A",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
-          "label": "抑える",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "率直に出す",
           "axis_pos": 0.8
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "感じたままに出す",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -26865,7 +28965,7 @@
       ]
     },
     {
-      "id": "P0768",
+      "id": "P0828",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -26879,18 +28979,18 @@
         },
         {
           "key": "B",
-          "label": "抑える",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "感じたままに出す",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "場を選んで出す",
           "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -26900,7 +29000,7 @@
       ]
     },
     {
-      "id": "P0769",
+      "id": "P0829",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -26909,8 +29009,8 @@
       "options": [
         {
           "key": "A",
-          "label": "抑える",
-          "axis_pos": 0.0
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -26919,13 +29019,13 @@
         },
         {
           "key": "C",
-          "label": "率直に出す",
-          "axis_pos": 0.8
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
+          "label": "率直に出す",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -26935,7 +29035,7 @@
       ]
     },
     {
-      "id": "P0770",
+      "id": "P0830",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -26944,18 +29044,53 @@
       "options": [
         {
           "key": "A",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "抑える",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
           "label": "場を選んで出す",
           "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0831",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "気持ちの出し方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -26970,7 +29105,672 @@
       ]
     },
     {
-      "id": "P0771",
+      "id": "P0832",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情を表に出す度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0833",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "嬉しさや怒りの見せ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0834",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "内面をどれだけ表す？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0835",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情表現のスタイルは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0836",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "気分を周囲に示す度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0837",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "心情の出し方に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0838",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感じたことをどう表す？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0839",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "表情や態度への出方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0840",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情を見せるか隠すか？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0841",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "気持ちの表出の仕方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0842",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "喜怒哀楽の扱い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0843",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情の見せ方の癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0844",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "心の揺れをどう表に出す？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0845",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情をさらけ出す度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0846",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "気持ちの表現の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0847",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "内なる感情の出し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0848",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情を表に出す癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0849",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "気持ちの見せ方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0850",
+      "category": "感情反応",
+      "target_section": "expression.emotional_expression",
+      "trait_axis": "抑制 ↔ 表出",
+      "axis_id": "suppress_express",
+      "question_ja": "感情をどう表現する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "率直に出す",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "抑える",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0851",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -26979,8 +29779,8 @@
       "options": [
         {
           "key": "A",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -26989,13 +29789,13 @@
         },
         {
           "key": "C",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27005,7 +29805,7 @@
       ]
     },
     {
-      "id": "P0772",
+      "id": "P0852",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -27014,23 +29814,23 @@
       "options": [
         {
           "key": "A",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "B",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "分析して計画を立てる",
           "axis_pos": 0.4
         },
         {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
           "key": "D",
-          "label": "人に話す",
-          "axis_pos": 0.6
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27040,7 +29840,7 @@
       ]
     },
     {
-      "id": "P0773",
+      "id": "P0853",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -27049,23 +29849,23 @@
       "options": [
         {
           "key": "A",
-          "label": "人に話す",
-          "axis_pos": 0.6
-        },
-        {
-          "key": "B",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "D",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -27075,7 +29875,7 @@
       ]
     },
     {
-      "id": "P0774",
+      "id": "P0854",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -27084,18 +29884,18 @@
       "options": [
         {
           "key": "A",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "分析して計画を立てる",
           "axis_pos": 0.4
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -27110,7 +29910,7 @@
       ]
     },
     {
-      "id": "P0775",
+      "id": "P0855",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -27119,6 +29919,356 @@
       "options": [
         {
           "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0856",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "緊張を感じたときの対処は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0857",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "気の重い状況への対応は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0858",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "重荷を感じたときどうする？",
+      "options": [
+        {
+          "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0859",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "ストレスの解消法に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0860",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "追い詰められたときの逃がし方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0861",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "負担を和らげる方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0862",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "プレッシャー下での対処は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0863",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "気疲れしたときどうする？",
+      "options": [
+        {
+          "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0864",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "重圧の受け流し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0865",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "ストレスをどうさばく？",
+      "options": [
+        {
+          "key": "A",
           "label": "人に話す",
           "axis_pos": 0.6
         },
@@ -27145,32 +30295,32 @@
       ]
     },
     {
-      "id": "P0776",
-      "category": "文体傾向",
-      "target_section": "expression.communication_strategy",
-      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
-      "axis_id": "concise_ornate",
-      "question_ja": "文章で何かを伝えるとき、最も大事にするのは？",
+      "id": "P0866",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "心が張り詰めたときの対応は？",
       "options": [
         {
           "key": "A",
-          "label": "簡潔さと正確さ",
+          "label": "我慢してやり過ごす",
           "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
+          "label": "人に話す",
+          "axis_pos": 0.6
         },
         {
           "key": "X",
@@ -27180,7 +30330,357 @@
       ]
     },
     {
-      "id": "P0777",
+      "id": "P0867",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "しんどさへの向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0868",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "負荷がかかったときの逃がし方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0869",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "重圧への基本的な対処は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0870",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "ストレスと付き合う方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0871",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "気持ちの重さを軽くする方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0872",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "プレッシャーの解き方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0873",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "ストレスへの構えに近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "B",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0874",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "心の重荷をどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0875",
+      "category": "感情反応",
+      "target_section": "personality.coping_patterns",
+      "trait_axis": "我慢 ↔ 捉え方を変える",
+      "axis_id": "endure_reframe",
+      "question_ja": "緊張やストレスの逃がし方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "C",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0876",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章で何かを伝えるとき、最も大事にするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0877",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -27194,18 +30694,18 @@
         },
         {
           "key": "B",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "論理性と網羅性",
           "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27215,7 +30715,7 @@
       ]
     },
     {
-      "id": "P0778",
+      "id": "P0878",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -27224,23 +30724,23 @@
       "options": [
         {
           "key": "A",
-          "label": "感情への訴え",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "C",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "簡潔さと正確さ",
           "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27250,7 +30750,7 @@
       ]
     },
     {
-      "id": "P0779",
+      "id": "P0879",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -27259,23 +30759,23 @@
       "options": [
         {
           "key": "A",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
-          "label": "簡潔さと正確さ",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "感情への訴え",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -27285,7 +30785,7 @@
       ]
     },
     {
-      "id": "P0780",
+      "id": "P0880",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -27294,8 +30794,43 @@
       "options": [
         {
           "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
           "label": "簡潔さと正確さ",
           "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0881",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "メールを書くとき重視するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
@@ -27304,8 +30839,8 @@
         },
         {
           "key": "C",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -27320,7 +30855,672 @@
       ]
     },
     {
-      "id": "P0781",
+      "id": "P0882",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章の質を決めるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0883",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "書き手として大事にするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0884",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "読ませる文章の鍵は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0885",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章表現で重んじるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0886",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "説明文で優先するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0887",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "書くうえでの信条は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0888",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "心がける文章の特徴は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0889",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "投稿を書くとき意識するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0890",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "ライティングの軸は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0891",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章で勝負する点は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0892",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "良い書き手の条件は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0893",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文を磨くとき重視するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0894",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "伝達文で大事にするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0895",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章作りで譲れないのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0896",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "書くときの優先順位は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0897",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文章の核に置くのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0898",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "読み手に届かせる鍵は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0899",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "文体で大切にするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0900",
+      "category": "文体傾向",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
+      "axis_id": "concise_ornate",
+      "question_ja": "書くときに最も意識するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "感情への訴え",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0901",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -27329,23 +31529,23 @@
       "options": [
         {
           "key": "A",
-          "label": "標準的",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "フォーマル・敬語中心",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
           "key": "C",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -27355,7 +31555,7 @@
       ]
     },
     {
-      "id": "P0782",
+      "id": "P0902",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -27364,8 +31564,8 @@
       "options": [
         {
           "key": "A",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -27379,8 +31579,8 @@
         },
         {
           "key": "D",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -27390,7 +31590,7 @@
       ]
     },
     {
-      "id": "P0783",
+      "id": "P0903",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -27404,18 +31604,18 @@
         },
         {
           "key": "B",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
-        },
-        {
-          "key": "C",
           "label": "かなりくだけた",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "標準的",
           "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -27425,7 +31625,7 @@
       ]
     },
     {
-      "id": "P0784",
+      "id": "P0904",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -27434,13 +31634,13 @@
       "options": [
         {
           "key": "A",
-          "label": "標準的",
-          "axis_pos": 0.4
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
+          "label": "標準的",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -27449,8 +31649,8 @@
         },
         {
           "key": "D",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -27460,7 +31660,7 @@
       ]
     },
     {
-      "id": "P0785",
+      "id": "P0905",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -27469,6 +31669,496 @@
       "options": [
         {
           "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0906",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "メッセージを送るときの口調は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0907",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "日常会話のトーンは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0908",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "リラックス時の話し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0909",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "気心知れた相手への口調は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0910",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "ふだんの言葉の崩し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0911",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "チャットでの口調は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0912",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "素のしゃべり方に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0913",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "話しかけるときのトーンは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0914",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "普段の文体の砕け具合は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0915",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "親密な相手への言葉づかいは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0916",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "雑談時の口調は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0917",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "あなたらしい話し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0918",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "気楽な場での言葉づかいは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0919",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "私的なやりとりの口調は？",
+      "options": [
+        {
+          "key": "A",
           "label": "かなりくだけた",
           "axis_pos": 1.0
         },
@@ -27495,7 +32185,217 @@
       ]
     },
     {
-      "id": "P0786",
+      "id": "P0920",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "くだけた場面での話し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0921",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "ふだんの一人称・語尾の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0922",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "親しい場での言葉の崩し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0923",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "自然なしゃべりのトーンは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0924",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "日頃の口調の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0925",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "フォーマル ↔ くだけた",
+      "axis_id": "formal_casual",
+      "question_ja": "あなたの話し言葉に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0926",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -27504,8 +32404,8 @@
       "options": [
         {
           "key": "A",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "短く端的",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -27514,13 +32414,13 @@
         },
         {
           "key": "C",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -27530,7 +32430,7 @@
       ]
     },
     {
-      "id": "P0787",
+      "id": "P0927",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -27539,23 +32439,23 @@
       "options": [
         {
           "key": "A",
-          "label": "やや短め",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
           "label": "詳しく長め",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
           "key": "C",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "短く端的",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -27565,7 +32465,7 @@
       ]
     },
     {
-      "id": "P0788",
+      "id": "P0928",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -27579,13 +32479,13 @@
         },
         {
           "key": "B",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "C",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -27600,7 +32500,7 @@
       ]
     },
     {
-      "id": "P0789",
+      "id": "P0929",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -27609,23 +32509,23 @@
       "options": [
         {
           "key": "A",
-          "label": "やや短め",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
           "label": "短く端的",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
           "key": "C",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27635,7 +32535,7 @@
       ]
     },
     {
-      "id": "P0790",
+      "id": "P0930",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -27644,6 +32544,671 @@
       "options": [
         {
           "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0931",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "返信の長さの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0932",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "書くときの文量の癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0933",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "話の長さの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0934",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "説明の詳しさの度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0935",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "文章のボリュームの癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0936",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "伝えるときの言葉数は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0937",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "投稿の長さの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0938",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "コメントの長さの癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0939",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "語る量の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0940",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "書く分量の好みは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0941",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "メモの詳しさの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0942",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "話すときの言葉数は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0943",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "文の長さの好みは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0944",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "情報量の出し方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0945",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "記述の詳しさの癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0946",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "やりとりの文量は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0947",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "説明の長短の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0948",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "アウトプットの分量の癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0949",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "文章量の傾向は？",
+      "options": [
+        {
+          "key": "A",
           "label": "短く端的",
           "axis_pos": 0.0
         },
@@ -27670,7 +33235,42 @@
       ]
     },
     {
-      "id": "P0791",
+      "id": "P0950",
+      "category": "文体傾向",
+      "target_section": "expression.speech_style",
+      "trait_axis": "端的 ↔ 長め",
+      "axis_id": "terse_lengthy",
+      "question_ja": "書く長さの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや短め",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "短く端的",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0951",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -27679,23 +33279,23 @@
       "options": [
         {
           "key": "A",
-          "label": "時々使う",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
-          "label": "ほぼ使わない",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "よく使う",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "多用する",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -27705,7 +33305,7 @@
       ]
     },
     {
-      "id": "P0792",
+      "id": "P0952",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -27714,8 +33314,8 @@
       "options": [
         {
           "key": "A",
-          "label": "多用する",
-          "axis_pos": 1.0
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -27724,13 +33324,13 @@
         },
         {
           "key": "C",
-          "label": "時々使う",
-          "axis_pos": 0.4
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "ほぼ使わない",
-          "axis_pos": 0.0
+          "label": "多用する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -27740,7 +33340,7 @@
       ]
     },
     {
-      "id": "P0793",
+      "id": "P0953",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -27754,13 +33354,13 @@
         },
         {
           "key": "B",
-          "label": "多用する",
-          "axis_pos": 1.0
+          "label": "よく使う",
+          "axis_pos": 0.7
         },
         {
           "key": "C",
-          "label": "よく使う",
-          "axis_pos": 0.7
+          "label": "多用する",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -27775,7 +33375,7 @@
       ]
     },
     {
-      "id": "P0794",
+      "id": "P0954",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -27784,18 +33384,18 @@
       "options": [
         {
           "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
           "label": "ほぼ使わない",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "多用する",
           "axis_pos": 1.0
-        },
-        {
-          "key": "C",
-          "label": "時々使う",
-          "axis_pos": 0.4
         },
         {
           "key": "D",
@@ -27810,7 +33410,7 @@
       ]
     },
     {
-      "id": "P0795",
+      "id": "P0955",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -27824,6 +33424,671 @@
         },
         {
           "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0956",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "たとえ話を持ち出す頻度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0957",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩で説明する度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0958",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "話に喩えを織り込む癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0959",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "例え話の使用頻度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0960",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩表現の多さは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0961",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "イメージ喚起の手の使い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0962",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "メタファーを使う傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0963",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "たとえで伝える度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0964",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩に頼る度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0965",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "話を例えで彩る頻度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0966",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "喩えを用いる癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0967",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩でわかりやすくする度合いは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0968",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "イメージ表現の頻度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0969",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "たとえを差し込む傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0970",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩の織り交ぜ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0971",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "例示や喩えの使い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0972",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩を使う頻度の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0973",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "メタファーの多用度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0974",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "たとえ表現への頼り方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
           "label": "多用する",
           "axis_pos": 1.0
         },
@@ -27845,7 +34110,42 @@
       ]
     },
     {
-      "id": "P0796",
+      "id": "P0975",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩の使い方の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0976",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -27880,7 +34180,7 @@
       ]
     },
     {
-      "id": "P0797",
+      "id": "P0977",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -27899,13 +34199,13 @@
         },
         {
           "key": "C",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -27915,7 +34215,7 @@
       ]
     },
     {
-      "id": "P0798",
+      "id": "P0978",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -27924,13 +34224,13 @@
       "options": [
         {
           "key": "A",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -27950,7 +34250,7 @@
       ]
     },
     {
-      "id": "P0799",
+      "id": "P0979",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -27959,6 +34259,146 @@
       "options": [
         {
           "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0980",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "冗談の質に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0981",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "笑いを生むときのスタイルは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0982",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ユーモアセンスの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0983",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "おどけ方に近いのは？",
+      "options": [
+        {
+          "key": "A",
           "label": "知的・ウィットに富んだ",
           "axis_pos": 0.8
         },
@@ -27985,17 +34425,297 @@
       ]
     },
     {
-      "id": "P0800",
+      "id": "P0984",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
       "axis_id": "humor_reserved_direct",
-      "question_ja": "冗談の質に近いのは？",
+      "question_ja": "話を面白くする手は？",
       "options": [
         {
           "key": "A",
           "label": "ストレートに笑わせる",
           "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0985",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "冗談の飛ばし方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0986",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "場を盛り上げる笑いの取り方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0987",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ユーモアの色に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0988",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "笑いのセンスの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0989",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "気の利かせ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0990",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ジョークの傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0991",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "和ませ方のスタイルは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0992",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "笑わせ方に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -28009,8 +34729,288 @@
         },
         {
           "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0993",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ユーモアの効かせ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
           "label": "あまり出さない",
           "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0994",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "会話に笑いを添える手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0995",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "冗談のスタイルは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0996",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "面白さの出し方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0997",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ユーモアの質の傾向は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0998",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "笑いの取り方の癖は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0999",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "場を明るくする手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P1000",
+      "category": "文体傾向",
+      "target_section": "expression.humor_style",
+      "trait_axis": "出さない ↔ ストレート",
+      "axis_id": "humor_reserved_direct",
+      "question_ja": "ユーモアの傾向に近いのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
+        },
+        {
+          "key": "B",
+          "label": "穏やかに",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "あまり出さない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
