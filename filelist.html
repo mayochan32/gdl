@@ -240,8 +240,8 @@
       <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">ペルソナ忠実度評価 質問プール（生成物・200問 pool-v1）</div>
-    <div class="file-detail">GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開した質問プール。各軸5問×40＝選択式200問＋自由記述6問。段階構築の第1版（検証後に各軸25問＝1000問へ拡張予定）。各問は4択＋どれでもない、選択肢は質問ごとに決定的シャッフル（記号A-Dは強弱を表さない）、axis_pos較正済み。層化ランダムサンプリングで毎回の出題を抽出し、軸ごとの平均ポジション（傾向プロファイル）で本人とAIを照合する。</div>
+    <div class="file-summary">ペルソナ忠実度評価 質問プール（生成物・1000問 pool-full）</div>
+    <div class="file-detail">GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開した質問プール。各軸25問×40＝選択式1000問＋自由記述6問（全8カテゴリ各125問）。各問は4択＋どれでもない、選択肢は質問ごとに決定的シャッフル（記号A-Dは強弱を表さない）、axis_pos較正済み、軸内で質問文の重複なし。層化ランダムサンプリングで毎回の出題を抽出し、軸ごとの平均ポジション（傾向プロファイル）で本人とAIを照合する。繰り返し受験しても暗記されにくい規模。</div>
   </div>
 
   <div class="file-card">
