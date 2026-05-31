@@ -220,8 +220,8 @@
       <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">ペルソナ忠実度評価用 普遍質問バンク（30問・v0.2）</div>
-    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な設計（v0.2で2層分離リファクタ：split と expected_signature は被験者依存のため answer key 側へ分離）。8カテゴリ（価値観トレードオフ・倫理ジレンマ・美的判断・思考スタイル・対人スタンス・メタ自己認識・感情反応・文体誘発）。各質問に target_section、format（強制選択/スケール＋why、自由記述）、measures（Content/Reasoning/Style/Values）を付与。</div>
+    <div class="file-summary">ペルソナ忠実度評価用 質問バンク（46問・v0.3ハイブリッド）</div>
+    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な2層分離設計（回答は answer key 側へ分離）。v0.3でハイブリッド化：選択式40問（4択＋どれでもない、各選択肢に性格軸座標 axis_pos を付与し『類似度=1−|pos差|』の距離ベース傾向採点）を主力に、軸B（人間性）と文体を守る自由記述6問を専用層として併設。8カテゴリ（価値観トレードオフ・倫理ジレンマ・美的判断・思考スタイル・対人スタンス・メタ自己認識・感情反応・文体傾向）各5問。各問に trait_axis、target_section を付与。</div>
   </div>
 
   <div class="file-card">

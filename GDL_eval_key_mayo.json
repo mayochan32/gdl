@@ -4,6 +4,7 @@
     "subject": "mayo",
     "questions_ref": "GDL_eval_questions.json",
     "questions_version": "0.2",
+    "superseded_note": "本keyはv0.2(自由文30問)に対する回答記録。質問バンクはv0.3(ハイブリッド46問)に更新済みのため、v0.3用の回答は別途再収集する。本ファイルはv0.2予測の答え合わせ履歴として保持。",
     "created_at": "2026-05-31",
     "status": "confirmed",
     "confirmed_at": "2026-05-31",
