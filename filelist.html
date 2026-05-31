@@ -236,6 +236,16 @@
 
   <div class="file-card">
     <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_pool.json">GDL_eval_pool.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 質問プール（生成物・200問 pool-v1）</div>
+    <div class="file-detail">GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開した質問プール。各軸5問×40＝選択式200問＋自由記述6問。段階構築の第1版（検証後に各軸25問＝1000問へ拡張予定）。各問は4択＋どれでもない、選択肢は質問ごとに決定的シャッフル（記号A-Dは強弱を表さない）、axis_pos較正済み。層化ランダムサンプリングで毎回の出題を抽出し、軸ごとの平均ポジション（傾向プロファイル）で本人とAIを照合する。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
       <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_key_mayo.json">GDL_eval_key_mayo.json</a>
       <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
@@ -426,6 +436,15 @@
     </div>
     <div class="file-summary">ペルソナ忠実度 評価ハーネス（Python・依存なし）</div>
     <div class="file-detail">質問バンクと answer key からペルソナ忠実度を定量評価するCLI（標準ライブラリのみ）。サブコマンド：profile（傾向プロファイル表示）、score（本人vsAIをaxis_pos距離で採点、--baselineで床↔天井正規化したGDL Fidelity Scoreも算出）、sample（層化ランダムサンプリング＋選択肢シャッフル出題）、style（open回答の簡易文体計量：文字数・平均文長・文字bigram多様度）。採点式は『類似度=1−|axis_pos差|』、集計はカテゴリ/軸別＋プロファイル距離。<code>python GDL_eval_harness.py score --bank ... --person ... --ai ...</code></div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_gen.py">GDL_eval_gen.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">質問プール生成器（軸タクソノミー→プール展開）</div>
+    <div class="file-detail">GDL_eval_axes.json の40軸に基づき、各軸の正準4選択肢（axis_pos較正済み）＋質問文の言い換え5本から選択式質問プールを展開するPythonスクリプト（依存なし）。選択肢の表示順を質問ごとに決定的シャッフル、ID付与、X（どれでもない）付加を自動化。<code>python GDL_eval_gen.py</code> で GDL_eval_pool.json を出力。各軸のstemsを増やせば1000問規模へ拡張可能。</div>
   </div>
 
   <div class="file-card">
