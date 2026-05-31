@@ -6,12 +6,12 @@
     "seed": 2026,
     "scope": "universal",
     "counts": {
-      "choice": 500,
+      "choice": 600,
       "open": 6,
       "axes": 40,
       "per_axis": 5
     },
-    "note": "段階構築中（カテゴリ単位で各軸25問化）。済: 価値観トレードオフ・倫理ジレンマ・美的嗜好判断(各125問)。残カテゴリは各軸5問のまま順次拡張し、最終的に40軸×25=1000問。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
+    "note": "段階構築中（カテゴリ単位で各軸25問化）。済: 価値観トレードオフ・倫理ジレンマ・美的嗜好判断・思考スタイル(各125問)。残カテゴリは各軸5問のまま順次拡張し、最終的に40軸×25=1000問。採点はaxis_pos基準、記号A-Dは表示順ランダムで強弱を表さない。"
   },
   "_scoring": {
     "choice_ordinal": "類似度 = 1 − |axis_pos(本人) − axis_pos(GDL-AI)|。",
@@ -13322,29 +13322,29 @@
     {
       "id": "P0381",
       "category": "思考スタイル",
-      "target_section": "expression.communication_strategy",
-      "trait_axis": "厳密・形式 ↔ 類推・比喩",
-      "axis_id": "rigor_metaphor",
-      "question_ja": "複雑な概念を説明するとき、まず頼るのは？",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しいスキルの習得法に近いのは？",
       "options": [
         {
           "key": "A",
-          "label": "数式・形式表現",
+          "label": "詳しい人に聞く",
           "axis_pos": 0.3
         },
         {
           "key": "B",
-          "label": "定義の厳密さ",
+          "label": "公式の資料を精読する",
           "axis_pos": 0.0
         },
         {
           "key": "C",
-          "label": "箇条書きの整理",
-          "axis_pos": 0.45
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
-          "label": "類推・メタファー",
+          "label": "とりあえず触って体験する",
           "axis_pos": 1.0
         },
         {
@@ -13357,29 +13357,29 @@
     {
       "id": "P0382",
       "category": "思考スタイル",
-      "target_section": "expression.communication_strategy",
-      "trait_axis": "厳密・形式 ↔ 類推・比喩",
-      "axis_id": "rigor_metaphor",
-      "question_ja": "難しい話を人に伝える手段は？",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "未経験の作業をどう始める？",
       "options": [
         {
           "key": "A",
-          "label": "数式・形式表現",
+          "label": "詳しい人に聞く",
           "axis_pos": 0.3
         },
         {
           "key": "B",
-          "label": "定義の厳密さ",
+          "label": "公式の資料を精読する",
           "axis_pos": 0.0
         },
         {
           "key": "C",
-          "label": "箇条書きの整理",
-          "axis_pos": 0.45
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
-          "label": "類推・メタファー",
+          "label": "とりあえず触って体験する",
           "axis_pos": 1.0
         },
         {
@@ -13392,20 +13392,650 @@
     {
       "id": "P0383",
       "category": "思考スタイル",
-      "target_section": "expression.communication_strategy",
-      "trait_axis": "厳密・形式 ↔ 類推・比喩",
-      "axis_id": "rigor_metaphor",
-      "question_ja": "アイデアを共有するときの表現は？",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しいソフトをどう覚える？",
       "options": [
         {
           "key": "A",
-          "label": "箇条書きの整理",
-          "axis_pos": 0.45
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0384",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "知らない領域の調べ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0385",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しい趣味の入り口は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0386",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "難解な本をどう読み進める？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0387",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新概念を腹落ちさせる方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0388",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "初めての道具をどう使いこなす？",
+      "options": [
+        {
+          "key": "A",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0389",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しい仕事をどう覚える？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0390",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "理解の取っ掛かりにするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0391",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しい言語をどう学ぶ？",
+      "options": [
+        {
+          "key": "A",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0392",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "未知のテーマの攻め方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0393",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新環境への慣れ方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0394",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しい手法をどう身につける？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0395",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "わからないことに出会ったら？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0396",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "学習の起点に置くのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0397",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しいゲームをどう攻略する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0398",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "知識ゼロから始めるなら？",
+      "options": [
+        {
+          "key": "A",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0399",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新分野の地図をどう描く？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0400",
+      "category": "思考スタイル",
+      "target_section": "knowledge.learning_style",
+      "trait_axis": "形式・理論 ↔ 体験・直感",
+      "axis_id": "formal_experiential",
+      "question_ja": "新しいことを掴む第一歩は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "詳しい人に聞く",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "公式の資料を精読する",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "とりあえず触って体験する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "既存の概念とのアナロジーで掴む",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0401",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "複雑な概念を説明するとき、まず頼るのは？",
+      "options": [
+        {
+          "key": "A",
           "label": "類推・メタファー",
           "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
         },
         {
           "key": "C",
@@ -13425,7 +14055,77 @@
       ]
     },
     {
-      "id": "P0384",
+      "id": "P0402",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "難しい話を人に伝える手段は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0403",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "アイデアを共有するときの表現は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0404",
       "category": "思考スタイル",
       "target_section": "expression.communication_strategy",
       "trait_axis": "厳密・形式 ↔ 類推・比喩",
@@ -13439,6 +14139,41 @@
         },
         {
           "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0405",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "人に理解してもらうための工夫は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
           "label": "定義の厳密さ",
           "axis_pos": 0.0
         },
@@ -13460,12 +14195,677 @@
       ]
     },
     {
-      "id": "P0385",
+      "id": "P0406",
       "category": "思考スタイル",
       "target_section": "expression.communication_strategy",
       "trait_axis": "厳密・形式 ↔ 類推・比喩",
       "axis_id": "rigor_metaphor",
-      "question_ja": "人に理解してもらうための工夫は？",
+      "question_ja": "新人に仕組みを教えるとき使うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0407",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "プレゼンで概念を伝える方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0408",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "込み入った話をどう整理して話す？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0409",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "わかりにくいことを伝える手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0410",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "資料で概念を示すときの軸は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0411",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "難題を共有するときの伝え方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0412",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "理解の橋渡しに使うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0413",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "専門的な話を噛み砕く方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0414",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "本質を伝えるときの手段は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0415",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "聞き手に届かせる工夫は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0416",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "図解か言葉か、どう伝える？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0417",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "アイデアの核を示す方法は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0418",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "複雑さをほどく手立ては？",
+      "options": [
+        {
+          "key": "A",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0419",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "教えるときに頼る表現は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0420",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "難しさを越えて伝える手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0421",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "説明の取っ掛かりにするのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0422",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "腑に落ちさせる伝え方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "C",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0423",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "概念を共有する第一手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0424",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "わかりやすさのために使うのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "定義の厳密さ",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "類推・メタファー",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "数式・形式表現",
+          "axis_pos": 0.3
+        },
+        {
+          "key": "D",
+          "label": "箇条書きの整理",
+          "axis_pos": 0.45
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0425",
+      "category": "思考スタイル",
+      "target_section": "expression.communication_strategy",
+      "trait_axis": "厳密・形式 ↔ 類推・比喩",
+      "axis_id": "rigor_metaphor",
+      "question_ja": "伝達で最初に選ぶ手段は？",
       "options": [
         {
           "key": "A",
@@ -13495,7 +14895,7 @@
       ]
     },
     {
-      "id": "P0386",
+      "id": "P0426",
       "category": "思考スタイル",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "論理・データ ↔ 直感",
@@ -13504,8 +14904,8 @@
       "options": [
         {
           "key": "A",
-          "label": "前例・実績",
-          "axis_pos": 0.33
+          "label": "全体のバランス",
+          "axis_pos": 0.55
         },
         {
           "key": "B",
@@ -13514,8 +14914,8 @@
         },
         {
           "key": "C",
-          "label": "全体のバランス",
-          "axis_pos": 0.55
+          "label": "前例・実績",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
@@ -13530,7 +14930,7 @@
       ]
     },
     {
-      "id": "P0387",
+      "id": "P0427",
       "category": "思考スタイル",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "論理・データ ↔ 直感",
@@ -13544,13 +14944,13 @@
         },
         {
           "key": "B",
-          "label": "直感",
-          "axis_pos": 1.0
+          "label": "前例・実績",
+          "axis_pos": 0.33
         },
         {
           "key": "C",
-          "label": "前例・実績",
-          "axis_pos": 0.33
+          "label": "直感",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -13565,7 +14965,7 @@
       ]
     },
     {
-      "id": "P0388",
+      "id": "P0428",
       "category": "思考スタイル",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "論理・データ ↔ 直感",
@@ -13574,18 +14974,18 @@
       "options": [
         {
           "key": "A",
-          "label": "データ・論理",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "前例・実績",
           "axis_pos": 0.33
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "全体のバランス",
           "axis_pos": 0.55
+        },
+        {
+          "key": "C",
+          "label": "データ・論理",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -13600,7 +15000,7 @@
       ]
     },
     {
-      "id": "P0389",
+      "id": "P0429",
       "category": "思考スタイル",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "論理・データ ↔ 直感",
@@ -13614,6 +15014,76 @@
         },
         {
           "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0430",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "選択の決め手になるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0431",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "結論に至る根拠は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
           "label": "直感",
           "axis_pos": 1.0
         },
@@ -13635,12 +15105,502 @@
       ]
     },
     {
-      "id": "P0390",
+      "id": "P0432",
       "category": "思考スタイル",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "論理・データ ↔ 直感",
       "axis_id": "logic_intuition",
-      "question_ja": "選択の決め手になるのは？",
+      "question_ja": "決めかねたとき頼るのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0433",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "重要な判断の土台は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "C",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0434",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "最後に背中を押すのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0435",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "決断の軸になるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0436",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "GOサインを出す根拠は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0437",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "選ぶときに重んじるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0438",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "迷路を抜ける手がかりは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0439",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "意思決定の中心にあるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "C",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0440",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "正解を見極める拠り所は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0441",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "ジャッジを支えるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "C",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0442",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "決め手として信頼するのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0443",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "判断材料の核は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0444",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "選択を確信させるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0445",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "腹を決めるときの基準は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0446",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "答えの確かさを担保するのは？",
       "options": [
         {
           "key": "A",
@@ -13670,32 +15630,32 @@
       ]
     },
     {
-      "id": "P0391",
+      "id": "P0447",
       "category": "思考スタイル",
-      "target_section": "philosophy.worldview",
-      "trait_axis": "切り上げる ↔ 問い続ける",
-      "axis_id": "closure_openinquiry",
-      "question_ja": "答えの出ない問いに直面したら？",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "進路を定める拠り所は？",
       "options": [
         {
           "key": "A",
-          "label": "問い続けること自体に価値を見出す",
-          "axis_pos": 1.0
+          "label": "全体のバランス",
+          "axis_pos": 0.55
         },
         {
           "key": "B",
-          "label": "時間の無駄なので切り上げる",
-          "axis_pos": 0.0
+          "label": "前例・実績",
+          "axis_pos": 0.33
         },
         {
           "key": "C",
-          "label": "保留しておく",
-          "axis_pos": 0.5
+          "label": "データ・論理",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "権威ある答えを採用する",
-          "axis_pos": 0.33
+          "label": "直感",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -13705,7 +15665,147 @@
       ]
     },
     {
-      "id": "P0392",
+      "id": "P0448",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "判断の最後の決め手は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0449",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "決断で最も重んじるのは？",
+      "options": [
+        {
+          "key": "A",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0450",
+      "category": "思考スタイル",
+      "target_section": "personality.cognitive_patterns",
+      "trait_axis": "論理・データ ↔ 直感",
+      "axis_id": "logic_intuition",
+      "question_ja": "結論を出す軸は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全体のバランス",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
+          "label": "データ・論理",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "前例・実績",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "直感",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0451",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えの出ない問いに直面したら？",
+      "options": [
+        {
+          "key": "A",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0452",
       "category": "思考スタイル",
       "target_section": "philosophy.worldview",
       "trait_axis": "切り上げる ↔ 問い続ける",
@@ -13719,18 +15819,18 @@
         },
         {
           "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
           "label": "問い続けること自体に価値を見出す",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "時間の無駄なので切り上げる",
           "axis_pos": 0.0
-        },
-        {
-          "key": "D",
-          "label": "権威ある答えを採用する",
-          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -13740,7 +15840,7 @@
       ]
     },
     {
-      "id": "P0393",
+      "id": "P0453",
       "category": "思考スタイル",
       "target_section": "philosophy.worldview",
       "trait_axis": "切り上げる ↔ 問い続ける",
@@ -13749,23 +15849,23 @@
       "options": [
         {
           "key": "A",
-          "label": "保留しておく",
-          "axis_pos": 0.5
-        },
-        {
-          "key": "B",
           "label": "時間の無駄なので切り上げる",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "権威ある答えを採用する",
           "axis_pos": 0.33
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "問い続けること自体に価値を見出す",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
         },
         {
           "key": "X",
@@ -13775,7 +15875,7 @@
       ]
     },
     {
-      "id": "P0394",
+      "id": "P0454",
       "category": "思考スタイル",
       "target_section": "philosophy.worldview",
       "trait_axis": "切り上げる ↔ 問い続ける",
@@ -13784,23 +15884,23 @@
       "options": [
         {
           "key": "A",
-          "label": "保留しておく",
-          "axis_pos": 0.5
-        },
-        {
-          "key": "B",
-          "label": "問い続けること自体に価値を見出す",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "時間の無駄なので切り上げる",
           "axis_pos": 0.0
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "権威ある答えを採用する",
           "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
         },
         {
           "key": "X",
@@ -13810,7 +15910,7 @@
       ]
     },
     {
-      "id": "P0395",
+      "id": "P0455",
       "category": "思考スタイル",
       "target_section": "philosophy.worldview",
       "trait_axis": "切り上げる ↔ 問い続ける",
@@ -13819,13 +15919,398 @@
       "options": [
         {
           "key": "A",
-          "label": "保留しておく",
-          "axis_pos": 0.5
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
           "label": "問い続けること自体に価値を見出す",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0456",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "正解のない問いをどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0457",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "決着しない議論への向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0458",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "わからないままの問題をどうする？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0459",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えが見えない問いへの態度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "C",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0460",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "終わりのない問いにどう接する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0461",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "解のない課題への姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0462",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "白黒つかない問題をどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0463",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "考えても答えの出ないことへの態度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0464",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "謎のままの問いをどうする？",
+      "options": [
+        {
+          "key": "A",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0465",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "確答できない問いへの向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0466",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "結論を急げない問題への姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "保留しておく",
+          "axis_pos": 0.5
         },
         {
           "key": "C",
@@ -13845,32 +16330,32 @@
       ]
     },
     {
-      "id": "P0396",
+      "id": "P0467",
       "category": "思考スタイル",
-      "target_section": "philosophy.beliefs",
-      "trait_axis": "否定 ↔ 大いに同意",
-      "axis_id": "intuition_belief",
-      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度は？",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えを保留すべき問いへの態度は？",
       "options": [
         {
           "key": "A",
-          "label": "大いに同意する",
-          "axis_pos": 1.0
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
-          "label": "全く同意しない",
+          "label": "時間の無駄なので切り上げる",
           "axis_pos": 0.0
         },
         {
           "key": "C",
-          "label": "あまり同意しない",
-          "axis_pos": 0.33
+          "label": "保留しておく",
+          "axis_pos": 0.5
         },
         {
           "key": "D",
-          "label": "やや同意する",
-          "axis_pos": 0.67
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -13880,7 +16365,322 @@
       ]
     },
     {
-      "id": "P0397",
+      "id": "P0468",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "難解で未解決な問いをどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0469",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えが一つでない問いへの姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0470",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "割り切れない問いにどう向き合う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0471",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "解明しきれない問題への態度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0472",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えの定まらないテーマへの姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "C",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0473",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "問い自体が目的になる問題をどう扱う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "D",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0474",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "未解決の大問題への向き合い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "C",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0475",
+      "category": "思考スタイル",
+      "target_section": "philosophy.worldview",
+      "trait_axis": "切り上げる ↔ 問い続ける",
+      "axis_id": "closure_openinquiry",
+      "question_ja": "答えの出ない問いへの基本姿勢は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "保留しておく",
+          "axis_pos": 0.5
+        },
+        {
+          "key": "B",
+          "label": "権威ある答えを採用する",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "問い続けること自体に価値を見出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "時間の無駄なので切り上げる",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0476",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『人間の個性の大部分は直感によって決まる』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0477",
       "category": "思考スタイル",
       "target_section": "philosophy.beliefs",
       "trait_axis": "否定 ↔ 大いに同意",
@@ -13899,13 +16699,13 @@
         },
         {
           "key": "C",
-          "label": "大いに同意する",
-          "axis_pos": 1.0
+          "label": "やや同意する",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
-          "label": "やや同意する",
-          "axis_pos": 0.67
+          "label": "大いに同意する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -13915,7 +16715,7 @@
       ]
     },
     {
-      "id": "P0398",
+      "id": "P0478",
       "category": "思考スタイル",
       "target_section": "philosophy.beliefs",
       "trait_axis": "否定 ↔ 大いに同意",
@@ -13924,18 +16724,18 @@
       "options": [
         {
           "key": "A",
-          "label": "やや同意する",
-          "axis_pos": 0.67
-        },
-        {
-          "key": "B",
           "label": "全く同意しない",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "大いに同意する",
           "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
@@ -13950,7 +16750,7 @@
       ]
     },
     {
-      "id": "P0399",
+      "id": "P0479",
       "category": "思考スタイル",
       "target_section": "philosophy.beliefs",
       "trait_axis": "否定 ↔ 大いに同意",
@@ -13959,13 +16759,223 @@
       "options": [
         {
           "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
           "label": "あまり同意しない",
           "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0480",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は経験の圧縮である』をどう評価する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0481",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は侮れない判断材料だ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0482",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『最後は理屈より勘が当たる』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
           "label": "全く同意しない",
           "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0483",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感には根拠がある』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0484",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『ひらめきは思考の到達点だ』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0485",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感を信じる人ほど創造的だ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
         },
         {
           "key": "C",
@@ -13985,12 +16995,432 @@
       ]
     },
     {
-      "id": "P0400",
+      "id": "P0486",
       "category": "思考スタイル",
       "target_section": "philosophy.beliefs",
       "trait_axis": "否定 ↔ 大いに同意",
       "axis_id": "intuition_belief",
-      "question_ja": "『直感は経験の圧縮である』をどう評価する？",
+      "question_ja": "『論理で説明できない正しさがある』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0487",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は熟達の証だ』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0488",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『第一印象は核心を突く』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0489",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は無意識の計算だ』をどう評価する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0490",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『勘を磨くことは大切だ』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0491",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感と論理は両輪だが直感が先だ』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0492",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『センスは説明できない』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0493",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は経験が生む知恵だ』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0494",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『迷ったら直感が正しい』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0495",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『理屈は後から付いてくる』をどう思う？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0496",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『天才は直感で見抜く』に同意する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0497",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は軽視すべきでない』への立場は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "C",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0498",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『感覚的な判断にこそ真実がある』への同意度は？",
       "options": [
         {
           "key": "A",
@@ -14020,7 +17450,77 @@
       ]
     },
     {
-      "id": "P0401",
+      "id": "P0499",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『直感は思考の近道だ』をどう評価する？",
+      "options": [
+        {
+          "key": "A",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0500",
+      "category": "思考スタイル",
+      "target_section": "philosophy.beliefs",
+      "trait_axis": "否定 ↔ 大いに同意",
+      "axis_id": "intuition_belief",
+      "question_ja": "『個性は理屈より感覚に宿る』への同意度は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "あまり同意しない",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "B",
+          "label": "大いに同意する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
+          "label": "やや同意する",
+          "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "全く同意しない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0501",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "同調・回避 ↔ 主張",
@@ -14034,8 +17534,8 @@
         },
         {
           "key": "B",
-          "label": "上司の判断に委ねる",
-          "axis_pos": 0.45
+          "label": "黙っておく",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -14044,8 +17544,8 @@
         },
         {
           "key": "D",
-          "label": "黙っておく",
-          "axis_pos": 0.0
+          "label": "上司の判断に委ねる",
+          "axis_pos": 0.45
         },
         {
           "key": "X",
@@ -14055,7 +17555,7 @@
       ]
     },
     {
-      "id": "P0402",
+      "id": "P0502",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "同調・回避 ↔ 主張",
@@ -14064,23 +17564,23 @@
       "options": [
         {
           "key": "A",
-          "label": "黙っておく",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
-          "label": "その場で根拠を示して反対する",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "上司の判断に委ねる",
           "axis_pos": 0.45
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "黙っておく",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
           "label": "場の空気を優先し後で個別に伝える",
           "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "その場で根拠を示して反対する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14090,7 +17590,7 @@
       ]
     },
     {
-      "id": "P0403",
+      "id": "P0503",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "同調・回避 ↔ 主張",
@@ -14099,23 +17599,23 @@
       "options": [
         {
           "key": "A",
-          "label": "黙っておく",
-          "axis_pos": 0.0
+          "label": "場の空気を優先し後で個別に伝える",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
-          "label": "その場で根拠を示して反対する",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "上司の判断に委ねる",
           "axis_pos": 0.45
         },
         {
+          "key": "C",
+          "label": "黙っておく",
+          "axis_pos": 0.0
+        },
+        {
           "key": "D",
-          "label": "場の空気を優先し後で個別に伝える",
-          "axis_pos": 0.33
+          "label": "その場で根拠を示して反対する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14125,7 +17625,7 @@
       ]
     },
     {
-      "id": "P0404",
+      "id": "P0504",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "同調・回避 ↔ 主張",
@@ -14134,23 +17634,23 @@
       "options": [
         {
           "key": "A",
-          "label": "その場で根拠を示して反対する",
-          "axis_pos": 1.0
+          "label": "上司の判断に委ねる",
+          "axis_pos": 0.45
         },
         {
           "key": "B",
-          "label": "場の空気を優先し後で個別に伝える",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "C",
           "label": "黙っておく",
           "axis_pos": 0.0
         },
         {
+          "key": "C",
+          "label": "場の空気を優先し後で個別に伝える",
+          "axis_pos": 0.33
+        },
+        {
           "key": "D",
-          "label": "上司の判断に委ねる",
-          "axis_pos": 0.45
+          "label": "その場で根拠を示して反対する",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14160,7 +17660,7 @@
       ]
     },
     {
-      "id": "P0405",
+      "id": "P0505",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "同調・回避 ↔ 主張",
@@ -14174,18 +17674,18 @@
         },
         {
           "key": "B",
-          "label": "黙っておく",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "上司の判断に委ねる",
           "axis_pos": 0.45
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "場の空気を優先し後で個別に伝える",
           "axis_pos": 0.33
+        },
+        {
+          "key": "D",
+          "label": "黙っておく",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -14195,7 +17695,7 @@
       ]
     },
     {
-      "id": "P0406",
+      "id": "P0506",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "調停・同調 ↔ 独自視点",
@@ -14204,8 +17704,8 @@
       "options": [
         {
           "key": "A",
-          "label": "多数決を促す",
-          "axis_pos": 0.2
+          "label": "合意を取りまとめる調停役",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -14214,13 +17714,13 @@
         },
         {
           "key": "C",
-          "label": "合意を取りまとめる調停役",
-          "axis_pos": 0.4
+          "label": "両者が納得する第三の視点を提示する",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "両者が納得する第三の視点を提示する",
-          "axis_pos": 1.0
+          "label": "多数決を促す",
+          "axis_pos": 0.2
         },
         {
           "key": "X",
@@ -14230,7 +17730,7 @@
       ]
     },
     {
-      "id": "P0407",
+      "id": "P0507",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "調停・同調 ↔ 独自視点",
@@ -14244,13 +17744,13 @@
         },
         {
           "key": "B",
-          "label": "データで決着をつける",
-          "axis_pos": 0.55
+          "label": "合意を取りまとめる調停役",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
-          "label": "合意を取りまとめる調停役",
-          "axis_pos": 0.4
+          "label": "データで決着をつける",
+          "axis_pos": 0.55
         },
         {
           "key": "D",
@@ -14265,7 +17765,7 @@
       ]
     },
     {
-      "id": "P0408",
+      "id": "P0508",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "調停・同調 ↔ 独自視点",
@@ -14274,23 +17774,23 @@
       "options": [
         {
           "key": "A",
-          "label": "多数決を促す",
-          "axis_pos": 0.2
-        },
-        {
-          "key": "B",
           "label": "合意を取りまとめる調停役",
           "axis_pos": 0.4
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "両者が納得する第三の視点を提示する",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "データで決着をつける",
           "axis_pos": 0.55
+        },
+        {
+          "key": "D",
+          "label": "多数決を促す",
+          "axis_pos": 0.2
         },
         {
           "key": "X",
@@ -14300,7 +17800,7 @@
       ]
     },
     {
-      "id": "P0409",
+      "id": "P0509",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "調停・同調 ↔ 独自視点",
@@ -14309,23 +17809,23 @@
       "options": [
         {
           "key": "A",
+          "label": "データで決着をつける",
+          "axis_pos": 0.55
+        },
+        {
+          "key": "B",
           "label": "両者が納得する第三の視点を提示する",
           "axis_pos": 1.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "多数決を促す",
           "axis_pos": 0.2
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "合意を取りまとめる調停役",
           "axis_pos": 0.4
-        },
-        {
-          "key": "D",
-          "label": "データで決着をつける",
-          "axis_pos": 0.55
         },
         {
           "key": "X",
@@ -14335,7 +17835,7 @@
       ]
     },
     {
-      "id": "P0410",
+      "id": "P0510",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "調停・同調 ↔ 独自視点",
@@ -14344,23 +17844,23 @@
       "options": [
         {
           "key": "A",
-          "label": "データで決着をつける",
-          "axis_pos": 0.55
+          "label": "両者が納得する第三の視点を提示する",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "合意を取りまとめる調停役",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "多数決を促す",
           "axis_pos": 0.2
         },
         {
+          "key": "C",
+          "label": "合意を取りまとめる調停役",
+          "axis_pos": 0.4
+        },
+        {
           "key": "D",
-          "label": "両者が納得する第三の視点を提示する",
-          "axis_pos": 1.0
+          "label": "データで決着をつける",
+          "axis_pos": 0.55
         },
         {
           "key": "X",
@@ -14370,7 +17870,7 @@
       ]
     },
     {
-      "id": "P0411",
+      "id": "P0511",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "実績・事実 ↔ 価値観・ビジョン",
@@ -14379,13 +17879,13 @@
       "options": [
         {
           "key": "A",
-          "label": "趣味や日常",
-          "axis_pos": 0.6
+          "label": "好きな作品や将来のビジョン",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "好きな作品や将来のビジョン",
-          "axis_pos": 1.0
+          "label": "趣味や日常",
+          "axis_pos": 0.6
         },
         {
           "key": "C",
@@ -14405,7 +17905,7 @@
       ]
     },
     {
-      "id": "P0412",
+      "id": "P0512",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "実績・事実 ↔ 価値観・ビジョン",
@@ -14414,23 +17914,23 @@
       "options": [
         {
           "key": "A",
-          "label": "好きな作品や将来のビジョン",
-          "axis_pos": 1.0
+          "label": "趣味や日常",
+          "axis_pos": 0.6
         },
         {
           "key": "B",
-          "label": "最新のニュースや専門的な話",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "これまでの経歴・実績",
           "axis_pos": 0.2
         },
         {
+          "key": "C",
+          "label": "最新のニュースや専門的な話",
+          "axis_pos": 0.4
+        },
+        {
           "key": "D",
-          "label": "趣味や日常",
-          "axis_pos": 0.6
+          "label": "好きな作品や将来のビジョン",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14440,7 +17940,7 @@
       ]
     },
     {
-      "id": "P0413",
+      "id": "P0513",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "実績・事実 ↔ 価値観・ビジョン",
@@ -14449,23 +17949,23 @@
       "options": [
         {
           "key": "A",
-          "label": "これまでの経歴・実績",
-          "axis_pos": 0.2
-        },
-        {
-          "key": "B",
           "label": "好きな作品や将来のビジョン",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "これまでの経歴・実績",
+          "axis_pos": 0.2
+        },
+        {
           "key": "C",
-          "label": "最新のニュースや専門的な話",
-          "axis_pos": 0.4
+          "label": "趣味や日常",
+          "axis_pos": 0.6
         },
         {
           "key": "D",
-          "label": "趣味や日常",
-          "axis_pos": 0.6
+          "label": "最新のニュースや専門的な話",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -14475,7 +17975,7 @@
       ]
     },
     {
-      "id": "P0414",
+      "id": "P0514",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "実績・事実 ↔ 価値観・ビジョン",
@@ -14489,13 +17989,13 @@
         },
         {
           "key": "B",
-          "label": "趣味や日常",
-          "axis_pos": 0.6
+          "label": "これまでの経歴・実績",
+          "axis_pos": 0.2
         },
         {
           "key": "C",
-          "label": "これまでの経歴・実績",
-          "axis_pos": 0.2
+          "label": "趣味や日常",
+          "axis_pos": 0.6
         },
         {
           "key": "D",
@@ -14510,7 +18010,7 @@
       ]
     },
     {
-      "id": "P0415",
+      "id": "P0515",
       "category": "対人スタンス",
       "target_section": "relationships.interaction_style",
       "trait_axis": "実績・事実 ↔ 価値観・ビジョン",
@@ -14519,13 +18019,13 @@
       "options": [
         {
           "key": "A",
-          "label": "最新のニュースや専門的な話",
-          "axis_pos": 0.4
+          "label": "好きな作品や将来のビジョン",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "これまでの経歴・実績",
-          "axis_pos": 0.2
+          "label": "最新のニュースや専門的な話",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -14534,8 +18034,8 @@
         },
         {
           "key": "D",
-          "label": "好きな作品や将来のビジョン",
-          "axis_pos": 1.0
+          "label": "これまでの経歴・実績",
+          "axis_pos": 0.2
         },
         {
           "key": "X",
@@ -14545,7 +18045,7 @@
       ]
     },
     {
-      "id": "P0416",
+      "id": "P0516",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "同調・支持 ↔ 方向提示",
@@ -14559,8 +18059,8 @@
         },
         {
           "key": "B",
-          "label": "陰で支える",
-          "axis_pos": 0.4
+          "label": "まとめ役になる",
+          "axis_pos": 0.6
         },
         {
           "key": "C",
@@ -14569,8 +18069,8 @@
         },
         {
           "key": "D",
-          "label": "まとめ役になる",
-          "axis_pos": 0.6
+          "label": "陰で支える",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -14580,7 +18080,7 @@
       ]
     },
     {
-      "id": "P0417",
+      "id": "P0517",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "同調・支持 ↔ 方向提示",
@@ -14589,23 +18089,23 @@
       "options": [
         {
           "key": "A",
+          "label": "まとめ役になる",
+          "axis_pos": 0.6
+        },
+        {
+          "key": "B",
           "label": "周りに合わせる",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "陰で支える",
           "axis_pos": 0.4
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "新しい方向を示す",
           "axis_pos": 1.0
-        },
-        {
-          "key": "D",
-          "label": "まとめ役になる",
-          "axis_pos": 0.6
         },
         {
           "key": "X",
@@ -14615,7 +18115,7 @@
       ]
     },
     {
-      "id": "P0418",
+      "id": "P0518",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "同調・支持 ↔ 方向提示",
@@ -14624,13 +18124,13 @@
       "options": [
         {
           "key": "A",
-          "label": "陰で支える",
-          "axis_pos": 0.4
+          "label": "新しい方向を示す",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "新しい方向を示す",
-          "axis_pos": 1.0
+          "label": "周りに合わせる",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -14639,8 +18139,8 @@
         },
         {
           "key": "D",
-          "label": "周りに合わせる",
-          "axis_pos": 0.0
+          "label": "陰で支える",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -14650,7 +18150,7 @@
       ]
     },
     {
-      "id": "P0419",
+      "id": "P0519",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "同調・支持 ↔ 方向提示",
@@ -14659,23 +18159,23 @@
       "options": [
         {
           "key": "A",
-          "label": "新しい方向を示す",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "まとめ役になる",
           "axis_pos": 0.6
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "陰で支える",
           "axis_pos": 0.4
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "周りに合わせる",
           "axis_pos": 0.0
+        },
+        {
+          "key": "D",
+          "label": "新しい方向を示す",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14685,7 +18185,7 @@
       ]
     },
     {
-      "id": "P0420",
+      "id": "P0520",
       "category": "対人スタンス",
       "target_section": "relationships.collaboration_style",
       "trait_axis": "同調・支持 ↔ 方向提示",
@@ -14694,13 +18194,13 @@
       "options": [
         {
           "key": "A",
-          "label": "陰で支える",
-          "axis_pos": 0.4
+          "label": "新しい方向を示す",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "新しい方向を示す",
-          "axis_pos": 1.0
+          "label": "陰で支える",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -14720,7 +18220,7 @@
       ]
     },
     {
-      "id": "P0421",
+      "id": "P0521",
       "category": "対人スタンス",
       "target_section": "personality.behavior_patterns",
       "trait_axis": "回避・妥協 ↔ 信念貫徹",
@@ -14729,8 +18229,8 @@
       "options": [
         {
           "key": "A",
-          "label": "引く",
-          "axis_pos": 0.0
+          "label": "理を尽くして説得する",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
@@ -14739,13 +18239,13 @@
         },
         {
           "key": "C",
-          "label": "妥協点を探す",
-          "axis_pos": 0.4
+          "label": "引く",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "理を尽くして説得する",
-          "axis_pos": 0.7
+          "label": "妥協点を探す",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -14755,7 +18255,7 @@
       ]
     },
     {
-      "id": "P0422",
+      "id": "P0522",
       "category": "対人スタンス",
       "target_section": "personality.behavior_patterns",
       "trait_axis": "回避・妥協 ↔ 信念貫徹",
@@ -14764,23 +18264,23 @@
       "options": [
         {
           "key": "A",
+          "label": "理を尽くして説得する",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "B",
           "label": "引く",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "妥協点を探す",
           "axis_pos": 0.4
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "信念を貫く",
           "axis_pos": 1.0
-        },
-        {
-          "key": "D",
-          "label": "理を尽くして説得する",
-          "axis_pos": 0.7
         },
         {
           "key": "X",
@@ -14790,7 +18290,7 @@
       ]
     },
     {
-      "id": "P0423",
+      "id": "P0523",
       "category": "対人スタンス",
       "target_section": "personality.behavior_patterns",
       "trait_axis": "回避・妥協 ↔ 信念貫徹",
@@ -14825,7 +18325,7 @@
       ]
     },
     {
-      "id": "P0424",
+      "id": "P0524",
       "category": "対人スタンス",
       "target_section": "personality.behavior_patterns",
       "trait_axis": "回避・妥協 ↔ 信念貫徹",
@@ -14834,13 +18334,13 @@
       "options": [
         {
           "key": "A",
-          "label": "引く",
-          "axis_pos": 0.0
+          "label": "理を尽くして説得する",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
-          "label": "信念を貫く",
-          "axis_pos": 1.0
+          "label": "引く",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -14849,8 +18349,8 @@
         },
         {
           "key": "D",
-          "label": "理を尽くして説得する",
-          "axis_pos": 0.7
+          "label": "信念を貫く",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -14860,7 +18360,7 @@
       ]
     },
     {
-      "id": "P0425",
+      "id": "P0525",
       "category": "対人スタンス",
       "target_section": "personality.behavior_patterns",
       "trait_axis": "回避・妥協 ↔ 信念貫徹",
@@ -14869,23 +18369,23 @@
       "options": [
         {
           "key": "A",
-          "label": "妥協点を探す",
-          "axis_pos": 0.4
+          "label": "理を尽くして説得する",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
-          "label": "引く",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "信念を貫く",
           "axis_pos": 1.0
         },
         {
+          "key": "C",
+          "label": "引く",
+          "axis_pos": 0.0
+        },
+        {
           "key": "D",
-          "label": "理を尽くして説得する",
-          "axis_pos": 0.7
+          "label": "妥協点を探す",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -14895,7 +18395,7 @@
       ]
     },
     {
-      "id": "P0426",
+      "id": "P0526",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "否定 ↔ 強く同意",
@@ -14904,23 +18404,23 @@
       "options": [
         {
           "key": "A",
-          "label": "ある程度同意する",
-          "axis_pos": 0.67
+          "label": "同意しない",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "強く同意する（生命の本質は情報）",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "C",
           "label": "分からない",
           "axis_pos": 0.33
         },
         {
+          "key": "C",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
           "key": "D",
-          "label": "同意しない",
-          "axis_pos": 0.0
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -14930,7 +18430,7 @@
       ]
     },
     {
-      "id": "P0427",
+      "id": "P0527",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "否定 ↔ 強く同意",
@@ -14939,18 +18439,18 @@
       "options": [
         {
           "key": "A",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
           "label": "同意しない",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "分からない",
           "axis_pos": 0.33
-        },
-        {
-          "key": "C",
-          "label": "強く同意する（生命の本質は情報）",
-          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -14965,7 +18465,7 @@
       ]
     },
     {
-      "id": "P0428",
+      "id": "P0528",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "否定 ↔ 強く同意",
@@ -14974,8 +18474,8 @@
       "options": [
         {
           "key": "A",
-          "label": "分からない",
-          "axis_pos": 0.33
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -14984,13 +18484,13 @@
         },
         {
           "key": "C",
-          "label": "同意しない",
-          "axis_pos": 0.0
+          "label": "分からない",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "強く同意する（生命の本質は情報）",
-          "axis_pos": 1.0
+          "label": "同意しない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15000,7 +18500,7 @@
       ]
     },
     {
-      "id": "P0429",
+      "id": "P0529",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "否定 ↔ 強く同意",
@@ -15009,13 +18509,13 @@
       "options": [
         {
           "key": "A",
-          "label": "ある程度同意する",
-          "axis_pos": 0.67
+          "label": "分からない",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
-          "label": "同意しない",
-          "axis_pos": 0.0
+          "label": "ある程度同意する",
+          "axis_pos": 0.67
         },
         {
           "key": "C",
@@ -15024,8 +18524,8 @@
         },
         {
           "key": "D",
-          "label": "分からない",
-          "axis_pos": 0.33
+          "label": "同意しない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15035,7 +18535,7 @@
       ]
     },
     {
-      "id": "P0430",
+      "id": "P0530",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "否定 ↔ 強く同意",
@@ -15049,18 +18549,18 @@
         },
         {
           "key": "B",
+          "label": "強く同意する（生命の本質は情報）",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "C",
           "label": "分からない",
           "axis_pos": 0.33
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "同意しない",
           "axis_pos": 0.0
-        },
-        {
-          "key": "D",
-          "label": "強く同意する（生命の本質は情報）",
-          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -15070,7 +18570,7 @@
       ]
     },
     {
-      "id": "P0431",
+      "id": "P0531",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -15089,13 +18589,13 @@
         },
         {
           "key": "C",
-          "label": "今の延長で安定して暮らす",
-          "axis_pos": 0.0
+          "label": "着実な発展",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "着実な発展",
-          "axis_pos": 0.33
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15105,7 +18605,7 @@
       ]
     },
     {
-      "id": "P0432",
+      "id": "P0532",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -15114,23 +18614,23 @@
       "options": [
         {
           "key": "A",
-          "label": "未踏の探求・自己の拡張",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "今の延長で安定して暮らす",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "新しい領域の開拓",
-          "axis_pos": 0.67
+          "label": "着実な発展",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "着実な発展",
-          "axis_pos": 0.33
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -15140,7 +18640,7 @@
       ]
     },
     {
-      "id": "P0433",
+      "id": "P0533",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -15149,23 +18649,23 @@
       "options": [
         {
           "key": "A",
-          "label": "今の延長で安定して暮らす",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "新しい領域の開拓",
           "axis_pos": 0.67
         },
         {
+          "key": "B",
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "着実な発展",
-          "axis_pos": 0.33
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "未踏の探求・自己の拡張",
-          "axis_pos": 1.0
+          "label": "着実な発展",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -15175,7 +18675,7 @@
       ]
     },
     {
-      "id": "P0434",
+      "id": "P0534",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -15184,8 +18684,8 @@
       "options": [
         {
           "key": "A",
-          "label": "新しい領域の開拓",
-          "axis_pos": 0.67
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -15194,13 +18694,13 @@
         },
         {
           "key": "C",
-          "label": "未踏の探求・自己の拡張",
-          "axis_pos": 1.0
+          "label": "着実な発展",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "着実な発展",
-          "axis_pos": 0.33
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -15210,7 +18710,7 @@
       ]
     },
     {
-      "id": "P0435",
+      "id": "P0535",
       "category": "メタ自己認識",
       "target_section": "background.life_narrative",
       "trait_axis": "現状維持 ↔ 未踏の探求",
@@ -15219,8 +18719,8 @@
       "options": [
         {
           "key": "A",
-          "label": "今の延長で安定して暮らす",
-          "axis_pos": 0.0
+          "label": "未踏の探求・自己の拡張",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -15229,13 +18729,13 @@
         },
         {
           "key": "C",
-          "label": "新しい領域の開拓",
-          "axis_pos": 0.67
+          "label": "今の延長で安定して暮らす",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "未踏の探求・自己の拡張",
-          "axis_pos": 1.0
+          "label": "新しい領域の開拓",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -15245,7 +18745,7 @@
       ]
     },
     {
-      "id": "P0436",
+      "id": "P0536",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -15259,18 +18759,18 @@
         },
         {
           "key": "B",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "より良い社会とは何か",
           "axis_pos": 0.33
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "人と技術はどう関わるべきか",
           "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15280,7 +18780,7 @@
       ]
     },
     {
-      "id": "P0437",
+      "id": "P0537",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -15289,8 +18789,8 @@
       "options": [
         {
           "key": "A",
-          "label": "人と技術はどう関わるべきか",
-          "axis_pos": 0.67
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
@@ -15299,13 +18799,13 @@
         },
         {
           "key": "C",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
-          "label": "より良い社会とは何か",
-          "axis_pos": 0.33
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15315,7 +18815,7 @@
       ]
     },
     {
-      "id": "P0438",
+      "id": "P0538",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -15324,8 +18824,8 @@
       "options": [
         {
           "key": "A",
-          "label": "人と技術はどう関わるべきか",
-          "axis_pos": 0.67
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -15334,8 +18834,8 @@
         },
         {
           "key": "C",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
@@ -15350,7 +18850,7 @@
       ]
     },
     {
-      "id": "P0439",
+      "id": "P0539",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -15364,13 +18864,13 @@
         },
         {
           "key": "B",
-          "label": "人と技術はどう関わるべきか",
-          "axis_pos": 0.67
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
         },
         {
           "key": "C",
-          "label": "より良い社会とは何か",
-          "axis_pos": 0.33
+          "label": "人と技術はどう関わるべきか",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
@@ -15385,7 +18885,7 @@
       ]
     },
     {
-      "id": "P0440",
+      "id": "P0540",
       "category": "メタ自己認識",
       "target_section": "philosophy.life_inquiry",
       "trait_axis": "日常・現実 ↔ 存在の本質",
@@ -15394,23 +18894,23 @@
       "options": [
         {
           "key": "A",
-          "label": "より良い社会とは何か",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
-          "label": "日々をどう充実させるか",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "意識や存在の本質とは何か",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "より良い社会とは何か",
+          "axis_pos": 0.33
+        },
+        {
+          "key": "C",
           "label": "人と技術はどう関わるべきか",
           "axis_pos": 0.67
+        },
+        {
+          "key": "D",
+          "label": "日々をどう充実させるか",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15420,7 +18920,7 @@
       ]
     },
     {
-      "id": "P0441",
+      "id": "P0541",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -15434,13 +18934,13 @@
         },
         {
           "key": "B",
-          "label": "思想と価値観",
-          "axis_pos": 0.67
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "思想と価値観",
+          "axis_pos": 0.67
         },
         {
           "key": "D",
@@ -15455,7 +18955,7 @@
       ]
     },
     {
-      "id": "P0442",
+      "id": "P0542",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -15464,23 +18964,23 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
-          "label": "肉体と経験",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "思想と価値観",
           "axis_pos": 0.67
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "役割と関係",
           "axis_pos": 0.33
+        },
+        {
+          "key": "C",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15490,7 +18990,7 @@
       ]
     },
     {
-      "id": "P0443",
+      "id": "P0543",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -15499,8 +18999,8 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "役割と関係",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
@@ -15509,13 +19009,13 @@
         },
         {
           "key": "C",
-          "label": "思想と価値観",
-          "axis_pos": 0.67
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "役割と関係",
-          "axis_pos": 0.33
+          "label": "思想と価値観",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -15525,7 +19025,7 @@
       ]
     },
     {
-      "id": "P0444",
+      "id": "P0544",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -15534,23 +19034,23 @@
       "options": [
         {
           "key": "A",
-          "label": "肉体と経験",
-          "axis_pos": 0.0
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "役割と関係",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "C",
           "label": "思想と価値観",
           "axis_pos": 0.67
         },
         {
+          "key": "C",
+          "label": "肉体と経験",
+          "axis_pos": 0.0
+        },
+        {
           "key": "D",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
+          "label": "役割と関係",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -15560,7 +19060,7 @@
       ]
     },
     {
-      "id": "P0445",
+      "id": "P0545",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "肉体・経験 ↔ 情報・パターン",
@@ -15569,18 +19069,18 @@
       "options": [
         {
           "key": "A",
+          "label": "自分を構成する情報・パターン",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
           "label": "思想と価値観",
           "axis_pos": 0.67
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "役割と関係",
           "axis_pos": 0.33
-        },
-        {
-          "key": "C",
-          "label": "自分を構成する情報・パターン",
-          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -15595,7 +19095,7 @@
       ]
     },
     {
-      "id": "P0446",
+      "id": "P0546",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -15609,8 +19109,8 @@
         },
         {
           "key": "B",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
+          "label": "自分の解釈で意味を与え続ける",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -15619,8 +19119,8 @@
         },
         {
           "key": "D",
-          "label": "自分の解釈で意味を与え続ける",
-          "axis_pos": 1.0
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15630,7 +19130,7 @@
       ]
     },
     {
-      "id": "P0447",
+      "id": "P0547",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -15639,8 +19139,8 @@
       "options": [
         {
           "key": "A",
-          "label": "理解しようと努める",
-          "axis_pos": 0.7
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -15649,8 +19149,8 @@
         },
         {
           "key": "C",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
         },
         {
           "key": "D",
@@ -15665,7 +19165,7 @@
       ]
     },
     {
-      "id": "P0448",
+      "id": "P0548",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -15674,8 +19174,8 @@
       "options": [
         {
           "key": "A",
-          "label": "少しずつ改善する",
-          "axis_pos": 0.4
+          "label": "理解しようと努める",
+          "axis_pos": 0.7
         },
         {
           "key": "B",
@@ -15684,13 +19184,13 @@
         },
         {
           "key": "C",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "理解しようと努める",
-          "axis_pos": 0.7
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15700,7 +19200,7 @@
       ]
     },
     {
-      "id": "P0449",
+      "id": "P0549",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -15714,8 +19214,8 @@
         },
         {
           "key": "B",
-          "label": "少しずつ改善する",
-          "axis_pos": 0.4
+          "label": "あるがまま受け入れる",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -15724,8 +19224,8 @@
         },
         {
           "key": "D",
-          "label": "あるがまま受け入れる",
-          "axis_pos": 0.0
+          "label": "少しずつ改善する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -15735,7 +19235,7 @@
       ]
     },
     {
-      "id": "P0450",
+      "id": "P0550",
       "category": "メタ自己認識",
       "target_section": "philosophy.worldview",
       "trait_axis": "受容 ↔ 意味を与え続ける",
@@ -15770,7 +19270,7 @@
       ]
     },
     {
-      "id": "P0451",
+      "id": "P0551",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -15779,8 +19279,8 @@
       "options": [
         {
           "key": "A",
-          "label": "最悪のシナリオ",
-          "axis_pos": 0.25
+          "label": "誰の責任か",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
@@ -15789,8 +19289,8 @@
         },
         {
           "key": "C",
-          "label": "誰の責任か",
-          "axis_pos": 0.0
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
         },
         {
           "key": "D",
@@ -15805,7 +19305,7 @@
       ]
     },
     {
-      "id": "P0452",
+      "id": "P0552",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -15819,8 +19319,8 @@
         },
         {
           "key": "B",
-          "label": "最悪のシナリオ",
-          "axis_pos": 0.25
+          "label": "誰の責任か",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -15829,8 +19329,8 @@
         },
         {
           "key": "D",
-          "label": "誰の責任か",
-          "axis_pos": 0.0
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
         },
         {
           "key": "X",
@@ -15840,7 +19340,7 @@
       ]
     },
     {
-      "id": "P0453",
+      "id": "P0553",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -15849,23 +19349,23 @@
       "options": [
         {
           "key": "A",
-          "label": "誰の責任か",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "最悪のシナリオ",
           "axis_pos": 0.25
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "その中の良い面・前向きな解釈",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "似た前例",
           "axis_pos": 0.45
+        },
+        {
+          "key": "D",
+          "label": "誰の責任か",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15875,7 +19375,7 @@
       ]
     },
     {
-      "id": "P0454",
+      "id": "P0554",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -15884,8 +19384,8 @@
       "options": [
         {
           "key": "A",
-          "label": "誰の責任か",
-          "axis_pos": 0.0
+          "label": "似た前例",
+          "axis_pos": 0.45
         },
         {
           "key": "B",
@@ -15894,13 +19394,13 @@
         },
         {
           "key": "C",
-          "label": "その中の良い面・前向きな解釈",
-          "axis_pos": 1.0
+          "label": "誰の責任か",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "似た前例",
-          "axis_pos": 0.45
+          "label": "その中の良い面・前向きな解釈",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -15910,7 +19410,7 @@
       ]
     },
     {
-      "id": "P0455",
+      "id": "P0555",
       "category": "感情反応",
       "target_section": "personality.cognitive_patterns",
       "trait_axis": "責任・最悪想定 ↔ 前向き解釈",
@@ -15919,18 +19419,18 @@
       "options": [
         {
           "key": "A",
+          "label": "最悪のシナリオ",
+          "axis_pos": 0.25
+        },
+        {
+          "key": "B",
           "label": "誰の責任か",
           "axis_pos": 0.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "その中の良い面・前向きな解釈",
           "axis_pos": 1.0
-        },
-        {
-          "key": "C",
-          "label": "最悪のシナリオ",
-          "axis_pos": 0.25
         },
         {
           "key": "D",
@@ -15945,7 +19445,7 @@
       ]
     },
     {
-      "id": "P0456",
+      "id": "P0556",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -15954,13 +19454,13 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を責める",
-          "axis_pos": 0.0
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "谷があるから山がある、と前向きに捉える",
-          "axis_pos": 1.0
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -15969,8 +19469,8 @@
         },
         {
           "key": "D",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -15980,7 +19480,7 @@
       ]
     },
     {
-      "id": "P0457",
+      "id": "P0557",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -16015,7 +19515,7 @@
       ]
     },
     {
-      "id": "P0458",
+      "id": "P0558",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -16024,13 +19524,13 @@
       "options": [
         {
           "key": "A",
-          "label": "谷があるから山がある、と前向きに捉える",
-          "axis_pos": 1.0
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -16039,8 +19539,8 @@
         },
         {
           "key": "D",
-          "label": "自分を責める",
-          "axis_pos": 0.0
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -16050,7 +19550,7 @@
       ]
     },
     {
-      "id": "P0459",
+      "id": "P0559",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -16059,18 +19559,18 @@
       "options": [
         {
           "key": "A",
-          "label": "自分を責める",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "気分転換する",
           "axis_pos": 0.6
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "原因を冷静に分析する",
           "axis_pos": 0.4
+        },
+        {
+          "key": "C",
+          "label": "自分を責める",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -16085,7 +19585,7 @@
       ]
     },
     {
-      "id": "P0460",
+      "id": "P0560",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "自責・分析 ↔ 前向き再解釈",
@@ -16094,13 +19594,13 @@
       "options": [
         {
           "key": "A",
-          "label": "気分転換する",
-          "axis_pos": 0.6
+          "label": "谷があるから山がある、と前向きに捉える",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "原因を冷静に分析する",
-          "axis_pos": 0.4
+          "label": "気分転換する",
+          "axis_pos": 0.6
         },
         {
           "key": "C",
@@ -16109,8 +19609,8 @@
         },
         {
           "key": "D",
-          "label": "谷があるから山がある、と前向きに捉える",
-          "axis_pos": 1.0
+          "label": "原因を冷静に分析する",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -16120,7 +19620,7 @@
       ]
     },
     {
-      "id": "P0461",
+      "id": "P0561",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -16129,18 +19629,18 @@
       "options": [
         {
           "key": "A",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "自分が損をしたとき",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "理不尽・身勝手な暴力を見たとき",
           "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -16155,7 +19655,7 @@
       ]
     },
     {
-      "id": "P0462",
+      "id": "P0562",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -16164,8 +19664,8 @@
       "options": [
         {
           "key": "A",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "B",
@@ -16174,13 +19674,13 @@
         },
         {
           "key": "C",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16190,7 +19690,7 @@
       ]
     },
     {
-      "id": "P0463",
+      "id": "P0563",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -16199,8 +19699,8 @@
       "options": [
         {
           "key": "A",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "信念や尊厳が侵されたとき",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
@@ -16209,13 +19709,13 @@
         },
         {
           "key": "C",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "D",
-          "label": "信念や尊厳が侵されたとき",
-          "axis_pos": 1.0
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16225,7 +19725,7 @@
       ]
     },
     {
-      "id": "P0464",
+      "id": "P0564",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -16234,23 +19734,23 @@
       "options": [
         {
           "key": "A",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "信念や尊厳が侵されたとき",
           "axis_pos": 1.0
         },
         {
+          "key": "B",
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
+        },
+        {
           "key": "C",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -16260,7 +19760,7 @@
       ]
     },
     {
-      "id": "P0465",
+      "id": "P0565",
       "category": "感情反応",
       "target_section": "philosophy.ethics",
       "trait_axis": "自己利害 ↔ 倫理・理不尽への怒り",
@@ -16269,23 +19769,23 @@
       "options": [
         {
           "key": "A",
-          "label": "不当な扱いを受けたとき",
-          "axis_pos": 0.4
+          "label": "理不尽・身勝手な暴力を見たとき",
+          "axis_pos": 0.8
         },
         {
           "key": "B",
-          "label": "自分が損をしたとき",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "信念や尊厳が侵されたとき",
           "axis_pos": 1.0
         },
         {
+          "key": "C",
+          "label": "自分が損をしたとき",
+          "axis_pos": 0.0
+        },
+        {
           "key": "D",
-          "label": "理不尽・身勝手な暴力を見たとき",
-          "axis_pos": 0.8
+          "label": "不当な扱いを受けたとき",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -16295,7 +19795,7 @@
       ]
     },
     {
-      "id": "P0466",
+      "id": "P0566",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -16304,8 +19804,8 @@
       "options": [
         {
           "key": "A",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -16319,8 +19819,8 @@
         },
         {
           "key": "D",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -16330,7 +19830,7 @@
       ]
     },
     {
-      "id": "P0467",
+      "id": "P0567",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -16339,13 +19839,13 @@
       "options": [
         {
           "key": "A",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "抑える",
-          "axis_pos": 0.0
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -16365,7 +19865,7 @@
       ]
     },
     {
-      "id": "P0468",
+      "id": "P0568",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -16379,18 +19879,18 @@
         },
         {
           "key": "B",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
           "label": "抑える",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "率直に出す",
           "axis_pos": 0.8
-        },
-        {
-          "key": "D",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -16400,7 +19900,7 @@
       ]
     },
     {
-      "id": "P0469",
+      "id": "P0569",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -16409,23 +19909,23 @@
       "options": [
         {
           "key": "A",
-          "label": "率直に出す",
-          "axis_pos": 0.8
+          "label": "抑える",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "感じたままに出す",
           "axis_pos": 1.0
         },
         {
+          "key": "C",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
+        },
+        {
           "key": "D",
-          "label": "抑える",
-          "axis_pos": 0.0
+          "label": "率直に出す",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -16435,7 +19935,7 @@
       ]
     },
     {
-      "id": "P0470",
+      "id": "P0570",
       "category": "感情反応",
       "target_section": "expression.emotional_expression",
       "trait_axis": "抑制 ↔ 表出",
@@ -16444,23 +19944,23 @@
       "options": [
         {
           "key": "A",
-          "label": "感じたままに出す",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
-          "label": "場を選んで出す",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "抑える",
           "axis_pos": 0.0
         },
         {
-          "key": "D",
+          "key": "B",
           "label": "率直に出す",
           "axis_pos": 0.8
+        },
+        {
+          "key": "C",
+          "label": "感じたままに出す",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "場を選んで出す",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -16470,7 +19970,7 @@
       ]
     },
     {
-      "id": "P0471",
+      "id": "P0571",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -16489,13 +19989,13 @@
         },
         {
           "key": "C",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -16505,7 +20005,7 @@
       ]
     },
     {
-      "id": "P0472",
+      "id": "P0572",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -16514,23 +20014,23 @@
       "options": [
         {
           "key": "A",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "B",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "人に話す",
           "axis_pos": 0.6
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "分析して計画を立てる",
           "axis_pos": 0.4
-        },
-        {
-          "key": "D",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16540,7 +20040,7 @@
       ]
     },
     {
-      "id": "P0473",
+      "id": "P0573",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -16549,23 +20049,23 @@
       "options": [
         {
           "key": "A",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
-          "label": "我慢してやり過ごす",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "C",
           "label": "人に話す",
           "axis_pos": 0.6
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "C",
           "label": "捉え方そのものを変える",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "我慢してやり過ごす",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16575,7 +20075,7 @@
       ]
     },
     {
-      "id": "P0474",
+      "id": "P0574",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -16584,23 +20084,23 @@
       "options": [
         {
           "key": "A",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
+          "label": "分析して計画を立てる",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
-          "label": "人に話す",
-          "axis_pos": 0.6
-        },
-        {
-          "key": "C",
           "label": "我慢してやり過ごす",
           "axis_pos": 0.0
         },
         {
+          "key": "C",
+          "label": "人に話す",
+          "axis_pos": 0.6
+        },
+        {
           "key": "D",
-          "label": "分析して計画を立てる",
-          "axis_pos": 0.4
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -16610,7 +20110,7 @@
       ]
     },
     {
-      "id": "P0475",
+      "id": "P0575",
       "category": "感情反応",
       "target_section": "personality.coping_patterns",
       "trait_axis": "我慢 ↔ 捉え方を変える",
@@ -16619,18 +20119,18 @@
       "options": [
         {
           "key": "A",
+          "label": "捉え方そのものを変える",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
           "label": "人に話す",
           "axis_pos": 0.6
         },
         {
-          "key": "B",
+          "key": "C",
           "label": "分析して計画を立てる",
           "axis_pos": 0.4
-        },
-        {
-          "key": "C",
-          "label": "捉え方そのものを変える",
-          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -16645,7 +20145,7 @@
       ]
     },
     {
-      "id": "P0476",
+      "id": "P0576",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -16680,7 +20180,7 @@
       ]
     },
     {
-      "id": "P0477",
+      "id": "P0577",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -16689,23 +20189,23 @@
       "options": [
         {
           "key": "A",
-          "label": "論理性と網羅性",
-          "axis_pos": 0.33
-        },
-        {
-          "key": "B",
           "label": "簡潔さと正確さ",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "感情への訴え",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "論理性と網羅性",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -16715,7 +20215,7 @@
       ]
     },
     {
-      "id": "P0478",
+      "id": "P0578",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -16724,18 +20224,18 @@
       "options": [
         {
           "key": "A",
-          "label": "簡潔さと正確さ",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
           "label": "感情への訴え",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "知的なウィットと比喩",
           "axis_pos": 0.7
+        },
+        {
+          "key": "C",
+          "label": "簡潔さと正確さ",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
@@ -16750,7 +20250,7 @@
       ]
     },
     {
-      "id": "P0479",
+      "id": "P0579",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -16764,18 +20264,18 @@
         },
         {
           "key": "B",
+          "label": "知的なウィットと比喩",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "C",
           "label": "感情への訴え",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "論理性と網羅性",
           "axis_pos": 0.33
-        },
-        {
-          "key": "D",
-          "label": "知的なウィットと比喩",
-          "axis_pos": 0.7
         },
         {
           "key": "X",
@@ -16785,7 +20285,7 @@
       ]
     },
     {
-      "id": "P0480",
+      "id": "P0580",
       "category": "文体傾向",
       "target_section": "expression.communication_strategy",
       "trait_axis": "簡潔・論理 ↔ 修辞・情緒",
@@ -16820,7 +20320,7 @@
       ]
     },
     {
-      "id": "P0481",
+      "id": "P0581",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -16829,23 +20329,23 @@
       "options": [
         {
           "key": "A",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "標準的",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "かなりくだけた",
           "axis_pos": 1.0
         },
         {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
           "key": "D",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -16855,7 +20355,7 @@
       ]
     },
     {
-      "id": "P0482",
+      "id": "P0582",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -16869,8 +20369,8 @@
         },
         {
           "key": "B",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "標準的",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -16879,8 +20379,8 @@
         },
         {
           "key": "D",
-          "label": "標準的",
-          "axis_pos": 0.4
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16890,7 +20390,7 @@
       ]
     },
     {
-      "id": "P0483",
+      "id": "P0583",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -16899,23 +20399,23 @@
       "options": [
         {
           "key": "A",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
-        },
-        {
-          "key": "B",
-          "label": "カジュアル（『僕』など）",
-          "axis_pos": 0.8
-        },
-        {
-          "key": "C",
           "label": "標準的",
           "axis_pos": 0.4
         },
         {
-          "key": "D",
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
           "label": "かなりくだけた",
           "axis_pos": 1.0
+        },
+        {
+          "key": "D",
+          "label": "カジュアル（『僕』など）",
+          "axis_pos": 0.8
         },
         {
           "key": "X",
@@ -16925,7 +20425,7 @@
       ]
     },
     {
-      "id": "P0484",
+      "id": "P0584",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -16934,23 +20434,23 @@
       "options": [
         {
           "key": "A",
-          "label": "標準的",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "B",
           "label": "カジュアル（『僕』など）",
           "axis_pos": 0.8
         },
         {
+          "key": "B",
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
+        },
+        {
           "key": "C",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
+          "label": "標準的",
+          "axis_pos": 0.4
         },
         {
           "key": "D",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -16960,7 +20460,7 @@
       ]
     },
     {
-      "id": "P0485",
+      "id": "P0585",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "フォーマル ↔ くだけた",
@@ -16969,23 +20469,23 @@
       "options": [
         {
           "key": "A",
-          "label": "フォーマル・敬語中心",
-          "axis_pos": 0.0
+          "label": "かなりくだけた",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "標準的",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "カジュアル（『僕』など）",
           "axis_pos": 0.8
         },
         {
+          "key": "C",
+          "label": "標準的",
+          "axis_pos": 0.4
+        },
+        {
           "key": "D",
-          "label": "かなりくだけた",
-          "axis_pos": 1.0
+          "label": "フォーマル・敬語中心",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -16995,7 +20495,7 @@
       ]
     },
     {
-      "id": "P0486",
+      "id": "P0586",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -17004,13 +20504,13 @@
       "options": [
         {
           "key": "A",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "C",
@@ -17019,8 +20519,8 @@
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -17030,7 +20530,7 @@
       ]
     },
     {
-      "id": "P0487",
+      "id": "P0587",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -17065,7 +20565,7 @@
       ]
     },
     {
-      "id": "P0488",
+      "id": "P0588",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -17074,23 +20574,23 @@
       "options": [
         {
           "key": "A",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "短く端的",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "詳しく長め",
+          "axis_pos": 1.0
+        },
+        {
           "key": "C",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "D",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "必要十分",
+          "axis_pos": 0.67
         },
         {
           "key": "X",
@@ -17100,7 +20600,7 @@
       ]
     },
     {
-      "id": "P0489",
+      "id": "P0589",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -17109,23 +20609,23 @@
       "options": [
         {
           "key": "A",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "短く端的",
           "axis_pos": 0.0
         },
         {
+          "key": "B",
+          "label": "必要十分",
+          "axis_pos": 0.67
+        },
+        {
           "key": "C",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
-          "label": "必要十分",
-          "axis_pos": 0.67
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "X",
@@ -17135,7 +20635,7 @@
       ]
     },
     {
-      "id": "P0490",
+      "id": "P0590",
       "category": "文体傾向",
       "target_section": "expression.speech_style",
       "trait_axis": "端的 ↔ 長め",
@@ -17144,13 +20644,13 @@
       "options": [
         {
           "key": "A",
-          "label": "短く端的",
-          "axis_pos": 0.0
+          "label": "やや短め",
+          "axis_pos": 0.33
         },
         {
           "key": "B",
-          "label": "やや短め",
-          "axis_pos": 0.33
+          "label": "詳しく長め",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -17159,42 +20659,7 @@
         },
         {
           "key": "D",
-          "label": "詳しく長め",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "X",
-          "label": "どれでもない（一行で）",
-          "axis_pos": null
-        }
-      ]
-    },
-    {
-      "id": "P0491",
-      "category": "文体傾向",
-      "target_section": "expression.metaphor_style",
-      "trait_axis": "比喩を使わない ↔ 多用",
-      "axis_id": "literal_metaphor",
-      "question_ja": "比喩・たとえの使い方は？",
-      "options": [
-        {
-          "key": "A",
-          "label": "よく使う",
-          "axis_pos": 0.7
-        },
-        {
-          "key": "B",
-          "label": "時々使う",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
-          "label": "多用する",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "D",
-          "label": "ほぼ使わない",
+          "label": "短く端的",
           "axis_pos": 0.0
         },
         {
@@ -17205,7 +20670,42 @@
       ]
     },
     {
-      "id": "P0492",
+      "id": "P0591",
+      "category": "文体傾向",
+      "target_section": "expression.metaphor_style",
+      "trait_axis": "比喩を使わない ↔ 多用",
+      "axis_id": "literal_metaphor",
+      "question_ja": "比喩・たとえの使い方は？",
+      "options": [
+        {
+          "key": "A",
+          "label": "多用する",
+          "axis_pos": 1.0
+        },
+        {
+          "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
+          "label": "よく使う",
+          "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
+        },
+        {
+          "key": "X",
+          "label": "どれでもない（一行で）",
+          "axis_pos": null
+        }
+      ]
+    },
+    {
+      "id": "P0592",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -17219,18 +20719,18 @@
         },
         {
           "key": "B",
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
+        },
+        {
+          "key": "C",
           "label": "多用する",
           "axis_pos": 1.0
         },
         {
-          "key": "C",
+          "key": "D",
           "label": "時々使う",
           "axis_pos": 0.4
-        },
-        {
-          "key": "D",
-          "label": "ほぼ使わない",
-          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -17240,7 +20740,7 @@
       ]
     },
     {
-      "id": "P0493",
+      "id": "P0593",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -17254,18 +20754,18 @@
         },
         {
           "key": "B",
-          "label": "時々使う",
-          "axis_pos": 0.4
-        },
-        {
-          "key": "C",
           "label": "多用する",
           "axis_pos": 1.0
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "よく使う",
           "axis_pos": 0.7
+        },
+        {
+          "key": "D",
+          "label": "時々使う",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
@@ -17275,7 +20775,7 @@
       ]
     },
     {
-      "id": "P0494",
+      "id": "P0594",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -17284,13 +20784,13 @@
       "options": [
         {
           "key": "A",
-          "label": "よく使う",
-          "axis_pos": 0.7
+          "label": "ほぼ使わない",
+          "axis_pos": 0.0
         },
         {
           "key": "B",
-          "label": "ほぼ使わない",
-          "axis_pos": 0.0
+          "label": "多用する",
+          "axis_pos": 1.0
         },
         {
           "key": "C",
@@ -17299,8 +20799,8 @@
         },
         {
           "key": "D",
-          "label": "多用する",
-          "axis_pos": 1.0
+          "label": "よく使う",
+          "axis_pos": 0.7
         },
         {
           "key": "X",
@@ -17310,7 +20810,7 @@
       ]
     },
     {
-      "id": "P0495",
+      "id": "P0595",
       "category": "文体傾向",
       "target_section": "expression.metaphor_style",
       "trait_axis": "比喩を使わない ↔ 多用",
@@ -17345,7 +20845,7 @@
       ]
     },
     {
-      "id": "P0496",
+      "id": "P0596",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -17359,13 +20859,13 @@
         },
         {
           "key": "B",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "D",
@@ -17380,7 +20880,7 @@
       ]
     },
     {
-      "id": "P0497",
+      "id": "P0597",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -17389,8 +20889,8 @@
       "options": [
         {
           "key": "A",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "B",
@@ -17399,13 +20899,13 @@
         },
         {
           "key": "C",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "D",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -17415,7 +20915,7 @@
       ]
     },
     {
-      "id": "P0498",
+      "id": "P0598",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -17424,13 +20924,13 @@
       "options": [
         {
           "key": "A",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "知的・ウィットに富んだ",
+          "axis_pos": 0.8
         },
         {
           "key": "B",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "C",
@@ -17439,8 +20939,8 @@
         },
         {
           "key": "D",
-          "label": "知的・ウィットに富んだ",
-          "axis_pos": 0.8
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "X",
@@ -17450,7 +20950,7 @@
       ]
     },
     {
-      "id": "P0499",
+      "id": "P0599",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -17459,23 +20959,23 @@
       "options": [
         {
           "key": "A",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
-        },
-        {
-          "key": "B",
           "label": "あまり出さない",
           "axis_pos": 0.0
         },
         {
-          "key": "C",
+          "key": "B",
           "label": "知的・ウィットに富んだ",
           "axis_pos": 0.8
         },
         {
-          "key": "D",
+          "key": "C",
           "label": "穏やかに",
           "axis_pos": 0.4
+        },
+        {
+          "key": "D",
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "X",
@@ -17485,7 +20985,7 @@
       ]
     },
     {
-      "id": "P0500",
+      "id": "P0600",
       "category": "文体傾向",
       "target_section": "expression.humor_style",
       "trait_axis": "出さない ↔ ストレート",
@@ -17494,13 +20994,13 @@
       "options": [
         {
           "key": "A",
-          "label": "穏やかに",
-          "axis_pos": 0.4
+          "label": "ストレートに笑わせる",
+          "axis_pos": 1.0
         },
         {
           "key": "B",
-          "label": "ストレートに笑わせる",
-          "axis_pos": 1.0
+          "label": "あまり出さない",
+          "axis_pos": 0.0
         },
         {
           "key": "C",
@@ -17509,8 +21009,8 @@
         },
         {
           "key": "D",
-          "label": "あまり出さない",
-          "axis_pos": 0.0
+          "label": "穏やかに",
+          "axis_pos": 0.4
         },
         {
           "key": "X",
