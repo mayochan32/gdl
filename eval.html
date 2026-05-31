@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ペルソナ チューリングテスト — GDL Eval</title>
+  <style>
+    :root {
+      --bg: #0A0C12; --bg2: #12141C; --bg3: #1A1D28; --border: #2A2D3A;
+      --accent: #5B8CFF; --accent2: #7C5CFC; --green: #3ECF8E; --orange: #F5A623; --pink: #FF6B9D;
+      --text: #E8EAF0; --text2: #9096A8; --text3: #5A6070;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI','Hiragino Sans','Yu Gothic',sans-serif; line-height: 1.8; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,12,18,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration:none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* hero */
+    .hero { padding: 9rem 2rem 4rem; max-width: 900px; margin: 0 auto; text-align: center; position: relative; }
+    .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.12) 0%, transparent 70%); pointer-events:none; }
+    .hero-tag { display:inline-block; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;
+      color: var(--accent); border:1px solid rgba(91,140,255,0.3); padding:0.3rem 0.9rem; border-radius:999px; margin-bottom:1.8rem; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing:-0.02em; line-height:1.15; margin-bottom:1.2rem; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero p { color: var(--text2); font-size: clamp(1rem,2.5vw,1.2rem); max-width:640px; margin:0 auto; }
+
+    section { padding: 3.5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-tag { font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight:700; letter-spacing:-0.01em; margin-bottom:1.2rem; }
+    h3 { font-size:1.1rem; font-weight:600; margin:1.8rem 0 0.6rem; }
+    p { color: var(--text2); margin-bottom: 1rem; }
+    strong { color: var(--text); font-weight:600; }
+    em { color: var(--accent); font-style: normal; }
+
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.3rem; margin-top:1.5rem; }
+    .card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.6rem; transition:border-color .2s,transform .2s; }
+    .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+    .card-icon { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:0.9rem; }
+    .card h3 { margin:0 0 0.5rem; font-size:1.05rem; }
+    .card p { color:var(--text2); font-size:0.9rem; margin:0; }
+
+    table { width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:0.9rem; }
+    th, td { text-align:left; padding:0.7rem 0.9rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    th { color:var(--text); font-weight:600; background:var(--bg2); }
+    td { color:var(--text2); }
+    code { font-family:'Consolas','Monaco',monospace; font-size:0.85em; background:var(--bg3); padding:0.1rem 0.4rem; border-radius:4px; color:var(--green); }
+
+    .formula { background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:0 10px 10px 0;
+      padding:1.1rem 1.4rem; margin:1.2rem 0; font-family:'Consolas','Monaco',monospace; font-size:0.9rem; color:var(--text); overflow-x:auto; }
+    .callout { background:rgba(124,92,252,0.06); border-left:3px solid var(--accent2); border-radius:0 8px 8px 0; padding:1rem 1.4rem; margin:1.5rem 0; }
+    .callout p { color:var(--text); margin:0; }
+
+    .axis-diagram { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin:1.5rem 0;
+      font-family:'Consolas','Monaco',monospace; font-size:0.8rem; color:var(--text2); white-space:pre; overflow-x:auto; line-height:1.6; }
+
+    ul { margin:0 0 1rem 1.3rem; color:var(--text2); }
+    li { margin-bottom:0.4rem; }
+
+    .divider { border:none; border-top:1px solid var(--border); margin:0; max-width:900px; margin:0 auto; }
+
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.6rem; border-radius:8px; font-size:0.92rem; font-weight:600; text-decoration:none; transition:all .2s; }
+    .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
+    .btn-primary:hover { opacity:0.85; transform:translateY(-1px); }
+    .btn-secondary { background:transparent; color:var(--text); border:1px solid var(--border); }
+    .btn-secondary:hover { border-color:var(--accent); color:var(--accent); }
+    .btn-row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+
+    .profile-bar { display:flex; align-items:center; gap:0.8rem; margin:0.35rem 0; font-size:0.85rem; }
+    .profile-bar .lbl { width:130px; color:var(--text2); flex-shrink:0; }
+    .profile-bar .track { flex:1; height:14px; background:var(--bg3); border-radius:7px; overflow:hidden; }
+    .profile-bar .fill { height:100%; background:linear-gradient(90deg,var(--accent),var(--accent2)); border-radius:7px; }
+    .profile-bar .val { width:42px; text-align:right; color:var(--text); font-family:monospace; }
+
+    footer { text-align:center; padding:2.5rem; color:var(--text3); font-size:0.82rem; border-top:1px solid var(--border); }
+    footer a { color:var(--text3); text-decoration:none; }
+    footer a:hover { color:var(--accent); }
+    @media (max-width:768px){ .nav-links{gap:0.9rem;} .nav-links a{font-size:0.75rem;} }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">GDL</a>
+  <div class="nav-links">
+    <a href="index.html">← トップ</a>
+    <a href="#axes">2軸</a>
+    <a href="#baseline">ベースライン</a>
+    <a href="#questions">質問設計</a>
+    <a href="#scoring">採点</a>
+    <a href="#harness">ハーネス</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Evaluation Framework</span>
+  <h1>ペルソナ<br><span>チューリングテスト</span></h1>
+  <p>GDLを組み込んだAIが、本当にその人のように振る舞うか——その再現の忠実度を定量的に測定する評価フレームワーク。</p>
+</div>
+
+<hr class="divider" />
+
+<!-- 概要 -->
+<section>
+  <div class="section-tag">Overview</div>
+  <h2>なぜ評価が必要か</h2>
+  <p>GDLで「個性を記述できた」ことと、そのデータで「AIが本当にその人らしく振る舞う」こととは別問題です。「らしさ」を印象論で語れば「なんとなく似ている／似ていない」で終わってしまいます。</p>
+  <p>基本アイデアはシンプル——<strong>本人とGDL-AIに同じ質問をぶつけ、回答がどれだけ似ているかを測る</strong>。ただし素朴に類似度を測るだけでは確実に誤るため、本フレームワークはその落とし穴を回避する設計原則を体系化しています。評価は終着点ではなく、<em>GDLをブラッシュアップするための計測器</em>です。</p>
+
+  <h3>何を測るのか — 4つの層</h3>
+  <p>「その人らしさ」を単一スコアに潰さず、独立した4層で評価します。</p>
+  <table>
+    <tr><th>層</th><th>内容</th></tr>
+    <tr><td><strong>Content</strong></td><td>立場・選択（どちらを選ぶか、賛成か反対か）</td></tr>
+    <tr><td><strong>Reasoning</strong></td><td>推論パターン（なぜそう考えるか、論の運び方）</td></tr>
+    <tr><td><strong>Style</strong></td><td>文体・声（口調、語彙、文の長さ、言い回しの癖）</td></tr>
+    <tr><td><strong>Values</strong></td><td>価値観（判断の裏にある優先順位）</td></tr>
+  </table>
+  <div class="callout"><p>🎸 アナロジー：カバーバンドの評価。「正しい音を弾いたか（Content）」「アレンジが本物っぽいか（Reasoning）」「声色が本人か（Style）」を別々に採点し、最終試験は「目を閉じたファンが偽物だと気づくか」——これが次の2軸です。</p></div>
+</section>
+
+<hr class="divider" />
+
+<!-- 2軸 -->
+<section id="axes">
+  <div class="section-tag">Two Axes</div>
+  <h2>評価の2軸 — 同一性と人間性</h2>
+  <p>「その人らしさ」の最終判定は、直交する2つの軸で構成されます。これが本フレームワークの核心です。</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(91,140,255,0.12);">🎭</div>
+      <h3>軸A — 同一性</h3>
+      <p>「これは"その人"か？」 本人とGDL-AIの回答を並べ、本人をよく知る人に「どちらが本物か」を当てさせる。正答率が<strong>50%（チャンス）に近いほど区別不能＝高再現</strong>。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(124,92,252,0.12);">🤖</div>
+      <h3>軸B — 人間性 / AI露呈</h3>
+      <p>「そもそも人間として通るか？」 内容が似ていてもAI特有の癖が出れば失格。『ブレードランナー』のフォークト＝カンプフ検査と同じ発想で、AIだと露呈しないかを測る。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:1.5rem;">軸Bで検出すべき典型的な「AIの尻尾」：過剰な両論併記／やたら丁寧で起伏のないレジスター／ヘッジ表現の多用／人間的な「ムラ」の欠如。判定者のAI正答率が<strong>低い（チャンスに近い）ほど良い</strong>という、軸Aとは最適化方向が逆の指標です。</p>
+
+  <div class="axis-diagram">              軸B：人間として通る
+                      ▲
+   人間だが別人        │   本人として通る
+  （文体は人間的だが   │  （理想：A∧B 両立）
+    "その人"ではない）  │
+ ─────────────────────┼─────────────────────▶ 軸A：その人と同一
+                      │
+   AIだとバレる        │   内容は本人的だが
+  （論外）            │   AIだと露呈する
+                      │</div>
+  <div class="callout"><p><strong>合格条件は「軸A ∧ 軸B」の両立。</strong>どちらか一方では不十分です。</p></div>
+</section>
+
+<hr class="divider" />
+
+<!-- ベースライン -->
+<section id="baseline">
+  <div class="section-tag">Baseline</div>
+  <h2>ベースライン — 生スコアは無意味</h2>
+  <p>「類似度は0.82でした」と言われても、<strong>それが高いのか低いのか判断する基準がありません</strong>。最低2本の基準線が必要です。</p>
+  <table>
+    <tr><th>基準線</th><th>測り方</th><th>意味</th></tr>
+    <tr><td><strong>天井</strong></td><td>本人 vs 本人（日を変えた test-retest）</td><td>人は自分自身ですら完全には一貫しない。GDL-AIが超えられない上限</td></tr>
+    <tr><td><strong>床</strong></td><td>素のAI（GDL無し） vs 本人</td><td>GDLが何も足していない状態</td></tr>
+    <tr><td><strong>弁別チェック</strong></td><td>他人のGDL-AI vs 本人</td><td>固有の信号を捉えているか（別人では似ないはず）</td></tr>
+  </table>
+  <p>最終指標は生スコアではなく、床↔天井の間で正規化した <strong>GDL Fidelity Score</strong> にします。</p>
+  <div class="formula">GDL Fidelity Score = (GDL-AIのスコア − 床) / (天井 − 床)
+
+  0.0 = 素のAIと変わらない（GDLが効いていない）
+  1.0 = 本人の自己一致度に到達（理論上の上限）</div>
+</section>
+
+<hr class="divider" />
+
+<!-- 質問設計 -->
+<section id="questions">
+  <div class="section-tag">Question Design</div>
+  <h2>質問設計の考え方</h2>
+
+  <h3>① 弁別力 — 答えが割れる質問だけが価値を持つ</h3>
+  <p>「人を殺すのは悪いか？」のように全員が同じ答えを返す質問は、個人差の分散がゼロで測定上無意味。人によって答えが割れる質問だけが個性を測れます。</p>
+
+  <h3>② ホールドアウト分割 — 暗記でなく汎化を測る</h3>
+  <p>GDLに既に書いてある内容を問うと「記憶の再生」を測るだけ。<strong>In-GDL質問</strong>（想起精度）と<strong>Held-out質問</strong>（GDL未学習の新規状況＝真の汎化）に分け、後者で本人と一致してこそ「らしさの再現」と言えます。</p>
+
+  <h3>③ 2層分離 — 質問と「答えの鍵」を分ける</h3>
+  <p>弁別力は質問と母集団の性質であり、特定個人とは無関係です。そこで万人共通の<strong>普遍質問バンク</strong>と、被験者ごとの<strong>answer key</strong>（本人の回答＝gold）を別ファイルに分離します。ありがちな失敗は「赤いアメ車で」のように<em>答えを質問に焼き込む</em>こと——質問は普遍形にし、その人らしさはanswer key側に置きます。</p>
+
+  <h3>④ ハイブリッド形式と傾向採点</h3>
+  <p>自由記述だけでは「回答の手間」と「評価のブレ」が大きい。そこで<strong>選択式を主力</strong>に、文体・人間性を測る<strong>自由記述を少数の専用層</strong>として残します。全部を選択式にすると軸B（人間かAIか）と文体が測れず、しかもGDL-AI側が楽になって忠実度が過大評価されるためです。</p>
+  <table>
+    <tr><th>形式</th><th>役割</th><th>測れる層</th></tr>
+    <tr><td>選択式（4択＋どれでもない）</td><td>主力。定量・容易・大量化</td><td>Content / Values</td></tr>
+    <tr><td>自由記述（少数）</td><td>軸Bと文体の死守</td><td>Style / 軸A / 軸B</td></tr>
+  </table>
+
+  <h3>⑤ 軸タクソノミーと大量プール</h3>
+  <p>質問は思いつきでなく、性格の次元（<code>trait_axis</code>）を先に体系化し「どの軸を測るプローブか」を明確に設計します（8カテゴリ×5軸＝<strong>40軸</strong>）。1軸をシナリオ領域を変えて言い換えることで、被覆を保ったまま大量のバリエーション（目標〜1000問）を生成。出題は各カテゴリ・軸から固定数を引く<strong>層化サンプリング</strong>とし、毎回違う質問でも同じ次元をカバーします。これにより同じ人やAIが複数回受験でき、人間のブレを平均化できます。</p>
+
+  <h3>⑥ 選択肢のランダム順</h3>
+  <p>選択肢を「弱→強」で並べると惰性で同じ記号を選びがち（レスポンスセット・バイアス）。表示順はランダム化し、記号A〜Dが強弱を表さないようにします。採点は記号でなく軸座標 <code>axis_pos</code> で行うため、順序を変えても結果は不変です。</p>
+</section>
+
+<hr class="divider" />
+
+<!-- 採点 -->
+<section id="scoring">
+  <div class="section-tag">Scoring Logic</div>
+  <h2>分析の仕方 — 採点ロジック</h2>
+
+  <h3>① 質問単位の類似度</h3>
+  <p>各選択肢には性格軸上の座標 <code>axis_pos ∈ [0,1]</code> が付いています。本人とGDL-AIの回答について：</p>
+  <div class="formula">sim(q) = 1 − |axis_pos_本人(q) − axis_pos_AI(q)|</div>
+  <p>完全一致なら 1.0、軸上で隣なら部分点、対極なら 0。<strong>ゼロイチでなく「傾向の近さ」を定量化</strong>します。「どれでもない(X)」は <code>axis_pos=null</code> のため距離計算から除外し、件数だけログします。</p>
+
+  <h3>② 傾向プロファイルと距離</h3>
+  <p>回答を軸／カテゴリで平均し、傾向プロファイルを作ります。本人 <code>P</code> とAI <code>Q</code> の類似度は：</p>
+  <div class="formula">profile_sim = 1 − mean |P[c] − Q[c]|   （c: 共有カテゴリ）</div>
+  <p>質問単位の平均は「どこでズレたか」、プロファイル距離は「人格の形そのものがどれだけ似ているか」を表します。<strong>出題が毎回変わってもプロファイル距離は安定</strong>します。</p>
+
+  <h3>③ ベースライン正規化</h3>
+  <p>生スコアを床（素のAI）と天井（本人 test-retest）で正規化し、単一指標 <strong>GDL Fidelity Score</strong> を得ます。</p>
+</section>
+
+<hr class="divider" />
+
+<!-- ハーネス -->
+<section id="harness">
+  <div class="section-tag">Harness</div>
+  <h2>評価ハーネス</h2>
+  <p>このパイプラインを回す参照実装が <code>GDL_eval_harness.py</code> です（Python標準ライブラリのみ・依存なし）。質問バンクと answer key を入力に、4つのサブコマンドを提供します。</p>
+  <table>
+    <tr><th>サブコマンド</th><th>役割</th><th>ロジック</th></tr>
+    <tr><td><code>profile</code></td><td>傾向プロファイル表示</td><td>回答の axis_pos をカテゴリ／軸で平均し、全体平均とバーを出力</td></tr>
+    <tr><td><code>score</code></td><td>本人 vs AI の採点</td><td>質問別類似度・カテゴリ別・プロファイル距離。<code>--baseline</code> で正規化 Fidelity Score も算出</td></tr>
+    <tr><td><code>sample</code></td><td>層化サンプリング出題</td><td>各カテゴリからN問抽出。<code>--shuffle</code> で選択肢順をシャッフルしA〜D再付番（Xは末尾固定）</td></tr>
+    <tr><td><code>style</code></td><td>open回答の文体計量</td><td>文字数・文数・平均文長・文字bigram多様度を本人vsAIで比較</td></tr>
+  </table>
+  <p>採点は記号でなく <code>axis_pos</code> を参照するため、選択肢順のシャッフルは結果に影響しません。出力はカテゴリ別の昇順ソートで「どこが弱いか」が一目で分かり、それがそのままGDL改善ポイントになります。</p>
+  <div class="formula"># 使い方の例
+python GDL_eval_harness.py profile --bank GDL_eval_questions.json --key GDL_eval_key_mayo_v03.json
+python GDL_eval_harness.py score   --bank ... --person &lt;本人key&gt; --ai &lt;GDL-AI key&gt; --baseline &lt;素のAI key&gt;
+python GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 1</div>
+</section>
+
+<hr class="divider" />
+
+<!-- 予備結果 -->
+<section>
+  <div class="section-tag">Preliminary Result</div>
+  <h2>予備運用で見えたこと（被験者: mayo）</h2>
+  <p>被験者 mayo が46問に回答し、傾向プロファイルを得ました（各軸 0=低極／1=高極の平均）。</p>
+  <div style="background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin:1.2rem 0;">
+    <div class="profile-bar"><span class="lbl">倫理ジレンマ</span><span class="track"><span class="fill" style="width:100%;"></span></span><span class="val">1.00</span></div>
+    <div class="profile-bar"><span class="lbl">思考スタイル</span><span class="track"><span class="fill" style="width:100%;"></span></span><span class="val">1.00</span></div>
+    <div class="profile-bar"><span class="lbl">対人スタンス</span><span class="track"><span class="fill" style="width:94%;"></span></span><span class="val">0.94</span></div>
+    <div class="profile-bar"><span class="lbl">価値観トレードオフ</span><span class="track"><span class="fill" style="width:93%;"></span></span><span class="val">0.93</span></div>
+    <div class="profile-bar"><span class="lbl">メタ自己認識</span><span class="track"><span class="fill" style="width:93%;"></span></span><span class="val">0.93</span></div>
+    <div class="profile-bar"><span class="lbl">感情反応</span><span class="track"><span class="fill" style="width:80%;"></span></span><span class="val">0.80</span></div>
+    <div class="profile-bar"><span class="lbl">美的・嗜好判断</span><span class="track"><span class="fill" style="width:72%;"></span></span><span class="val">0.72</span></div>
+    <div class="profile-bar"><span class="lbl">文体傾向</span><span class="track"><span class="fill" style="width:30%;"></span></span><span class="val">0.30</span></div>
+  </div>
+  <div class="callout"><p>思想は探求の高極（倫理1.00／思考1.00）なのに、文体は簡潔・抑制の低極（0.30）。<strong>「思想は大胆な探求者、表現はミニマリスト」という二面構造</strong>が浮かび、これがそのままGDL改善のヒント（expressionは簡潔さに寄せる）になりました。診断ループが機能している例です。</p></div>
+</section>
+
+<hr class="divider" />
+
+<!-- 参考・リンク -->
+<section>
+  <div class="section-tag">Resources</div>
+  <h2>仕様とソース</h2>
+  <p>本ページは概要です。完全な仕様（交絡対策・合格条件・制約・ロードマップ）と各データファイルはリポジトリを参照してください。</p>
+  <div class="btn-row">
+    <a href="https://github.com/mayochan32/gdl/blob/main/GDL_eval.md" class="btn btn-primary" target="_blank">📄 完全仕様 GDL_eval.md</a>
+    <a href="https://github.com/mayochan32/gdl" class="btn btn-secondary" target="_blank">⌥ GitHub リポジトリ</a>
+    <a href="index.html" class="btn btn-secondary">← トップへ戻る</a>
+  </div>
+  <h3>参考文献</h3>
+  <ul>
+    <li>Computational Turing Test Reveals Systematic Differences Between Human and AI Language — <a href="https://arxiv.org/abs/2511.04195" target="_blank" style="color:var(--accent);">arXiv:2511.04195</a></li>
+    <li>PersonaEval: Are LLM Evaluators Human Enough to Judge Role-Play? — <a href="https://arxiv.org/abs/2508.10014" target="_blank" style="color:var(--accent);">arXiv:2508.10014</a></li>
+    <li>Large language models pass a standard three-party Turing test — <a href="https://www.pnas.org/doi/10.1073/pnas.2524472123" target="_blank" style="color:var(--accent);">PNAS</a></li>
+  </ul>
+</section>
+
+<footer>
+  <p>GDL — Ghost Description Language &nbsp;|&nbsp; <a href="https://github.com/mayochan32/gdl" target="_blank">GitHub</a> &nbsp;|&nbsp; MIT License</p>
+  <p style="margin-top:0.5rem;">ペルソナ チューリングテスト — 「映し取れたかではなく、見分けがつかないか。それが"らしさ"の証明になる。」</p>
+</footer>
+
+</body>
+</html>
