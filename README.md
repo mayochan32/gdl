@@ -5,6 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/GDL-v1.0-5B8CFF.svg)]()
 [![Schema](https://img.shields.io/badge/Schema-JSON-3ECF8E.svg)]()
+[![Eval](https://img.shields.io/badge/Eval-Persona_Turing_Test-FF8C42.svg)](GDL_eval.md)
 
 ---
 
@@ -124,19 +125,36 @@ GDLデータ本体は英語キーで統一されており、`_labels` セクシ�
 
 ---
 
+## ペルソナ チューリングテスト — GDLの忠実度評価
+
+GDLで「個性を記述できた」ことと、「そのデータでAIが本当にその人らしく振る舞う」こととは別問題です。そこで GDL には、**GDLを組み込んだAI（GDL-AI）がどれだけ本人を再現できているかを定量測定する**評価フレームワーク「ペルソナ チューリングテスト」を備えています。
+
+基本アイデアは「本人とGDL-AIに同じ質問をぶつけ、回答がどれだけ似ているかを測る」こと。ただし素朴な類似度では誤るため、次の設計を採っています。
+
+- **2軸で判定** — 軸A（同一性：本人とGDL-AIを並べて区別できないか）と、軸B（人間性：そもそもAIだと露呈しないか＝ブレードランナー型）。両方がチャンスレベル（50%）に近いほど高再現。
+- **ベースライン正規化** — 生スコアは無意味。素のAI（床）と本人の再現性（天井）の間で正規化した **GDL Fidelity Score** を最終指標にする。
+- **ハイブリッド質問＋傾向採点** — 選択式（各選択肢に性格軸座標 `axis_pos` を付与し `類似度=1−|Δpos|` で傾向を採点）を主力に、文体・人間性を測る自由記述を併設。
+- **2層分離** — 万人共通の質問バンクと、被験者ごとの回答（answer key）を分離。質問は再利用可能、回答は個人ごと。
+
+詳細は **[GDL_eval.md](GDL_eval.md)** を参照。評価は終着点ではなく、どのセクションがズレているかを示して **GDL自体のブラッシュアップを駆動する計測器** です。
+
+---
+
 ## ファイル構成
 
 ```
 gdl/
-├── index.html              # ランディングページ（GDL紹介）
-├── input.html              # GDL入力フォーム（Web UI）
-├── GDL_schema.json         # マスタースキーマ（_labels + _levels 付き）
-├── GDL_schema_lv1.json     # Lv1 スキーマ（自動生成）
-├── GDL_schema_lv2.json     # Lv2 スキーマ（自動生成）
-├── GDL_schema_lv3.json     # Lv3 スキーマ（自動生成）
-├── build_schemas.js        # レベル別スキーマ生成スクリプト
-├── GDL_questions.json      # インタビュー質問セット
-└── README.md               # 本ドキュメント
+├── index.html               # ランディングページ（GDL紹介）
+├── input.html               # GDL入力フォーム（Web UI）
+├── GDL_schema.json          # マスタースキーマ（_labels + _levels 付き）
+├── GDL_schema_lv1/2/3.json  # レベル別スキーマ（自動生成）
+├── build_schemas.js         # レベル別スキーマ生成スクリプト
+├── GDL_questions.json       # インタビュー質問セット
+├── GDL_eval.md              # ペルソナ チューリングテスト（評価フレームワーク仕様）
+├── GDL_eval_questions.json  # 評価用 普遍質問バンク（v0.3 ハイブリッド）
+├── GDL_eval_axes.json       # 評価用 軸タクソノミー（生成器の設計図）
+├── GDL_eval_harness.py      # 評価ハーネス（採点・サンプリング・文体計量）
+└── README.md                # 本ドキュメント
 ```
 
 ---
