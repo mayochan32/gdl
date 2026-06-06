@@ -69,6 +69,8 @@ def sample_subset(pool, n_per_axis=2, seed=None):
         items = by_axis[axis][:]
         rng.shuffle(items)
         subset.extend(items[:n_per_axis])
+    # 出題順をシャッフル：同じ軸（＝同じ選択肢セット）が連続しないよう交互配置する。
+    rng.shuffle(subset)
     return {
         "_about": "PTT 出題サブセット（層化抽出）。A/B/C 全員に同一を出題する。",
         "_meta": {"n_per_axis": n_per_axis, "seed": seed, "n_questions": len(subset)},
