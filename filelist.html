@@ -149,7 +149,7 @@
   <h1>GDL — Repository File List</h1>
   <p class="subtitle">
     <a href="https://github.com/mayochan32/gdl">github.com/mayochan32/gdl</a>
-    &nbsp;·&nbsp;Ghost Description Language v1.0 / Schema v1.2
+    &nbsp;·&nbsp;Ghost Description Language v1.0
   </p>
 
   <div class="stats">
@@ -169,7 +169,7 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">GDLマスタースキーマ（Single Source of Truth）</div>
-    <div class="file-detail">全11セクション × Lv1/Lv2/Lv3 の全フィールド定義を含むマスターファイル。_labels（日本語対訳マップ）、_levels（レベル定義）、_confidence（信頼度仕様）、_preamble（AI解読ガイド仕様）を内包。他の全ファイルはこのスキーマを参照して整合性を保つ。schema_version: 1.2。</div>
+    <div class="file-detail">全11セクション × Lv1/Lv2/Lv3 の全フィールド定義を含むマスターファイル。_labels（日本語対訳マップ）、_levels（レベル定義）、_confidence（信頼度仕様）、_preamble（AI解読ガイド仕様）を内包。他の全ファイルはこのスキーマを参照して整合性を保つ。バージョンは gdl_version 1.0 に一本化（旧 schema_version は廃止）。</div>
   </div>
 
   <div class="file-card">
@@ -212,6 +212,16 @@
     </div>
     <div class="file-summary">インタビュー質問セット（56問・3言語対応）</div>
     <div class="file-detail">GDL Interview Agent が使用する全56問の質問データ。7セクション（S1〜S7）構成。各質問にはtype（select/multi_select/scale/rank/direct）、候補選択肢、GDLフィールドへのマッピング情報を含む。日本語・英語・中国語の3言語フィールドを内包。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_松永　克幸_2026-05-19_v1.2.json">GDL_松永　克幸_2026-05-19_v1.2.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDLデータ実例（松永克幸・Lv1・GDL 1.0）</div>
+    <div class="file-detail">2026-05-19に旧フォーマット（フラット構造・スケール値は数値のみ）で作成されたGDLを、最新のGDL 1.0フォーマットへ変換したもの。各セクションをLv1ネスト構造化し、_preamble・各セクション_descriptionを付与、スケール値を{value,label}形式へ変換、career/education/turning_points/marital_historyを配列構造化。生成方法 input_form。</div>
   </div>
 
   <div class="file-card">
@@ -307,7 +317,7 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">GDL Interview Agent — GPTs設定ガイド＆システムプロンプト（日本語）</div>
-    <div class="file-detail">OpenAI GPTs として GDL Interview Agent を構築するための設定ガイドとシステムプロンプト。56問のインタビューを1問ずつ進行し、回答からGDL v1.2形式のJSONを自動生成する。質問タイプ別の表示フォーマット、フィールドマッピングルール、_preamble・_description・labelの必須出力ルールを定義。</div>
+    <div class="file-detail">OpenAI GPTs として GDL Interview Agent を構築するための設定ガイドとシステムプロンプト。56問のインタビューを1問ずつ進行し、回答からGDL 1.0形式のJSONを自動生成する。質問タイプ別の表示フォーマット、フィールドマッピングルール、_preamble・_description・labelの必須出力ルールを定義。</div>
   </div>
 
   <div class="file-card">
@@ -337,7 +347,7 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">GDL Text Analyzer — GPTs設定ガイド＆システムプロンプト（日本語）</div>
-    <div class="file-detail">テキスト（SNS投稿、ブログ、書籍、インタビュー等）から個性を推論しGDLを自動生成するエージェントのシステムプロンプト。マルチスピーカー処理（ステップ1.5）、6視点分析、3段階confidence体系、値の柔軟性ルール、特殊分析パターン（A〜H）を定義。v1.2形式で出力。</div>
+    <div class="file-detail">テキスト（SNS投稿、ブログ、書籍、インタビュー等）から個性を推論しGDLを自動生成するエージェントのシステムプロンプト。マルチスピーカー処理（ステップ1.5）、6視点分析、3段階confidence体系、値の柔軟性ルール、特殊分析パターン（A〜H）を定義。GDL 1.0形式で出力。</div>
   </div>
 
   <div class="file-card">
@@ -483,6 +493,122 @@
     </div>
     <div class="file-summary">Git除外設定</div>
     <div class="file-detail">.DS_Store など、バージョン管理不要なファイルの除外ルールを定義。</div>
+  </div>
+
+  <!-- ===== 性格診断法 (Big Five) ===== -->
+  <div class="category"><span class="category-icon">🧪</span> 性格診断法（Big Five / IPIP-NEO-120）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/README.md">bigfive/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">性格診断法による GDL忠実度評価 — 設計と運用</div>
+    <div class="file-detail">確立された性格診断(Big Five / IPIP-NEO-120)を人間本人とGDL-AIの両方に当て、同じ性格に出るかで本人らしさを測る外部ものさし。連続スコアで測れる(MBTI型は境界フリップで不向き)・項目と採点がpublic domainでローカル完全再現できる点を選定理由に。Fidelity=(sim(GDL,本人)−sim(素AI,本人))/(1−sim(素AI,本人))でPTTと式を統一。AI自動受験は採点公開サイトは方式A(ローカル採点)、非公開サイトは方式B(ブラウザ自動操作)。既存PTTとの併用が前提。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_scorer.py">bigfive/bigfive_scorer.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">Big Five 採点＋忠実度ハーネス（依存なし）</div>
+    <div class="file-detail">120項目の回答(1–5)を keyed反転して採点し、5ドメイン×6ファセット=30次元を0–1正規化。サブコマンド：template(出題テキスト＋回答テンプレ生成)、score(単体採点)、fidelity(本人/GDL-AI/素AIからベースライン正規化Fidelity Score＝ファセット30次元の正規化ユークリッド類似度・プロファイル相関・ドメイン別差・ズレ最大ファセットTop5・本人test-retest天井を算出)。複数runはカンマ区切りで項目平均集約。標準ライブラリのみ。<code>python bigfive_scorer.py fidelity --person ... --gdl ... --rawai ...</code></div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_form.html">bigfive/bigfive_form.html</a>
+      <span class="tag tag-tool">Web UI</span>
+      <span class="tag tag-ja">JA/EN</span>
+    </div>
+    <div class="file-summary">人間用 回答フォーム（マウスで5択→結果JSON書き出し）</div>
+    <div class="file-detail">人間本人がブラウザで開いて120項目をマウスのクリックで5段階回答する自己完結HTML（120項目を埋め込み・外部依存なし）。進捗バー、回答の自動保存(localStorage・途中再開可)、JA/EN切替、被験者名・condition・runの指定を備え、全問回答すると bigfive_scorer.py がそのまま読める形式の結果JSON(bigfive_&lt;subject&gt;_&lt;condition&gt;_run&lt;run&gt;.json)をダウンロード/コピーできる。テキストやJSONを手編集せずに回答を集めるための入口。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_ai_prompt.md">bigfive/bigfive_ai_prompt.md</a>
+      <span class="tag tag-doc">Prompt</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">AI自動受験フロー（方式A）指示書 — GDL-AI/素AIに自然受験させる</div>
+    <div class="file-detail">GDL-AI(B)と素AI(A)にIPIP-NEO-120を受験させ scorer が読むJSONを出力させる指示。GPTs/Gemsのプロンプトにもセッション内実行にも使える。核は測定リーク防止＝「GDLの数値フィールドをコピーして答えを作らず、各項目文を読み人物として自己評価する」。汚染防止はPTTと同じA→B順序＋GDLはBフェーズまで開かない。黙従バイアス回避、複数run(test-retest)、厳密JSON出力形式、採点コマンドまで規定。human(C)は bigfive_form.html で別取得。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_sample_gdl_ai.json">bigfive/bigfive_sample_gdl_ai.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">GDL-AI回答サンプル（方式Aの出力例・松永GDLで実走）</div>
+    <div class="file-detail">方式Aを実走して得たGDL-AI(condition=gdl_ai)の回答JSON例。サンプルGDL(松永克幸)を人物理解として120項目を自然回答（数値フィールドの直接コピーはせず項目ごとに判断）。採点プロファイルはN低・O高・A高・E中高・C中でGDLの人物像と質的に一致。出力フォーマットの実例＆パイプライン疎通確認用。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_sample_raw_ai.json">bigfive/bigfive_sample_raw_ai.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">素AI回答サンプル（方式Aの床A run・GDLなし）</div>
+    <div class="file-detail">condition=raw_ai の床(A)サンプル。GDLを一切参照せず素のアシスタントとして120項目を項目ごとに自然回答。汎用LLMの自己記述は神経症低・協調/誠実/開放やや高に寄るため床自体が高め(本人類似0.721)になりやすい＝忠実度の弁別はこの床の質に強く依存する、という実測上の教訓を体現するファイル。手組み目標値ではなく項目単位判断で生成。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_matsunaga_revised.json">bigfive/GDL_matsunaga_revised.json</a>
+      <span class="tag tag-data">Data</span>
+    </div>
+    <div class="file-summary">補正版GDL（評価フィードバックで extraversion/assertiveness を実像へ下方修正）</div>
+    <div class="file-detail">性格診断法の評価が検出したE/Aの系統的ズレ（本人より外向・主張が高すぎ）を受け、松永サンプルGDLの social_tendency.extraversion_level と assertiveness を 4→2 に補正(v1.3)。この補正版でGDL-AIを再受験させたところ Fidelity 0.159→0.276 に改善し、評価→GDL改善→再評価のフィードバックループが1周完結したことを実証する実験ファイル。残差はLv1に該当フィールドの無いA(利他/謙虚)に局在し、ファセット粒度スキーマ拡張の動機となった。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/SCHEMA_facet_extension.md">bigfive/SCHEMA_facet_extension.md</a>
+      <span class="tag tag-doc">Design</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">スキーマ拡張設計 — personalityのBig Five 30ファセット粒度化</div>
+    <div class="file-detail">単一スカラーでは表現できない凹凸(E1高/E2低など)を記述するため、personalityにBig Five 30ファセット(IPIP-NEO準拠)層を追加する設計書。Lv1スカラーは後方互換で温存しLv2に30ファセットvalue・Lv3にconfidence/note。最大の利点は各facetのipip_codeが bigfive_items.json と1:1対応し「GDL宣言ファセット vs 実測ファセット」を直接照合できること。実測効果(Fidelity 0.159→0.276→0.344)・移行方針(build_schemas.js展開,入力フォーム拡張,照合モード)を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_personality_facets_schema.json">bigfive/GDL_personality_facets_schema.json</a>
+      <span class="tag tag-data">Schema</span>
+    </div>
+    <div class="file-summary">Big Five 30ファセット定義テンプレート（IPIP-NEO準拠）</div>
+    <div class="file-detail">personality拡張用の30ファセット定義(N1-6/E1-6/O1-6/A1-6/C1-6)。各ファセットに ipip_code・name_ja・low_pole/high_pole(方向の一意化)・担当item番号・空のvalue/labelを持つ。value規約はhigh-pole基準1-5、Lv2=value/Lv3=value+confidence+note。評価ハーネスのファセットと1:1対応。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_matsunaga_facet.json">bigfive/GDL_matsunaga_facet.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">ファセット粒度GDLの適用例（松永 personality.Lv2 v2.0）</div>
+    <div class="file-detail">30ファセットスキーマを松永に適用した例。mayoの定性知識から各ファセット値を設定(E1=4親しみ/E2=1集団苦手/E3=2主張弱/A3=2利他弱/A5=2自己評価高 等)。この記述でGDL-AIを受験させ Fidelity 0.344(facet相関0.830)を達成、ドメイン差を全領域≤0.09に収束させた実証データ。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_items.json">bigfive/bigfive_items.json</a>
+      <span class="tag tag-data">Data</span>
+    </div>
+    <div class="file-summary">IPIP-NEO-120 項目バンク（英＋日・public domain）</div>
+    <div class="file-detail">Johnson IPIP-NEO-120 の全120項目。各項目に num・domain(N/E/O/A/C)・facet(1–6)・keyed(plus/minus)・英語文・日本語文・5段階選択肢を収録。出典は @alheimsins/b5-johnson-120-ipip-neo-pi-r（ipip.ori.org のpublic domain項目）。Webを介さずローカル採点を可能にする中核データ。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_questions.txt">bigfive/bigfive_questions.txt</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">出題テキスト＋回答テンプレ（日/英・自動生成物）</div>
+    <div class="file-detail">人間・GDL-AIにそのまま提示する120問の出題テキスト（bigfive_questions.txt=日本語、bigfive_questions_en.txt=英語）と空欄の回答テンプレ（bigfive_answer_template.json）。いずれも bigfive_scorer.py template で再生成可能。</div>
   </div>
 
   <!-- ===== Documentation ===== -->

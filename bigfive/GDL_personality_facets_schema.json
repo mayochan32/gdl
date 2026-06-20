@@ -1,0 +1,457 @@
+{
+  "_description": "personality拡張: Big Five 30ファセット(IPIP-NEO-PI-R準拠)。Lv2/Lv3で使用。",
+  "_value_convention": "value=high-pole基準の1〜5(5=高極が強く該当)。labelは該当時の意味。",
+  "_eval_coupling": "facet codeは bigfive_items.json のdomain+facetと1:1対応。GDLのfacet値と性格診断法の採点ファセットが直接照合できる。",
+  "_levels": {
+    "Lv1": "ドメイン5スカラー(既存,後方互換)",
+    "Lv2": "30ファセットvalue",
+    "Lv3": "30ファセットvalue+confidence+note(自由記述で凹凸の根拠)"
+  },
+  "big_five_facets": {
+    "N_neuroticism": {
+      "_domain": "N 神経症傾向 (neuroticism)",
+      "facets": {
+        "N1_anxiety": {
+          "ipip_code": "N1",
+          "name_ja": "不安",
+          "low_pole": "落ち着いていて動じない",
+          "high_pole": "心配性で緊張しやすい",
+          "items": [
+            1,
+            31,
+            61,
+            91
+          ],
+          "value": null,
+          "label": ""
+        },
+        "N2_anger": {
+          "ipip_code": "N2",
+          "name_ja": "怒り",
+          "low_pole": "温和でめったに怒らない",
+          "high_pole": "短気で苛立ちやすい",
+          "items": [
+            6,
+            36,
+            66,
+            96
+          ],
+          "value": null,
+          "label": ""
+        },
+        "N3_depression": {
+          "ipip_code": "N3",
+          "name_ja": "抑うつ",
+          "low_pole": "前向きで沈みにくい",
+          "high_pole": "気分が落ち込みやすい",
+          "items": [
+            11,
+            41,
+            71,
+            101
+          ],
+          "value": null,
+          "label": ""
+        },
+        "N4_self_consciousness": {
+          "ipip_code": "N4",
+          "name_ja": "自意識",
+          "low_pole": "人目を気にしない",
+          "high_pole": "人前で緊張・萎縮しやすい",
+          "items": [
+            16,
+            46,
+            76,
+            106
+          ],
+          "value": null,
+          "label": ""
+        },
+        "N5_immoderation": {
+          "ipip_code": "N5",
+          "name_ja": "衝動性",
+          "low_pole": "欲求を自制できる",
+          "high_pole": "誘惑・衝動に弱い",
+          "items": [
+            21,
+            51,
+            81,
+            111
+          ],
+          "value": null,
+          "label": ""
+        },
+        "N6_vulnerability": {
+          "ipip_code": "N6",
+          "name_ja": "傷つきやすさ",
+          "low_pole": "プレッシャーに強い",
+          "high_pole": "ストレスで動揺しやすい",
+          "items": [
+            26,
+            56,
+            86,
+            116
+          ],
+          "value": null,
+          "label": ""
+        }
+      }
+    },
+    "E_extraversion": {
+      "_domain": "E 外向性 (extraversion)",
+      "facets": {
+        "E1_friendliness": {
+          "ipip_code": "E1",
+          "name_ja": "親しみやすさ",
+          "low_pole": "距離をとりがち",
+          "high_pole": "誰とでもすぐ打ち解ける",
+          "items": [
+            2,
+            32,
+            62,
+            92
+          ],
+          "value": null,
+          "label": ""
+        },
+        "E2_gregariousness": {
+          "ipip_code": "E2",
+          "name_ja": "集団志向",
+          "low_pole": "少人数・一人を好む",
+          "high_pole": "大人数・集団を好む",
+          "items": [
+            7,
+            37,
+            67,
+            97
+          ],
+          "value": null,
+          "label": ""
+        },
+        "E3_assertiveness": {
+          "ipip_code": "E3",
+          "name_ja": "主張性",
+          "low_pole": "控えめで主導しない",
+          "high_pole": "リーダーシップを取り主張する",
+          "items": [
+            12,
+            42,
+            72,
+            102
+          ],
+          "value": null,
+          "label": ""
+        },
+        "E4_activity_level": {
+          "ipip_code": "E4",
+          "name_ja": "活動性",
+          "low_pole": "ゆったりしている",
+          "high_pole": "常に忙しく動き回る",
+          "items": [
+            17,
+            47,
+            77,
+            107
+          ],
+          "value": null,
+          "label": ""
+        },
+        "E5_excitement_seeking": {
+          "ipip_code": "E5",
+          "name_ja": "刺激希求",
+          "low_pole": "刺激を求めない",
+          "high_pole": "スリル・刺激を好む",
+          "items": [
+            22,
+            52,
+            82,
+            112
+          ],
+          "value": null,
+          "label": ""
+        },
+        "E6_cheerfulness": {
+          "ipip_code": "E6",
+          "name_ja": "陽気さ",
+          "low_pole": "淡々としている",
+          "high_pole": "快活で喜びを表す",
+          "items": [
+            27,
+            57,
+            87,
+            117
+          ],
+          "value": null,
+          "label": ""
+        }
+      }
+    },
+    "O_openness": {
+      "_domain": "O 開放性 (openness)",
+      "facets": {
+        "O1_imagination": {
+          "ipip_code": "O1",
+          "name_ja": "想像力",
+          "low_pole": "現実的",
+          "high_pole": "空想・想像が豊か",
+          "items": [
+            3,
+            33,
+            63,
+            93
+          ],
+          "value": null,
+          "label": ""
+        },
+        "O2_artistic_interests": {
+          "ipip_code": "O2",
+          "name_ja": "芸術関心",
+          "low_pole": "芸術に関心薄い",
+          "high_pole": "美・芸術に強く惹かれる",
+          "items": [
+            8,
+            38,
+            68,
+            98
+          ],
+          "value": null,
+          "label": ""
+        },
+        "O3_emotionality": {
+          "ipip_code": "O3",
+          "name_ja": "感情への開放",
+          "low_pole": "感情に無頓着",
+          "high_pole": "自他の感情を強く意識",
+          "items": [
+            13,
+            43,
+            73,
+            103
+          ],
+          "value": null,
+          "label": ""
+        },
+        "O4_adventurousness": {
+          "ipip_code": "O4",
+          "name_ja": "新奇探求",
+          "low_pole": "慣れたものを好む",
+          "high_pole": "新しい体験に飛び込む",
+          "items": [
+            18,
+            48,
+            78,
+            108
+          ],
+          "value": null,
+          "label": ""
+        },
+        "O5_intellect": {
+          "ipip_code": "O5",
+          "name_ja": "知性・思索",
+          "low_pole": "抽象論を好まない",
+          "high_pole": "知的・理論的探求を好む",
+          "items": [
+            23,
+            53,
+            83,
+            113
+          ],
+          "value": null,
+          "label": ""
+        },
+        "O6_liberalism": {
+          "ipip_code": "O6",
+          "name_ja": "価値観の自由度",
+          "low_pole": "伝統・権威を重んじる",
+          "high_pole": "既成概念に挑戦的・自由主義的",
+          "items": [
+            28,
+            58,
+            88,
+            118
+          ],
+          "value": null,
+          "label": ""
+        }
+      }
+    },
+    "A_agreeableness": {
+      "_domain": "A 協調性 (agreeableness)",
+      "facets": {
+        "A1_trust": {
+          "ipip_code": "A1",
+          "name_ja": "信頼",
+          "low_pole": "他人を警戒する",
+          "high_pole": "他人を信頼する",
+          "items": [
+            4,
+            34,
+            64,
+            94
+          ],
+          "value": null,
+          "label": ""
+        },
+        "A2_morality": {
+          "ipip_code": "A2",
+          "name_ja": "実直さ",
+          "low_pole": "駆け引きを厭わない",
+          "high_pole": "正直で裏表がない",
+          "items": [
+            9,
+            39,
+            69,
+            99
+          ],
+          "value": null,
+          "label": ""
+        },
+        "A3_altruism": {
+          "ipip_code": "A3",
+          "name_ja": "利他",
+          "low_pole": "自分優先",
+          "high_pole": "他者を進んで助ける",
+          "items": [
+            14,
+            44,
+            74,
+            104
+          ],
+          "value": null,
+          "label": ""
+        },
+        "A4_cooperation": {
+          "ipip_code": "A4",
+          "name_ja": "協調(対立回避)",
+          "low_pole": "対立を辞さない",
+          "high_pole": "対立を避け折り合う",
+          "items": [
+            19,
+            49,
+            79,
+            109
+          ],
+          "value": null,
+          "label": ""
+        },
+        "A5_modesty": {
+          "ipip_code": "A5",
+          "name_ja": "謙虚",
+          "low_pole": "自己評価が高い",
+          "high_pole": "控えめで謙虚",
+          "items": [
+            24,
+            54,
+            84,
+            114
+          ],
+          "value": null,
+          "label": ""
+        },
+        "A6_sympathy": {
+          "ipip_code": "A6",
+          "name_ja": "共感",
+          "low_pole": "情に流されない",
+          "high_pole": "弱者に同情的",
+          "items": [
+            29,
+            59,
+            89,
+            119
+          ],
+          "value": null,
+          "label": ""
+        }
+      }
+    },
+    "C_conscientiousness": {
+      "_domain": "C 誠実性 (conscientiousness)",
+      "facets": {
+        "C1_self_efficacy": {
+          "ipip_code": "C1",
+          "name_ja": "自己効力感",
+          "low_pole": "物事をこなせないと感じる",
+          "high_pole": "有能でやり遂げられると感じる",
+          "items": [
+            5,
+            35,
+            65,
+            95
+          ],
+          "value": null,
+          "label": ""
+        },
+        "C2_orderliness": {
+          "ipip_code": "C2",
+          "name_ja": "秩序性",
+          "low_pole": "雑然・無頓着",
+          "high_pole": "整理整頓・几帳面",
+          "items": [
+            10,
+            40,
+            70,
+            100
+          ],
+          "value": null,
+          "label": ""
+        },
+        "C3_dutifulness": {
+          "ipip_code": "C3",
+          "name_ja": "義務遵守",
+          "low_pole": "規則に縛られない",
+          "high_pole": "約束・義務を堅く守る",
+          "items": [
+            15,
+            45,
+            75,
+            105
+          ],
+          "value": null,
+          "label": ""
+        },
+        "C4_achievement_striving": {
+          "ipip_code": "C4",
+          "name_ja": "達成追求",
+          "low_pole": "ほどほどでよい",
+          "high_pole": "高い目標へ努力する",
+          "items": [
+            20,
+            50,
+            80,
+            110
+          ],
+          "value": null,
+          "label": ""
+        },
+        "C5_self_discipline": {
+          "ipip_code": "C5",
+          "name_ja": "自己鍛錬",
+          "low_pole": "先延ばししがち",
+          "high_pole": "粘り強くやり抜く",
+          "items": [
+            25,
+            55,
+            85,
+            115
+          ],
+          "value": null,
+          "label": ""
+        },
+        "C6_cautiousness": {
+          "ipip_code": "C6",
+          "name_ja": "慎重さ",
+          "low_pole": "直感的・即断",
+          "high_pole": "熟慮してから決める",
+          "items": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "value": null,
+          "label": ""
+        }
+      }
+    }
+  }
+}

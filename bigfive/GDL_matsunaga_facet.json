@@ -1,0 +1,222 @@
+{
+  "gdl": {
+    "meta": {
+      "gdl_version": "2.0",
+      "updated_at": "2026-06-20",
+      "detail_level": 2,
+      "note": "personalityにBig Five 30ファセット層を追加(評価フィードバック反映)"
+    },
+    "personality": {
+      "_description": "性格・行動傾向。Lv1=ドメインスカラー(後方互換)、Lv2=30ファセット。",
+      "Lv2": {
+        "big_five_facets": {
+          "N_neuroticism": {
+            "_domain": "N 神経症傾向 (neuroticism)",
+            "facets": {
+              "N1_anxiety": {
+                "ipip_code": "N1",
+                "name_ja": "不安",
+                "value": 2,
+                "label": "落ち着いていて動じない"
+              },
+              "N2_anger": {
+                "ipip_code": "N2",
+                "name_ja": "怒り",
+                "value": 1,
+                "label": "温和でめったに怒らない"
+              },
+              "N3_depression": {
+                "ipip_code": "N3",
+                "name_ja": "抑うつ",
+                "value": 1,
+                "label": "前向きで沈みにくい"
+              },
+              "N4_self_consciousness": {
+                "ipip_code": "N4",
+                "name_ja": "自意識",
+                "value": 2,
+                "label": "人目を気にしない"
+              },
+              "N5_immoderation": {
+                "ipip_code": "N5",
+                "name_ja": "衝動性",
+                "value": 3,
+                "label": "中程度（衝動性）"
+              },
+              "N6_vulnerability": {
+                "ipip_code": "N6",
+                "name_ja": "傷つきやすさ",
+                "value": 2,
+                "label": "プレッシャーに強い"
+              }
+            }
+          },
+          "E_extraversion": {
+            "_domain": "E 外向性 (extraversion)",
+            "facets": {
+              "E1_friendliness": {
+                "ipip_code": "E1",
+                "name_ja": "親しみやすさ",
+                "value": 4,
+                "label": "誰とでもすぐ打ち解ける"
+              },
+              "E2_gregariousness": {
+                "ipip_code": "E2",
+                "name_ja": "集団志向",
+                "value": 1,
+                "label": "少人数・一人を好む"
+              },
+              "E3_assertiveness": {
+                "ipip_code": "E3",
+                "name_ja": "主張性",
+                "value": 2,
+                "label": "控えめで主導しない"
+              },
+              "E4_activity_level": {
+                "ipip_code": "E4",
+                "name_ja": "活動性",
+                "value": 3,
+                "label": "中程度（活動性）"
+              },
+              "E5_excitement_seeking": {
+                "ipip_code": "E5",
+                "name_ja": "刺激希求",
+                "value": 3,
+                "label": "中程度（刺激希求）"
+              },
+              "E6_cheerfulness": {
+                "ipip_code": "E6",
+                "name_ja": "陽気さ",
+                "value": 4,
+                "label": "快活で喜びを表す"
+              }
+            }
+          },
+          "O_openness": {
+            "_domain": "O 開放性 (openness)",
+            "facets": {
+              "O1_imagination": {
+                "ipip_code": "O1",
+                "name_ja": "想像力",
+                "value": 4,
+                "label": "空想・想像が豊か"
+              },
+              "O2_artistic_interests": {
+                "ipip_code": "O2",
+                "name_ja": "芸術関心",
+                "value": 4,
+                "label": "美・芸術に強く惹かれる"
+              },
+              "O3_emotionality": {
+                "ipip_code": "O3",
+                "name_ja": "感情への開放",
+                "value": 3,
+                "label": "中程度（感情への開放）"
+              },
+              "O4_adventurousness": {
+                "ipip_code": "O4",
+                "name_ja": "新奇探求",
+                "value": 4,
+                "label": "新しい体験に飛び込む"
+              },
+              "O5_intellect": {
+                "ipip_code": "O5",
+                "name_ja": "知性・思索",
+                "value": 5,
+                "label": "知的・理論的探求を好む"
+              },
+              "O6_liberalism": {
+                "ipip_code": "O6",
+                "name_ja": "価値観の自由度",
+                "value": 4,
+                "label": "既成概念に挑戦的・自由主義的"
+              }
+            }
+          },
+          "A_agreeableness": {
+            "_domain": "A 協調性 (agreeableness)",
+            "facets": {
+              "A1_trust": {
+                "ipip_code": "A1",
+                "name_ja": "信頼",
+                "value": 3,
+                "label": "中程度（信頼）"
+              },
+              "A2_morality": {
+                "ipip_code": "A2",
+                "name_ja": "実直さ",
+                "value": 5,
+                "label": "正直で裏表がない"
+              },
+              "A3_altruism": {
+                "ipip_code": "A3",
+                "name_ja": "利他",
+                "value": 2,
+                "label": "自分優先"
+              },
+              "A4_cooperation": {
+                "ipip_code": "A4",
+                "name_ja": "協調(対立回避)",
+                "value": 4,
+                "label": "対立を避け折り合う"
+              },
+              "A5_modesty": {
+                "ipip_code": "A5",
+                "name_ja": "謙虚",
+                "value": 2,
+                "label": "自己評価が高い"
+              },
+              "A6_sympathy": {
+                "ipip_code": "A6",
+                "name_ja": "共感",
+                "value": 3,
+                "label": "中程度（共感）"
+              }
+            }
+          },
+          "C_conscientiousness": {
+            "_domain": "C 誠実性 (conscientiousness)",
+            "facets": {
+              "C1_self_efficacy": {
+                "ipip_code": "C1",
+                "name_ja": "自己効力感",
+                "value": 4,
+                "label": "有能でやり遂げられると感じる"
+              },
+              "C2_orderliness": {
+                "ipip_code": "C2",
+                "name_ja": "秩序性",
+                "value": 2,
+                "label": "雑然・無頓着"
+              },
+              "C3_dutifulness": {
+                "ipip_code": "C3",
+                "name_ja": "義務遵守",
+                "value": 4,
+                "label": "約束・義務を堅く守る"
+              },
+              "C4_achievement_striving": {
+                "ipip_code": "C4",
+                "name_ja": "達成追求",
+                "value": 4,
+                "label": "高い目標へ努力する"
+              },
+              "C5_self_discipline": {
+                "ipip_code": "C5",
+                "name_ja": "自己鍛錬",
+                "value": 3,
+                "label": "中程度（自己鍛錬）"
+              },
+              "C6_cautiousness": {
+                "ipip_code": "C6",
+                "name_ja": "慎重さ",
+                "value": 2,
+                "label": "直感的・即断"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
