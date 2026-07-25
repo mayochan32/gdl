@@ -165,7 +165,6 @@ GDL输出应当具有自描述性，使AI在将其作为system prompt加载时�
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "detail_level": 1,
       "generation_method": "interview"

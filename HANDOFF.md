@@ -124,11 +124,11 @@ GDL JSON出力には以下が**必須**：
 
 | 項目 | 統一ルール |
 |------|-----------|
-| `schema_version` | 全ファイルで `"1.2"` |
+| `gdl_version` | 全ファイルで `"1.0"`（GDL 1.0 凍結バージョン。旧 `schema_version` は廃止し `gdl_version` に一本化） |
 | セクション `_description` | 各セクションのdescription表現は全ファイルで統一 |
 | `_levels` キー名 | `Lv1`, `Lv2`, `Lv3`（大文字L、小文字v） |
 | `_confidence` キー名 | `high`, `medium`, `low`, `user_confirmed`, `user_provided` |
-| meta フィールド構成 | `gdl_version`, `schema_version`, `created_at`, `updated_at`, `subject_id`, `detail_level`, `generation_method`, `source_type`, `source_summary`, `target_person`, `speakers_detected` |
+| meta フィールド構成 | `gdl_version`, `created_at`, `updated_at`, `subject_id`, `detail_level`, `generation_method`, `source_type`, `source_summary`, `target_person`, `speakers_detected` |
 | `_preamble` | スキーマに定義済み。出力時に必須 |
 
 ### 4.2 ファイル変更時のチェックリスト

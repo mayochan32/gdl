@@ -165,7 +165,6 @@ GDL出力は、AIがsystem promptとして読み込んだ際に正しく解釈�
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "detail_level": 1,
       "generation_method": "interview"

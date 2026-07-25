@@ -165,7 +165,6 @@ GDL output should be self-descriptive so that AI can correctly interpret it when
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "detail_level": 1,
       "generation_method": "interview"

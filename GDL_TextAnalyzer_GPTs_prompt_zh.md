@@ -240,7 +240,6 @@ GDL输出以自描述格式生成，使AI在将其作为system prompt加载时�
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "（对象者唯一标识ID。可选）",

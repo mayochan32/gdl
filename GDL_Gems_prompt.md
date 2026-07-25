@@ -171,7 +171,6 @@ Q56 社会との関わり方（複数可）→ ①社会問題に強い関心・
   "gdl": {
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.1",
       "created_at": "YYYY-MM-DD",
       "detail_level": 1
     },

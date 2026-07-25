@@ -1,7 +1,6 @@
 {
   "_about": "GDL (Ghost Description Language) 中文语言包",
   "_language": "zh-CN",
-  "_schema_version": "1.2",
   "_note": "此文件为简体中文翻译包。键名与GDL模式一致，值为中文翻译。",
   "_levels": {
     "_description": "GDL详细度等级定义。决定各项目属于哪个等级。",
@@ -53,9 +52,6 @@
     "field_definitions": {
       "gdl_version": {
         "description": "GDL格式版本"
-      },
-      "schema_version": {
-        "description": "使用的模式版本"
       },
       "created_at": {
         "description": "GDL创建日期"
@@ -142,7 +138,6 @@
     "gdl": "个性描述语言数据主体",
     "meta": "元信息",
     "meta.gdl_version": "GDL版本",
-    "meta.schema_version": "模式版本",
     "meta.created_at": "创建日期",
     "meta.updated_at": "最后更新日期",
     "meta.subject_id": "对象者ID",

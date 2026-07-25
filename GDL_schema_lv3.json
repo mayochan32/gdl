@@ -19,7 +19,6 @@
     "gdl": "個性記述言語データ本体",
     "meta": "メタ情報",
     "meta.gdl_version": "GDLバージョン",
-    "meta.schema_version": "スキーマバージョン",
     "meta.created_at": "作成日",
     "meta.updated_at": "最終更新日",
     "meta.subject_id": "対象者ID",
@@ -748,7 +747,6 @@
   "gdl": {
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "",

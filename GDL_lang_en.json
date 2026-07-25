@@ -1,7 +1,6 @@
 {
   "_about": "English language pack for GDL (Ghost Description Language)",
   "_language": "en",
-  "_schema_version": "1.2",
   "_note": "This file provides English translations for all human-readable text in GDL schema and knowledge files. Keys mirror the original Japanese structure.",
   "_levels": {
     "_description": "GDL detail level definitions. Determines which level each item belongs to.",
@@ -53,9 +52,6 @@
     "field_definitions": {
       "gdl_version": {
         "description": "GDL format version"
-      },
-      "schema_version": {
-        "description": "Schema version in use"
       },
       "created_at": {
         "description": "GDL creation date"
@@ -142,7 +138,6 @@
     "gdl": "Individuality Description Language data body",
     "meta": "Meta information",
     "meta.gdl_version": "GDL version",
-    "meta.schema_version": "Schema version",
     "meta.created_at": "Date created",
     "meta.updated_at": "Date last updated",
     "meta.subject_id": "Subject ID",

@@ -53,7 +53,6 @@
 
     "meta": "メタ情報",
     "meta.gdl_version": "GDLバージョン",
-    "meta.schema_version": "スキーマバージョン",
     "meta.created_at": "作成日",
     "meta.updated_at": "最終更新日",
     "meta.subject_id": "対象者ID",
@@ -917,11 +916,10 @@
 
   "_meta": {
     "_description": "metaセクションのフィールド定義。GDLデータの管理情報を格納する。",
-    "required_fields": ["gdl_version", "schema_version", "created_at", "detail_level"],
+    "required_fields": ["gdl_version", "created_at", "detail_level"],
     "optional_fields": ["updated_at", "subject_id", "generation_method", "source_type", "source_summary", "target_person", "speakers_detected"],
     "field_definitions": {
       "gdl_version": { "type": "string", "description": "GDLフォーマットのバージョン" },
-      "schema_version": { "type": "string", "description": "使用するスキーマのバージョン" },
       "created_at": { "type": "string", "format": "date", "description": "GDL作成日" },
       "updated_at": { "type": "string", "format": "date", "description": "GDL最終更新日" },
       "subject_id": { "type": "string", "description": "対象者を一意に識別するID" },
@@ -1000,7 +998,6 @@
 
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "",

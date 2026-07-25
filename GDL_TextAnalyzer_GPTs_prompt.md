@@ -240,7 +240,6 @@ GDL出力は、AIがsystem promptとして読み込んだ際に正しく解釈�
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "（対象者を一意に識別するID。任意）",

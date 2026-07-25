@@ -3973,7 +3973,6 @@
     }
   },
   "output_format": {
-    "schema_version": "1.2",
     "_reference": "出力規約の正式定義はGDLスキーマの _preamble セクションを参照。以下はテキスト分析エージェント向けの補足情報。",
     "_preamble": {
       "description": "GDL出力の冒頭に必ず含めるAI向け解釈ガイド。GDLスキーマの _preamble 仕様に準拠。省略不可。",

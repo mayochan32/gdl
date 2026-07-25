@@ -240,7 +240,6 @@ GDL output is generated in a self-descriptive format so that AI can correctly in
     },
     "meta": {
       "gdl_version": "1.0",
-      "schema_version": "1.2",
       "created_at": "YYYY-MM-DD",
       "updated_at": "YYYY-MM-DD",
       "subject_id": "(Unique ID identifying the subject. Optional)",
