@@ -29,7 +29,16 @@
       color: var(--text);
       font-family: 'Segoe UI', 'Hiragino Sans', 'Yu Gothic', sans-serif;
       line-height: 1.7;
+      /* 日本語を文節単位で折り返す。「ゴー／スト」「構／造化」のような
+         単語途中での改行を防ぐ（Chrome/Edge。非対応ブラウザは従来動作） */
+      word-break: auto-phrase;
+      /* 行頭・行末禁則を厳格に適用（長音記号・小書き文字なども対象） */
+      line-break: strict;
+      /* 最終行が1語だけ残る「泣き別れ」を減らす */
+      text-wrap: pretty;
     }
+    /* コードは折り返し制御を継承させない */
+    pre, code { word-break: normal; line-break: auto; text-wrap: wrap; }
 
     /* ── NAV ── */
     nav {
@@ -160,9 +169,6 @@
       color: var(--text2);
       /* 1行目が全角31文字。600pxだと「化。」だけ溢れて改行されるため余裕を持たせる */
       max-width: 680px; margin: 0 auto 3rem;
-      /* 折り返しが起きる幅でも、日本語の文節境界で改行させる（対応ブラウザのみ） */
-      word-break: auto-phrase;
-      text-wrap: pretty;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .btn {
