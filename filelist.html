@@ -392,7 +392,16 @@
       <span class="tag tag-zh">ZH</span>
     </div>
     <div class="file-summary">GDLランディングページ（3言語対応）</div>
-    <div class="file-detail">GDLプロジェクトの紹介ページ。GDLの概要、スキーマ構成、詳細度レベルの説明、ペルソナ チューリングテスト（評価フレームワーク）の紹介とeval.htmlへの導線、使い方ガイド、GDL作成の2ルート誘導（インタビュー形式 or AI GPTs）を提供。i18n対応で日本語・英語・中国語を切り替え可能。GitHub Pages でホスティング。</div>
+    <div class="file-detail">GDLプロジェクトの紹介ページ。GDLの概要、スキーマ構成、詳細度レベルの説明、ペルソナ チューリングテスト（評価フレームワーク）の紹介とeval.htmlへの導線、使い方ガイド、GDL作成の2ルート誘導（インタビュー形式 or AI GPTs）を提供。i18n対応で日本語・英語・中国語を切り替え可能。ヒーローセクションは背景画像（images/hero.jpg）＋スクリム構成に対応（画像未配置でも自動でグラデーション表示にフォールバック）。見出しのグラデーション文字は背景写真の上での可読性を確保するため、ヒーロー専用の明るい配色 --accent-hero / --accent2-hero を使用（他セクションの --accent / --accent2 は従来どおり）。GitHub Pages でホスティング。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/tree/main/images">images/</a>
+      <span class="tag tag-web">Web</span>
+    </div>
+    <div class="file-summary">LP用の画像アセット置き場</div>
+    <div class="file-detail">index.html から参照する画像を格納するディレクトリ。hero.jpg はヒーローセクションの背景画像（1672×941px / 約370KB / progressive JPEG）、hero@2x.jpg はその2倍解像度版（3344×1882px / 約835KB）で srcset により高DPI環境でのみ配信される。2x版はリニア光空間でのLanczos拡大＋アンシャープマスクで生成。指紋・発光する脳・GDLカード・ワイヤーフレームのAI頭部を配した16:9のビジュアルで、文字は焼き込まず i18n を維持している。CSS側は opacity 0.8 + 二重スクリム（中央ラジアル＋上下リニア）で最悪ケースのコントラスト比 4.7:1 以上を確保。ファイルが存在しない場合は onerror で非表示になり、従来のグラデーション背景にフォールバックする。</div>
   </div>
 
   <div class="file-card">

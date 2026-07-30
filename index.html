@@ -12,6 +12,9 @@
       --border: #2A2D3A;
       --accent: #5B8CFF;
       --accent2: #7C5CFC;
+      /* ヒーロー見出し専用（背景写真の上でのコントラスト確保） */
+      --accent-hero: #7DD3FC;
+      --accent2-hero: #A78BFA;
       --green: #3ECF8E;
       --orange: #F5A623;
       --pink: #FF6B9D;
@@ -75,19 +78,71 @@
       padding: 6rem 2rem 4rem;
       position: relative; overflow: hidden;
     }
+    /* 背景画像レイヤー（images/hero.jpg を差し替えるだけでOK） */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 55%;
+      opacity: 0.8;
+      pointer-events: none; user-select: none;
+    }
+    /* 画像の上に敷くスクリム：文字の可読性を確保 */
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        /* 中央のテキストが乗る帯を落とす */
+        radial-gradient(ellipse 62% 46% at 50% 50%, rgba(10,12,18,0.60) 0%, rgba(10,12,18,0.30) 55%, transparent 78%),
+        /* 上端はナビ、下端は本文へ自然に接続 */
+        linear-gradient(to bottom,
+          rgba(10,12,18,0.85) 0%,
+          rgba(10,12,18,0.45) 16%,
+          rgba(10,12,18,0.42) 68%,
+          rgba(10,12,18,0.80) 90%,
+          var(--bg) 100%);
+      pointer-events: none;
+    }
     .hero::before {
       content: '';
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 2;
       background:
         radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.12) 0%, transparent 70%),
         radial-gradient(ellipse 50% 40% at 80% 60%, rgba(124,92,252,0.08) 0%, transparent 60%);
       pointer-events: none;
     }
+    /* テキスト・ボタン類を画像より前面へ */
+    .hero > *:not(.hero-bg):not(.hero-scrim) { position: relative; z-index: 3; }
+    /* 発光する背景の上でも文字が沈まないように */
+    .hero h1 { text-shadow: 0 2px 24px rgba(10,12,18,0.9), 0 0 60px rgba(10,12,18,0.7); }
+    /* グラデーション文字は background-clip:text のため text-shadow が
+       グラデの「上」に乗って濁る。影は filter: drop-shadow で付ける */
+    .hero h1 span { text-shadow: none; filter: drop-shadow(0 2px 16px rgba(10,12,18,0.95)); }
+    .hero-sub, .hero-tag { text-shadow: 0 1px 12px rgba(10,12,18,0.95); }
+
+    @media (max-width: 700px) {
+      /* 縦長画面ではAIの頭部側に寄せて、被写体が切れないようにする */
+      .hero-bg { object-position: 68% 55%; opacity: 0.6; }
+    }
+    /* コンセプト名そのものなので、見出しに次ぐ存在感を持たせる */
     .hero-tag {
       display: inline-block;
-      font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid rgba(91,140,255,0.3);
-      padding: 0.3rem 0.9rem; border-radius: 999px; margin-bottom: 2rem;
+      font-size: clamp(0.82rem, 2.4vw, 1.4rem);
+      font-weight: 700;
+      letter-spacing: 0.22em; text-indent: 0.22em; /* 字送りぶんの右余白を相殺して中央に見せる */
+      text-transform: uppercase;
+      color: var(--accent-hero);
+      border: 1px solid rgba(125,211,252,0.35);
+      background: rgba(10,12,18,0.45);
+      backdrop-filter: blur(4px);
+      padding: 0.5rem 1.5rem; border-radius: 999px; margin-bottom: 2rem;
+      white-space: nowrap; max-width: 100%;
+    }
+    @media (max-width: 420px) {
+      /* 極小画面では枠を外して2行に逃がす */
+      .hero-tag {
+        white-space: normal; border: none; background: none;
+        padding: 0; letter-spacing: 0.16em; text-indent: 0.16em;
+        line-height: 1.5;
+      }
     }
     .hero h1 {
       font-size: clamp(2.8rem, 8vw, 5.5rem);
@@ -95,12 +150,19 @@
       margin-bottom: 1.5rem;
     }
     .hero h1 span {
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      /* 発光する背景写真の上に乗るため、通常の --accent / --accent2 より
+         明るい水色〜藤色を使う（他セクションのグラデはそのまま） */
+      background: linear-gradient(135deg, var(--accent-hero) 0%, var(--accent2-hero) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: var(--text2); max-width: 600px; margin: 0 auto 3rem;
+      color: var(--text2);
+      /* 1行目が全角31文字。600pxだと「化。」だけ溢れて改行されるため余裕を持たせる */
+      max-width: 680px; margin: 0 auto 3rem;
+      /* 折り返しが起きる幅でも、日本語の文節境界で改行させる（対応ブラウザのみ） */
+      word-break: auto-phrase;
+      text-wrap: pretty;
     }
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
     .btn {
@@ -314,6 +376,12 @@
 
 <!-- HERO -->
 <div class="hero">
+  <img class="hero-bg" src="images/hero.jpg"
+       srcset="images/hero.jpg 1672w, images/hero@2x.jpg 3344w"
+       sizes="100vw"
+       alt="" aria-hidden="true" decoding="async" fetchpriority="high"
+       onerror="this.style.display='none'" />
+  <div class="hero-scrim"></div>
   <div class="hero-tag">Ghost Description Language</div>
   <h1 data-i18n-html="hero.title">人の<span>個性</span>を、<br>データ化する。</h1>
   <p class="hero-sub" data-i18n-html="hero.sub">
