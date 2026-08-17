@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ペルソナ チューリングテスト ガイド — GDL</title>
+  <meta name="description" content="GDLを組み込んだAIが、どれだけあなた自身を再現できるか。誰でも一人で実施できる手順の完全ガイド。" />
+  <style>
+    :root {
+      --bg: #0A0C12; --bg2: #12141C; --bg3: #1A1D28; --border: #2A2D3A;
+      --accent: #5B8CFF; --accent2: #7C5CFC; --green: #3ECF8E; --orange: #F5A623; --pink: #FF6B9D; --red: #FF5C5C;
+      --text: #E8EAF0; --text2: #9096A8; --text3: #5A6070;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Segoe UI','Hiragino Sans','Yu Gothic',sans-serif; line-height: 1.8;
+      word-break: auto-phrase; line-break: strict; text-wrap: pretty;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,12,18,0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.08em;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration:none; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.85rem; letter-spacing: 0.04em; transition: color 0.2s; white-space: nowrap; }
+    .nav-links a:hover { color: var(--text); }
+
+    .hero { padding: 9rem 2rem 4rem; max-width: 900px; margin: 0 auto; text-align: center; position: relative; }
+    .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(91,140,255,0.12) 0%, transparent 70%); pointer-events:none; }
+    .hero-tag { display:inline-block; font-size:0.75rem; letter-spacing:0.12em; text-transform:uppercase;
+      color: var(--accent); border:1px solid rgba(91,140,255,0.3); padding:0.3rem 0.9rem; border-radius:999px; margin-bottom:1.8rem; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800; letter-spacing:-0.02em; line-height:1.15; margin-bottom:1.2rem; }
+    .hero h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+    .hero p { color: var(--text2); font-size: clamp(1rem,2.5vw,1.2rem); max-width:660px; margin:0 auto; }
+
+    section { padding: 3.5rem 2rem; max-width: 900px; margin: 0 auto; }
+    .section-tag { font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); margin-bottom:0.8rem; }
+    h2 { font-size: clamp(1.5rem, 3.5vw, 2.1rem); font-weight:700; letter-spacing:-0.01em; margin-bottom:1.2rem; }
+    h3 { font-size:1.1rem; font-weight:600; margin:1.8rem 0 0.6rem; }
+    h4 { font-size:0.98rem; font-weight:600; margin:1.3rem 0 0.4rem; color:var(--text); }
+    p { color: var(--text2); margin-bottom: 1rem; }
+    strong { color: var(--text); font-weight:600; }
+    em { color: var(--accent); font-style: normal; }
+    a { color: var(--accent); }
+
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.3rem; margin-top:1.5rem; }
+    .card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.6rem; transition:border-color .2s,transform .2s; }
+    .card:hover { border-color:var(--accent); transform:translateY(-2px); }
+    .card-icon { width:40px; height:40px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:0.9rem; }
+    .card h3 { margin:0 0 0.5rem; font-size:1.05rem; }
+    .card p { color:var(--text2); font-size:0.9rem; margin:0; }
+
+    table { width:100%; border-collapse:collapse; margin:1.2rem 0; font-size:0.9rem; }
+    th, td { text-align:left; padding:0.7rem 0.9rem; border-bottom:1px solid var(--border); vertical-align:top; }
+    th { color:var(--text); font-weight:600; background:var(--bg2); }
+    td { color:var(--text2); }
+    code { font-family:'Consolas','Monaco',monospace; font-size:0.85em; background:var(--bg3); padding:0.1rem 0.4rem; border-radius:4px; color:var(--green); }
+
+    .formula { background:var(--bg2); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:0 10px 10px 0;
+      padding:1.1rem 1.4rem; margin:1.2rem 0; font-family:'Consolas','Monaco',monospace; font-size:0.9rem; color:var(--text); overflow-x:auto; }
+    .callout { background:rgba(124,92,252,0.06); border-left:3px solid var(--accent2); border-radius:0 8px 8px 0; padding:1rem 1.4rem; margin:1.5rem 0; }
+    .callout p { color:var(--text); margin:0; }
+    .warn { background:rgba(255,92,92,0.07); border:1px solid rgba(255,92,92,0.28); border-left:3px solid var(--red);
+      border-radius:0 10px 10px 0; padding:1.2rem 1.5rem; margin:1.6rem 0; }
+    .warn h3 { margin:0 0 0.6rem; color:var(--red); font-size:1.05rem; }
+    .warn p { color:var(--text); margin:0 0 0.6rem; }
+    .warn p:last-child { margin-bottom:0; }
+    .ok { background:rgba(62,207,142,0.06); border-left:3px solid var(--green); border-radius:0 8px 8px 0; padding:1rem 1.4rem; margin:1.4rem 0; }
+    .ok p { color:var(--text); margin:0; }
+
+    /* steps */
+    .step { display:flex; gap:1.3rem; margin:2.2rem 0; align-items:flex-start; }
+    .step-num { flex-shrink:0; width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:1.1rem; color:#fff; background:linear-gradient(135deg,var(--accent),var(--accent2)); }
+    .step-body { flex:1; min-width:0; }
+    .step-body h3 { margin:0.3rem 0 0.5rem; font-size:1.15rem; }
+    .step-body p:last-child { margin-bottom:0; }
+
+    .chat { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.3rem; margin:1.2rem 0; font-size:0.88rem; }
+    .msg { margin-bottom:0.9rem; }
+    .msg:last-child { margin-bottom:0; }
+    .msg .who { font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--text3); display:block; margin-bottom:0.25rem; }
+    .msg.gpt .bubble { background:var(--bg3); border-radius:10px; padding:0.7rem 0.95rem; color:var(--text2); white-space:pre-wrap; }
+    .msg.you .bubble { background:rgba(91,140,255,0.12); border:1px solid rgba(91,140,255,0.25); border-radius:10px; padding:0.7rem 0.95rem; color:var(--text); display:inline-block; }
+
+    ul, ol { margin:0 0 1rem 1.3rem; color:var(--text2); }
+    li { margin-bottom:0.45rem; }
+    li strong { color:var(--text); }
+
+    .divider { border:none; border-top:1px solid var(--border); margin:0 auto; max-width:900px; }
+
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.8rem 1.6rem; border-radius:8px; font-size:0.92rem; font-weight:600; text-decoration:none; transition:all .2s; }
+    .btn-primary { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
+    .btn-primary:hover { opacity:0.85; transform:translateY(-1px); }
+    .btn-green { background:linear-gradient(135deg,var(--green),var(--accent)); color:#fff; }
+    .btn-green:hover { opacity:0.85; transform:translateY(-1px); }
+    .btn-secondary { background:transparent; color:var(--text); border:1px solid var(--border); }
+    .btn-secondary:hover { border-color:var(--accent); color:var(--accent); }
+    .btn-row { display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem; }
+
+    .faq { border:1px solid var(--border); border-radius:10px; background:var(--bg2); margin-bottom:0.8rem; overflow:hidden; }
+    .faq summary { cursor:pointer; padding:1rem 1.3rem; font-weight:600; color:var(--text); font-size:0.95rem; list-style:none; position:relative; padding-right:2.6rem; }
+    .faq summary::-webkit-details-marker { display:none; }
+    .faq summary::after { content:'+'; position:absolute; right:1.2rem; top:0.95rem; color:var(--accent); font-size:1.2rem; font-weight:400; }
+    .faq[open] summary::after { content:'−'; }
+    .faq .faq-body { padding:0 1.3rem 1.2rem; }
+    .faq .faq-body p { margin-bottom:0.7rem; font-size:0.9rem; }
+    .faq .faq-body p:last-child { margin-bottom:0; }
+
+    footer { text-align:center; padding:2.5rem; color:var(--text3); font-size:0.82rem; border-top:1px solid var(--border); }
+    footer a { color:var(--text3); text-decoration:none; }
+    footer a:hover { color:var(--accent); }
+    @media (max-width:768px){
+      nav { padding:0 1rem; }
+      .nav-links{gap:0.8rem; overflow-x:auto;} .nav-links a{font-size:0.72rem;}
+      .step { gap:0.9rem; } .step-num { width:36px; height:36px; font-size:0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">GDL</a>
+  <div class="nav-links">
+    <a href="index.html">← トップ</a>
+    <a href="#prepare">準備</a>
+    <a href="#step1">GDL作成</a>
+    <a href="#step2">テスト</a>
+    <a href="#read">結果の読み方</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">Participant Guide</span>
+  <h1>ペルソナ チューリングテスト<br><span>ガイド</span></h1>
+  <p>あなたのGDLを読み込んだAIは、どこまで「あなた」になれるのか。このページの手順どおりに進めれば、一人で最後まで実施できます。</p>
+  <div class="btn-row" style="justify-content:center;">
+    <!-- TODO(mayo): 公開GPT作成後、PTT_GPT_URL_HERE を実URLに差し替える（このページ内2箇所） -->
+    <a href="PTT_GPT_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">🚀 テストを始める</a>
+    <a href="eval.html" class="btn btn-secondary">📄 設計思想を読む</a>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="section-tag">Overview</div>
+  <h2>これは何を測るテストか</h2>
+  <p>やることは単純です。<strong>同じ質問セット（40問または80問）に、3者が答えます。</strong></p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon" style="background:rgba(144,150,168,0.14);">🤖</div>
+      <h3>A ＝ 素のAI（床）</h3>
+      <p>あなたのことを何も知らない、GDL無しのAIの回答。「誰でもない一般的な答え」の基準線です。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(124,92,252,0.14);">👻</div>
+      <h3>B ＝ GDL-AI（測定対象）</h3>
+      <p>あなたのGDLを読み込み、「あなたとして」答えたAIの回答。これがテストの主役です。</p>
+    </div>
+    <div class="card">
+      <div class="card-icon" style="background:rgba(62,207,142,0.14);">🙋</div>
+      <h3>C ＝ あなた本人（正解）</h3>
+      <p>あなた自身の回答。これが唯一の正解データ（gold）になります。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:1.6rem;">BがCにどれだけ近いかを測るのですが、<strong>生の一致率は指標になりません</strong>。GDLが無くても、AIは常識的な答えを返せばそこそこ当ててしまうからです。そこでAの一致率を「床」として差し引き、伸びしろに対する到達度を出します。</p>
+
+  <div class="formula">GDL Fidelity Score = ( sim(B,C) − sim(A,C) ) / ( 1 − sim(A,C) )</div>
+
+  <ul>
+    <li><strong>0.0</strong> … 素のAIと変わらない。GDLが効いていない</li>
+    <li><strong>1.0</strong> … 理論上の上限。あなた自身と完全に一致</li>
+  </ul>
+
+  <div class="callout">
+    <p>🎯 <strong>これは「あなたの点数」ではありません。</strong>測っているのはGDLという記述の性能であって、あなたの人格や一貫性の優劣ではありません。スコアが低ければ「GDLに書き足りない部分が見つかった」というだけの話です。</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- PREPARE -->
+<section id="prepare">
+  <div class="section-tag">Prepare</div>
+  <h2>準備するもの</h2>
+
+  <table>
+    <tr><th style="width:34%;">必要なもの</th><th>補足</th></tr>
+    <tr>
+      <td>ChatGPTのアカウント</td>
+      <td>GPTsとCode Interpreter（データ分析）を使います。無料プランでは実行回数の上限に当たりやすいため、有料プラン推奨。<span style="color:var(--text3);">※ ChatGPT側の提供条件は変わることがあるので、開始前にご確認ください。</span></td>
+    </tr>
+    <tr>
+      <td>あなたのGDL（JSONファイル）</td>
+      <td>まだ無ければ <a href="#step1">STEP 1</a> で作ります。所要15〜30分。</td>
+    </tr>
+    <tr>
+      <td>まとまった時間</td>
+      <td>出題数を選べます。<strong>短縮版40問なら全体で45〜60分、標準版80問なら60〜90分</strong>を見込んでください（内訳：GDL作成15〜30分／A・B生成の待ち時間10〜20分／回答15〜40分）。<span style="color:var(--text3);">※ この所要時間は設計からの見積りで、実測値ではありません。</span></td>
+    </tr>
+    <tr>
+      <td>PC推奨</td>
+      <td>ファイル添付とレポートのダウンロードがあるため、スマホよりPCが確実です。</td>
+    </tr>
+  </table>
+
+  <div class="warn">
+    <h3>⚠ 途中で会話を分けないでください</h3>
+    <p>A・B・Cはすべて<strong>ひとつの会話（スレッド）の中で連続して</strong>行います。途中で新しい会話を開くと、床(A)のデータが失われてやり直しになります。回答には数十分かかるので、まとまった時間が取れるときに始めてください。</p>
+    <p style="margin-bottom:0;">なお、途中でエラーが起きても復帰できるよう、GPTは <code>ptt_state.json</code> という復帰用ファイルを渡してくれます。<strong>これは必ず保存しておいてください</strong>（中身は開かないこと。答えの配点が入っているわけではありませんが、内部データです）。</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- STEP 1 -->
+<section id="step1">
+  <div class="section-tag">Step 1</div>
+  <h2>あなたのGDLを作る</h2>
+  <p>GDL（Ghost Description Language）は、人の個性・思想・行動パターン・価値観をJSONで構造化して記述する仕様です。テストにはこのJSONファイルが必要です。</p>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h3>GDL Generator を開く</h3>
+      <p>専用のGPTが質問を投げてくるので、それに答えていくだけでGDLが出来上がります。</p>
+      <div class="btn-row" style="margin-top:0.8rem;">
+        <a href="https://chatgpt.com/g/g-6a0a95a534588191a7e20a55cfb49e38-gdl-generator" class="btn btn-green" target="_blank" rel="noopener">🧬 GDL Generator を開く</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h3>詳細度レベルを選ぶ</h3>
+      <p>GDLには3段階の詳細度があります。<strong>テストの精度を上げたいなら Lv2 以上を推奨</strong>します（Lv1は話し方や好みが中心で、判断や価値観の再現力が弱いため）。</p>
+      <table>
+        <tr><th style="width:16%;">レベル</th><th style="width:26%;">観点</th><th>AIが再現できること</th></tr>
+        <tr><td><strong>Lv1</strong></td><td>Who — 属性・表層</td><td>話し方・口調・基本的な好み</td></tr>
+        <tr><td><strong>Lv2</strong></td><td>How — 思考・判断</td><td>判断や推論のパターン、価値観に基づく行動</td></tr>
+        <tr><td><strong>Lv3</strong></td><td>Why — 深層心理・形成史</td><td>人生の文脈・矛盾・葛藤を含む深い人格</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h3>JSONを「ファイル」として保存する</h3>
+      <p>出力されたJSONをコピーし、テキストエディタに貼り付けて <code>mygdl.json</code> のような名前で保存してください。<strong>後の工程では、このファイルを添付する必要があります</strong>（本文へのコピペは不可）。</p>
+      <p>拡張子は <code>.json</code> にしてください。<code>.txt</code> でも読める場合はありますが、確実性のため <code>.json</code> を推奨します。</p>
+    </div>
+  </div>
+
+  <div class="ok">
+    <p>💡 <strong>正直に、盛らずに書くこと。</strong>「こうありたい自分」を書くとGDLはズレます。テストは容赦なく「実際のあなた」と照合するので、理想像を書くとスコアが下がるだけです。</p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- STEP 2 -->
+<section id="step2">
+  <div class="section-tag">Step 2</div>
+  <h2>テストを始める</h2>
+
+  <div class="warn">
+    <h3>🚨 最重要ルール：最初にGDLを添付しない</h3>
+    <p>ChatGPTは<strong>ファイルを添付した瞬間に中身を読み込みます</strong>。最初にGDLを添付してしまうと、「GDLを知らない素のAI」の回答（＝床A）が作れなくなり、測定そのものが成立しません。</p>
+    <p>最初に送るのは <strong>「開始」の2文字だけ</strong>。GDLはAIから求められてから添付してください。</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <h3>テスト用GPTを開いて「開始」と打つ</h3>
+      <p>ファイルは付けず、本文に <code>開始</code> とだけ入力して送信します。続いて<strong>出題数を選びます</strong>——<code>1</code> が短縮版40問、<code>2</code> が標準版80問。迷ったら短縮版で十分です（40の性格軸すべてをカバーします）。
+      <div class="chat">
+        <div class="msg you"><span class="who">You</span><span class="bubble">開始</span></div>
+        <div class="msg gpt"><span class="who">GPT</span><div class="bubble">いまはまだGDLを添付しないでください。出題数を選んでください。
+ 1) 短縮版 … 40問（およそ15〜25分）
+ 2) 標準版 … 80問（およそ30〜50分）</div></div>
+        <div class="msg you"><span class="who">You</span><span class="bubble">1</span></div>
+      </div>
+      <div class="btn-row" style="margin-top:0.8rem;">
+        <!-- TODO(mayo): 公開GPT作成後、PTT_GPT_URL_HERE を実URLに差し替える -->
+        <a href="PTT_GPT_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">🚀 テスト用GPTを開く</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <h3>出題の抽出とA（床）の生成を待つ</h3>
+      <p>GPTが1000問のプールから、40の性格軸それぞれから1問（短縮版）または2問（標準版）を抽出します。続けて、GDLを知らない状態のAI自身が同じ問題に回答します。ここはあなたの操作は不要で、待つだけです。</p>
+      <p>毎回ランダムに出題されるため、<strong>同じ人が何度受けても同じ問題にはなりません</strong>（暗記による見かけ上のスコア上昇を防ぐ設計です）。</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <h3>求められたらGDLを添付する</h3>
+      <p>「床(A)の生成が終わりました。GDLをファイルで添付してください」と言われたら、STEP 1で保存した <code>.json</code> ファイルを<strong>添付</strong>します（本文に貼らないでください）。GPTはこれを読み込み、あなたになりきって同じ問題に回答します（＝B）。ここで復帰用の <code>ptt_state.json</code> が渡されるので保存しておいてください。</p>
+      <div class="chat">
+        <div class="msg gpt"><span class="who">GPT</span><div class="bubble">床(A)の生成が終わりました。では今、あなたのGDL（JSON）をファイルで添付してください。</div></div>
+        <div class="msg you"><span class="who">You</span><span class="bubble">📎 mygdl.json</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <h3>あなた自身が答える</h3>
+      <p>ここが本番です。<strong>1問ずつ</strong>提示されるので、<strong>記号1文字（A / B / C / D / X）を送るだけ</strong>で次に進みます。各問の先頭に「質問 12 / 40」のように進捗が出ます。</p>
+      <div class="chat">
+        <div class="msg gpt"><span class="who">GPT</span><div class="bubble">── 質問 12 / 40 ──
+[P0421] あなたの『本質』に最も近いのは？
+  A. 役割と関係
+  B. 肉体と経験
+  C. 自分を構成する情報・パターン
+  D. 思想と価値観
+  X. どれでもない</div></div>
+        <div class="msg you"><span class="who">You</span><span class="bubble">D</span></div>
+        <div class="msg gpt"><span class="who">GPT</span><div class="bubble">✓ 12/40 完了（残り28問）</div></div>
+      </div>
+
+      <h4>答えるときの4つのコツ</h4>
+      <ul>
+        <li><strong>直感で即答する。</strong>考え込むほど「正解らしい答え」に寄ってしまいます。測りたいのはあなたの素の傾向です。</li>
+        <li><strong>A→Dは強弱の順ではありません。</strong>選択肢の並びは意図的にランダム化されています。「なんとなくいつもB」のような惰性回答を防ぐためです。</li>
+        <li><strong>Xは最後の手段。</strong>「どれでもない(X)」は採点から除外されるため、多用すると測定できる問題数が減ります。7割合っていればその選択肢を選んでください。</li>
+        <li><strong>正直に。</strong>ここでかっこつけると、あなたのGDLではなく「見栄を張ったあなた」との差が測られてしまいます。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <h3>結果を受け取る</h3>
+      <p>全問そろうと自動で採点され、3つが出てきます。</p>
+      <ul>
+        <li><strong>チャット内のレポート</strong> … その場で読める要約</li>
+        <li><code>ptt_result.json</code> … 生データ。カテゴリ別スコアや傾向プロファイルを含む</li>
+        <li><code>ptt_report.md</code> … Markdown形式のレポート</li>
+      </ul>
+      <p>2つのファイルは<strong>必ずダウンロードして保存してください</strong>。会話が消えると再取得できません。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- READ RESULT -->
+<section id="read">
+  <div class="section-tag">Results</div>
+  <h2>結果の読み方</h2>
+
+  <table>
+    <tr><th style="width:26%;">項目</th><th>意味</th></tr>
+    <tr><td><code>sim(A,C)</code></td><td><strong>床。</strong>素のAIとあなたの一致度。<strong>低いほど良い</strong>（＝あなたが平均的でない＝GDLの伸びしろが大きい）。ここが高い人は、そもそも一般的なAIの答えと似ているため、Fidelityが伸びにくくなります。</td></tr>
+    <tr><td><code>sim(B,C)</code></td><td>GDL-AIとあなたの一致度。<strong>高いほど良い</strong>。</td></tr>
+    <tr><td><code>GDL Fidelity Score</code></td><td>主指標。床からの伸びしろを、どれだけ埋められたか。</td></tr>
+    <tr><td>カテゴリ別スコア</td><td>8領域それぞれのスコア（倫理ジレンマ／思考スタイル／対人スタンス／価値観トレードオフ／メタ自己認識／感情反応／美的・嗜好判断／文体傾向）。<strong>ここが一番実用的です</strong>。</td></tr>
+  </table>
+
+  <h3>Fidelityの判定</h3>
+  <p>レポートには自動で次の判定が付きます。</p>
+  <table>
+    <tr><th style="width:26%;">スコア</th><th>判定</th></tr>
+    <tr><td><strong>0.5 以上</strong></td><td>GDLは本人再現に明確に寄与している</td></tr>
+    <tr><td><strong>0 〜 0.5</strong></td><td>一定の寄与はあるが、効果は限定的</td></tr>
+    <tr><td><strong>0 以下</strong></td><td>寄与が確認できない。GDLの内容か設定方法の見直しが必要</td></tr>
+  </table>
+
+  <div class="callout">
+    <p>📊 <strong>数値の目安について。</strong>このテスト（v1）はまだ実測サンプルが十分に集まっていないため、「平均的にどのくらい出るか」の基準値はありません。上の判定は採点エンジンが用いている閾値です。参考までに、別系統（Big Five性格診断を使った同じ式の測定）では、GDLを改善しながら 0.16 → 0.28 → 0.34 と段階的に上がった実測例があります。<strong>1.0に近い値は現実的な期待値ではありません。</strong></p>
+  </div>
+
+  <h3>いちばん重要な使い方</h3>
+  <p>総合スコアより、<strong>カテゴリ別のどこが低かったか</strong>を見てください。それが「GDLに書けていないあなた」です。たとえば「倫理」だけ極端に低ければ、あなたの道徳的な核がGDLに記述されていない可能性があります。</p>
+  <p>GDLを書き直してもう一度やれば、スコアの変化で改善の効果を確認できます。<em>このテストは点数を出す装置ではなく、GDLを直すための計測器です。</em></p>
+
+  <h3>このテストの限界（v1）</h3>
+  <ul>
+    <li><strong>1回きりの測定です。</strong>人の回答には日によるブレがあります。精度を上げるには複数回の平均が必要です。</li>
+    <li><strong>天井を1.0で近似しています。</strong>本来の上限は「あなた自身が日を変えて答えたときの自己一致度」であり、1.0には届きません。したがってFidelityは実際よりやや低めに出ます（安全側の見積り）。</li>
+    <li><strong>軸B（人間らしさ）は未対応です。</strong>「そもそも人間として通るか、AIの尻尾を出さないか」は、このv1では測っていません。測っているのは軸A（同一性）のみです。</li>
+    <li><strong>すべて選択式です。</strong>「文体傾向」カテゴリはありますが、それは<em>自己申告としての文体の好み</em>を選ばせているだけで、あなたが実際に書く文章そのものは測っていません。</li>
+  </ul>
+</section>
+
+<hr class="divider" />
+
+<!-- PRIVACY -->
+<section id="privacy">
+  <div class="section-tag">Privacy</div>
+  <h2>データの取り扱い</h2>
+  <p>GDLはあなたの価値観・思考パターン・場合によっては生い立ちまで含む、<strong>かなり内面的な個人データ</strong>です。テストを始める前に、次の点を理解した上で進めてください。</p>
+  <ul>
+    <li>GDLファイルとあなたの回答は、<strong>ChatGPT（OpenAI）にアップロードされます</strong>。学習利用の可否などはご自身のアカウント設定を確認してください。</li>
+    <li>GDLに実名・住所・勤務先などを書く必要はありません。<strong>個人特定情報は入れないことを推奨</strong>します。テストが測るのは傾向であって身元ではありません。</li>
+    <li>結果ファイル（<code>ptt_result.json</code>）にはあなたの回答傾向が含まれます。共有する際はご注意ください。</li>
+    <li>参加は完全に任意です。途中でやめて構いません。</li>
+  </ul>
+</section>
+
+<hr class="divider" />
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-tag">Troubleshooting</div>
+  <h2>困ったときは</h2>
+
+  <details class="faq">
+    <summary>間違えて最初にGDLを添付してしまった</summary>
+    <div class="faq-body">
+      <p>その回は<strong>やり直しです</strong>。床(A)が汚染され、正しい測定ができません。GPT側も汚染を検知したら中断するよう設定されています。</p>
+      <p><strong>新しい会話を開いて</strong>、何も添付せずに「開始」から始め直してください。同じ会話の中で「さっきのは無視して」と言ってもリセットされません。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>GPTが問題をまとめて出してきた／複数問を一度に聞いてくる</summary>
+    <div class="faq-body">
+      <p>本来は1問ずつ出す設計です。「<strong>1問ずつ出してください</strong>」と伝えれば戻ります。まとめて答えると、後半ほど惰性で選びやすくなり、測定の質が落ちます。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>途中で会話が長くなり、GPTが混乱してきた</summary>
+    <div class="faq-body">
+      <p>長丁場なので、進行がぶれることがあります。「<strong>いま何問目ですか。続きを1問ずつ出してください</strong>」と促してください。</p>
+      <p>それでも直らない場合は、新しい会話を開いて <code>再開</code> と送り、<code>ptt_state.json</code> を添付してください。続きから再開できます。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>採点結果が出ない／ファイルがダウンロードできない</summary>
+    <div class="faq-body">
+      <p>採点にはCode Interpreter（データ分析）が必要です。「<strong>Code Interpreterで ptt_scorer.py を実行して採点してください</strong>」と指示してください。</p>
+      <p>GPTが自力で暗算して数字を出してきた場合、その値は信用できません。必ずコード実行での採点を求めてください。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>「どれでもない(X)」ばかり選んでしまった</summary>
+    <div class="faq-body">
+      <p>Xは軸上の座標を持たないため採点対象から外れます。多いほど有効問題数が減り、スコアの信頼性が落ちます。</p>
+      <p>目安として、<strong>X が全体の1〜2割を超えたら結果は参考値として扱ってください</strong>。ただしXが多いこと自体が「用意された選択肢に収まらない人」という情報でもあります。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>スコアが低かった。GDLが失敗ということ？</summary>
+    <div class="faq-body">
+      <p>いいえ。低いスコアは「GDLに書けていない領域が特定できた」という結果です。むしろカテゴリ別の低い項目こそが、次にGDLへ書き足すべき場所を教えてくれます。</p>
+      <p>なお、<strong>床(A)が高い人は構造的にFidelityが伸びにくい</strong>という性質があります。素のAIの答えと元々似ている人は、GDLが加えられる差分が小さいためです。スコアの絶対値だけで判断せず、<code>sim(A,C)</code> と <code>sim(B,C)</code> の両方を見てください。</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>何回でも受けられる？</summary>
+    <div class="faq-body">
+      <p>はい。1000問のプールから毎回ランダムに抽出するため、同じ問題の繰り返しにはなりません。GDLを改訂したあとにもう一度やると、改善効果が見えます。</p>
+      <p>ただし<strong>床(A)は毎回その場で取り直されます</strong>。AIモデル自体が更新されると床も変わるため、日付の離れた結果を厳密に比較するのは避けてください。</p>
+    </div>
+  </details>
+</section>
+
+<hr class="divider" />
+
+<section style="text-align:center;">
+  <div class="section-tag" style="text-align:center;">Ready?</div>
+  <h2>準備ができたら</h2>
+  <p style="max-width:560px; margin:0 auto 0.5rem;">GDLファイルを手元に用意して、まとまった時間を確保してから始めてください。最初に送るのは「開始」の2文字だけ。出題数は短縮版40問と標準版80問から選べます。</p>
+  <div class="btn-row" style="justify-content:center;">
+    <a href="PTT_GPT_URL_HERE" class="btn btn-primary" target="_blank" rel="noopener">🚀 テストを始める</a>
+    <a href="eval.html" class="btn btn-secondary">📄 評価フレームワークの詳細</a>
+  </div>
+</section>
+
+<footer>
+  <p style="color:var(--text3); margin:0;">GDL — Ghost Description Language &nbsp;|&nbsp; ペルソナ チューリングテスト ガイド v1（軸A）</p>
+  <p style="color:var(--text3); margin:0.4rem 0 0;">
+    <a href="index.html">トップ</a> ・
+    <a href="eval.html">評価フレームワーク</a> ・
+    <a href="https://github.com/mayochan32/gdl" target="_blank" rel="noopener">GitHub</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -416,6 +416,16 @@
 
   <div class="file-card">
     <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/ptt_guide.html">ptt_guide.html</a>
+      <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト ガイド（被験者向け・単体配布可）</div>
+    <div class="file-detail">GDLを持たない人にこの1枚を渡せば、最後まで自力で受験できることを目的とした手順書ページ。eval.html が「なぜこの設計か」を説明する設計思想ページであるのに対し、本ページは「どう実施するか」に特化する。構成: テストの概要（A=床/B=GDL-AI/C=本人の3条件とFidelity式）→準備するもの（ChatGPTアカウント・GDL JSON・所要時間の目安・ひとつの会話で完結させる注意）→STEP1 GDL Generatorでの GDL 作成（詳細度レベルの選択指針、.json としてファイル保存）→STEP2 受験（最重要ルール＝最初にGDLを添付しない旨を警告ボックスで強調、チャットのモックアップ付きで「開始」→出題数の選択（短縮版40問／標準版80問）→A生成→GDL添付→B生成→一問一答→採点の流れ、回答時の4つのコツ、中断時に ptt_state.json で再開できる旨）→STEP3 結果の受け取り（ptt_result.json / ptt_report.md）→結果の読み方（sim(A,C)/sim(B,C)/Fidelityの解釈、採点エンジンの判定閾値0.5、カテゴリ別スコアこそGDL改善の指針である旨、v1の限界4点）→データの取り扱い（GDLは内面的な個人データである旨の注意喚起）→トラブルシューティング7項目（details/summaryのアコーディオン）。デザインは eval.html と同一のトークンを使用。index.html の評価セクションと eval.html の双方からリンク。<strong>公開GPTのURLは未確定のため、href の PTT_GPT_URL_HERE（ページ内3箇所）を実URLに差し替えてから配布すること。</strong>GitHub Pages でホスティング。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
       <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/input.html">input.html</a>
       <span class="tag tag-web">Web</span>
       <span class="tag tag-ja">JA</span>
@@ -441,12 +451,22 @@
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPTs_prompt.md">gpts/PTT_GPTs_prompt.md</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPT_instructions.txt">gpts/PTT_GPT_instructions.txt</a>
       <span class="tag tag-doc">GPTs</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">ペルソナ チューリングテスト GPTs システムプロンプト（v1・軸A）</div>
-    <div class="file-detail">GDL-AIの本人再現度をA/B/C比較で測るGPTsのInstructions全文。A=GDL無しの素のAI（床）、B=GDL有りのAI、C=人間本人（gold）。汚染防止の核は「GDLはファイル添付のみ・Bフェーズまで開かない（Code Interpreterではファイルは開くまで文脈に入らないためAがクリーンになる）」とA→B→C順序厳守。Code Interpreterで ptt_scorer.py を実行し採点、チャットレポート＋result.json＋report.md を出力。</div>
+    <div class="file-summary">ペルソナ チューリングテスト GPTs Instructions 本体（v1.1・貼るだけ／単一の正）</div>
+    <div class="file-detail">GPT Builder の Instructions に<strong>全文をそのまま貼る</strong>ためのプレーンテキスト（約5,900文字。Instructionsの上限8,000文字に収まる）。加工や抜き出しが不要になるよう、解説やセットアップ手順を一切含まない。内容: 前提と用語（A=床/B=GDL-AI/C=本人gold、軸Aのみ、採点は必ずCode Interpreterで ptt_scorer.py を実行し暗算禁止）、汚染防止5項目（GDLはAの生成完了後にのみファイル添付／汚染時は中断して新会話でやり直し／A→B→C順序厳守／axis_posは被験者に非開示）、Step 0〜6の進行（出題数の選択→層化抽出→A生成→state保存→GDL添付とB生成→Cの一問一答収集→採点→3点出力）、中断からの再開手順、結果の読み方、エッジケース。<strong>v1.1の追加点</strong>: ①被験者が短縮版40問（各軸1問）と標準版80問（各軸2問）を選べる、②Code Interpreterのセッションリセットで A/B が全損するのを防ぐため ptt_state.json をA確定時・B確定時・C収集10問ごとに書き出し、再添付で続きから再開できる（stateには質問IDのみを保存し axis_pos を含めないため被験者が開いても答えは漏れない）。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPT_SETUP.md">gpts/PTT_GPT_SETUP.md</a>
+      <span class="tag tag-doc">GPTs</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト GPT 構築手順・設計メモ（v1.1・軸A）</div>
+    <div class="file-detail"><strong>このファイル自体はInstructionsに貼らない</strong>（貼るのは PTT_GPT_instructions.txt の全文）。旧名 <code>PTT_GPTs_prompt.md</code>、中身がプロンプト本体から構築手順書に変わったため2026-08-17に改名。GPTを作る側のための設定チェックリストと設計メモ。内容: GPT Builderの設定値一覧（Name/Conversation starters=「開始」「再開」/Knowledgeに GDL_eval_pool.json と ptt_scorer.py /Code Interpreter必須・Web Search OFF推奨/公開範囲はリンク限定）、<strong>説明欄に貼るテキスト2種（211字版と160字版。準備物・6ステップの流れ・GDLの添付タイミングを含む）</strong>、進行の骨格（Step 0〜6）、設計の肝4点＝汚染防止（添付した瞬間に文脈へ入るため床の生成完了までGDLを持ち込ませない、AはモデルドリフトのたびにA/B/C同一セッションで取り直す）・中断復帰（ptt_state.jsonの書き出しと質問IDのみ保存する理由）・出題数の選択（40問/80問のトレードオフ）・axis_pos非開示、ファイル一覧、ローカル検証コマンド、既知の限界。<strong>GPT作成後は公開URLを ptt_guide.html の PTT_GPT_URL_HERE（3箇所）に反映すること。</strong></div>
   </div>
 
   <div class="file-card">
@@ -465,7 +485,7 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">ペルソナ チューリングテスト GPTs 運用手順</div>
-    <div class="file-detail">GPTの作り方（Instructions貼付・Code Interpreter ON・Knowledgeに2ファイル）、被験者の使い方（GDLをファイル添付→開始→80問回答→レポート）、汚染防止の仕組み、既知の限界（1回実施・天井1.0近似・軸B未対応）、ローカル検証コマンドを記載。</div>
+    <div class="file-detail">PTT一式の入口となる運用手順。構成ファイルを「GPT作成者が読むもの／被験者が読むもの」に分けて提示し、GPTの作り方（PTT_GPT_instructions.txt の全文をInstructionsに貼付・Code Interpreter ON・Web Search OFF・Knowledgeに2ファイル・公開URLを ptt_guide.html に反映）、被験者の使い方（GDL作成→GDLを添付せず「開始」→出題数40/80の選択→A生成→GDL添付とB生成→一問一答でC収集→レポート）、汚染防止の仕組み、中断復帰（ptt_state.json）、既知の限界（1回実施・天井1.0近似・軸B未対応・選択式のみ）、ローカル検証コマンドを記載。被験者に実際に配るのは ../ptt_guide.html。</div>
   </div>
 
   <div class="file-card">
