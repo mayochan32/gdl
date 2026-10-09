@@ -6,7 +6,7 @@
  * Lv1 / Lv2 / Lv3 の3つのレベル別ファイルを自動生成する。
  *
  * 使い方:
- *   node build_schemas.js
+ *   node schema/build_schemas.js
  *
  * 出力:
  *   - GDL_schema_lv1.json  ... 各セクションの Lv1 キーのみ

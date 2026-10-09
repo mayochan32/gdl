@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Version](https://img.shields.io/badge/GDL-v1.0-5B8CFF.svg)]()
 [![Schema](https://img.shields.io/badge/Schema-JSON-3ECF8E.svg)]()
-[![Eval](https://img.shields.io/badge/Eval-Persona_Turing_Test-FF8C42.svg)](GDL_eval.md)
+[![Eval](https://img.shields.io/badge/Eval-Persona_Turing_Test-FF8C42.svg)](eval/GDL_eval.md)
 
 ---
 
@@ -99,7 +99,7 @@ GDL_schema_v1.json （マスター）
     └── GDL_schema_lv3.json  ←────────┘  Lv1 + Lv2 + Lv3 項目（全項目）
 ```
 
-レベル別ファイルは `node build_schemas.js` で再生成できます。
+レベル別ファイルは `node schema/build_schemas.js` で再生成できます。
 
 ---
 
@@ -136,7 +136,7 @@ GDLで「個性を記述できた」ことと、「そのデータでAIが本当
 - **ハイブリッド質問＋傾向採点** — 選択式（各選択肢に性格軸座標 `axis_pos` を付与し `類似度=1−|Δpos|` で傾向を採点）を主力に、文体・人間性を測る自由記述を併設。
 - **2層分離** — 万人共通の質問バンクと、被験者ごとの回答（answer key）を分離。質問は再利用可能、回答は個人ごと。
 
-詳細は **[GDL_eval.md](GDL_eval.md)** を参照。評価は終着点ではなく、どのセクションがズレているかを示して **GDL自体のブラッシュアップを駆動する計測器** です。
+詳細は **[eval/GDL_eval.md](eval/GDL_eval.md)** を参照。評価は終着点ではなく、どのセクションがズレているかを示して **GDL自体のブラッシュアップを駆動する計測器** です。
 
 ---
 
@@ -144,18 +144,35 @@ GDLで「個性を記述できた」ことと、「そのデータでAIが本当
 
 ```
 gdl/
-├── index.html               # ランディングページ（GDL紹介）
-├── input.html               # GDL入力フォーム（Web UI）
-├── GDL_schema.json          # マスタースキーマ（_labels + _levels 付き）
-├── GDL_schema_lv1/2/3.json  # レベル別スキーマ（自動生成）
-├── build_schemas.js         # レベル別スキーマ生成スクリプト
-├── GDL_questions.json       # インタビュー質問セット
-├── GDL_eval.md              # ペルソナ チューリングテスト（評価フレームワーク仕様）
-├── GDL_eval_questions.json  # 評価用 普遍質問バンク（v0.3 ハイブリッド）
-├── GDL_eval_axes.json       # 評価用 軸タクソノミー（生成器の設計図）
-├── GDL_eval_harness.py      # 評価ハーネス（採点・サンプリング・文体計量）
-└── README.md                # 本ドキュメント
+├── index.html  input.html  eval.html  ptt_guide.html   # 公開ページ（GitHub Pages）
+├── filelist.html           # 全ファイルの一覧と説明
+├── schema/                 # GDLの仕様（スキーマ・質問セット・言語パック）
+├── prompts/                # GPTs・Gems などに設定するプロンプト
+├── eval/                   # 忠実度評価（ペルソナ チューリングテスト・Big Five）
+├── research/               # 論文の調査や設計の検討の記録
+├── docs/                   # スライドなどの資料
+├── README.md               # 本ドキュメント
+├── AGENTS.md               # このリポジトリで作業するときのルール
+└── HANDOFF.md              # 別のAIへの引き継ぎ資料
 ```
+
+### 目的別の入口
+
+| やりたいこと | 見る場所 |
+|---|---|
+| GDLがどんなものか知りたい | [ランディングページ](https://mayochan32.github.io/gdl/) と本ドキュメント |
+| 自分のGDLを作りたい | [入力フォーム](https://mayochan32.github.io/gdl/input.html)、または `prompts/generator/` のプロンプト |
+| 書いた文章からGDLを作りたい | `prompts/text-analyzer/` |
+| スキーマの中身を見たい | `schema/GDL_schema.json`（マスター） |
+| GDLの再現度を測りたい | [ペルソナ チューリングテスト ガイド](https://mayochan32.github.io/gdl/ptt_guide.html)、`eval/` |
+| 設計の経緯や検討内容を知りたい | `research/`（カテゴリごとの論点マップから辿れます） |
+| 全ファイルの説明を見たい | [ファイル一覧](https://mayochan32.github.io/gdl/filelist.html) |
+
+### このリポジトリで作業する人へ
+
+ファイルを追加・移動・変更する前に、[AGENTS.md](AGENTS.md) を読んでください。フォルダの使い分け、命名規則、変更したときに必ずやること（ファイル一覧の更新など）をまとめています。AIに作業させるときも同じルールが適用されます。
+
+調査や検討を書く場合は、[research/README.md](research/README.md) に書き方と手順があります。
 
 ---
 

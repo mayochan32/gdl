@@ -2,6 +2,8 @@
 
 > このドキュメントは、GDLプロジェクトの作業を別のAI（LLM）に引き継ぐための情報をまとめたものです。
 > 新しいLLMにこのファイルを読み込ませることで、プロジェクトのコンテキストを効率的に引き継げます。
+>
+> **作業を始める前に [AGENTS.md](AGENTS.md) を読んでください。** フォルダ構成・命名規則・ファイルを変更したときに必ずやることをまとめた、運用ルールの正本です。
 
 ---
 
@@ -31,7 +33,7 @@
 `GDL_schema.json` がマスタースキーマ。全ファイルはこのスキーマとの整合性を保つ必要がある。
 
 ```
-GDL_schema.json（マスター）
+schema/GDL_schema.json（マスター）
   ├── build_schemas.js → GDL_schema_lv1/lv2/lv3.json（自動生成）
   ├── GDL_questions.json（質問はスキーマのフィールドにマッピング）
   ├── GDL_TextAnalyzer_knowledge.json（スキーマ構造 + 推論ガイド）
@@ -74,45 +76,61 @@ GDL JSON出力には以下が**必須**：
 
 ## 3. ファイル構成
 
-全ファイルの詳細は `filelist.html` を参照。以下は構造の概要：
+フォルダ構成とルールの正本は [AGENTS.md](AGENTS.md)、全ファイルの詳細は `filelist.html` を参照。以下は構造の概要：
 
-### スキーマ & データ
+### スキーマ & データ（`schema/`）
 | ファイル | 役割 |
 |---------|------|
-| `GDL_schema.json` | マスタースキーマ（SSOT） |
-| `GDL_schema_lv1/lv2/lv3.json` | レベル別スキーマ（自動生成） |
-| `GDL_questions.json` | インタビュー質問56問（JA/EN/ZH） |
-| `GDL_TextAnalyzer_knowledge.json` | Text Analyzer用ナレッジ |
+| `schema/GDL_schema.json` | マスタースキーマ（SSOT） |
+| `schema/GDL_schema_lv1/lv2/lv3.json` | レベル別スキーマ（自動生成） |
+| `schema/build_schemas.js` | レベル別スキーマ自動生成 |
+| `schema/GDL_questions.json` | インタビュー質問56問（JA/EN/ZH） |
 
-### 言語パック
+### 言語パック（`schema/lang/`）
 | ファイル | 言語 | リーフ値 |
 |---------|------|---------|
-| `GDL_lang_en.json` | English | 2,341 |
-| `GDL_lang_zh.json` | 简体中文 | 2,341 |
+| `schema/lang/GDL_lang_en.json` | English | 2,341 |
+| `schema/lang/GDL_lang_zh.json` | 简体中文 | 2,341 |
 
 （日本語はマスタースキーマ内の `_labels` に含まれる）
 
-### GPTsプロンプト（各3言語）
-| エージェント | JA | EN | ZH |
-|-------------|----|----|-----|
-| Interview Agent | `GDL_GPTs_prompt.md` | `_en.md` | `_zh.md` |
-| Text Analyzer | `GDL_TextAnalyzer_GPTs_prompt.md` | `_en.md` | `_zh.md` |
-| Gems (Google) | `GDL_Gems_prompt.md` | — | — |
+### プロンプト（`prompts/`）
+| エージェント | 場所 | JA | EN | ZH |
+|-------------|------|----|----|-----|
+| Interview Agent | `prompts/generator/` | `GDL_GPTs_prompt.md` | `_en.md` | `_zh.md` |
+| Gems (Google) | `prompts/generator/` | `GDL_Gems_prompt.md` | — | — |
+| Text Analyzer | `prompts/text-analyzer/` | `GDL_TextAnalyzer_GPTs_prompt.md` | `_en.md` | `_zh.md` |
 
-### Web UI
+Text Analyzer 用ナレッジ `GDL_TextAnalyzer_knowledge.json` も `prompts/text-analyzer/` にある。
+
+### 忠実度評価（`eval/`）
+| 場所 | 役割 |
+|------|------|
+| `eval/GDL_eval.md` | 評価フレームワーク仕様（ペルソナ チューリングテスト） |
+| `eval/GDL_eval_*.json` / `*.py` | 軸定義・質問バンク・質問プール・生成器・評価ハーネス |
+| `eval/keys/` | 被験者ごとの回答キー |
+| `eval/ptt/` | ペルソナ チューリングテストの実行一式（貼り付けプロンプト・採点エンジン） |
+| `eval/bigfive/` | 性格診断法（Big Five / IPIP-NEO-120）による評価一式 |
+
+### 調査・検討（`research/`）
+論文の調査や設計の検討を、カテゴリ（記憶など）ごとに置く。ルールは `research/README.md`。
+
+### 公開ページ（ルート / GitHub Pages）
 | ファイル | 役割 |
 |---------|------|
-| `index.html` | ランディングページ（3言語・GitHub Pages） |
+| `index.html` | ランディングページ（3言語） |
 | `input.html` | GDL入力フォーム（Lv1・3言語） |
-| `GDL_input.html` | 旧版入力フォーム（参考用） |
+| `eval.html` | 評価フレームワークの紹介ページ |
+| `ptt_guide.html` | ペルソナ チューリングテストの被験者向けガイド |
+| `filelist.html` | リポジトリファイル一覧ページ |
 
 ### その他
-| ファイル | 役割 |
-|---------|------|
-| `build_schemas.js` | レベル別スキーマ自動生成 |
+| 場所 | 役割 |
+|------|------|
 | `README.md` | プロジェクト説明 |
-| `GDL_concept_v2.pptx` | コンセプトプレゼン |
-| `filelist.html` | リポジトリファイル一覧ページ |
+| `AGENTS.md` | 運用ルールの正本（人とAI共通） |
+| `docs/GDL_concept_v2.pptx` | コンセプトプレゼン |
+| `archive/GDL_input.html` | 旧版入力フォーム（参考用） |
 
 ---
 
@@ -135,7 +153,7 @@ GDL JSON出力には以下が**必須**：
 
 スキーマを変更した場合：
 - [ ] `GDL_schema.json` を更新
-- [ ] `node build_schemas.js` でlv1/lv2/lv3を再生成
+- [ ] `node schema/build_schemas.js` でlv1/lv2/lv3を再生成
 - [ ] `GDL_TextAnalyzer_knowledge.json` の対応箇所を更新
 - [ ] `GDL_questions.json` の対応箇所を更新（該当する場合）
 - [ ] `GDL_lang_en.json` / `GDL_lang_zh.json` の対応箇所を更新
@@ -150,20 +168,14 @@ GDL JSON出力には以下が**必須**：
 
 `filelist.html` はリポジトリ内全ファイルの一覧ページ。**ファイルの作成・更新（大きな変更）・削除が発生した場合、必ず同時に更新すること。** コミットにも含める。
 
-ファイルは以下の6カテゴリで分類：
-1. スキーマ & データ定義
-2. 言語パック（i18n）
-3. GPTs システムプロンプト
-4. Web UI
-5. ツール & 設定
-6. ドキュメント & プレゼン
+ファイルはフォルダ構成に合わせたカテゴリで分類する（公開ページ / スキーマ / 言語パック / プロンプト / 忠実度評価 / ペルソナ チューリングテスト / 性格診断法 / 調査・検討 / ドキュメント & 運用ルール / アーカイブ）。
 
 ---
 
 ## 6. 開発環境 & ツール
 
 - **ホスティング**: GitHub Pages（index.html がランディングページ）
-- **ビルドツール**: Node.js（`build_schemas.js`）
+- **ビルドツール**: Node.js（`schema/build_schemas.js`）
 - **Git管理**: GitHub（https://github.com/mayochan32/gdl）
 - **認証**: HTTPSリモート（push時にローカル環境で認証が必要）
 

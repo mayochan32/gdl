@@ -256,9 +256,9 @@
   </table>
   <p>採点は記号でなく <code>axis_pos</code> を参照するため、選択肢順のシャッフルは結果に影響しません。出力はカテゴリ別の昇順ソートで「どこが弱いか」が一目で分かり、それがそのままGDL改善ポイントになります。</p>
   <div class="formula"># 使い方の例
-python GDL_eval_harness.py profile --bank GDL_eval_questions.json --key GDL_eval_key_mayo_v03.json
-python GDL_eval_harness.py score   --bank ... --person &lt;本人key&gt; --ai &lt;GDL-AI key&gt; --baseline &lt;素のAI key&gt;
-python GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 1</div>
+python eval/GDL_eval_harness.py profile --bank eval/GDL_eval_questions.json --key eval/keys/GDL_eval_key_mayo_v03.json
+python eval/GDL_eval_harness.py score   --bank ... --person &lt;本人key&gt; --ai &lt;GDL-AI key&gt; --baseline &lt;素のAI key&gt;
+python eval/GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 1</div>
 </section>
 
 <hr class="divider" />
@@ -290,7 +290,7 @@ python GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 
   <p>本ページは概要です。完全な仕様（交絡対策・合格条件・制約・ロードマップ）と各データファイルはリポジトリを参照してください。</p>
   <div class="btn-row">
     <a href="ptt_guide.html" class="btn btn-primary">🚀 ガイド（実際にテストを始める）</a>
-    <a href="https://github.com/mayochan32/gdl/blob/main/GDL_eval.md" class="btn btn-secondary" target="_blank">📄 完全仕様 GDL_eval.md</a>
+    <a href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval.md" class="btn btn-secondary" target="_blank">📄 完全仕様 GDL_eval.md</a>
     <a href="https://github.com/mayochan32/gdl" class="btn btn-secondary" target="_blank">⌥ GitHub リポジトリ</a>
     <a href="index.html" class="btn btn-secondary">← トップへ戻る</a>
   </div>

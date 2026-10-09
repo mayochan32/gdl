@@ -2,7 +2,7 @@
 
 > GDLを組み込んだAIが、本当にその人のように振る舞うかを測定するための評価フレームワーク
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](../LICENSE)
 [![GDL](https://img.shields.io/badge/GDL-v1.0-5B8CFF.svg)]()
 [![Eval](https://img.shields.io/badge/Eval-Framework-3ECF8E.svg)]()
 
@@ -311,9 +311,9 @@ GDL Fidelity Score = (score_ai − score_floor) / (score_ceiling − score_floor
 
 ```
 # 使い方の例
-python GDL_eval_harness.py profile --bank GDL_eval_questions.json --key GDL_eval_key_mayo_v03.json
-python GDL_eval_harness.py score   --bank ... --person <本人key> --ai <GDL-AI key> --baseline <素のAI key>
-python GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 1
+python eval/GDL_eval_harness.py profile --bank eval/GDL_eval_questions.json --key eval/keys/GDL_eval_key_mayo_v03.json
+python eval/GDL_eval_harness.py score   --bank ... --person <本人key> --ai <GDL-AI key> --baseline <素のAI key>
+python eval/GDL_eval_harness.py sample  --bank ... --per-category 3 --shuffle --seed 1
 ```
 
 ---

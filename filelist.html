@@ -153,235 +153,14 @@
   </p>
 
   <div class="stats">
-    <span><strong>23</strong> files</span>
+    <span><strong>60</strong> files</span>
     <span><strong>3</strong> languages (JA / EN / ZH)</span>
     <span><strong>642+</strong> personality fields</span>
     <span><strong>11</strong> sections × 3 levels</span>
   </div>
 
-  <!-- ===== Schema & Data ===== -->
-  <div class="category"><span class="category-icon">📐</span> スキーマ & データ定義</div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema.json">GDL_schema.json</a>
-      <span class="tag tag-schema">Schema</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDLマスタースキーマ（Single Source of Truth）</div>
-    <div class="file-detail">全11セクション × Lv1/Lv2/Lv3 の全フィールド定義を含むマスターファイル。_labels（日本語対訳マップ）、_levels（レベル定義）、_confidence（信頼度仕様）、_preamble（AI解読ガイド仕様）を内包。他の全ファイルはこのスキーマを参照して整合性を保つ。バージョンは gdl_version 1.0 に一本化（旧 schema_version は廃止）。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv1.json">GDL_schema_lv1.json</a>
-      <span class="tag tag-schema">Schema</span>
-      <span class="tag tag-tool">Auto-gen</span>
-    </div>
-    <div class="file-summary">Lv1スキーマ（Who — 属性・表層のらしさ）</div>
-    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1フィールドのみを抽出。話し方・口調・基本的な好みの再現に必要な最小限の項目セット。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv2.json">GDL_schema_lv2.json</a>
-      <span class="tag tag-schema">Schema</span>
-      <span class="tag tag-tool">Auto-gen</span>
-    </div>
-    <div class="file-summary">Lv2スキーマ（How — 思考プロセス・判断基準）</div>
-    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2フィールドを含む。判断・推論パターン、価値観に基づく行動予測に必要な項目セット。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_schema_lv3.json">GDL_schema_lv3.json</a>
-      <span class="tag tag-schema">Schema</span>
-      <span class="tag tag-tool">Auto-gen</span>
-    </div>
-    <div class="file-summary">Lv3スキーマ（Why — 深層心理・形成史・内的矛盾）</div>
-    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2 + Lv3の全フィールド（642項目以上）を含む完全版。人生の文脈・矛盾・葛藤を含めた深い人格再現が可能。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_questions.json">GDL_questions.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-      <span class="tag tag-en">EN</span>
-      <span class="tag tag-zh">ZH</span>
-    </div>
-    <div class="file-summary">インタビュー質問セット（56問・3言語対応）</div>
-    <div class="file-detail">GDL Interview Agent が使用する全56問の質問データ。7セクション（S1〜S7）構成。各質問にはtype（select/multi_select/scale/rank/direct）、候補選択肢、GDLフィールドへのマッピング情報を含む。日本語・英語・中国語の3言語フィールドを内包。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_松永　克幸_2026-05-19_v1.2.json">GDL_松永　克幸_2026-05-19_v1.2.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDLデータ実例（松永克幸・Lv1・GDL 1.0）</div>
-    <div class="file-detail">2026-05-19に旧フォーマット（フラット構造・スケール値は数値のみ）で作成されたGDLを、最新のGDL 1.0フォーマットへ変換したもの。各セクションをLv1ネスト構造化し、_preamble・各セクション_descriptionを付与、スケール値を{value,label}形式へ変換、career/education/turning_points/marital_historyを配列構造化。生成方法 input_form。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_questions.json">GDL_eval_questions.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ忠実度評価用 質問バンク（46問・v0.3ハイブリッド）</div>
-    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な2層分離設計（回答は answer key 側へ分離）。v0.3でハイブリッド化：選択式40問（4択＋どれでもない、各選択肢に性格軸座標 axis_pos を付与し『類似度=1−|pos差|』の距離ベース傾向採点、選択肢順はランダム化）を主力に、軸B（人間性）と文体を守る自由記述6問を専用層として併設。8カテゴリ各5問。各問に trait_axis、target_section を付与。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_axes.json">GDL_eval_axes.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ忠実度評価 軸タクソノミー（生成器の設計図）</div>
-    <div class="file-detail">大量質問プール（目標〜1000問）を品質と被覆を保って生成するための trait_axis 体系。8カテゴリ×5軸=40軸を定義し、各軸に低極/高極・target_section を付与。1軸をシナリオ領域に当てはめて20〜30バリエーション量産する生成テンプレートと、層化サンプリング方針、軸ごとの平均ポジション（傾向プロファイル）で比較する採点単位を規定。出題が毎回変わっても安定して比較できる設計。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_pool.json">GDL_eval_pool.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ忠実度評価 質問プール（生成物・1000問 pool-full）</div>
-    <div class="file-detail">GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開した質問プール。各軸25問×40＝選択式1000問＋自由記述6問（全8カテゴリ各125問）。各問は4択＋どれでもない、選択肢は質問ごとに決定的シャッフル（記号A-Dは強弱を表さない）、axis_pos較正済み、軸内で質問文の重複なし。層化ランダムサンプリングで毎回の出題を抽出し、軸ごとの平均ポジション（傾向プロファイル）で本人とAIを照合する。繰り返し受験しても暗記されにくい規模。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_key_mayo.json">GDL_eval_key_mayo.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ忠実度評価 answer key（被験者: mayo）</div>
-    <div class="file-detail">GDL_eval_questions.json への被験者ごとの回答・分類を分離格納するファイル。質問は普遍だが回答とsplit分類は個人ごとに異なるため別ファイル化。各質問IDに answer_predicted（既知情報からの想定回答=gold仮置き）、answer_actual（本人実回答=最終gold）、split（in_gdl/held_out）、predicted_hit（予測との照合 hit/partial/miss）を保持。v0.2(自由文30問)への回答記録＝予測的中率の答え合わせ履歴（25hit/2partial/3miss）。質問はv0.3に更新済みのため履歴扱い。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_key_mayo_v03.json">GDL_eval_key_mayo_v03.json</a>
-      <span class="tag tag-data">Data</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ忠実度評価 answer key v0.3（被験者: mayo）</div>
-    <div class="file-detail">GDL_eval_questions.json v0.3（ハイブリッド46問）への本人実回答。choice40問（選択キー）＋open6問（自由記述、v0.2流用）。46/46 confirmed。選択肢ランダム順化に伴い回答記号は意味単位で再マッピング済み。傾向プロファイル例：倫理1.00/思考1.00/対人0.94/メタ0.93/価値観0.93/感情0.80/美的0.72/文体0.30（全体平均0.83）＝思想は高極の探求者、文体は簡潔ミニマルという構造。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_knowledge.json">GDL_TextAnalyzer_knowledge.json</a>
-      <span class="tag tag-data">Knowledge</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">Text Analyzer用ナレッジファイル</div>
-    <div class="file-detail">GDL Text Analyzer GPTs の Knowledge としてアップロードするファイル。GDLスキーマの全構造定義に加え、各フィールドの推論ガイドライン（extraction_tips）、出力フォーマット仕様、セクション説明を含む。GPTがテキストからGDLフィールドへ正確にマッピングするための参照データ。</div>
-  </div>
-
-  <!-- ===== Language Packs ===== -->
-  <div class="category"><span class="category-icon">🌐</span> 言語パック（i18n）</div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_lang_en.json">GDL_lang_en.json</a>
-      <span class="tag tag-lang">Lang Pack</span>
-      <span class="tag tag-en">EN</span>
-    </div>
-    <div class="file-summary">英語言語パック（2,339リーフ値）</div>
-    <div class="file-detail">GDLスキーマの全テキストを英語に翻訳した言語パック。_levels（レベル定義）、_confidence（信頼度仕様）、_meta（メタ情報）、_preamble（AIガイド）、_labels（全フィールド対訳）、knowledge（11セクションのフィールド定義・候補・説明）を網羅。Web UIのi18n切り替えやGPTs英語版の参照データとして使用。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_lang_zh.json">GDL_lang_zh.json</a>
-      <span class="tag tag-lang">Lang Pack</span>
-      <span class="tag tag-zh">ZH</span>
-    </div>
-    <div class="file-summary">簡体字中国語言語パック（2,340リーフ値）</div>
-    <div class="file-detail">GDLスキーマの全テキストを簡体字中国語に翻訳した言語パック。英語版と構造完全一致。Web UIのi18n切り替えやGPTs中国語版の参照データとして使用。</div>
-  </div>
-
-  <!-- ===== GPTs Prompts ===== -->
-  <div class="category"><span class="category-icon">🤖</span> GPTs システムプロンプト</div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt.md">GDL_GPTs_prompt.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDL Interview Agent — GPTs設定ガイド＆システムプロンプト（日本語）</div>
-    <div class="file-detail">OpenAI GPTs として GDL Interview Agent を構築するための設定ガイドとシステムプロンプト。56問のインタビューを1問ずつ進行し、回答からGDL 1.0形式のJSONを自動生成する。質問タイプ別の表示フォーマット、フィールドマッピングルール、_preamble・_description・labelの必須出力ルールを定義。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt_en.md">GDL_GPTs_prompt_en.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-en">EN</span>
-    </div>
-    <div class="file-summary">GDL Interview Agent — GPTs Setup Guide & System Prompt (English)</div>
-    <div class="file-detail">英語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を英語で記述。英語圏ユーザーがGPTsを構築する際に使用。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_GPTs_prompt_zh.md">GDL_GPTs_prompt_zh.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-zh">ZH</span>
-    </div>
-    <div class="file-summary">GDL Interview Agent — GPTs 设置指南 & 系统提示词（简体中文）</div>
-    <div class="file-detail">簡体字中国語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を中国語で記述。中国語圏ユーザーがGPTsを構築する際に使用。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt.md">GDL_TextAnalyzer_GPTs_prompt.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDL Text Analyzer — GPTs設定ガイド＆システムプロンプト（日本語）</div>
-    <div class="file-detail">テキスト（SNS投稿、ブログ、書籍、インタビュー等）から個性を推論しGDLを自動生成するエージェントのシステムプロンプト。マルチスピーカー処理（ステップ1.5）、6視点分析、3段階confidence体系、値の柔軟性ルール、特殊分析パターン（A〜H）を定義。GDL 1.0形式で出力。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt_en.md">GDL_TextAnalyzer_GPTs_prompt_en.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-en">EN</span>
-    </div>
-    <div class="file-summary">GDL Text Analyzer — GPTs Setup Guide & System Prompt (English)</div>
-    <div class="file-detail">英語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、confidence体系など全機能を網羅。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_TextAnalyzer_GPTs_prompt_zh.md">GDL_TextAnalyzer_GPTs_prompt_zh.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-zh">ZH</span>
-    </div>
-    <div class="file-summary">GDL Text Analyzer — GPTs 设置指南 & 系统提示词（简体中文）</div>
-    <div class="file-detail">簡体字中国語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、置信度体系など全機能を網羅。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_Gems_prompt.md">GDL_Gems_prompt.md</a>
-      <span class="tag tag-prompt">Prompt</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDL Interview Agent — Google Gemini Gems用プロンプト</div>
-    <div class="file-detail">Google Gemini の Gems 機能向けに最適化された GDL Interview Agent のシステムプロンプト。GPTs版と同等のインタビュー機能をGemini環境で実現するための設定ガイド。</div>
-  </div>
-
-  <!-- ===== Web UI ===== -->
-  <div class="category"><span class="category-icon">🖥️</span> Web UI</div>
+  <!-- ===== pages ===== -->
+  <div class="category"><span class="category-icon">🌐</span> 公開ページ（ルート / GitHub Pages）</div>
 
   <div class="file-card">
     <div class="file-header">
@@ -397,11 +176,14 @@
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/tree/main/images">images/</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/input.html">input.html</a>
       <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+      <span class="tag tag-en">EN</span>
+      <span class="tag tag-zh">ZH</span>
     </div>
-    <div class="file-summary">LP用の画像アセット置き場</div>
-    <div class="file-detail">index.html から参照する画像を格納するディレクトリ。hero.jpg はヒーローセクションの背景画像（1672×941px / 約370KB / progressive JPEG）、hero@2x.jpg はその2倍解像度版（3344×1882px / 約835KB）で srcset により高DPI環境でのみ配信される。2x版はリニア光空間でのLanczos拡大＋アンシャープマスクで生成。指紋・発光する脳・GDLカード・ワイヤーフレームのAI頭部を配した16:9のビジュアルで、文字は焼き込まず i18n を維持している。CSS側は opacity 0.8 + 二重スクリム（中央ラジアル＋上下リニア）で最悪ケースのコントラスト比 4.7:1 以上を確保。ファイルが存在しない場合は onerror で非表示になり、従来のグラデーション背景にフォールバックする。</div>
+    <div class="file-summary">GDL入力フォーム（Lv1・3言語対応）</div>
+    <div class="file-detail">ブラウザ上でインタビュー形式の質問にラジオボタン・チェックボックス・スライダーで回答し、GDL JSONを自動生成・ダウンロードできるWeb UI。GDL_questions.json を参照して動的に質問を生成。「その他」選択時の自由入力欄、_preambleとスケール説明の自動付与に対応。現在Lv1対応。</div>
   </div>
 
   <div class="file-card">
@@ -421,241 +203,204 @@
       <span class="tag tag-ja">JA</span>
     </div>
     <div class="file-summary">ペルソナ チューリングテスト ガイド（被験者向け・単体配布可）</div>
-    <div class="file-detail">GDLを持たない人にこの1枚を渡せば、最後まで自力で受験できることを目的とした手順書ページ。eval.html が「なぜこの設計か」を説明する設計思想ページであるのに対し、本ページは「どう実施するか」に特化する。構成: テストの概要（A=床/B=GDL-AI/C=本人の3条件とFidelity式）→準備するもの（ChatGPTアカウント・GDL JSON・所要時間の目安・ひとつの会話で完結させる注意）→STEP1 GDL Generatorでの GDL 作成（詳細度レベルの選択指針、.json としてファイル保存）→STEP2 受験（最重要ルール＝最初にGDLを添付しない旨を警告ボックスで強調、チャットのモックアップ付きで「開始」→出題数の選択（短縮版40問／標準版80問）→A生成→GDL添付→B生成→一問一答→採点の流れ、回答時の4つのコツ、中断時に ptt_state.json で再開できる旨）→STEP3 結果の受け取り（ptt_result.json / ptt_report.md）→結果の読み方（sim(A,C)/sim(B,C)/Fidelityの解釈、採点エンジンの判定閾値0.5、カテゴリ別スコアこそGDL改善の指針である旨、v1の限界4点）→データの取り扱い（GDLは内面的な個人データである旨の注意喚起）→トラブルシューティング7項目（details/summaryのアコーディオン）。デザインは eval.html と同一のトークンを使用。index.html の評価セクションと eval.html の双方からリンク。<strong>公開GPTのURLは未確定のため、href の PTT_GPT_URL_HERE（ページ内3箇所）を実URLに差し替えてから配布すること。</strong>GitHub Pages でホスティング。</div>
+    <div class="file-detail">GDLを持たない人にこの1枚を渡せば、最後まで自力で受験できることを目的とした手順書ページ。eval.html が「なぜこの設計か」を説明する設計思想ページであるのに対し、本ページは「どう実施するか」に特化する。構成: テストの概要（A=床/B=GDL-AI/C=本人の3条件とFidelity式）→準備するもの（ChatGPTアカウント・GDL JSON・所要時間の目安・ひとつの会話で完結させる注意）→STEP1 GDL Generatorでの GDL 作成（詳細度レベルの選択指針、.json としてファイル保存）→STEP2 テストの実施（最重要ルール＝最初にGDLを添付しない旨を警告ボックスで強調。<strong>質問プールと採点エンジンのダウンロードリンク、および進行プロンプトのクリップボードコピーボタンをページ内に内蔵</strong>し、チャットのモックアップ付きで 新規会話に2ファイル添付＋プロンプト貼付→出題数の選択（短縮版40問／標準版80問）→A生成→GDL添付→B生成→一問一答→採点 の流れを提示。回答時の4つのコツ、中断時に ptt_state.json で再開できる旨）→STEP3 結果の受け取り（ptt_result.json / ptt_report.md）→結果の読み方（sim(A,C)/sim(B,C)/Fidelityの解釈、採点エンジンの判定閾値0.5、カテゴリ別スコアこそGDL改善の指針である旨、v1の限界4点）→データの取り扱い（GDLは内面的な個人データである旨の注意喚起）→トラブルシューティング7項目（details/summaryのアコーディオン）。デザインは eval.html と同一のトークンを使用。index.html の評価セクションと eval.html の双方からリンク。<strong>公開GPTのURLは未確定のため、href の PTT_GPT_URL_HERE（ページ内3箇所）を実URLに差し替えてから配布すること。</strong>GitHub Pages でホスティング。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/input.html">input.html</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/filelist.html">filelist.html</a>
       <span class="tag tag-web">Web</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">リポジトリファイル一覧ページ</div>
+    <div class="file-detail">リポジトリ内の全ファイルをカテゴリ別に一覧表示するHTMLページ。各ファイルのファイル名・概要・詳細説明・言語タグ・種別タグを掲載。ファイルの追加・更新・削除時に必ずメンテナンスする永続ルールあり。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/tree/main/images">images/</a>
+      <span class="tag tag-web">Web</span>
+    </div>
+    <div class="file-summary">LP用の画像アセット置き場</div>
+    <div class="file-detail">index.html から参照する画像を格納するディレクトリ。hero.jpg はヒーローセクションの背景画像（1672×941px / 約370KB / progressive JPEG）、hero@2x.jpg はその2倍解像度版（3344×1882px / 約835KB）で srcset により高DPI環境でのみ配信される。2x版はリニア光空間でのLanczos拡大＋アンシャープマスクで生成。指紋・発光する脳・GDLカード・ワイヤーフレームのAI頭部を配した16:9のビジュアルで、文字は焼き込まず i18n を維持している。CSS側は opacity 0.8 + 二重スクリム（中央ラジアル＋上下リニア）で最悪ケースのコントラスト比 4.7:1 以上を確保。ファイルが存在しない場合は onerror で非表示になり、従来のグラデーション背景にフォールバックする。</div>
+  </div>
+
+  <!-- ===== schema ===== -->
+  <div class="category"><span class="category-icon">📐</span> スキーマ（schema/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/GDL_schema.json">schema/GDL_schema.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDLマスタースキーマ（Single Source of Truth）</div>
+    <div class="file-detail">全11セクション × Lv1/Lv2/Lv3 の全フィールド定義を含むマスターファイル。_labels（日本語対訳マップ）、_levels（レベル定義）、_confidence（信頼度仕様）、_preamble（AI解読ガイド仕様）を内包。他の全ファイルはこのスキーマを参照して整合性を保つ。バージョンは gdl_version 1.0 に一本化（旧 schema_version は廃止）。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/GDL_schema_lv1.json">schema/GDL_schema_lv1.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv1スキーマ（Who — 属性・表層のらしさ）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1フィールドのみを抽出。話し方・口調・基本的な好みの再現に必要な最小限の項目セット。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/GDL_schema_lv2.json">schema/GDL_schema_lv2.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv2スキーマ（How — 思考プロセス・判断基準）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2フィールドを含む。判断・推論パターン、価値観に基づく行動予測に必要な項目セット。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/GDL_schema_lv3.json">schema/GDL_schema_lv3.json</a>
+      <span class="tag tag-schema">Schema</span>
+      <span class="tag tag-tool">Auto-gen</span>
+    </div>
+    <div class="file-summary">Lv3スキーマ（Why — 深層心理・形成史・内的矛盾）</div>
+    <div class="file-detail">build_schemas.js によりマスタースキーマから自動生成。Lv1 + Lv2 + Lv3の全フィールド（642項目以上）を含む完全版。人生の文脈・矛盾・葛藤を含めた深い人格再現が可能。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/GDL_questions.json">schema/GDL_questions.json</a>
+      <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
       <span class="tag tag-en">EN</span>
       <span class="tag tag-zh">ZH</span>
     </div>
-    <div class="file-summary">GDL入力フォーム（Lv1・3言語対応）</div>
-    <div class="file-detail">ブラウザ上でインタビュー形式の質問にラジオボタン・チェックボックス・スライダーで回答し、GDL JSONを自動生成・ダウンロードできるWeb UI。GDL_questions.json を参照して動的に質問を生成。「その他」選択時の自由入力欄、_preambleとスケール説明の自動付与に対応。現在Lv1対応。</div>
+    <div class="file-summary">インタビュー質問セット（56問・3言語対応）</div>
+    <div class="file-detail">GDL Interview Agent が使用する全56問の質問データ。7セクション（S1〜S7）構成。各質問にはtype（select/multi_select/scale/rank/direct）、候補選択肢、GDLフィールドへのマッピング情報を含む。日本語・英語・中国語の3言語フィールドを内包。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_input.html">GDL_input.html</a>
-      <span class="tag tag-web">Web</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">GDL入力フォーム（旧版・日本語のみ）</div>
-    <div class="file-detail">input.html の前身となる初期バージョンの入力フォーム。日本語のみ対応。質問データがHTML内に直接埋め込まれた構成。現在は input.html に置き換え済みだが、参考用として保持。</div>
-  </div>
-
-  <!-- ===== Tools & Config ===== -->
-  <div class="category"><span class="category-icon">🔧</span> ツール & 設定</div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPT_instructions.txt">gpts/PTT_GPT_instructions.txt</a>
-      <span class="tag tag-doc">GPTs</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ チューリングテスト GPTs Instructions 本体（v1.1・貼るだけ／単一の正）</div>
-    <div class="file-detail">GPT Builder の Instructions に<strong>全文をそのまま貼る</strong>ためのプレーンテキスト（約5,900文字。Instructionsの上限8,000文字に収まる）。加工や抜き出しが不要になるよう、解説やセットアップ手順を一切含まない。内容: 前提と用語（A=床/B=GDL-AI/C=本人gold、軸Aのみ、採点は必ずCode Interpreterで ptt_scorer.py を実行し暗算禁止）、汚染防止5項目（GDLはAの生成完了後にのみファイル添付／汚染時は中断して新会話でやり直し／A→B→C順序厳守／axis_posは被験者に非開示）、Step 0〜6の進行（出題数の選択→層化抽出→A生成→state保存→GDL添付とB生成→Cの一問一答収集→採点→3点出力）、中断からの再開手順、結果の読み方、エッジケース。<strong>v1.1の追加点</strong>: ①被験者が短縮版40問（各軸1問）と標準版80問（各軸2問）を選べる、②Code Interpreterのセッションリセットで A/B が全損するのを防ぐため ptt_state.json をA確定時・B確定時・C収集10問ごとに書き出し、再添付で続きから再開できる（stateには質問IDのみを保存し axis_pos を含めないため被験者が開いても答えは漏れない）。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/PTT_GPT_SETUP.md">gpts/PTT_GPT_SETUP.md</a>
-      <span class="tag tag-doc">GPTs</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ チューリングテスト GPT 構築手順・設計メモ（v1.1・軸A）</div>
-    <div class="file-detail"><strong>このファイル自体はInstructionsに貼らない</strong>（貼るのは PTT_GPT_instructions.txt の全文）。旧名 <code>PTT_GPTs_prompt.md</code>、中身がプロンプト本体から構築手順書に変わったため2026-08-17に改名。GPTを作る側のための設定チェックリストと設計メモ。内容: GPT Builderの設定値一覧（Name/Conversation starters=「開始」「再開」/Knowledgeに GDL_eval_pool.json と ptt_scorer.py /Code Interpreter必須・Web Search OFF推奨/公開範囲はリンク限定）、<strong>説明欄に貼るテキスト2種（211字版と160字版。準備物・6ステップの流れ・GDLの添付タイミングを含む）</strong>、進行の骨格（Step 0〜6）、設計の肝4点＝汚染防止（添付した瞬間に文脈へ入るため床の生成完了までGDLを持ち込ませない、AはモデルドリフトのたびにA/B/C同一セッションで取り直す）・中断復帰（ptt_state.jsonの書き出しと質問IDのみ保存する理由）・出題数の選択（40問/80問のトレードオフ）・axis_pos非開示、ファイル一覧、ローカル検証コマンド、既知の限界。<strong>GPT作成後は公開URLを ptt_guide.html の PTT_GPT_URL_HERE（3箇所）に反映すること。</strong></div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/ptt_scorer.py">gpts/ptt_scorer.py</a>
-      <span class="tag tag-tool">Tool</span>
-    </div>
-    <div class="file-summary">ペルソナ チューリングテスト 採点エンジン（GPTs同梱・依存なし）</div>
-    <div class="file-detail">GPTsのKnowledgeに同梱しCode Interpreterで実行する採点コア（標準ライブラリのみ）。sample（1000問プールから各軸n問を層化抽出してA/B/C共通の出題サブセット作成）、score（axis_pos距離でsim(A,C)・sim(B,C)・GDL Fidelity Score=(simBC−simAC)/(天井−simAC)・カテゴリ別・傾向プロファイルを算出）、to_markdown（レポート生成）。採点はaxis_pos基準でLLMの暗算に依存しない。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/gpts/README.md">gpts/README.md</a>
-      <span class="tag tag-doc">Doc</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">ペルソナ チューリングテスト GPTs 運用手順</div>
-    <div class="file-detail">PTT一式の入口となる運用手順。構成ファイルを「GPT作成者が読むもの／被験者が読むもの」に分けて提示し、GPTの作り方（PTT_GPT_instructions.txt の全文をInstructionsに貼付・Code Interpreter ON・Web Search OFF・Knowledgeに2ファイル・公開URLを ptt_guide.html に反映）、被験者の使い方（GDL作成→GDLを添付せず「開始」→出題数40/80の選択→A生成→GDL添付とB生成→一問一答でC収集→レポート）、汚染防止の仕組み、中断復帰（ptt_state.json）、既知の限界（1回実施・天井1.0近似・軸B未対応・選択式のみ）、ローカル検証コマンドを記載。被験者に実際に配るのは ../ptt_guide.html。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/build_schemas.js">build_schemas.js</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/build_schemas.js">schema/build_schemas.js</a>
       <span class="tag tag-tool">Tool</span>
     </div>
     <div class="file-summary">レベル別スキーマ自動生成スクリプト</div>
     <div class="file-detail">GDL_schema.json（マスター）から GDL_schema_lv1.json / lv2.json / lv3.json を自動生成する Node.js スクリプト。各セクション内のフィールドを _level プロパティに基づいてフィルタリングし、レベル別ファイルを出力する。<code>node build_schemas.js</code> で実行。</div>
   </div>
 
+  <!-- ===== lang ===== -->
+  <div class="category"><span class="category-icon">🌍</span> 言語パック（schema/lang/）</div>
+
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_harness.py">GDL_eval_harness.py</a>
-      <span class="tag tag-tool">Tool</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/lang/GDL_lang_en.json">schema/lang/GDL_lang_en.json</a>
+      <span class="tag tag-lang">Lang Pack</span>
+      <span class="tag tag-en">EN</span>
     </div>
-    <div class="file-summary">ペルソナ忠実度 評価ハーネス（Python・依存なし）</div>
-    <div class="file-detail">質問バンクと answer key からペルソナ忠実度を定量評価するCLI（標準ライブラリのみ）。サブコマンド：profile（傾向プロファイル表示）、score（本人vsAIをaxis_pos距離で採点、--baselineで床↔天井正規化したGDL Fidelity Scoreも算出）、sample（層化ランダムサンプリング＋選択肢シャッフル出題）、style（open回答の簡易文体計量：文字数・平均文長・文字bigram多様度）。採点式は『類似度=1−|axis_pos差|』、集計はカテゴリ/軸別＋プロファイル距離。<code>python GDL_eval_harness.py score --bank ... --person ... --ai ...</code></div>
+    <div class="file-summary">英語言語パック（2,339リーフ値）</div>
+    <div class="file-detail">GDLスキーマの全テキストを英語に翻訳した言語パック。_levels（レベル定義）、_confidence（信頼度仕様）、_meta（メタ情報）、_preamble（AIガイド）、_labels（全フィールド対訳）、knowledge（11セクションのフィールド定義・候補・説明）を網羅。Web UIのi18n切り替えやGPTs英語版の参照データとして使用。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval_gen.py">GDL_eval_gen.py</a>
-      <span class="tag tag-tool">Tool</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/schema/lang/GDL_lang_zh.json">schema/lang/GDL_lang_zh.json</a>
+      <span class="tag tag-lang">Lang Pack</span>
+      <span class="tag tag-zh">ZH</span>
     </div>
-    <div class="file-summary">質問プール生成器（軸タクソノミー→プール展開）</div>
-    <div class="file-detail">GDL_eval_axes.json の40軸に基づき、各軸の正準4選択肢（axis_pos較正済み）＋質問文の言い換え5本から選択式質問プールを展開するPythonスクリプト（依存なし）。選択肢の表示順を質問ごとに決定的シャッフル、ID付与、X（どれでもない）付加を自動化。<code>python GDL_eval_gen.py</code> で GDL_eval_pool.json を出力。各軸のstemsを増やせば1000問規模へ拡張可能。</div>
+    <div class="file-summary">簡体字中国語言語パック（2,340リーフ値）</div>
+    <div class="file-detail">GDLスキーマの全テキストを簡体字中国語に翻訳した言語パック。英語版と構造完全一致。Web UIのi18n切り替えやGPTs中国語版の参照データとして使用。</div>
   </div>
+
+  <!-- ===== prompts ===== -->
+  <div class="category"><span class="category-icon">🤖</span> プロンプト（prompts/）</div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/.gitignore">.gitignore</a>
-      <span class="tag tag-doc">Config</span>
-    </div>
-    <div class="file-summary">Git除外設定</div>
-    <div class="file-detail">.DS_Store など、バージョン管理不要なファイルの除外ルールを定義。</div>
-  </div>
-
-  <!-- ===== 性格診断法 (Big Five) ===== -->
-  <div class="category"><span class="category-icon">🧪</span> 性格診断法（Big Five / IPIP-NEO-120）</div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/README.md">bigfive/README.md</a>
-      <span class="tag tag-doc">Doc</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/text-analyzer/GDL_TextAnalyzer_knowledge.json">prompts/text-analyzer/GDL_TextAnalyzer_knowledge.json</a>
+      <span class="tag tag-data">Knowledge</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">性格診断法による GDL忠実度評価 — 設計と運用</div>
-    <div class="file-detail">確立された性格診断(Big Five / IPIP-NEO-120)を人間本人とGDL-AIの両方に当て、同じ性格に出るかで本人らしさを測る外部ものさし。連続スコアで測れる(MBTI型は境界フリップで不向き)・項目と採点がpublic domainでローカル完全再現できる点を選定理由に。Fidelity=(sim(GDL,本人)−sim(素AI,本人))/(1−sim(素AI,本人))でPTTと式を統一。AI自動受験は採点公開サイトは方式A(ローカル採点)、非公開サイトは方式B(ブラウザ自動操作)。既存PTTとの併用が前提。</div>
+    <div class="file-summary">Text Analyzer用ナレッジファイル</div>
+    <div class="file-detail">GDL Text Analyzer GPTs の Knowledge としてアップロードするファイル。GDLスキーマの全構造定義に加え、各フィールドの推論ガイドライン（extraction_tips）、出力フォーマット仕様、セクション説明を含む。GPTがテキストからGDLフィールドへ正確にマッピングするための参照データ。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_scorer.py">bigfive/bigfive_scorer.py</a>
-      <span class="tag tag-tool">Tool</span>
-    </div>
-    <div class="file-summary">Big Five 採点＋忠実度ハーネス（依存なし）</div>
-    <div class="file-detail">120項目の回答(1–5)を keyed反転して採点し、5ドメイン×6ファセット=30次元を0–1正規化。サブコマンド：template(出題テキスト＋回答テンプレ生成)、score(単体採点)、fidelity(本人/GDL-AI/素AIからベースライン正規化Fidelity Score＝ファセット30次元の正規化ユークリッド類似度・プロファイル相関・ドメイン別差・ズレ最大ファセットTop5・本人test-retest天井を算出)。複数runはカンマ区切りで項目平均集約。標準ライブラリのみ。<code>python bigfive_scorer.py fidelity --person ... --gdl ... --rawai ...</code></div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_form.html">bigfive/bigfive_form.html</a>
-      <span class="tag tag-tool">Web UI</span>
-      <span class="tag tag-ja">JA/EN</span>
-    </div>
-    <div class="file-summary">人間用 回答フォーム（マウスで5択→結果JSON書き出し）</div>
-    <div class="file-detail">人間本人がブラウザで開いて120項目をマウスのクリックで5段階回答する自己完結HTML（120項目を埋め込み・外部依存なし）。進捗バー、回答の自動保存(localStorage・途中再開可)、JA/EN切替、被験者名・condition・runの指定を備え、全問回答すると bigfive_scorer.py がそのまま読める形式の結果JSON(bigfive_&lt;subject&gt;_&lt;condition&gt;_run&lt;run&gt;.json)をダウンロード/コピーできる。テキストやJSONを手編集せずに回答を集めるための入口。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_ai_prompt.md">bigfive/bigfive_ai_prompt.md</a>
-      <span class="tag tag-doc">Prompt</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/generator/GDL_GPTs_prompt.md">prompts/generator/GDL_GPTs_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">AI自動受験フロー（方式A）指示書 — GDL-AI/素AIに自然受験させる</div>
-    <div class="file-detail">GDL-AI(B)と素AI(A)にIPIP-NEO-120を受験させ scorer が読むJSONを出力させる指示。GPTs/Gemsのプロンプトにもセッション内実行にも使える。核は測定リーク防止＝「GDLの数値フィールドをコピーして答えを作らず、各項目文を読み人物として自己評価する」。汚染防止はPTTと同じA→B順序＋GDLはBフェーズまで開かない。黙従バイアス回避、複数run(test-retest)、厳密JSON出力形式、採点コマンドまで規定。human(C)は bigfive_form.html で別取得。</div>
+    <div class="file-summary">GDL Interview Agent — GPTs設定ガイド＆システムプロンプト（日本語）</div>
+    <div class="file-detail">OpenAI GPTs として GDL Interview Agent を構築するための設定ガイドとシステムプロンプト。56問のインタビューを1問ずつ進行し、回答からGDL 1.0形式のJSONを自動生成する。質問タイプ別の表示フォーマット、フィールドマッピングルール、_preamble・_description・labelの必須出力ルールを定義。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_sample_gdl_ai.json">bigfive/bigfive_sample_gdl_ai.json</a>
-      <span class="tag tag-data">Sample</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/generator/GDL_GPTs_prompt_en.md">prompts/generator/GDL_GPTs_prompt_en.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-en">EN</span>
     </div>
-    <div class="file-summary">GDL-AI回答サンプル（方式Aの出力例・松永GDLで実走）</div>
-    <div class="file-detail">方式Aを実走して得たGDL-AI(condition=gdl_ai)の回答JSON例。サンプルGDL(松永克幸)を人物理解として120項目を自然回答（数値フィールドの直接コピーはせず項目ごとに判断）。採点プロファイルはN低・O高・A高・E中高・C中でGDLの人物像と質的に一致。出力フォーマットの実例＆パイプライン疎通確認用。</div>
+    <div class="file-summary">GDL Interview Agent — GPTs Setup Guide & System Prompt (English)</div>
+    <div class="file-detail">英語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を英語で記述。英語圏ユーザーがGPTsを構築する際に使用。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_sample_raw_ai.json">bigfive/bigfive_sample_raw_ai.json</a>
-      <span class="tag tag-data">Sample</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/generator/GDL_GPTs_prompt_zh.md">prompts/generator/GDL_GPTs_prompt_zh.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-zh">ZH</span>
     </div>
-    <div class="file-summary">素AI回答サンプル（方式Aの床A run・GDLなし）</div>
-    <div class="file-detail">condition=raw_ai の床(A)サンプル。GDLを一切参照せず素のアシスタントとして120項目を項目ごとに自然回答。汎用LLMの自己記述は神経症低・協調/誠実/開放やや高に寄るため床自体が高め(本人類似0.721)になりやすい＝忠実度の弁別はこの床の質に強く依存する、という実測上の教訓を体現するファイル。手組み目標値ではなく項目単位判断で生成。</div>
+    <div class="file-summary">GDL Interview Agent — GPTs 设置指南 & 系统提示词（简体中文）</div>
+    <div class="file-detail">簡体字中国語版の GDL Interview Agent 設定ガイド＆システムプロンプト。日本語版と同一内容・同一構造を中国語で記述。中国語圏ユーザーがGPTsを構築する際に使用。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_matsunaga_revised.json">bigfive/GDL_matsunaga_revised.json</a>
-      <span class="tag tag-data">Data</span>
-    </div>
-    <div class="file-summary">補正版GDL（評価フィードバックで extraversion/assertiveness を実像へ下方修正）</div>
-    <div class="file-detail">性格診断法の評価が検出したE/Aの系統的ズレ（本人より外向・主張が高すぎ）を受け、松永サンプルGDLの social_tendency.extraversion_level と assertiveness を 4→2 に補正(v1.3)。この補正版でGDL-AIを再受験させたところ Fidelity 0.159→0.276 に改善し、評価→GDL改善→再評価のフィードバックループが1周完結したことを実証する実験ファイル。残差はLv1に該当フィールドの無いA(利他/謙虚)に局在し、ファセット粒度スキーマ拡張の動機となった。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/SCHEMA_facet_extension.md">bigfive/SCHEMA_facet_extension.md</a>
-      <span class="tag tag-doc">Design</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt.md">prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">スキーマ拡張設計 — personalityのBig Five 30ファセット粒度化</div>
-    <div class="file-detail">単一スカラーでは表現できない凹凸(E1高/E2低など)を記述するため、personalityにBig Five 30ファセット(IPIP-NEO準拠)層を追加する設計書。Lv1スカラーは後方互換で温存しLv2に30ファセットvalue・Lv3にconfidence/note。最大の利点は各facetのipip_codeが bigfive_items.json と1:1対応し「GDL宣言ファセット vs 実測ファセット」を直接照合できること。実測効果(Fidelity 0.159→0.276→0.344)・移行方針(build_schemas.js展開,入力フォーム拡張,照合モード)を記載。</div>
+    <div class="file-summary">GDL Text Analyzer — GPTs設定ガイド＆システムプロンプト（日本語）</div>
+    <div class="file-detail">テキスト（SNS投稿、ブログ、書籍、インタビュー等）から個性を推論しGDLを自動生成するエージェントのシステムプロンプト。マルチスピーカー処理（ステップ1.5）、6視点分析、3段階confidence体系、値の柔軟性ルール、特殊分析パターン（A〜H）を定義。GDL 1.0形式で出力。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_personality_facets_schema.json">bigfive/GDL_personality_facets_schema.json</a>
-      <span class="tag tag-data">Schema</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt_en.md">prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt_en.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-en">EN</span>
     </div>
-    <div class="file-summary">Big Five 30ファセット定義テンプレート（IPIP-NEO準拠）</div>
-    <div class="file-detail">personality拡張用の30ファセット定義(N1-6/E1-6/O1-6/A1-6/C1-6)。各ファセットに ipip_code・name_ja・low_pole/high_pole(方向の一意化)・担当item番号・空のvalue/labelを持つ。value規約はhigh-pole基準1-5、Lv2=value/Lv3=value+confidence+note。評価ハーネスのファセットと1:1対応。</div>
+    <div class="file-summary">GDL Text Analyzer — GPTs Setup Guide & System Prompt (English)</div>
+    <div class="file-detail">英語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、confidence体系など全機能を網羅。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/GDL_matsunaga_facet.json">bigfive/GDL_matsunaga_facet.json</a>
-      <span class="tag tag-data">Sample</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt_zh.md">prompts/text-analyzer/GDL_TextAnalyzer_GPTs_prompt_zh.md</a>
+      <span class="tag tag-prompt">Prompt</span>
+      <span class="tag tag-zh">ZH</span>
     </div>
-    <div class="file-summary">ファセット粒度GDLの適用例（松永 personality.Lv2 v2.0）</div>
-    <div class="file-detail">30ファセットスキーマを松永に適用した例。mayoの定性知識から各ファセット値を設定(E1=4親しみ/E2=1集団苦手/E3=2主張弱/A3=2利他弱/A5=2自己評価高 等)。この記述でGDL-AIを受験させ Fidelity 0.344(facet相関0.830)を達成、ドメイン差を全領域≤0.09に収束させた実証データ。</div>
+    <div class="file-summary">GDL Text Analyzer — GPTs 设置指南 & 系统提示词（简体中文）</div>
+    <div class="file-detail">簡体字中国語版の GDL Text Analyzer 設定ガイド＆システムプロンプト。マルチスピーカー処理、6視点分析、置信度体系など全機能を網羅。</div>
   </div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_items.json">bigfive/bigfive_items.json</a>
-      <span class="tag tag-data">Data</span>
-    </div>
-    <div class="file-summary">IPIP-NEO-120 項目バンク（英＋日・public domain）</div>
-    <div class="file-detail">Johnson IPIP-NEO-120 の全120項目。各項目に num・domain(N/E/O/A/C)・facet(1–6)・keyed(plus/minus)・英語文・日本語文・5段階選択肢を収録。出典は @alheimsins/b5-johnson-120-ipip-neo-pi-r（ipip.ori.org のpublic domain項目）。Webを介さずローカル採点を可能にする中核データ。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/bigfive/bigfive_questions.txt">bigfive/bigfive_questions.txt</a>
-      <span class="tag tag-data">Data</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/prompts/generator/GDL_Gems_prompt.md">prompts/generator/GDL_Gems_prompt.md</a>
+      <span class="tag tag-prompt">Prompt</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">出題テキスト＋回答テンプレ（日/英・自動生成物）</div>
-    <div class="file-detail">人間・GDL-AIにそのまま提示する120問の出題テキスト（bigfive_questions.txt=日本語、bigfive_questions_en.txt=英語）と空欄の回答テンプレ（bigfive_answer_template.json）。いずれも bigfive_scorer.py template で再生成可能。</div>
+    <div class="file-summary">GDL Interview Agent — Google Gemini Gems用プロンプト</div>
+    <div class="file-detail">Google Gemini の Gems 機能向けに最適化された GDL Interview Agent のシステムプロンプト。GPTs版と同等のインタビュー機能をGemini環境で実現するための設定ガイド。</div>
   </div>
 
-  <!-- ===== Documentation ===== -->
-  <div class="category"><span class="category-icon">📖</span> ドキュメント & プレゼン</div>
+  <!-- ===== eval ===== -->
+  <div class="category"><span class="category-icon">🎯</span> 忠実度評価（eval/）</div>
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/README.md">README.md</a>
-      <span class="tag tag-doc">Doc</span>
-      <span class="tag tag-ja">JA</span>
-    </div>
-    <div class="file-summary">リポジトリ README（プロジェクト説明書）</div>
-    <div class="file-detail">GDLプロジェクトの全体説明ドキュメント。概要、主な用途（AIパーソナライズ・デジタルツイン・没後継承等）、スキーマ構成表、Lv1/Lv2/Lv3の設計思想と具体例、マスター＋ジェネレーター構成の説明、_labelsマップ、ペルソナ チューリングテスト（評価フレームワーク）の概要とGDL_eval.mdへの導線、ファイル構成、AIへの読み込み方（GPTs/Claude/その他LLM）、サンプルJSON を記載。</div>
-  </div>
-
-  <div class="file-card">
-    <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_eval.md">GDL_eval.md</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval.md">eval/GDL_eval.md</a>
       <span class="tag tag-doc">Doc</span>
       <span class="tag tag-ja">JA</span>
     </div>
@@ -665,12 +410,324 @@
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/GDL_concept_v2.pptx">GDL_concept_v2.pptx</a>
-      <span class="tag tag-doc">Presentation</span>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval_questions.json">eval/GDL_eval_questions.json</a>
+      <span class="tag tag-data">Data</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">GDLコンセプトプレゼンテーション（v2）</div>
-    <div class="file-detail">GDLの概念・設計思想・ユースケースを説明するプレゼンテーション資料。PowerPoint形式。講演や社内説明会、外部発表向け。</div>
+    <div class="file-summary">ペルソナ忠実度評価用 質問バンク（46問・v0.3ハイブリッド）</div>
+    <div class="file-detail">GDL_eval.md（ペルソナ チューリングテスト）の評価に用いる弁別質問セット。本人とGDL-AIに同じ質問をぶつけ回答類似度を測る。答えを presuppose しない万人共通・再利用可能な2層分離設計（回答は answer key 側へ分離）。v0.3でハイブリッド化：選択式40問（4択＋どれでもない、各選択肢に性格軸座標 axis_pos を付与し『類似度=1−|pos差|』の距離ベース傾向採点、選択肢順はランダム化）を主力に、軸B（人間性）と文体を守る自由記述6問を専用層として併設。8カテゴリ各5問。各問に trait_axis、target_section を付与。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval_axes.json">eval/GDL_eval_axes.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 軸タクソノミー（生成器の設計図）</div>
+    <div class="file-detail">大量質問プール（目標〜1000問）を品質と被覆を保って生成するための trait_axis 体系。8カテゴリ×5軸=40軸を定義し、各軸に低極/高極・target_section を付与。1軸をシナリオ領域に当てはめて20〜30バリエーション量産する生成テンプレートと、層化サンプリング方針、軸ごとの平均ポジション（傾向プロファイル）で比較する採点単位を規定。出題が毎回変わっても安定して比較できる設計。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval_pool.json">eval/GDL_eval_pool.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 質問プール（生成物・1000問 pool-full）</div>
+    <div class="file-detail">GDL_eval_gen.py が GDL_eval_axes.json の40軸から展開した質問プール。各軸25問×40＝選択式1000問＋自由記述6問（全8カテゴリ各125問）。各問は4択＋どれでもない、選択肢は質問ごとに決定的シャッフル（記号A-Dは強弱を表さない）、axis_pos較正済み、軸内で質問文の重複なし。層化ランダムサンプリングで毎回の出題を抽出し、軸ごとの平均ポジション（傾向プロファイル）で本人とAIを照合する。繰り返し受験しても暗記されにくい規模。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/keys/GDL_eval_key_mayo.json">eval/keys/GDL_eval_key_mayo.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 answer key（被験者: mayo）</div>
+    <div class="file-detail">GDL_eval_questions.json への被験者ごとの回答・分類を分離格納するファイル。質問は普遍だが回答とsplit分類は個人ごとに異なるため別ファイル化。各質問IDに answer_predicted（既知情報からの想定回答=gold仮置き）、answer_actual（本人実回答=最終gold）、split（in_gdl/held_out）、predicted_hit（予測との照合 hit/partial/miss）を保持。v0.2(自由文30問)への回答記録＝予測的中率の答え合わせ履歴（25hit/2partial/3miss）。質問はv0.3に更新済みのため履歴扱い。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/keys/GDL_eval_key_mayo_v03.json">eval/keys/GDL_eval_key_mayo_v03.json</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度評価 answer key v0.3（被験者: mayo）</div>
+    <div class="file-detail">GDL_eval_questions.json v0.3（ハイブリッド46問）への本人実回答。choice40問（選択キー）＋open6問（自由記述、v0.2流用）。46/46 confirmed。選択肢ランダム順化に伴い回答記号は意味単位で再マッピング済み。傾向プロファイル例：倫理1.00/思考1.00/対人0.94/メタ0.93/価値観0.93/感情0.80/美的0.72/文体0.30（全体平均0.83）＝思想は高極の探求者、文体は簡潔ミニマルという構造。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval_harness.py">eval/GDL_eval_harness.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">ペルソナ忠実度 評価ハーネス（Python・依存なし）</div>
+    <div class="file-detail">質問バンクと answer key からペルソナ忠実度を定量評価するCLI（標準ライブラリのみ）。サブコマンド：profile（傾向プロファイル表示）、score（本人vsAIをaxis_pos距離で採点、--baselineで床↔天井正規化したGDL Fidelity Scoreも算出）、sample（層化ランダムサンプリング＋選択肢シャッフル出題）、style（open回答の簡易文体計量：文字数・平均文長・文字bigram多様度）。採点式は『類似度=1−|axis_pos差|』、集計はカテゴリ/軸別＋プロファイル距離。<code>python GDL_eval_harness.py score --bank ... --person ... --ai ...</code></div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/GDL_eval_gen.py">eval/GDL_eval_gen.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">質問プール生成器（軸タクソノミー→プール展開）</div>
+    <div class="file-detail">GDL_eval_axes.json の40軸に基づき、各軸の正準4選択肢（axis_pos較正済み）＋質問文の言い換え5本から選択式質問プールを展開するPythonスクリプト（依存なし）。選択肢の表示順を質問ごとに決定的シャッフル、ID付与、X（どれでもない）付加を自動化。<code>python GDL_eval_gen.py</code> で GDL_eval_pool.json を出力。各軸のstemsを増やせば1000問規模へ拡張可能。</div>
+  </div>
+
+  <!-- ===== ptt ===== -->
+  <div class="category"><span class="category-icon">🎭</span> ペルソナ チューリングテスト（eval/ptt/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/ptt/PTT_prompt.txt">eval/ptt/PTT_prompt.txt</a>
+      <span class="tag tag-doc">GPTs</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト 進行プロンプト本体（v1.2・貼るだけ／単一の正）</div>
+    <div class="file-detail">コード実行が使えるAIチャットに<strong>全文をそのまま貼る</strong>ためのプレーンテキスト（約6,300文字）。2026-08にOpenAIが個人アカウントでのGPTs新規作成を停止したため、専用GPTを前提としない形に改めた（GPTのInstructionsにもそのまま流用でき、上限8,000文字に収まる）。質問プールと採点エンジンが「添付されているか、Knowledgeとして与えられているか」を問わない書き方にしてある。加工や抜き出しが不要になるよう、解説やセットアップ手順を一切含まない。内容: 前提と用語（A=床/B=GDL-AI/C=本人gold、軸Aのみ、採点は必ずCode Interpreterで ptt_scorer.py を実行し暗算禁止）、汚染防止5項目（GDLはAの生成完了後にのみファイル添付／汚染時は中断して新会話でやり直し／A→B→C順序厳守／axis_posは被験者に非開示）、Step 0〜6の進行（出題数の選択→層化抽出→A生成→state保存→GDL添付とB生成→Cの一問一答収集→採点→3点出力）、中断からの再開手順、結果の読み方、エッジケース。<strong>v1.1の追加点</strong>: ①被験者が短縮版40問（各軸1問）と標準版80問（各軸2問）を選べる、②Code Interpreterのセッションリセットで A/B が全損するのを防ぐため ptt_state.json をA確定時・B確定時・C収集10問ごとに書き出し、再添付で続きから再開できる（stateには質問IDのみを保存し axis_pos を含めないため被験者が開いても答えは漏れない）。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/ptt/PTT_SETUP.md">eval/ptt/PTT_SETUP.md</a>
+      <span class="tag tag-doc">GPTs</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト 実施方法・設計メモ（v1.2・軸A）</div>
+    <div class="file-detail"><strong>このファイル自体はInstructionsに貼らない</strong>（貼るのは PTT_GPT_instructions.txt の全文）。旧名 <code>PTT_GPTs_prompt.md</code> → <code>PTT_GPT_SETUP.md</code> → 本ファイル（2026-08-17）。GPTを作る側のための設定チェックリストと設計メモ。内容: GPT Builderの設定値一覧（Name/Conversation starters=「開始」「再開」/Knowledgeに GDL_eval_pool.json と ptt_scorer.py /Code Interpreter必須・Web Search OFF推奨/公開範囲はリンク限定）、<strong>説明欄に貼るテキスト2種（211字版と160字版。準備物・6ステップの流れ・GDLの添付タイミングを含む）</strong>、進行の骨格（Step 0〜6）、設計の肝4点＝汚染防止（添付した瞬間に文脈へ入るため床の生成完了までGDLを持ち込ませない、AはモデルドリフトのたびにA/B/C同一セッションで取り直す）・中断復帰（ptt_state.jsonの書き出しと質問IDのみ保存する理由）・出題数の選択（40問/80問のトレードオフ）・axis_pos非開示、ファイル一覧、ローカル検証コマンド、既知の限界。<strong>GPT作成後は公開URLを ptt_guide.html の PTT_GPT_URL_HERE（3箇所）に反映すること。</strong></div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/ptt/ptt_scorer.py">eval/ptt/ptt_scorer.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト 採点エンジン（GPTs同梱・依存なし）</div>
+    <div class="file-detail">GPTsのKnowledgeに同梱しCode Interpreterで実行する採点コア（標準ライブラリのみ）。sample（1000問プールから各軸n問を層化抽出してA/B/C共通の出題サブセット作成）、score（axis_pos距離でsim(A,C)・sim(B,C)・GDL Fidelity Score=(simBC−simAC)/(天井−simAC)・カテゴリ別・傾向プロファイルを算出）、to_markdown（レポート生成）。採点はaxis_pos基準でLLMの暗算に依存しない。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/ptt/README.md">eval/ptt/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">ペルソナ チューリングテスト 運用手順</div>
+    <div class="file-detail">PTT一式の入口となる運用手順。構成ファイルを「GPT作成者が読むもの／被験者が読むもの」に分けて提示し、GPTの作り方（PTT_GPT_instructions.txt の全文をInstructionsに貼付・Code Interpreter ON・Web Search OFF・Knowledgeに2ファイル・公開URLを ptt_guide.html に反映）、被験者の使い方（GDL作成→GDLを添付せず「開始」→出題数40/80の選択→A生成→GDL添付とB生成→一問一答でC収集→レポート）、汚染防止の仕組み、中断復帰（ptt_state.json）、既知の限界（1回実施・天井1.0近似・軸B未対応・選択式のみ）、ローカル検証コマンドを記載。被験者に実際に配るのは ../ptt_guide.html。</div>
+  </div>
+
+  <!-- ===== bigfive ===== -->
+  <div class="category"><span class="category-icon">🧪</span> 性格診断法 — Big Five / IPIP-NEO-120（eval/bigfive/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/README.md">eval/bigfive/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">性格診断法による GDL忠実度評価 — 設計と運用</div>
+    <div class="file-detail">確立された性格診断(Big Five / IPIP-NEO-120)を人間本人とGDL-AIの両方に当て、同じ性格に出るかで本人らしさを測る外部ものさし。連続スコアで測れる(MBTI型は境界フリップで不向き)・項目と採点がpublic domainでローカル完全再現できる点を選定理由に。Fidelity=(sim(GDL,本人)−sim(素AI,本人))/(1−sim(素AI,本人))でPTTと式を統一。AI自動受験は採点公開サイトは方式A(ローカル採点)、非公開サイトは方式B(ブラウザ自動操作)。既存PTTとの併用が前提。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_scorer.py">eval/bigfive/bigfive_scorer.py</a>
+      <span class="tag tag-tool">Tool</span>
+    </div>
+    <div class="file-summary">Big Five 採点＋忠実度ハーネス（依存なし）</div>
+    <div class="file-detail">120項目の回答(1–5)を keyed反転して採点し、5ドメイン×6ファセット=30次元を0–1正規化。サブコマンド：template(出題テキスト＋回答テンプレ生成)、score(単体採点)、fidelity(本人/GDL-AI/素AIからベースライン正規化Fidelity Score＝ファセット30次元の正規化ユークリッド類似度・プロファイル相関・ドメイン別差・ズレ最大ファセットTop5・本人test-retest天井を算出)。複数runはカンマ区切りで項目平均集約。標準ライブラリのみ。<code>python bigfive_scorer.py fidelity --person ... --gdl ... --rawai ...</code></div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_form.html">eval/bigfive/bigfive_form.html</a>
+      <span class="tag tag-tool">Web UI</span>
+      <span class="tag tag-ja">JA/EN</span>
+    </div>
+    <div class="file-summary">人間用 回答フォーム（マウスで5択→結果JSON書き出し）</div>
+    <div class="file-detail">人間本人がブラウザで開いて120項目をマウスのクリックで5段階回答する自己完結HTML（120項目を埋め込み・外部依存なし）。進捗バー、回答の自動保存(localStorage・途中再開可)、JA/EN切替、被験者名・condition・runの指定を備え、全問回答すると bigfive_scorer.py がそのまま読める形式の結果JSON(bigfive_&lt;subject&gt;_&lt;condition&gt;_run&lt;run&gt;.json)をダウンロード/コピーできる。テキストやJSONを手編集せずに回答を集めるための入口。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_ai_prompt.md">eval/bigfive/bigfive_ai_prompt.md</a>
+      <span class="tag tag-doc">Prompt</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">AI自動受験フロー（方式A）指示書 — GDL-AI/素AIに自然受験させる</div>
+    <div class="file-detail">GDL-AI(B)と素AI(A)にIPIP-NEO-120を受験させ scorer が読むJSONを出力させる指示。GPTs/Gemsのプロンプトにもセッション内実行にも使える。核は測定リーク防止＝「GDLの数値フィールドをコピーして答えを作らず、各項目文を読み人物として自己評価する」。汚染防止はPTTと同じA→B順序＋GDLはBフェーズまで開かない。黙従バイアス回避、複数run(test-retest)、厳密JSON出力形式、採点コマンドまで規定。human(C)は bigfive_form.html で別取得。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_sample_gdl_ai.json">eval/bigfive/bigfive_sample_gdl_ai.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">GDL-AI回答サンプル（方式Aの出力例・松永GDLで実走）</div>
+    <div class="file-detail">方式Aを実走して得たGDL-AI(condition=gdl_ai)の回答JSON例。サンプルGDL(松永克幸)を人物理解として120項目を自然回答（数値フィールドの直接コピーはせず項目ごとに判断）。採点プロファイルはN低・O高・A高・E中高・C中でGDLの人物像と質的に一致。出力フォーマットの実例＆パイプライン疎通確認用。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_sample_raw_ai.json">eval/bigfive/bigfive_sample_raw_ai.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">素AI回答サンプル（方式Aの床A run・GDLなし）</div>
+    <div class="file-detail">condition=raw_ai の床(A)サンプル。GDLを一切参照せず素のアシスタントとして120項目を項目ごとに自然回答。汎用LLMの自己記述は神経症低・協調/誠実/開放やや高に寄るため床自体が高め(本人類似0.721)になりやすい＝忠実度の弁別はこの床の質に強く依存する、という実測上の教訓を体現するファイル。手組み目標値ではなく項目単位判断で生成。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/GDL_matsunaga_revised.json">eval/bigfive/GDL_matsunaga_revised.json</a>
+      <span class="tag tag-data">Data</span>
+    </div>
+    <div class="file-summary">補正版GDL（評価フィードバックで extraversion/assertiveness を実像へ下方修正）</div>
+    <div class="file-detail">性格診断法の評価が検出したE/Aの系統的ズレ（本人より外向・主張が高すぎ）を受け、松永サンプルGDLの social_tendency.extraversion_level と assertiveness を 4→2 に補正(v1.3)。この補正版でGDL-AIを再受験させたところ Fidelity 0.159→0.276 に改善し、評価→GDL改善→再評価のフィードバックループが1周完結したことを実証する実験ファイル。残差はLv1に該当フィールドの無いA(利他/謙虚)に局在し、ファセット粒度スキーマ拡張の動機となった。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/SCHEMA_facet_extension.md">eval/bigfive/SCHEMA_facet_extension.md</a>
+      <span class="tag tag-doc">Design</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">スキーマ拡張設計 — personalityのBig Five 30ファセット粒度化</div>
+    <div class="file-detail">単一スカラーでは表現できない凹凸(E1高/E2低など)を記述するため、personalityにBig Five 30ファセット(IPIP-NEO準拠)層を追加する設計書。Lv1スカラーは後方互換で温存しLv2に30ファセットvalue・Lv3にconfidence/note。最大の利点は各facetのipip_codeが bigfive_items.json と1:1対応し「GDL宣言ファセット vs 実測ファセット」を直接照合できること。実測効果(Fidelity 0.159→0.276→0.344)・移行方針(build_schemas.js展開,入力フォーム拡張,照合モード)を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/GDL_personality_facets_schema.json">eval/bigfive/GDL_personality_facets_schema.json</a>
+      <span class="tag tag-data">Schema</span>
+    </div>
+    <div class="file-summary">Big Five 30ファセット定義テンプレート（IPIP-NEO準拠）</div>
+    <div class="file-detail">personality拡張用の30ファセット定義(N1-6/E1-6/O1-6/A1-6/C1-6)。各ファセットに ipip_code・name_ja・low_pole/high_pole(方向の一意化)・担当item番号・空のvalue/labelを持つ。value規約はhigh-pole基準1-5、Lv2=value/Lv3=value+confidence+note。評価ハーネスのファセットと1:1対応。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/GDL_matsunaga_facet.json">eval/bigfive/GDL_matsunaga_facet.json</a>
+      <span class="tag tag-data">Sample</span>
+    </div>
+    <div class="file-summary">ファセット粒度GDLの適用例（松永 personality.Lv2 v2.0）</div>
+    <div class="file-detail">30ファセットスキーマを松永に適用した例。mayoの定性知識から各ファセット値を設定(E1=4親しみ/E2=1集団苦手/E3=2主張弱/A3=2利他弱/A5=2自己評価高 等)。この記述でGDL-AIを受験させ Fidelity 0.344(facet相関0.830)を達成、ドメイン差を全領域≤0.09に収束させた実証データ。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_items.json">eval/bigfive/bigfive_items.json</a>
+      <span class="tag tag-data">Data</span>
+    </div>
+    <div class="file-summary">IPIP-NEO-120 項目バンク（英＋日・public domain）</div>
+    <div class="file-detail">Johnson IPIP-NEO-120 の全120項目。各項目に num・domain(N/E/O/A/C)・facet(1–6)・keyed(plus/minus)・英語文・日本語文・5段階選択肢を収録。出典は @alheimsins/b5-johnson-120-ipip-neo-pi-r（ipip.ori.org のpublic domain項目）。Webを介さずローカル採点を可能にする中核データ。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/eval/bigfive/bigfive_questions.txt">eval/bigfive/bigfive_questions.txt</a>
+      <span class="tag tag-data">Data</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">出題テキスト＋回答テンプレ（日/英・自動生成物）</div>
+    <div class="file-detail">人間・GDL-AIにそのまま提示する120問の出題テキスト（bigfive_questions.txt=日本語、bigfive_questions_en.txt=英語）と空欄の回答テンプレ（bigfive_answer_template.json）。いずれも bigfive_scorer.py template で再生成可能。</div>
+  </div>
+
+  <!-- ===== research ===== -->
+  <div class="category"><span class="category-icon">🔬</span> 調査・検討（research/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/research/README.md">research/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">research の運用ルールとカテゴリ一覧</div>
+    <div class="file-detail">調査・検討の置き場所である research/ の運用ルールの正本。カテゴリ一覧（フォルダ・日本語名・論点コード・状態）、カテゴリ直下＝現在地の地図（論点マップ・ベースライン・文献リスト）と studies/＝個別の検討という2層構成、検討フォルダの命名規則（YYYY-MM-DD_english-slug_日本語の短い名前）、検討のメタデータ（type / status / issues など）、論点IDの付け方、検討から論点マップ・スキーマへの情報の流れ、新しい検討やカテゴリを作る手順を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/research/memory/README.md">research/memory/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">記憶カテゴリの論点マップ（旧 GDL_memory.md）</div>
+    <div class="file-detail">GDLにおいて「記憶」をどう扱うかを検討する生きたドキュメント。議論の進行に合わせて逐次増補する。論点に固定ID（MEM-01〜07）を付け、各論点を 現状／論点／結論／関連する検討 の4ブロックで統一。冒頭に検討一覧を置く。記憶を検討する理由、外部化（RAG）の維持範囲、想起バイアスの記述、定型エピソード（自己物語）、静的スナップショットから動的な魂への移行と忘却の設計、GDL_evalへの影響（記憶あり／なし忠実度の分離）、スキーマ反映と波及ファイルを扱う。関連する他カテゴリの検討、決定事項ログ（根拠となる検討へのリンク付き）、未解決の宿題を末尾に保持。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/research/memory/baseline.md">research/memory/baseline.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">記憶検討のベースライン（出発点の固定）</div>
+    <div class="file-detail">記憶カテゴリの議論の出発点を固定しておくファイル（旧 GDL_memory_baseline.md）。episodesセクションのみが三層構造を持たずRAGポインタに留まっている現状認識と、4つの初期論点（外部化判断の妥当性／記憶の内容ではなく効き方＝想起バイアス／定型エピソードの本体収容／静的スナップショットからの脱却）、最大のリスク（GDL_evalの判別軸汚染）を記載。前提そのものが変わったときに書き換える。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/research/memory/refs.md">research/memory/refs.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">記憶設計の参考文献リスト（30件）</div>
+    <div class="file-detail">記憶カテゴリの論点マップの検討に使う先行研究リスト（旧 GDL_memory_refs.md）。論点ID（MEM-01〜07）に対応させ、サーベイ／アーキテクチャ定番（Generative Agents・MemGPT・A-MEM・Mem0）／エピソード記憶（EM-LLM等）／忘却・固定化（FSFM・ACT-R系）／人格とパーソナライズ（MemoryForge等）／想起バイアスと人間らしさの再現／評価（LoCoMo-Plus・LongMemEval等）の7分類で整理。各件にGDLのどの論点に効くかの注記付き。要旨確認済みの論文には★を付与。末尾に各論点への当てはめメモを記載。精読した論文からは精読メモ（studies/ の検討）へリンク。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/research/memory/studies/2026-10-08_memoryforge_MemoryForge論文の解釈/README.md">research/memory/studies/2026-10-08_memoryforge_MemoryForge論文の解釈/README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">MemoryForge論文の解釈検討結果とGDLへの組み込み方針</div>
+    <div class="file-detail">MemoryForge（arXiv:2608.00007）を精読し、GDLとの関係を検討した記録（旧 GDL_memory_memoryforge.md）。先頭のメタデータで種別 paper・状態 done・関係する論点 MEM-01/03/04/05/06 を宣言。論文の精読結果（descriptive conditioning批判／記憶ベースM=(L,G,E)／3コンポーネント／評価数値）、初回解釈の誤りと訂正、GDLとの本質的な違い（記述の出自＝実在か合成か）、無効化された前提（全文静的注入）、実験結果の読み解き（Linguistic Habitsの大差／Toxicity Controlの後退）、MemoryForgeが解いていない想起バイアス、GDLへの組み込み方針8項目（三層解像度スキーマ案・語り口の鋳型・社会史タイムライン・提示プロトコル等）、採らない判断とその理由、検証計画、波及ファイル一覧を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/tree/main/research/_templates/">research/_templates/</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">research のひな形一式</div>
+    <div class="file-detail">新しいカテゴリと検討を作るときにコピーして使うひな形。category/ に論点マップ（README.md）・ベースライン（baseline.md）・文献リスト（refs.md）、study/ に検討1件分の README.md（メタデータ、背景と問い、調べたこと、分析、GDLへの提案、採らない判断、宿題、波及するファイル）を収録。</div>
+  </div>
+
+  <!-- ===== docs ===== -->
+  <div class="category"><span class="category-icon">📖</span> ドキュメント & 運用ルール（ルート / docs/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/README.md">README.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">リポジトリ README（プロジェクト説明書）</div>
+    <div class="file-detail">GDLプロジェクトの全体説明ドキュメント。概要、主な用途（AIパーソナライズ・デジタルツイン・没後継承等）、スキーマ構成表、Lv1/Lv2/Lv3の設計思想と具体例、マスター＋ジェネレーター構成の説明、_labelsマップ、ペルソナ チューリングテスト（評価フレームワーク）の概要とGDL_eval.mdへの導線、ファイル構成（目的別の入口と、作業する人向けの AGENTS.md への案内を含む）、AIへの読み込み方（GPTs/Claude/その他LLM）、サンプルJSON を記載。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/AGENTS.md">AGENTS.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">リポジトリの運用ルール（人とAI共通の正本）</div>
+    <div class="file-detail">このリポジトリで作業する人とAIの両方が従うルールの正本。フォルダ構成（schema / prompts / eval / research / docs / archive / local）と何をどこに置くか、変えてはいけないもの（Pagesの公開URL・既存ファイル名・検討フォルダ名と論点ID・自動生成スキーマ）、命名規則、ファイル変更時に必ずやること（filelist.html更新・リンク切れ確認など）、公開範囲、gitの扱い（濁点の正規化対策、移動と修正のコミット分離、AIはリモート環境からgit操作しない）を記載。Claude Code・Codex・Cursor などは自動で読み込む。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/CLAUDE.md">CLAUDE.md</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">Claude Code 用の読み込み設定</div>
+    <div class="file-detail">Claude Code が自動で読み込むファイル。中身は AGENTS.md を読み込む1行だけで、ルールの正本は AGENTS.md。ここには追記しない。</div>
   </div>
 
   <div class="file-card">
@@ -685,16 +742,48 @@
 
   <div class="file-card">
     <div class="file-header">
-      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/filelist.html">filelist.html</a>
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/LICENSE">LICENSE</a>
+      <span class="tag tag-doc">Doc</span>
+      <span class="tag tag-en">EN</span>
+    </div>
+    <div class="file-summary">MIT ライセンス</div>
+    <div class="file-detail">リポジトリのライセンス条文（MIT License）。README と各ドキュメントのライセンスバッジのリンク先。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/.gitignore">.gitignore</a>
+      <span class="tag tag-doc">Config</span>
+    </div>
+    <div class="file-summary">Git除外設定</div>
+    <div class="file-detail">.DS_Store・backup/・__pycache__ など、バージョン管理不要なファイルの除外ルールを定義。実名を含む個人サンプルや公開しないファイルの置き場 local/、research 配下の論文PDFも除外する。</div>
+  </div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/docs/GDL_concept_v2.pptx">docs/GDL_concept_v2.pptx</a>
+      <span class="tag tag-doc">Presentation</span>
+      <span class="tag tag-ja">JA</span>
+    </div>
+    <div class="file-summary">GDLコンセプトプレゼンテーション（v2）</div>
+    <div class="file-detail">GDLの概念・設計思想・ユースケースを説明するプレゼンテーション資料。PowerPoint形式。講演や社内説明会、外部発表向け。</div>
+  </div>
+
+  <!-- ===== archive ===== -->
+  <div class="category"><span class="category-icon">🗄️</span> アーカイブ（archive/）</div>
+
+  <div class="file-card">
+    <div class="file-header">
+      <a class="file-name" href="https://github.com/mayochan32/gdl/blob/main/archive/GDL_input.html">archive/GDL_input.html</a>
       <span class="tag tag-web">Web</span>
       <span class="tag tag-ja">JA</span>
     </div>
-    <div class="file-summary">リポジトリファイル一覧ページ</div>
-    <div class="file-detail">リポジトリ内の全ファイルをカテゴリ別に一覧表示するHTMLページ。各ファイルのファイル名・概要・詳細説明・言語タグ・種別タグを掲載。ファイルの追加・更新・削除時に必ずメンテナンスする永続ルールあり。</div>
+    <div class="file-summary">GDL入力フォーム（旧版・日本語のみ）</div>
+    <div class="file-detail">input.html の前身となる初期バージョンの入力フォーム。日本語のみ対応。質問データがHTML内に直接埋め込まれた構成。現在は input.html に置き換え済みだが、参考用として保持。</div>
   </div>
 
   <div class="footer">
-    Generated on 2026-05-28 · GDL (Ghost Description Language) by mayo — AI共創アーキテクト
+    Generated on 2026-10-10 · GDL (Ghost Description Language) by mayo — AI共創アーキテクト
   </div>
 
 </div>

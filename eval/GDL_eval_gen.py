@@ -12,10 +12,11 @@ GDL_eval_axes.json の40軸に基づき、各軸の「正準4選択肢（axis_po
 - 採点は記号でなく axis_pos で行うため、記号A-Dは強弱を表さない。
 
 出力: GDL_eval_pool.json （40軸 × 25問 = 1000問 + open 6問）
-実行: python GDL_eval_gen.py
+実行: python eval/GDL_eval_gen.py（出力はこのスクリプトと同じフォルダに書かれる）
 """
 
 import json
+import os
 import random
 
 # 各軸: (axis_id, category, target_section, trait_axis, [(label, axis_pos)x4], [stem x5])
@@ -540,7 +541,8 @@ def build():
 
 if __name__ == "__main__":
     pool = build()
-    with open("GDL_eval_pool.json", "w", encoding="utf-8") as f:
+    out_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "GDL_eval_pool.json")
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(pool, f, ensure_ascii=False, indent=2)
         f.write("\n")
     print(f"generated GDL_eval_pool.json: choice={len(pool['choice_questions'])} open={len(pool['open_questions'])}")
