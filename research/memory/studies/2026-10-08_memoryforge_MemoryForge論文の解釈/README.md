@@ -2,7 +2,7 @@
 title: MemoryForge論文の解釈検討 — GDLへの示唆と組み込み方針
 type: paper
 status: done
-issues: [MEM-01, MEM-03, MEM-04, MEM-05, MEM-06]
+issues: [MEM-01, MEM-03, MEM-04, MEM-05, MEM-06, MEM-07]
 papers: [arXiv:2608.00007]
 started: 2026-10-08
 updated: 2026-10-10
@@ -681,3 +681,4 @@ Single Source of Truth の原則（GDL_schema.json がマスター）により�
 |---|---|
 | 2026-10-08 | 初版作成。MemoryForge 論文の精読結果、初回解釈の誤りと訂正、GDLとの差異分析、組み込み方針8項目、採らない判断、検証計画を記載 |
 | 2026-10-10 | リポジトリ整理に伴い `research/memory/studies/` に移設（旧 GDL_memory_memoryforge.md）。先頭にメタデータを追加し、論点マップの章番号への参照を論点ID（MEM-0N）に置き換え。本文書自身の章番号への参照はそのまま |
+| 2026-10-10 | メタデータのみ修正: `issues` に MEM-07 を追加（§11 が波及ファイルの論点を扱っているため）。**本文は変更していない**（書き終えた検討は書き換えない方針） |

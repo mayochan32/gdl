@@ -4,7 +4,7 @@
 > ★ = 要旨を実際に取得して内容を確認済み。無印 = 検索結果のタイトル・arXiv ID を記載（未読）。
 >
 > - 作成: 2026-09-21
-> - 最終更新: 2026-09-21
+> - 最終更新: 2026-10-10
 
 ---
 
@@ -60,7 +60,7 @@
 
 | # | 論文 | arXiv | なぜGDLに効くか |
 |---|---|---|---|
-| 5-1 ★ | MemoryForge: Synthesize Lifelong Memory for Human-Like LLM Agents | [2608.00007](https://arxiv.org/abs/2608.00007) | **最重要**。静的なペルソナ記述を捨て、目標とする人格から逆算して生涯の自伝的記憶を合成し、それを検索させることで人格を発現させる（memory-based conditioning）。多解像度（生涯要約／一般的出来事／エピソード）の階層は、GDLの定型エピソード設計にほぼそのまま使える。**GDLの「静的記述」アプローチへの正面からの対抗仮説でもある**。精読メモ → [MemoryForge論文の解釈](studies/2026-10-08_memoryforge_MemoryForge論文の解釈/) |
+| 5-1 ★ | MemoryForge: Synthesize Lifelong Memory for Human-Like LLM Agents | [2608.00007](https://arxiv.org/abs/2608.00007) | **最重要**。静的なペルソナ記述を捨て、目標とする人格から逆算して生涯の自伝的記憶を合成し、それを検索させることで人格を発現させる（memory-based conditioning）。多解像度（生涯要約／一般的出来事／エピソード）の階層は、GDLの定型エピソード設計にほぼそのまま使える（MEM-04 の結論として採用済み）。**精読の結果、当初「GDLへの対抗仮説」と評したのは誤りと判明**（批判対象は薄いペルソナカード群であり、GDLは比較対象に入っていない）。ただし「全文静的注入」という提示方式への批判は成立する（→ MEM-05）。精読メモ → [MemoryForge論文の解釈](studies/2026-10-08_memoryforge_MemoryForge論文の解釈/) |
 | 5-2 | PersonaAgent: Bridging Memory and Action for Personalized LLM Agents | [2506.06254](https://arxiv.org/abs/2506.06254) | 記憶と行動を人格で橋渡しする |
 | 5-3 | Enabling Personalized Long-term Interactions in LLM-based Agents through Persistent Memory and User Profiles | [2510.07925](https://arxiv.org/abs/2510.07925) | **永続記憶とユーザープロファイルの併用** — GDL（プロファイル）+ RAG（記憶）という構成そのもの。先行実装として必読 |
 | 5-4 | PersonaVLM: Long-Term Personalized Multimodal LLMs | [2604.13074](https://arxiv.org/abs/2604.13074) | マルチモーダルへの拡張。写真メタデータを `episodes.sources` に含めているGDLの将来方向 |
@@ -101,7 +101,7 @@
 
 - **MEM-02（外部化の維持）** → 1-1 の「主体の軸」で整理すると、GDLは*ユーザー向け記憶*、RAGは*経験の蓄積*。分界が理論的に裏づけられる
 - **MEM-03（想起バイアス）** → 2-1 の重み付けを本人固有化するのが最短路。ただし 6-1 が「LLM側が言うことを聞かない」可能性を示している。**先に小さく検証すべき**
-- **MEM-04（定型エピソード）** → 5-1 MemoryForge がほぼ同じ問題を逆向きに解いている。**GDLの立場を再確認する必要あり**。加えて 6-2 の贖罪型ナラティブ汚染は、定型エピソードを入れる際の必須の対策項目
+- **MEM-04（定型エピソード）** → 5-1 MemoryForge の三層解像度（L/G/E）を採用済み。立場の違い（実在か合成か）は精読で整理がついた。加えて 6-2 の贖罪型ナラティブ汚染対策として `narrative_style` を必須項目とすることを決定
 - **MEM-05（忘却の設計）** → 4-1 FSFM の4機構がほぼそのまま設計テンプレートになる。4-6 ACT-R は個人差をパラメータで表す方法として有望
 - **MEM-06（評価）** → 7-1 LoCoMo-Plus の Level-1/Level-2 分離を、そのまま「記憶なし忠実度／記憶あり忠実度」に対応させられる可能性が高い
 
@@ -112,3 +112,5 @@
 | 日付 | 変更内容 |
 |---|---|
 | 2026-09-21 | 初版作成（30件） |
+| 2026-10-10 | リポジトリ整理に伴い `research/memory/refs.md` に移設（旧 GDL_memory_refs.md）。分類の当てはめを論点ID（MEM-01〜07）に対応させ、精読済みの論文から studies/ の検討へリンクを追加 |
+| 2026-10-10 | 5-1 MemoryForge の注記を訂正（「GDLへの対抗仮説」評価は誤りだった）。MEM-04 の当てはめを決定済みの内容に更新。根拠 → [MemoryForge論文の解釈](studies/2026-10-08_memoryforge_MemoryForge論文の解釈/) §3 |
